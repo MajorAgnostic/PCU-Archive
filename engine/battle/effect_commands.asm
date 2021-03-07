@@ -6700,7 +6700,7 @@ BattleCommand_TimeBasedHealContinue:
 .Multipliers:
 	dw GetThirdMaxHP
 	dw GetHalfMaxHP
-	dw GetMaxHP
+	dw GetTwoThirdsMaxHP
 	dw GetMaxHP
 	
 BattleCommand_TimeBasedHealContinue2:
@@ -6781,7 +6781,7 @@ BattleCommand_TimeBasedHealContinue2:
 .Multipliers2:
 	dw GetThirdMaxHP
 	dw GetHalfMaxHP
-	dw GetMaxHP
+	dw GetTwoThirdsMaxHP
 	dw GetMaxHP
 
 INCLUDE "engine/battle/move_effects/hidden_power.asm"

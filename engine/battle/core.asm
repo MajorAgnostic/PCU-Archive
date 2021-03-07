@@ -1933,6 +1933,13 @@ GetThirdMaxHP:
 	ret nz
 	inc c
 	ret
+	
+GetTwoThirdsMaxHP: ; 2/3 Max HP
+    ; outputs bc from GetThirdMaxHP
+    call GetThirdMaxHP
+    sla c  ; Multiply by 2
+    rl b
+    ret
 
 GetMaxHP:
 ; output: bc, wBuffer1-2
