@@ -50,7 +50,7 @@ MrPokemonsHouse_MapScripts:
 MrPokemonsHouse_MrPokemonScript:
 	faceplayer
 	opentext
-	checkitem RED_SCALE
+	checkitem BLUE_SCALE
 	iftrue .RedScale
 	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	iftrue .AlwaysNewDiscoveries
@@ -69,9 +69,9 @@ MrPokemonsHouse_MrPokemonScript:
 	writetext MrPokemonText_GimmeTheScale
 	yesorno
 	iffalse .refused
-	verbosegiveitem EXP_SHARE
+	verbosegiveitem LUCKY_EGG
 	iffalse .full
-	takeitem RED_SCALE
+	takeitem BLUE_SCALE
 	sjump .AlwaysNewDiscoveries
 
 .refused
@@ -233,7 +233,7 @@ MrPokemonText_ImDependingOnYou:
 
 MrPokemonText_AlwaysNewDiscoveries:
 	text "Life is delight-"
-	line "ful! Always, new"
+	line "ful! Always new"
 
 	para "discoveries to be"
 	line "made!"
@@ -329,7 +329,7 @@ MrPokemonsHouse_OakText2:
 MrPokemonText_GimmeTheScale:
 	text "Hm? That SCALE!"
 	line "What's that?"
-	cont "A red GYARADOS?"
+	cont "A blue GYARADOS?"
 
 	para "That's rare! "
 	line "I, I want it…"
@@ -338,7 +338,7 @@ MrPokemonText_GimmeTheScale:
 	line "care to trade it?"
 
 	para "I can offer this"
-	line "EXP.SHARE I got"
+	line "LUCKY EGG I got"
 	cont "from PROF.OAK."
 	done
 

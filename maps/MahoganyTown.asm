@@ -1,4 +1,4 @@
-MAHOGANYTOWN_RAGECANDYBAR_PRICE EQU 300
+MAHOGANYTOWN_RAGECANDYBAR_PRICE EQU 400
 
 	object_const_def
 	const MAHOGANYTOWN_POKEFAN_M
@@ -154,7 +154,7 @@ RageCandyBarMerchantTryOneText:
 
 	para "Right now, it can"
 	line "be yours for just"
-	cont "¥300! Want one?"
+	cont "¥400! Want one?"
 	done
 
 RageCandyBarMerchantSavorItText:

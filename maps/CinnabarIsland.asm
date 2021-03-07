@@ -14,7 +14,24 @@ CinnabarIsland_MapScripts:
 CinnabarIslandBlue:
 	faceplayer
 	opentext
+	checkevent EVENT_MET_BLUE_IN_CINNABAR
+	iffalse .FirstTime
+	readvar VAR_BADGES
+	ifequal 15, .Teleport
+	writetext CinnabarIslandBlueYouAgainText
+	waitbutton
+	closetext
+	end
+	
+.FirstTime:
 	writetext CinnabarIslandBlueText
+	waitbutton
+	closetext
+	setevent EVENT_MET_BLUE_IN_CINNABAR
+	end
+	
+.Teleport:
+	writetext CinnabarIslandBlueTeleportText
 	waitbutton
 	closetext
 	playsound SFX_WARP_TO
@@ -33,7 +50,7 @@ CinnabarIslandPokecenterSign:
 	jumpstd PokecenterSignScript
 
 CinnabarIslandHiddenRareCandy:
-	hiddenitem RARE_CANDY, EVENT_CINNABAR_ISLAND_HIDDEN_RARE_CANDY
+	hiddenitem MAX_REVIVE, EVENT_CINNABAR_ISLAND_HIDDEN_RARE_CANDY
 
 CinnabarIslandBlueTeleport:
 	teleport_from
@@ -91,9 +108,26 @@ CinnabarIslandBlueText:
 
 	para "That's the way it"
 	line "is…"
+	done
+	
+CinnabarIslandBlueYouAgainText:
+	text "You, again."
 
-	para "But, anyway, I'm"
-	line "still a trainer."
+	para "As I said, I'm not"
+	line "in the mood for a"
+	cont "battle right now…"
+
+	para "Come and see me if"
+	line "you run out of GYM"
+	cont "LEADERs to battle."
+	done
+	
+CinnabarIslandBlueTeleportText:
+	text "You, again."
+
+	para "You've managed to"
+	line "defeat every other"
+	cont "GYM LEADER, huh?"
 
 	para "If I see a strong"
 	line "opponent, it makes"
@@ -104,7 +138,9 @@ CinnabarIslandBlueText:
 	cont "the VIRIDIAN GYM."
 
 	para "I'll take you on"
-	line "then."
+	line "there."
+	
+	para "Smell ya later!"
 	done
 
 CinnabarIslandGymSignText:

@@ -959,12 +959,12 @@ BattleTower_RandomlyChooseReward:
 	call Random
 	ldh a, [hRandomAdd]
 	and $7
-	cp 6
+	cp 4
 	jr c, .okay
-	sub 6
+	sub 4
 .okay
-	add HP_UP
-	cp LUCKY_PUNCH
+	add PP_UP
+	cp ETHER
 	jr z, .loop
 	push af
 	ld a, BANK(sBattleTowerReward)

@@ -6,26 +6,26 @@ ENDM
 OddEggProbabilities:
 prob_total = 0
 ; Pichu
-	prob 8
-	prob 1
+	prob 10
+	prob 5
 ; Cleffa
-	prob 16
-	prob 3
+	prob 10
+	prob 5
 ; Igglybuff
-	prob 16
-	prob 3
+	prob 10
+	prob 5
 ; Smoochum
-	prob 14
-	prob 2
+	prob 10
+	prob 5
 ; Magby
 	prob 10
-	prob 2
+	prob 5
 ; Elekid
-	prob 12
-	prob 2
-; Tyrogue
 	prob 10
-	prob 1
+	prob 5
+; Tyrogue
+	prob 7
+	prob 3
 
 OddEggs:
 
@@ -40,9 +40,9 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 0, 0, 0, 0 ; DVs
+	dn 11, 11, 11, 11 ; DVs
 	db 30, 20, 10, 0 ; PP
-	db 20 ; Step cycles to hatch
+	db 10 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -66,9 +66,9 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 2, 10, 10, 10 ; DVs
+	dn 14, 14, 14, 14 ; DVs
 	db 30, 20, 10, 0 ; PP
-	db 20 ; Step cycles to hatch
+	db 10 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -92,9 +92,9 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 0, 0, 0, 0 ; DVs
+	dn 11, 11, 11, 11 ; DVs
 	db 35, 20, 10, 0 ; PP
-	db 20 ; Step cycles to hatch
+	db 10 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -118,9 +118,9 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 2, 10, 10, 10 ; DVs
+	dn 14, 14, 14, 14 ; DVs
 	db 35, 20, 10, 0 ; PP
-	db 20 ; Step cycles to hatch
+	db 10 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -144,9 +144,9 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 0, 0, 0, 0 ; DVs
+	dn 11, 11, 11, 11 ; DVs
 	db 15, 20, 10, 0 ; PP
-	db 20 ; Step cycles to hatch
+	db 10 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -170,9 +170,9 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 2, 10, 10, 10 ; DVs
+	dn 14, 14, 14, 14 ; DVs
 	db 15, 20, 10, 0 ; PP
-	db 20 ; Step cycles to hatch
+	db 10 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -196,9 +196,9 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 0, 0, 0, 0 ; DVs
+	dn 11, 11, 11, 11 ; DVs
 	db 35, 30, 10, 0 ; PP
-	db 20 ; Step cycles to hatch
+	db 10 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -222,9 +222,9 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 2, 10, 10, 10 ; DVs
+	dn 14, 14, 14, 14 ; DVs
 	db 35, 30, 10, 0 ; PP
-	db 20 ; Step cycles to hatch
+	db 10 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -248,9 +248,9 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 0, 0, 0, 0 ; DVs
+	dn 11, 11, 11, 11 ; DVs
 	db 25, 10, 0, 0 ; PP
-	db 20 ; Step cycles to hatch
+	db 10 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -274,9 +274,9 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 2, 10, 10, 10 ; DVs
+	dn 14, 14, 14, 14 ; DVs
 	db 25, 10, 0, 0 ; PP
-	db 20 ; Step cycles to hatch
+	db 10 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -300,9 +300,9 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 0, 0, 0, 0 ; DVs
+	dn 11, 11, 11, 11 ; DVs
 	db 30, 30, 10, 0 ; PP
-	db 20 ; Step cycles to hatch
+	db 10 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -326,9 +326,9 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 2, 10, 10, 10 ; DVs
+	dn 14, 14, 14, 14 ; DVs
 	db 30, 30, 10, 0 ; PP
-	db 20 ; Step cycles to hatch
+	db 10 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -352,9 +352,9 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 0, 0, 0, 0 ; DVs
+	dn 11, 11, 11, 11 ; DVs
 	db 35, 10, 0, 0 ; PP
-	db 20 ; Step cycles to hatch
+	db 10 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status
@@ -378,9 +378,9 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 2, 10, 10, 10 ; DVs
+	dn 14, 14, 14, 14 ; DVs
 	db 35, 10, 0, 0 ; PP
-	db 20 ; Step cycles to hatch
+	db 10 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 5 ; Level
 	db 0, 0 ; Status

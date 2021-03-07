@@ -71,6 +71,7 @@
 	const SPRITE_OFFICER ; 43
 	const SPRITE_CAL ; 44
 	const SPRITE_SLOWPOKE ; 45
+	const SPRITE_SLOWPOKE2
 	const SPRITE_CAPTAIN ; 46
 	const SPRITE_BIG_LAPRAS ; 47
 	const SPRITE_GYM_GUIDE ; 48
@@ -79,7 +80,7 @@
 	const SPRITE_PHARMACIST ; 4b
 	const SPRITE_MONSTER ; 4c
 	const SPRITE_FAIRY ; 4d
-	const SPRITE_BIRD ; 4e
+	const SPRITE_FARFETCHD ; 4e
 	const SPRITE_DRAGON ; 4f
 	const SPRITE_BIG_ONIX ; 50
 	const SPRITE_N64 ; 51
@@ -104,13 +105,30 @@
 	const SPRITE_ENTEI ; 64
 	const SPRITE_RAIKOU ; 65
 	const SPRITE_STANDING_YOUNGSTER ; 66
+	const SPRITE_STEVEN
+	const SPRITE_ARCHER
+	const SPRITE_EUSINE
+	const SPRITE_CHRIS_SURF
+	const SPRITE_KRIS_SURF
+	const SPRITE_RATTATA
+	const SPRITE_GEODUDE_DOLL ; ; Non-red dolls are repeated here for colour
+	const SPRITE_RATTATA_BACK
+	const SPRITE_SHELLDER_DOLL
+	const SPRITE_ODDISH_DOLL
+	const SPRITE_SQUIRTLE_DOLL
+	const SPRITE_DIGLETT_DOLL
+	const SPRITE_STARMIE_DOLL
+	const SPRITE_BULBASAUR_DOLL
+	const SPRITE_GRIMER_DOLL
+	const SPRITE_TENTACOOL_DOLL
+	const SPRITE_MACHOP_DOLL
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)
 	const_next $80
 SPRITE_POKEMON EQU const_value
 	const SPRITE_UNOWN ; 80
 	const SPRITE_GEODUDE ; 81
-	const SPRITE_GROWLITHE ; 82
+	const SPRITE_MEOWTH ; 82
 	const SPRITE_WEEDLE ; 83
 	const SPRITE_SHELLDER ; 84
 	const SPRITE_ODDISH ; 85
@@ -125,24 +143,38 @@ SPRITE_POKEMON EQU const_value
 	const SPRITE_PIKACHU ; 8e
 	const SPRITE_CLEFAIRY ; 8f
 	const SPRITE_CHARMANDER ; 90
-	const SPRITE_JYNX ; 91
+	const SPRITE_ABRA ; 91
 	const SPRITE_STARMIE ; 92
 	const SPRITE_BULBASAUR ; 93
 	const SPRITE_JIGGLYPUFF ; 94
 	const SPRITE_GRIMER ; 95
-	const SPRITE_EKANS ; 96
+	const SPRITE_DRATINI ; 96
 	const SPRITE_PARAS ; 97
 	const SPRITE_TENTACOOL ; 98
-	const SPRITE_TAUROS ; 99
-	const SPRITE_MACHOP ; 9a
+	const SPRITE_MILTANK ; 99
+	const SPRITE_MACHOKE ; 9a
 	const SPRITE_VOLTORB ; 9b
 	const SPRITE_LAPRAS ; 9c
 	const SPRITE_RHYDON ; 9d
-	const SPRITE_MOLTRES ; 9e
+	const SPRITE_DODRIO ; 9e
 	const SPRITE_SNORLAX ; 9f
 	const SPRITE_GYARADOS ; a0
 	const SPRITE_LUGIA ; a1
 	const SPRITE_HO_OH ; a2
+	const SPRITE_MEW
+	const SPRITE_MURKROW
+	const SPRITE_ELECTRODE
+	const SPRITE_PIDGEY
+	const SPRITE_SPEAROW
+	const SPRITE_PSYDUCK
+	const SPRITE_NIDORINO
+	const SPRITE_NIDORAN_M
+	const SPRITE_NIDORAN_F
+	const SPRITE_PERSIAN
+	const SPRITE_POLIWRATH
+	const SPRITE_TAUROS
+	const SPRITE_AMPHAROS
+	const SPRITE_TENTACRUEL
 
 ; special GetMonSprite values (see engine/overworld/overworld.asm)
 	const_next $e0

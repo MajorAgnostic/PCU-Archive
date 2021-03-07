@@ -9,6 +9,12 @@ NurseDayText:
 	line "Welcome to our"
 	cont "#MON CENTER."
 	done
+	
+NurseEveText:
+	text "Good evening!"
+	line "Welcome to our"
+	cont "#MON CENTER."
+	done
 
 NurseNiteText:
 	text "Good evening!"
@@ -30,6 +36,16 @@ PokeComNurseMornText:
 
 PokeComNurseDayText:
 	text "Hello!"
+
+	para "This is the #-"
+	line "MON COMMUNICATION"
+
+	para "CENTER--or the"
+	line "#COM CENTER."
+	done
+	
+PokeComNurseEveText:
+	text "Good evening."
 
 	para "This is the #-"
 	line "MON COMMUNICATION"
@@ -309,10 +325,6 @@ CoinVendor_NoCoinCaseText:
 CoinVendor_IntroText:
 	text "Do you need some"
 	line "game coins?"
-
-	para "It costs ¥1000 for"
-	line "50 coins. Do you"
-	cont "want some?"
 	done
 
 CoinVendor_Buy50CoinsText:
@@ -323,6 +335,11 @@ CoinVendor_Buy50CoinsText:
 CoinVendor_Buy500CoinsText:
 	text "Thank you! Here"
 	line "are 500 coins."
+	done
+	
+CoinVendor_Buy2500CoinsText:
+	text "Thank you! Here"
+	line "are 2500 coins."
 	done
 
 CoinVendor_NotEnoughMoneyText:

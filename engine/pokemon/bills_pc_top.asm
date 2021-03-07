@@ -379,3 +379,353 @@ LoadBoxMonListing: ; unreferenced
 	dba sBox12
 	dba sBox13
 	dba sBox14
+	
+_BillsPocketPC:
+	call .CheckCanUsePocketPC
+	ret c
+	call .PocketLogIn
+	call .UseBillsPocketPC
+	jp .PocketLogOut
+
+.CheckCanUsePocketPC:
+	ld a, [wPartyCount]
+	and a
+	ret nz
+	ld hl, .PocketPCGottaHavePokemonText
+	call MenuTextboxBackup
+	scf
+	ret
+
+.PocketPCGottaHavePokemonText:
+	text_far _PCGottaHavePokemonText
+	text_end
+
+.PocketLogIn:
+	xor a
+	ldh [hBGMapMode], a
+	call LoadStandardMenuHeader
+	call ClearPCItemScreen
+	ld hl, wOptions
+	ld a, [hl]
+	push af
+	set NO_TEXT_SCROLL, [hl]
+	ld hl, .PocketPCWhatText
+	call PrintText
+	pop af
+	ld [wOptions], a
+	call LoadFontsBattleExtra
+	ret
+
+.PocketPCWhatText:
+	text_far _PCWhatText
+	text_end
+
+.PocketLogOut:
+	call CloseSubmenu
+	ret
+
+.UseBillsPocketPC:
+	ld hl, .PocketMenuHeader
+	call LoadMenuHeader
+	ld a, $1
+.loop
+	ld [wMenuCursorBuffer], a
+	call SetPalettes
+	xor a
+	ld [wWhichIndexSet], a
+	ldh [hBGMapMode], a
+	call DoNthMenu
+	jr c, .Pocketcancel
+	ld a, [wMenuCursorBuffer]
+	push af
+	ld a, [wMenuSelection]
+	ld hl, .PocketJumptable
+	rst JumpTable
+	pop bc
+	ld a, b
+	jr nc, .loop
+.Pocketcancel
+	call CloseWindow
+	ret
+
+.PocketMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+	dw .PocketMenuData
+	db 1 ; default option
+
+.PocketMenuData:
+	db STATICMENU_CURSOR ; flags
+	db 0 ; items
+	dw .Pocketitems
+	dw PlaceMenuStrings
+	dw .Pocketstrings
+
+.Pocketstrings
+	db "DEPOSIT <PK><MN>@"
+	db "CHANGE BOX@"
+	db "SEE YA!@"
+
+.PocketJumptable:
+	dw BillsPC_DepositMenu
+	dw BillsPC_ChangeBoxMenu
+	dw BillsPC_SeeYa
+
+.Pocketitems
+	db 3 ; # items
+	db 0 ; DEPOSIT
+	db 1 ; CHANGE BOX
+	db 2 ; SEE YA!
+	db -1
+
+BillsPocketPC_SeeYa:
+	scf
+	ret
+
+BillsPocketPC_MovePKMNMenu:
+	call LoadStandardMenuHeader
+	farcall IsAnyMonHoldingMail
+	jr nc, .Pocketno_mail
+	ld hl, .PocketPCMonHoldingMailText
+	call PrintText
+	jr .quit
+
+.Pocketno_mail
+	farcall StartMoveMonWOMail_SaveGame
+	jr c, .quit
+	farcall _MovePKMNWithoutMail
+	call ReturnToMapFromSubmenu
+	call ClearPCItemScreen
+
+.quit
+	call CloseWindow
+	and a
+	ret
+
+.PocketPCMonHoldingMailText:
+	text_far _PCMonHoldingMailText
+	text_end
+
+BillsPocketPC_DepositMenu:
+	call LoadStandardMenuHeader
+	farcall _DepositPKMN
+	call ReturnToMapFromSubmenu
+	call ClearPCItemScreen
+	call CloseWindow
+	and a
+	ret
+
+PocketFunctione512: ; unreferenced
+	ld a, [wPartyCount]
+	and a
+	jr z, .Pocketno_mon
+	cp 2
+	jr c, .Pocketonly_one_mon
+	and a
+	ret
+
+.Pocketno_mon
+	ld hl, .PocketPCNoSingleMonText
+	call MenuTextboxBackup
+	scf
+	ret
+
+.Pocketonly_one_mon
+	ld hl, .PocketPCCantDepositLastMonText
+	call MenuTextboxBackup
+	scf
+	ret
+
+.PocketPCNoSingleMonText:
+	text_far _PCNoSingleMonText
+	text_end
+
+.PocketPCCantDepositLastMonText:
+	text_far _PCCantDepositLastMonText
+	text_end
+
+PocketCheckCurPartyMonFainted:
+	ld hl, wPartyMon1HP
+	ld de, PARTYMON_STRUCT_LENGTH
+	ld b, $0
+.loop
+	ld a, [wCurPartyMon]
+	cp b
+	jr z, .skip
+	ld a, [hli]
+	or [hl]
+	jr nz, .Pocketnotfainted
+	dec hl
+
+.skip
+	inc b
+	ld a, [wPartyCount]
+	cp b
+	jr z, .done
+	add hl, de
+	jr .loop
+
+.done
+	scf
+	ret
+
+.Pocketnotfainted
+	and a
+	ret
+
+BillsPocketPC_ChangeBoxMenu:
+	farcall _ChangeBox
+	and a
+	ret
+
+PocketClearPCItemScreen:
+	call DisableSpriteUpdates
+	xor a
+	ldh [hBGMapMode], a
+	call ClearBGPalettes
+	call ClearSprites
+	hlcoord 0, 0
+	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
+	ld a, " "
+	call ByteFill
+	hlcoord 0, 0
+	lb bc, 10, 18
+	call Textbox
+	hlcoord 0, 12
+	lb bc, 4, 18
+	call Textbox
+	call WaitBGMap2
+	call SetPalettes ; load regular palettes?
+	ret
+
+PocketCopyBoxmonToTempMon:
+	ld a, [wCurPartyMon]
+	ld hl, sBoxMon1Species
+	ld bc, BOXMON_STRUCT_LENGTH
+	call AddNTimes
+	ld de, wTempMonSpecies
+	ld bc, BOXMON_STRUCT_LENGTH
+	ld a, BANK(sBoxMon1Species)
+	call OpenSRAM
+	call CopyBytes
+	call CloseSRAM
+	ret
+
+PocketLoadBoxMonListing: ; unreferenced
+	ld a, [wCurBox]
+	cp b
+	jr z, .Pocketsame_box
+	ld a, b
+	ld hl, .PocketBoxAddrs
+	ld bc, 3
+	call AddNTimes
+	ld a, [hli]
+	push af
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	pop af
+	jr .okay
+
+.Pocketsame_box
+	ld a, BANK(sBoxCount)
+	ld hl, sBoxCount
+
+.okay
+	call OpenSRAM
+	ld a, [hl]
+	ld bc, sBoxMons - sBox
+	add hl, bc
+	ld b, a
+	ld c, $0
+	ld de, wBoxPartialData
+	ld a, b
+	and a
+	jr z, .empty_box
+.loop
+	push hl
+	push bc
+	ld a, c
+	ld bc, sBoxMon1Species - sBoxMons
+	add hl, bc
+	ld bc, BOXMON_STRUCT_LENGTH
+	call AddNTimes
+	ld a, [hl]
+	ld [de], a
+	inc de
+	ld [wCurSpecies], a
+	call GetBaseData
+	pop bc
+	pop hl
+
+	push hl
+	push bc
+	ld a, c
+	ld bc, sBoxMonNicknames - sBoxMons
+	add hl, bc
+	call SkipNames
+	call CopyBytes
+	pop bc
+	pop hl
+
+	push hl
+	push bc
+	ld a, c
+	ld bc, MON_LEVEL
+	add hl, bc
+	ld bc, BOXMON_STRUCT_LENGTH
+	call AddNTimes
+	ld a, [hl]
+	ld [de], a
+	inc de
+	pop bc
+	pop hl
+
+	push hl
+	push bc
+	ld a, c
+	ld bc, MON_DVS
+	add hl, bc
+	ld bc, BOXMON_STRUCT_LENGTH
+	call AddNTimes
+	ld a, [hli]
+	and $f0
+	ld b, a
+	ld a, [hl]
+	and $f0
+	swap a
+	or b
+	ld b, a
+	ld a, [wBaseGender]
+	cp b
+	ld a, $1
+	jr c, .okay2
+	xor a
+.okay2
+	ld [de], a
+	inc de
+	pop bc
+	pop hl
+
+	inc c
+	dec b
+	jr nz, .loop
+.empty_box
+	call CloseSRAM
+	ret
+
+.PocketBoxAddrs:
+	dba sBox1
+	dba sBox2
+	dba sBox3
+	dba sBox4
+	dba sBox5
+	dba sBox6
+	dba sBox7
+	dba sBox8
+	dba sBox9
+	dba sBox10
+	dba sBox11
+	dba sBox12
+	dba sBox13
+	dba sBox14

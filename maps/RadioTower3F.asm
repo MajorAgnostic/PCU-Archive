@@ -175,6 +175,19 @@ RadioTower3FGymGuideText_Rockets:
 
 	para "trying to control"
 	line "#MON."
+	
+	para "Hey, are you here"
+	line "to rescue us? In"
+	
+	para "that case, here's"
+	line "a tip: lead your"
+	
+	para "party with a psy-"
+	line "chic- or ground-"
+	
+	para "type #MON. That"
+	line "will help handle"
+	cont "EXPLOSIONS!"
 	done
 
 RadioTower3FGymGuideText:

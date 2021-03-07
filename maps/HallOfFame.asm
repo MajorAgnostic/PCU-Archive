@@ -19,6 +19,8 @@ HallOfFame_MapScripts:
 	follow HALLOFFAME_LANCE, PLAYER
 	applymovement HALLOFFAME_LANCE, HallOfFame_WalkUpWithLance
 	stopfollow
+	readvar VAR_BADGES
+	ifequal 16, .REMATCH
 	turnobject PLAYER, RIGHT
 	opentext
 	writetext HallOfFame_LanceText
@@ -31,6 +33,7 @@ HallOfFame_MapScripts:
 	setval HEALMACHINE_HALL_OF_FAME
 	special HealMachineAnim
 	setevent EVENT_BEAT_ELITE_FOUR
+	clearevent EVENT_HOMEBIGLAPRASDOLL
 	setevent EVENT_TELEPORT_GUY
 	setevent EVENT_RIVAL_SPROUT_TOWER
 	clearevent EVENT_RED_IN_MT_SILVER
@@ -42,6 +45,34 @@ HallOfFame_MapScripts:
 	iftrue .SkipPhoneCall
 	specialphonecall SPECIALCALL_SSTICKET
 .SkipPhoneCall:
+	halloffame
+	end
+	
+.REMATCH:
+	turnobject PLAYER, RIGHT
+	opentext
+	writetext HallOfFame_LanceText2
+	waitbutton
+	closetext
+	turnobject HALLOFFAME_LANCE, UP
+	applymovement PLAYER, HallOfFame_SlowlyApproachMachine
+	setscene SCENE_FINISHED
+	pause 15
+	setval HEALMACHINE_HALL_OF_FAME
+	special HealMachineAnim
+	setevent EVENT_BEAT_ELITE_FOUR
+	setevent EVENT_OPENED_MT_SILVER
+	setevent EVENT_TELEPORT_GUY
+	setevent EVENT_RIVAL_SPROUT_TOWER
+	clearevent EVENT_RED_IN_MT_SILVER
+	setevent EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME
+	clearevent EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
+	setmapscene SPROUT_TOWER_3F, SCENE_FINISHED
+	special HealParty
+	checkevent EVENT_GOT_SS_TICKET_FROM_ELM
+	iftrue .SkipPhoneCall2
+	specialphonecall SPECIALCALL_SSTICKET
+.SkipPhoneCall2:
 	halloffame
 	end
 
@@ -106,6 +137,51 @@ HallOfFame_LanceText:
 
 	para "and your partners"
 	line "as CHAMPIONS!"
+	done
+	
+HallOfFame_LanceText2:
+	text "LANCE: Although"
+	line "it hasn't been"
+	cont "very long since"
+
+	para "we last entered"
+	line "this room, I get"
+	
+	para "chills each and"
+	line "every time…"
+	
+	para "Oh! I was about"
+	line "to say, prior to"
+	
+	para "the little in-"
+	line "terruption, that"
+	
+	para "you should cha-"
+	line "llenge RED. He"
+	
+	para "awaits you in"
+	line "SILVER CAVE."
+	
+	para "I will arrange"
+	line "for the MT.SIL-"
+	
+	para "VER guard to let"
+	line "you pass, but"
+	
+	para "you must tread"
+	line "with caution."
+	
+	para "The road to the"
+	line "end of SILVER"
+	
+	para "CAVE is fraught"
+	line "with peril."
+	
+	para "But first, let's"
+	line "register your"
+	
+	para "#MON in the"
+	line "HALL OF FAME!"
 	done
 
 HallOfFame_MapEvents:

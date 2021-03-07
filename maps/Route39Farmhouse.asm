@@ -1,4 +1,4 @@
-ROUTE39FARMHOUSE_MILK_PRICE EQU 500
+ROUTE39FARMHOUSE_MILK_PRICE EQU 1000
 
 	object_const_def
 	const ROUTE39FARMHOUSE_POKEFAN_M
@@ -21,8 +21,6 @@ PokefanM_DairyFarmer:
 	end
 
 FarmerMScript_SellMilk:
-	checkitem MOOMOO_MILK
-	iftrue FarmerMScript_Milking
 	writetext FarmerMText_BuyMilk
 	special PlaceMoneyTopRight
 	yesorno
@@ -55,12 +53,6 @@ FarmerMScript_NoRoom:
 
 FarmerMScript_NoSale:
 	writetext FarmerMText_NoSale
-	waitbutton
-	closetext
-	end
-
-FarmerMScript_Milking:
-	writetext FarmerMText_Milking
 	waitbutton
 	closetext
 	end
@@ -122,7 +114,7 @@ FarmerMText_BuyMilk:
 	line "to restore HP!"
 
 	para "I'll give it to ya"
-	line "fer just ¥500."
+	line "fer just ¥1000."
 	done
 
 FarmerMText_GotMilk:
@@ -143,11 +135,6 @@ FarmerMText_NoRoom:
 FarmerMText_NoSale:
 	text "You don't want it?"
 	line "Come again, hear?"
-	done
-
-FarmerMText_Milking:
-	text "I best go do my"
-	line "milkin'."
 	done
 
 FarmerFText_InTrouble:

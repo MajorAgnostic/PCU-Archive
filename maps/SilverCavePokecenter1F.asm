@@ -23,7 +23,7 @@ SilverCavePokecenter1FGrannyText:
 	para "With their trusted"
 	line "#MON, they must"
 
-	para "feel they can go"
+	para "like they can go"
 	line "anywhere…"
 	done
 

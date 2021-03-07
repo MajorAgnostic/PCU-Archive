@@ -85,6 +85,7 @@ SpecialsPointers::
 	add_special SelectRandomBugContestContestants
 	add_special ActivateFishingSwarm
 	add_special ToggleMaptileDecorations
+	add_special CoverTilesWithCarpet
 	add_special ToggleDecorationsVisibility
 	add_special GiveShuckle
 	add_special ReturnShuckle
@@ -181,4 +182,5 @@ SpecialsPointers::
 	add_special UnusedFindItemInPCOrBag
 	add_special InitialSetDSTFlag
 	add_special InitialClearDSTFlag
-	add_special DummySpecial_c224
+	add_special MoveReminder
+	add_special PocketPC

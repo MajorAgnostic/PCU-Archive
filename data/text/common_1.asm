@@ -204,6 +204,12 @@ _OakTimeSoDarkText::
 	line "No wonder it's so"
 	cont "dark!"
 	done
+	
+_OakTimeNappedText::
+	text "!"
+	line "I napped for"
+	cont "too long!"
+	done
 
 _OakTimeWhatDayIsItText::
 	text "What day is it?"
@@ -342,6 +348,11 @@ _LookAdorableDecoText::
 	line "@"
 	text_ram wStringBuffer3
 	text "."
+	done
+	
+_ClassicConsoleDecoText::
+	text "A classic gaming"
+	line "console!"
 	done
 
 _LookGiantDecoText::
@@ -1307,6 +1318,13 @@ _BugCatchingContestIsOverText::
 _RepelWoreOffText::
 	text "REPEL's effect"
 	line "wore off."
+	done
+	
+_UseAnotherRepelText::
+	text "REPEL's effect"
+	line "wore off."
+
+	para "Use another?"
 	done
 
 _PlayerFoundItemText::

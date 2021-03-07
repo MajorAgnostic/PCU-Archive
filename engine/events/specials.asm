@@ -125,6 +125,14 @@ PlayersHousePC:
 	ld a, c
 	ld [wScriptVar], a
 	ret
+	
+PocketPC:
+	xor a
+	ld [wScriptVar], a
+	farcall PocketBillsPC
+	ld a, c
+	ld [wScriptVar], a
+	ret
 
 CheckMysteryGift:
 	ld a, BANK(sMysteryGiftItem)

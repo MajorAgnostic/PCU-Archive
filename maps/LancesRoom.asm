@@ -50,6 +50,8 @@ Script_ApproachLanceFromRight:
 	special FadeOutMusic
 	applymovement PLAYER, MovementData_ApproachLanceFromRight
 LancesRoomLanceScript:
+	readvar VAR_BADGES
+	ifequal 16, .REMATCH
 	turnobject LANCESROOM_LANCE, LEFT
 	opentext
 	writetext LanceBattleIntroText
@@ -64,6 +66,85 @@ LancesRoomLanceScript:
 	setevent EVENT_BEAT_CHAMPION_LANCE
 	opentext
 	writetext LanceBattleAfterText
+	waitbutton
+	closetext
+	playsound SFX_ENTER_DOOR
+	changeblock 4, 0, $0b ; open door
+	reloadmappart
+	closetext
+	setevent EVENT_LANCES_ROOM_ENTRANCE_CLOSED
+	musicfadeout MUSIC_BEAUTY_ENCOUNTER, 16
+	pause 30
+	showemote EMOTE_SHOCK, LANCESROOM_LANCE, 15
+	turnobject LANCESROOM_LANCE, DOWN
+	pause 10
+	turnobject PLAYER, DOWN
+	appear LANCESROOM_MARY
+	applymovement LANCESROOM_MARY, LancesRoomMovementData_MaryRushesIn
+	opentext
+	writetext LancesRoomMaryOhNoOakText
+	waitbutton
+	closetext
+	appear LANCESROOM_OAK
+	applymovement LANCESROOM_OAK, LancesRoomMovementData_OakWalksIn
+	follow LANCESROOM_MARY, LANCESROOM_OAK
+	applymovement LANCESROOM_MARY, LancesRoomMovementData_MaryYieldsToOak
+	stopfollow
+	turnobject LANCESROOM_OAK, UP
+	turnobject LANCESROOM_LANCE, LEFT
+	opentext
+	writetext LancesRoomOakCongratulationsText
+	waitbutton
+	closetext
+	applymovement LANCESROOM_MARY, LancesRoomMovementData_MaryInterviewChampion
+	turnobject PLAYER, LEFT
+	opentext
+	writetext LancesRoomMaryInterviewText
+	waitbutton
+	closetext
+	applymovement LANCESROOM_LANCE, LancesRoomMovementData_LancePositionsSelfToGuidePlayerAway
+	turnobject PLAYER, UP
+	opentext
+	writetext LancesRoomNoisyText
+	waitbutton
+	closetext
+	follow LANCESROOM_LANCE, PLAYER
+	turnobject LANCESROOM_MARY, UP
+	turnobject LANCESROOM_OAK, UP
+	applymovement LANCESROOM_LANCE, LancesRoomMovementData_LanceLeadsPlayerToHallOfFame
+	stopfollow
+	playsound SFX_EXIT_BUILDING
+	disappear LANCESROOM_LANCE
+	applymovement PLAYER, LancesRoomMovementData_PlayerExits
+	playsound SFX_EXIT_BUILDING
+	disappear PLAYER
+	applymovement LANCESROOM_MARY, LancesRoomMovementData_MaryTriesToFollow
+	showemote EMOTE_SHOCK, LANCESROOM_MARY, 15
+	opentext
+	writetext LancesRoomMaryNoInterviewText
+	pause 30
+	closetext
+	applymovement LANCESROOM_MARY, LancesRoomMovementData_MaryRunsBackAndForth
+	special FadeOutPalettes
+	pause 15
+	warpfacing UP, HALL_OF_FAME, 4, 13
+	end
+
+.REMATCH:
+	turnobject LANCESROOM_LANCE, LEFT
+	opentext
+	writetext LanceBattleRematchText
+	waitbutton
+	closetext
+	winlosstext LanceBattleWinText, 0
+	setlasttalked LANCESROOM_LANCE
+	loadtrainer CHAMPION, LANCE2
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	setevent EVENT_BEAT_CHAMPION_LANCE
+	opentext
+	writetext LanceBattleAfterText2
 	waitbutton
 	closetext
 	playsound SFX_ENTER_DOOR
@@ -236,6 +317,40 @@ LanceBattleIntroText:
 	cont "your challenge!"
 	done
 
+LanceBattleRematchText:
+	text "LANCE: It has been"
+	line "quite a while, my"
+	cont "friend."
+	
+	para "You may be the"
+	line "CHAMPION, but it"
+
+	para "behooves you to"
+	line "always strive"
+
+	para "to reach greater"
+	line "heights."
+	
+	para "Not only as the"
+	line "CHAMPION, but also"
+	cont "as a trainer."
+	
+	para "But perhaps I wa-"
+	line "ste my breath, as"
+	
+	para "you clearly have"
+	line "been pushing your-"
+	cont "self to the limit."
+
+	para "My dragons and I"
+	line "have trained the"
+	
+	para "world over and are"
+	line "ready for you."
+	
+	para "Now, let us begin."
+	done
+
 LanceBattleWinText:
 	text "…It's over."
 
@@ -249,8 +364,8 @@ LanceBattleWinText:
 	para "Happy that I"
 	line "witnessed the rise"
 
-	para "of a great new"
-	line "CHAMPION!"
+	para "of a true master"
+	line "of #MON!"
 	done
 
 LanceBattleAfterText:
@@ -271,6 +386,35 @@ LanceBattleAfterText:
 
 	para "grow strong with"
 	line "your #MON."
+	done
+
+LanceBattleAfterText2:
+	text "Just as exhila-"
+	line "rating as ever."
+
+	para "You and your"
+	line "#MON make"
+	cont "quite a team."
+
+	para "As a trainer, you"
+	line "will continue to"
+
+	para "grow strong with"
+	line "your #MON."
+	
+	para "My old friend RED"
+	line "has taken an in-"
+	
+	para "terest in you,"
+	line "you know."
+	
+	para "He awaits legen-"
+	line "dary trainers at"
+	
+	para "the peak of MT."
+	line "SILVER."
+	
+	para "It is now ti-"
 	done
 
 LancesRoomMaryOhNoOakText:
@@ -316,8 +460,7 @@ LancesRoomOakCongratulationsText:
 
 LancesRoomMaryInterviewText:
 	text "MARY: Let's inter-"
-	line "view the brand new"
-	cont "CHAMPION!"
+	line "view the CHAMPION!"
 	done
 
 LancesRoomNoisyText:
@@ -351,6 +494,6 @@ LancesRoom_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  5,  3, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LancesRoomLanceScript, -1
+	object_event  5,  3, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, LancesRoomLanceScript, -1
 	object_event  4,  7, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_LANCES_ROOM_OAK_AND_MARY
 	object_event  4,  7, SPRITE_OAK, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_LANCES_ROOM_OAK_AND_MARY

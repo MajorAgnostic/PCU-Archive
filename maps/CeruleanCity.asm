@@ -92,6 +92,50 @@ CeruleanCityYoungsterScript:
 	closetext
 	checkevent EVENT_FOUND_BERSERK_GENE_IN_CERULEAN_CITY
 	iffalse .BerserkGenePingsItemfinder
+	faceplayer
+	checkevent EVENT_BERSERKGENE_REPLICATION
+	iftrue .GiveBerserkGene
+	checkitem BERSERK_GENE
+	iftrue .Replicate
+	end
+	
+.Replicate:
+	opentext
+	writetext CeruleanCityYoungsterReplicate
+	waitbutton
+	closetext
+	setevent EVENT_BERSERKGENE_REPLICATION
+	end
+	
+.GiveBerserkGene:
+	opentext
+	readvar VAR_WEEKDAY
+	ifnotequal SUNDAY, .NoGene
+	checkitem BERSERK_GENE
+	iftrue .AlreadyHaveOne
+	writetext CeruleanCityYoungsterHereYouGo
+	promptbutton
+	verbosegiveitem BERSERK_GENE
+	iffalse .BagFull
+	closetext
+	end
+	
+.NoGene:
+	writetext CeruleanCityYoungsterNoGene
+	waitbutton
+	closetext
+	end
+	
+.AlreadyHaveOne:
+	writetext CeruleanCityYoungsterAlreadyHaveOne
+	waitbutton
+	closetext
+	end
+	
+.BagFull:
+	writetext CeruleanCityYoungsterBagFull
+	waitbutton
+	closetext
 	end
 
 .BerserkGenePingsItemfinder:
@@ -216,14 +260,64 @@ CeruleanCityYoungsterText1:
 	line "cave here that had"
 
 	para "horribly powerful"
-	line "#MON in it."
+	line "#MON in it…"
 	done
 
 CeruleanCityYoungsterText2:
 	text "Ayuh?"
 
 	para "My ITEMFINDER is"
-	line "responding…"
+	line "responding!"
+	
+	para "I sure would like"
+	line "to know what that"
+	cont "is…"
+	done
+	
+CeruleanCityYoungsterReplicate:
+	text "Oh, you found the"
+	line "item that I was"
+	cont "dowsing for!"
+	
+	para "May I see it?"
+	
+	para "…"
+	line "…"
+
+	para "Amazing! I think"
+	line "I can replicate"
+	
+	para "this gene now. If"
+	line "you ever need"
+	
+	para "another BERSERK"
+	line "GENE, just ask!"
+	done
+	
+CeruleanCityYoungsterNoGene:
+	text "Ah! You would like"
+	line "another BERSERK"
+	cont "GENE, yes?"
+	
+	para "I'll need a little"
+	line "more time, sadly."
+	done
+	
+CeruleanCityYoungsterAlreadyHaveOne:
+	text "If you need a new"
+	line "BERSERK GENE, let"
+	cont "me know."
+	done
+	
+CeruleanCityYoungsterHereYouGo:
+	text "Ah! You would like"
+	line "another BERSERK"
+	cont "GENE, yes? Here."
+	done
+	
+CeruleanCityYoungsterBagFull:
+	text "You don't seem to"
+	line "have room for it."
 	done
 
 CeruleanCitySignText:

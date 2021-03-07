@@ -54,6 +54,7 @@ StdScripts::
 	add_stdscript ReceiveItemScript
 	add_stdscript ReceiveTogepiEggScript
 	add_stdscript PCScript
+	add_stdscript PocketPCScript
 	add_stdscript GameCornerCoinVendorScript
 	add_stdscript HappinessCheckScript
 
@@ -65,6 +66,8 @@ PokecenterNurseScript:
 	iftrue .morn
 	checktime DAY
 	iftrue .day
+	checktime EVE
+	iftrue .eve
 	checktime NITE
 	iftrue .nite
 	sjump .ok
@@ -88,6 +91,17 @@ PokecenterNurseScript:
 	sjump .ok
 .day_comcenter
 	farwritetext PokeComNurseDayText
+	promptbutton
+	sjump .ok
+	
+.eve
+	checkevent EVENT_WELCOMED_TO_POKECOM_CENTER
+	iftrue .eve_comcenter
+	farwritetext NurseEveText
+	promptbutton
+	sjump .ok
+.eve_comcenter
+	farwritetext PokeComNurseEveText
 	promptbutton
 	sjump .ok
 
@@ -226,6 +240,12 @@ TrashCanScript:
 PCScript:
 	opentext
 	special PokemonCenterPC
+	closetext
+	end
+	
+PocketPCScript:
+	opentext
+	special PocketPC
 	closetext
 	end
 
@@ -478,6 +498,16 @@ BugContestResults_CopyContestantsToResults:
 	end
 
 InitializeEventsScript:
+	setevent EVENT_HOMEPIKAPOSTER
+	setevent EVENT_HOMEPPUP
+	setevent EVENT_HOMESNES
+	setevent EVENT_HOMEVOLTORBDOLL
+	setevent EVENT_HOMEUPGRADE
+	setevent EVENT_HOMEBIGLAPRASDOLL
+	setevent EVENT_HOMEBRICKPIECE
+	setevent EVENT_HOMEBIGONIXDOLL
+	setevent EVENT_HOMEUSELESS7
+	setevent EVENT_HOMEUSELESS8
 	setevent EVENT_EARLS_ACADEMY_EARL
 	setevent EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	setevent EVENT_GOLDENROD_CITY_ROCKET_TAKEOVER
@@ -584,6 +614,7 @@ InitializeEventsScript:
 	setevent EVENT_WISE_TRIOS_ROOM_WISE_TRIO_2
 	setevent EVENT_CIANWOOD_CITY_EUSINE
 	setevent EVENT_TIN_TOWER_1F_EUSINE
+	setevent EVENT_TIN_TOWER_1F_MORTY ; Ultimate
 	setevent EVENT_TIN_TOWER_1F_WISE_TRIO_1
 	setevent EVENT_TIN_TOWER_1F_WISE_TRIO_2
 	setevent EVENT_SET_WHEN_FOUGHT_HO_OH
@@ -1808,6 +1839,7 @@ CoinVendor_IntroScript:
 	closewindow
 	ifequal 1, .Buy50
 	ifequal 2, .Buy500
+	ifequal 3, .Buy2500
 	sjump .Cancel
 
 .Buy50:
@@ -1833,6 +1865,19 @@ CoinVendor_IntroScript:
 	waitsfx
 	playsound SFX_TRANSACTION
 	farwritetext CoinVendor_Buy500CoinsText
+	waitbutton
+	sjump .loop
+	
+.Buy2500:
+	checkcoins MAX_COINS - 2500
+	ifequal HAVE_MORE, .CoinCaseFull
+	checkmoney YOUR_MONEY, 50000
+	ifequal HAVE_LESS, .NotEnoughMoney
+	givecoins 2500
+	takemoney YOUR_MONEY, 50000
+	waitsfx
+	playsound SFX_TRANSACTION
+	farwritetext CoinVendor_Buy2500CoinsText
 	waitbutton
 	sjump .loop
 
@@ -1862,9 +1907,10 @@ CoinVendor_IntroScript:
 
 .MenuData:
 	db STATICMENU_CURSOR ; flags
-	db 3 ; items
-	db " 50 :  ¥1000@"
-	db "500 : ¥10000@"
+	db 4 ; items
+	db "  50:  ¥1000@"
+	db " 500: ¥10000@"
+	db "2500: ¥50000@"
 	db "CANCEL@"
 
 HappinessCheckScript:

@@ -1,4 +1,4 @@
-ROUTE43GATE_TOLL EQU 1000
+ROUTE43GATE_TOLL EQU 2000
 
 	object_const_def
 	const ROUTE43GATE_OFFICER
@@ -196,7 +196,7 @@ RocketText_TollFee:
 	text "Hold it there,"
 	line "kiddo!"
 
-	para "The toll is ¥1000"
+	para "The toll is ¥2000"
 	line "to go through."
 	done
 

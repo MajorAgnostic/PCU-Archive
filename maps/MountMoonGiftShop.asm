@@ -22,7 +22,10 @@ MountMoonGiftShopLassScript:
 MountMoonGiftShopLassText:
 	text "When the sun goes"
 	line "down, CLEFAIRY"
-	cont "come out to play."
+	
+	para "come out to play."
+	line "But only on some"
+	cont "nights!"
 	done
 
 MountMoonGiftShop_MapEvents:

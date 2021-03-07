@@ -14,20 +14,9 @@ BlackthornCity_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
-	callback MAPCALLBACK_OBJECTS, .Santos
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_BLACKTHORN
-	endcallback
-
-.Santos:
-	readvar VAR_WEEKDAY
-	ifequal SATURDAY, .SantosAppears
-	disappear BLACKTHORNCITY_SANTOS
-	endcallback
-
-.SantosAppears:
-	appear BLACKTHORNCITY_SANTOS
 	endcallback
 
 BlackthornSuperNerdScript:
@@ -90,14 +79,6 @@ SantosScript:
 	opentext
 	checkevent EVENT_GOT_SPELL_TAG_FROM_SANTOS
 	iftrue .Saturday
-	readvar VAR_WEEKDAY
-	ifnotequal SATURDAY, .NotSaturday
-	checkevent EVENT_MET_SANTOS_OF_SATURDAY
-	iftrue .MetSantos
-	writetext MeetSantosText
-	promptbutton
-	setevent EVENT_MET_SANTOS_OF_SATURDAY
-.MetSantos:
 	writetext SantosGivesGiftText
 	promptbutton
 	verbosegiveitem SPELL_TAG
@@ -109,8 +90,13 @@ SantosScript:
 	end
 
 .Saturday:
+	readvar VAR_WEEKDAY
+	ifnotequal SATURDAY, .NotSaturday
 	writetext SantosSaturdayText
 	waitbutton
+	closetext
+	end
+	
 .Done:
 	closetext
 	end
@@ -290,8 +276,8 @@ BlackthornGymSignText:
 	done
 
 MoveDeletersHouseSignText:
-	text "MOVE DELETER'S"
-	line "HOUSE"
+	text "MOVE DELETER &"
+	line "REMINDER'S HOUSE"
 	done
 
 DragonDensSignText:

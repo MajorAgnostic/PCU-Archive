@@ -14,26 +14,25 @@ CheckShininess:
 
 ; Attack
 	ld a, [hl]
-	and 1 << SHINY_ATK_BIT
-	jr z, .NotShiny
+	cp 12 << 4
+	jr c, .NotShiny
 
 ; Defense
 	ld a, [hli]
 	and $f
-	cp  SHINY_DEF_VAL
-	jr nz, .NotShiny
+	cp 12
+	jr c, .NotShiny
 
 ; Speed
 	ld a, [hl]
-	and $f0
-	cp  SHINY_SPD_VAL << 4
-	jr nz, .NotShiny
+	cp 12 << 4
+	jr c, .NotShiny
 
 ; Special
 	ld a, [hl]
 	and $f
-	cp  SHINY_SPC_VAL
-	jr nz, .NotShiny
+	cp 12
+	jr c, .NotShiny
 
 .Shiny:
 	scf
@@ -660,7 +659,7 @@ CGB_ApplyPartyMenuHPPals:
 InitPartyMenuOBPals:
 	ld hl, PartyMenuOBPals
 	ld de, wOBPals1
-	ld bc, 2 palettes
+	ld bc, 8 palettes
 	ld a, BANK(wOBPals1)
 	call FarCopyWRAM
 	ret
@@ -1264,6 +1263,8 @@ LoadMapPals:
 	ld bc, 8 palettes
 	ld a, BANK(wOBPals1)
 	call FarCopyWRAM
+	
+	farcall LoadSpecialNPCPalette
 
 	ld a, [wEnvironment]
 	cp TOWN
@@ -1272,20 +1273,24 @@ LoadMapPals:
 	ret nz
 .outside
 	ld a, [wMapGroup]
-	ld l, a
-	ld h, 0
-	add hl, hl
-	add hl, hl
-	add hl, hl
-	ld de, RoofPals
+	add a
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, RoofPals
+	add hl, de
+	add hl, de
 	add hl, de
 	ld a, [wTimeOfDayPal]
 	maskbits NUM_DAYTIMES
 	cp NITE_F
+	ld de, 4
+	jr z, .nite
 	jr c, .morn_day
-rept 4
-	inc hl
-endr
+; eve
+	add hl, de
+.nite
+	add hl, de
 .morn_day
 	ld de, wBGPals1 palette PAL_BG_ROOF color 1
 	ld bc, 4

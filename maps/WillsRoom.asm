@@ -41,6 +41,8 @@ WillsRoom_MapScripts:
 	end
 
 WillScript_Battle:
+	readvar VAR_BADGES
+	ifequal 16, .REMATCH
 	faceplayer
 	opentext
 	checkevent EVENT_BEAT_ELITE_4_WILL
@@ -65,8 +67,39 @@ WillScript_Battle:
 	waitsfx
 	end
 
+.REMATCH:
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_ELITE_4_WILL
+	iftrue WillScript_AfterBattle2
+	writetext WillScript_WillRematchText
+	waitbutton
+	closetext
+	winlosstext WillScript_WillBeatenText, 0
+	loadtrainer WILL, WILL2
+	startbattle
+	reloadmapafterbattle
+	setevent EVENT_BEAT_ELITE_4_WILL
+	opentext
+	writetext WillScript_WillDefeatText2
+	waitbutton
+	closetext
+	playsound SFX_ENTER_DOOR
+	changeblock 4, 2, $16 ; open door
+	reloadmappart
+	closetext
+	setevent EVENT_WILLS_ROOM_EXIT_OPEN
+	waitsfx
+	end
+
 WillScript_AfterBattle:
 	writetext WillScript_WillDefeatText
+	waitbutton
+	closetext
+	end
+
+WillScript_AfterBattle2:
+	writetext WillScript_WillDefeatText2
 	waitbutton
 	closetext
 	end
@@ -79,8 +112,9 @@ WillsRoom_EnterMovement:
 	step_end
 
 WillScript_WillBeforeText:
-	text "Welcome to #MON"
-	line "LEAGUE, <PLAYER>."
+	text "Welcome to the"
+	line "#MON LEAGUE," 
+	cont "<PLAYER>."
 
 	para "Allow me to intro-"
 	line "duce myself. I am"
@@ -101,6 +135,29 @@ WillScript_WillBeforeText:
 
 	para "Losing is not an"
 	line "option!"
+	done
+
+WillScript_WillRematchText:
+	text "Welcome back,"
+	line "CHAMPION, to the"
+	cont "#MON LEAGUE."
+
+	para "I have carefully"
+	line "studied tactical"
+	
+	para "data and have put"
+	line "my findings into"
+	cont "practice."
+
+	para "I have also added"
+	line "new #MON to my"
+	cont "psychic team."
+
+	para "This time, things"
+	line "will be different."
+	
+	para "Heed my call,"
+	line "LUGIA!"
 	done
 
 WillScript_WillBeatenText:
@@ -124,6 +181,30 @@ WillScript_WillDefeatText:
 
 	para "the true ferocity"
 	line "of the ELITE FOUR."
+	done
+
+WillScript_WillDefeatText2:
+	text "Whew, I have ex-"
+	line "pended all of my"
+	
+	para "power & that was"
+	line "still not enough"
+	cont "to win."
+
+	para "You have shown"
+	line "yourself to be"
+	cont "a mighty foe."
+
+	para "<PLAYER>, I will"
+	line "reflect on this"
+	
+	para "experience and"
+	line "forge a new path"
+	cont "for my #MON."
+
+	para "Never forget the"
+	line "spirit of the"
+	cont "ELITE FOUR!"
 	done
 
 WillsRoom_MapEvents:

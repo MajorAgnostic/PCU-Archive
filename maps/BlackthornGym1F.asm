@@ -41,6 +41,7 @@ BlackthornGymClairScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_CLAIR
+	clearevent EVENT_HOMEUPGRADE
 	opentext
 	writetext ClairText_GoToDragonsDen
 	waitbutton
@@ -362,7 +363,10 @@ BlackthornGymGuideText:
 	cont "#MON."
 
 	para "You can't damage"
-	line "them very easily."
+	line "them very easily"
+	
+	para "and they utilize"
+	line "various moves!"
 
 	para "But you know,"
 	line "they're supposed"

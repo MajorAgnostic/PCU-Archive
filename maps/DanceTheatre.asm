@@ -5,7 +5,7 @@
 	const DANCETHEATRE_KIMONO_GIRL4
 	const DANCETHEATRE_KIMONO_GIRL5
 	const DANCETHEATRE_GENTLEMAN
-	const DANCETHEATRE_RHYDON
+	const DANCETHEATRE_TENTACRUEL
 	const DANCETHEATRE_COOLTRAINER_M
 	const DANCETHEATRE_GRANNY
 
@@ -121,7 +121,7 @@ SurfGuyAlreadyGaveSurf:
 DanceTheaterRhydon:
 	opentext
 	writetext RhydonText
-	cry RHYDON
+	cry TENTACRUEL
 	waitbutton
 	closetext
 	end
@@ -254,6 +254,9 @@ SurfGuyLadGiftText:
 
 	para "KIMONO GIRLS, I'll"
 	line "give you a gift."
+	
+	para "But watch out for"
+	line "HIDDEN POWER!"
 	done
 
 SurfGuyLassieGiftText:
@@ -262,6 +265,9 @@ SurfGuyLassieGiftText:
 
 	para "KIMONO GIRLS, I'll"
 	line "give you a gift."
+	
+	para "But watch out for"
+	line "HIDDEN POWER!"
 	done
 
 SurfGuyLikeADanceText:
@@ -292,13 +298,14 @@ SurfGuyElegantKimonoGirlsText:
 	done
 
 RhydonText:
-	text "RHYDON: Gugooh"
-	line "gugogooh!"
+	text "TENTACRUEL: Cru-"
+	line "elllll!"
 	done
 
 DanceTheatreCooltrainerMText:
 	text "That man's always"
-	line "with his RHYDON."
+	line "with his prized"
+	cont "TENTACRUEL."
 
 	para "Says he wants a"
 	line "#MON that can"
@@ -349,12 +356,12 @@ DanceTheatre_MapEvents:
 	bg_event  6,  6, BGEVENT_UP, DanceTheatreFancyPanel
 
 	def_object_events
-	object_event  0,  2, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, TrainerKimonoGirlNaoko2, -1
+	object_event  0,  2, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_TRAINER, 0, TrainerKimonoGirlNaoko2, -1
 	object_event  2,  1, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 0, TrainerKimonoGirlSayo, -1
 	object_event  6,  2, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerKimonoGirlZuki, -1
 	object_event  9,  1, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 0, TrainerKimonoGirlKuni, -1
 	object_event 11,  2, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, TrainerKimonoGirlMiki, -1
 	object_event  7, 10, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DanceTheaterSurfGuy, -1
-	object_event  6,  8, SPRITE_RHYDON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, DanceTheaterRhydon, -1
+	object_event  6,  8, SPRITE_TENTACRUEL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, DanceTheaterRhydon, -1
 	object_event 10, 10, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, DanceTheatreCooltrainerMScript, -1
 	object_event  3,  6, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DanceTheatreGrannyScript, -1

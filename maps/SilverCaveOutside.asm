@@ -1,3 +1,6 @@
+	object_const_def
+	const SILVERCAVEOUTSIDE_POKE_BALL
+
 SilverCaveOutside_MapScripts:
 	def_scene_scripts
 
@@ -13,6 +16,9 @@ MtSilverPokecenterSign:
 
 MtSilverSign:
 	jumptext MtSilverSignText
+	
+MtSilverMasterBall:
+	itemball MASTER_BALL
 
 SilverCaveOutsideHiddenFullRestore:
 	hiddenitem FULL_RESTORE, EVENT_SILVER_CAVE_OUTSIDE_HIDDEN_FULL_RESTORE
@@ -33,6 +39,7 @@ SilverCaveOutside_MapEvents:
 	def_bg_events
 	bg_event 24, 19, BGEVENT_READ, MtSilverPokecenterSign
 	bg_event 17, 13, BGEVENT_READ, MtSilverSign
-	bg_event  9, 25, BGEVENT_ITEM, SilverCaveOutsideHiddenFullRestore
+	bg_event 30, 20, BGEVENT_ITEM, SilverCaveOutsideHiddenFullRestore
 
 	def_object_events
+	object_event  9, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MtSilverMasterBall, EVENT_MT_SILVER_MASTER_BALL

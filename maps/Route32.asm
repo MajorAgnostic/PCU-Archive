@@ -12,6 +12,8 @@
 	const ROUTE32_POKE_BALL1
 	const ROUTE32_FISHER5
 	const ROUTE32_FRIEDA
+	const ROUTE32_BUG_CATCHER1
+	const ROUTE32_BUG_CATCHER2
 	const ROUTE32_POKE_BALL2
 
 Route32_MapScripts:
@@ -21,7 +23,6 @@ Route32_MapScripts:
 	scene_script .DummyScene2 ; SCENE_ROUTE32_NOTHING
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, .Frieda
 
 .DummyScene0:
 	end
@@ -31,16 +32,6 @@ Route32_MapScripts:
 
 .DummyScene2:
 	end
-
-.Frieda:
-	readvar VAR_WEEKDAY
-	ifequal FRIDAY, .FriedaAppears
-	disappear ROUTE32_FRIEDA
-	endcallback
-
-.FriedaAppears:
-	appear ROUTE32_FRIEDA
-	endcallback
 
 Route32CooltrainerMScript:
 	faceplayer
@@ -168,7 +159,6 @@ TrainerFisherRalph1:
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_FISHER_RALPH
-	endifjustbattled
 	opentext
 	checkflag ENGINE_RALPH_READY_FOR_REMATCH
 	iftrue .Rematch
@@ -197,25 +187,14 @@ TrainerFisherRalph1:
 .Rematch:
 	scall .RematchStd
 	winlosstext FisherRalph1BeatenText, 0
-	readmem wRalphFightCount
-	ifequal 4, .Fight4
-	ifequal 3, .Fight3
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight4:
-	checkevent EVENT_RESTORED_POWER_TO_KANTO
+	checkflag ENGINE_FLYPOINT_MAHOGANY
 	iftrue .LoadFight4
-.Fight3:
-	checkevent EVENT_BEAT_ELITE_FOUR
+	checkflag ENGINE_FLYPOINT_CIANWOOD
 	iftrue .LoadFight3
-.Fight2:
-	checkflag ENGINE_FLYPOINT_LAKE_OF_RAGE
-	iftrue .LoadFight2
-.Fight1:
 	checkflag ENGINE_FLYPOINT_ECRUTEAK
+	iftrue .LoadFight2
+	checkflag ENGINE_FLYPOINT_GOLDENROD
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer FISHER, RALPH1
 	startbattle
 	reloadmapafterbattle
@@ -304,7 +283,6 @@ TrainerPicnickerLiz1:
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_PICNICKER_LIZ
-	endifjustbattled
 	opentext
 	checkflag ENGINE_LIZ_READY_FOR_REMATCH
 	iftrue .Rematch
@@ -331,25 +309,14 @@ TrainerPicnickerLiz1:
 .Rematch:
 	scall .RematchStd
 	winlosstext PicnickerLiz1BeatenText, 0
-	readmem wLizFightCount
-	ifequal 4, .Fight4
-	ifequal 3, .Fight3
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight4:
-	checkevent EVENT_BEAT_ELITE_FOUR
+	checkflag ENGINE_FLYPOINT_MAHOGANY
 	iftrue .LoadFight4
-.Fight3:
-	checkevent EVENT_CLEARED_RADIO_TOWER
+	checkflag ENGINE_FLYPOINT_CIANWOOD
 	iftrue .LoadFight3
-.Fight2:
-	checkevent EVENT_CLEARED_ROCKET_HIDEOUT
-	iftrue .LoadFight2
-.Fight1:
 	checkflag ENGINE_FLYPOINT_ECRUTEAK
+	iftrue .LoadFight2
+	checkflag ENGINE_FLYPOINT_GOLDENROD
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer PICNICKER, LIZ1
 	startbattle
 	reloadmapafterbattle
@@ -454,14 +421,6 @@ FriedaScript:
 	opentext
 	checkevent EVENT_GOT_POISON_BARB_FROM_FRIEDA
 	iftrue .Friday
-	readvar VAR_WEEKDAY
-	ifnotequal FRIDAY, .NotFriday
-	checkevent EVENT_MET_FRIEDA_OF_FRIDAY
-	iftrue .MetFrieda
-	writetext MeetFriedaText
-	promptbutton
-	setevent EVENT_MET_FRIEDA_OF_FRIDAY
-.MetFrieda:
 	writetext FriedaGivesGiftText
 	promptbutton
 	verbosegiveitem POISON_BARB
@@ -473,14 +432,33 @@ FriedaScript:
 	end
 
 .Friday:
+	readvar VAR_WEEKDAY
+	ifnotequal FRIDAY, .NotFriday
 	writetext FriedaFridayText
 	waitbutton
+	closetext
+	end
+	
 .Done:
 	closetext
 	end
 
 .NotFriday:
 	writetext FriedaNotFridayText
+	waitbutton
+	closetext
+	end
+	
+Route32Twin1Script:
+	opentext
+	writetext Route32Twin1Text
+	waitbutton
+	closetext
+	end
+	
+Route32Twin2Script:
+	opentext
+	writetext Route32Twin2Text
 	waitbutton
 	closetext
 	end
@@ -508,6 +486,9 @@ Route32HiddenGreatBall:
 
 Route32HiddenSuperPotion:
 	hiddenitem SUPER_POTION, EVENT_ROUTE_32_HIDDEN_SUPER_POTION
+	
+Route35ShortcutSign:
+	jumptext Route35ShortcutSignText
 
 Movement_Route32CooltrainerMPushesYouBackToViolet:
 	step UP
@@ -908,6 +889,17 @@ FriedaNotFridayText:
 	para "It's so boring"
 	line "when it's not!"
 	done
+	
+Route32Twin1Text:
+	text "Don't worry, it's"
+	line "just a deep… and"
+	cont "dark… forest…"
+	done
+	
+Route32Twin2Text:
+	text "It's too scary… I"
+	line "want to go home!"
+	done
 
 Route32SignText:
 	text "ROUTE 32"
@@ -925,6 +917,11 @@ Route32UnionCaveSignText:
 	text "UNION CAVE"
 	line "AHEAD"
 	done
+	
+Route35ShortcutSignText:
+	text "SHORTCUT WEST TO"
+	line "ROUTE 35"
+	done
 
 Route32_MapEvents:
 	db 0, 0 ; filler
@@ -934,6 +931,8 @@ Route32_MapEvents:
 	warp_event  4,  2, ROUTE_32_RUINS_OF_ALPH_GATE, 3
 	warp_event  4,  3, ROUTE_32_RUINS_OF_ALPH_GATE, 4
 	warp_event  6, 79, UNION_CAVE_1F, 4
+	warp_event  0, 24, ROUTE_35, 4
+	warp_event  0, 25, ROUTE_35, 5
 
 	def_coord_events
 	coord_event 18,  8, SCENE_DEFAULT, Route32CooltrainerMStopsYouScene
@@ -946,6 +945,7 @@ Route32_MapEvents:
 	bg_event 12, 73, BGEVENT_READ, Route32PokecenterSign
 	bg_event 12, 67, BGEVENT_ITEM, Route32HiddenGreatBall
 	bg_event 11, 40, BGEVENT_ITEM, Route32HiddenSuperPotion
+	bg_event  4, 24, BGEVENT_READ, Route35ShortcutSign
 
 	def_object_events
 	object_event  8, 49, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherJustin, -1
@@ -961,4 +961,6 @@ Route32_MapEvents:
 	object_event  6, 53, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route32GreatBall, EVENT_ROUTE_32_GREAT_BALL
 	object_event 15, 13, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route32RoarTMGuyScript, -1
 	object_event 12, 67, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FriedaScript, EVENT_ROUTE_32_FRIEDA_OF_FRIDAY
+	object_event  2, 24, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, Route32Twin1Script, EVENT_BEAT_YOUNGSTER_IAN
+	object_event  2, 25, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT, 0, Route32Twin2Script, EVENT_BEAT_YOUNGSTER_IAN
 	object_event  3, 30, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route32Repel, EVENT_ROUTE_32_REPEL

@@ -1,6 +1,7 @@
 	object_const_def
 	const SLOWPOKEWELLB2F_GYM_GUIDE
-	const SLOWPOKEWELLB2F_POKE_BALL
+	const SLOWPOKEWELLB2F_POKE_BALL1
+	const SLOWPOKEWELLB2F_POKE_BALL2
 
 SlowpokeWellB2F_MapScripts:
 	def_scene_scripts
@@ -26,6 +27,9 @@ SlowpokeWellB2FGymGuideScript:
 	waitbutton
 	closetext
 	end
+	
+SlowpokeWellB2FSlowpoketail:
+	itemball SLOWPOKETAIL
 
 SlowpokeWellB2FTMRainDance:
 	itemball TM_RAIN_DANCE
@@ -71,4 +75,5 @@ SlowpokeWellB2F_MapEvents:
 
 	def_object_events
 	object_event  5,  4, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_WANDER, 1, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 1, SlowpokeWellB2FGymGuideScript, -1
+	object_event 10,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SlowpokeWellB2FSlowpoketail, EVENT_SLOWPOKE_WELL_B2F_SLOWPOKETAIL
 	object_event 15,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SlowpokeWellB2FTMRainDance, EVENT_SLOWPOKE_WELL_B2F_TM_RAIN_DANCE

@@ -575,7 +575,6 @@ DefenseDownHit:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
-	effectchance ; bug: duplicate effectchance shouldn't be here
 	defensedown
 	statdownmessage
 	endmove
@@ -1043,6 +1042,16 @@ DoPoison:
 	stab
 	checksafeguard
 	poison
+	endmove
+	
+DoBurn:
+; Ultimate
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	checksafeguard
+	burn
 	endmove
 
 DoParalyze:
@@ -2074,4 +2083,46 @@ DefenseCurl:
 	raisesub
 	statupmessage
 	statupfailtext
+	endmove
+	
+GrassPowderSleep:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	checksafeguard
+	checkgrasstype
+	sleeptarget
+	endmove
+	
+GrassPowderParalyze:
+	checkobedience
+	usedmovetext
+	doturn
+	stab
+	checkhit
+	checksafeguard
+	checkgrasstype
+	paralyze
+	endmove
+	
+RockSlide:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	checkhit
+	effectchance
+	stab
+	damagevariation
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	flinchtarget
 	endmove

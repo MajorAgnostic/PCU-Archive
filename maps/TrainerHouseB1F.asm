@@ -1,6 +1,7 @@
 	object_const_def
 	const TRAINERHOUSEB1F_RECEPTIONIST
 	const TRAINERHOUSEB1F_CHRIS
+	const TRAINERHOUSEB1F_KRIS
 
 TrainerHouseB1F_MapScripts:
 	def_scene_scripts
@@ -24,8 +25,17 @@ TrainerHouseReceptionistScript:
 	sjump .GotName
 
 .GetCal3Name:
+	readvar VAR_WEEKDAY
+	ifequal MONDAY, .GetKris3Name
+	ifequal WEDNESDAY, .GetKris3Name
+	ifequal FRIDAY, .GetKris3Name
 	gettrainername STRING_BUFFER_3, CAL, CAL3
+	sjump .GotName
+.GetKris3Name:
+	gettrainername STRING_BUFFER_3, CRYSTAL, CRYSTAL3
+	sjump .GotName2
 .GotName:
+	disappear TRAINERHOUSEB1F_KRIS
 	writetext TrainerHouseB1FYourOpponentIsText
 	promptbutton
 	writetext TrainerHouseB1FAskWantToBattleText
@@ -48,10 +58,40 @@ TrainerHouseReceptionistScript:
 	startbattle
 	reloadmapafterbattle
 	iffalse .End
+.GotName2:
+	disappear TRAINERHOUSEB1F_CHRIS
+	writetext TrainerHouseB1FYourOpponentIsText
+	promptbutton
+	writetext TrainerHouseB1FAskWantToBattleText
+	yesorno
+	iffalse .Declined
+	setflag ENGINE_FOUGHT_IN_TRAINER_HALL_TODAY
+	writetext TrainerHouseB1FGoRightInText
+	waitbutton
+	closetext
+	applymovement PLAYER, Movement_EnterTrainerHouseBattleRoom
+	opentext
+	writetext TrainerHouseB1FCalBeforeText
+	waitbutton
+	closetext
+	special TrainerHouse
+	iffalse .NoSpecialBattle2
+	winlosstext TrainerHouseB1FCalBeatenText, 0
+	setlasttalked TRAINERHOUSEB1F_CHRIS
+	loadtrainer CRYSTAL, CRYSTAL2
+	startbattle
+	reloadmapafterbattle
+	iffalse .End
 .NoSpecialBattle:
 	winlosstext TrainerHouseB1FCalBeatenText, 0
 	setlasttalked TRAINERHOUSEB1F_CHRIS
 	loadtrainer CAL, CAL3
+	startbattle
+	reloadmapafterbattle
+.NoSpecialBattle2:
+	winlosstext TrainerHouseB1FCalBeatenText, 0
+	setlasttalked TRAINERHOUSEB1F_CHRIS
+	loadtrainer CRYSTAL, CRYSTAL3
 	startbattle
 	reloadmapafterbattle
 .End:
@@ -116,6 +156,12 @@ TrainerHouseB1FIntroText:
 	para "You may battle a"
 	line "trainer once per"
 	cont "day."
+	
+	para "Please bear in"
+	line "mind that these"
+	
+	para "trainers are very"
+	line "strong."
 	done
 
 TrainerHouseB1FYourOpponentIsText:
@@ -181,3 +227,4 @@ TrainerHouseB1F_MapEvents:
 	def_object_events
 	object_event  7,  1, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
 	object_event  6, 11, SPRITE_CHRIS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
+	object_event  6, 11, SPRITE_KRIS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1

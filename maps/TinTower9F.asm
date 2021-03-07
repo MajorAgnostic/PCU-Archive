@@ -7,7 +7,7 @@ TinTower9F_MapScripts:
 	def_callbacks
 
 TinTower9FHPUp:
-	itemball HP_UP
+	itemball GOLD_LEAF
 
 TinTower9FUnusedHoOhText:
 ; unused

@@ -35,7 +35,7 @@ MahoganyRedGyaradosSpeechHouseUnusedBookshelf2:
 	jumpstd MagazineBookshelfScript
 
 MahoganyRedGyaradosSpeechHouseBlackBeltText:
-	text "I heard that a red"
+	text "Apparently, a blue"
 	line "GYARADOS appeared"
 	cont "at the LAKE."
 

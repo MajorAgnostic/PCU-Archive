@@ -35,6 +35,7 @@ KRIS EQU __trainer_class__
 
 	trainerclass BUGSY ; 3
 	const BUGSY1
+	const BUGSY2
 
 	trainerclass MORTY ; 4
 	const MORTY1
@@ -52,26 +53,18 @@ KRIS EQU __trainer_class__
 	const CLAIR1
 
 	trainerclass RIVAL1 ; 9
-	const RIVAL1_1_CHIKORITA
-	const RIVAL1_1_CYNDAQUIL
-	const RIVAL1_1_TOTODILE
-	const RIVAL1_2_CHIKORITA
-	const RIVAL1_2_CYNDAQUIL
-	const RIVAL1_2_TOTODILE
 	const RIVAL1_3_CHIKORITA
 	const RIVAL1_3_CYNDAQUIL
 	const RIVAL1_3_TOTODILE
 	const RIVAL1_4_CHIKORITA
 	const RIVAL1_4_CYNDAQUIL
 	const RIVAL1_4_TOTODILE
-	const RIVAL1_5_CHIKORITA
-	const RIVAL1_5_CYNDAQUIL
-	const RIVAL1_5_TOTODILE
 
 	trainerclass POKEMON_PROF ; a
 
 	trainerclass WILL ; b
 	const WILL1
+	const WILL2
 
 	trainerclass CAL ; c
 	const CAL1
@@ -80,15 +73,19 @@ KRIS EQU __trainer_class__
 
 	trainerclass BRUNO ; d
 	const BRUNO1
+	const BRUNO2
 
 	trainerclass KAREN ; e
 	const KAREN1
+	const KAREN2
 
 	trainerclass KOGA ; f
 	const KOGA1
+	const KOGA2
 
 	trainerclass CHAMPION ; 10
 	const LANCE
+	const LANCE2
 
 	trainerclass BROCK ; 11
 	const BROCK1
@@ -121,7 +118,7 @@ KRIS EQU __trainer_class__
 	const WARREN
 	const JIMMY
 	const OWEN
-	const JASON
+	const TAYLOR
 	const JOEY4
 	const JOEY5
 
@@ -155,7 +152,7 @@ KRIS EQU __trainer_class__
 	const ROD
 	const ABE
 	const BRYAN
-	const THEO
+	const KIRT
 	const TOBY
 	const DENIS
 	const VANCE1
@@ -215,6 +212,7 @@ KRIS EQU __trainer_class__
 	const STEVE
 	const ALLEN
 	const DARIN
+	const CHRIST
 
 	trainerclass COOLTRAINERF ; 1c
 	const GWEN
@@ -347,6 +345,8 @@ KRIS EQU __trainer_class__
 	const ARNIE4
 	const ARNIE5
 	const WAYNE
+	const TOBIAS
+	const ADAM
 
 	trainerclass FISHER ; 25
 	const JUSTIN
@@ -418,6 +418,7 @@ KRIS EQU __trainer_class__
 	const NIKKI
 	const DIANA
 	const BRIANA
+	const CLAIRE
 
 	trainerclass SAILOR ; 28
 	const EUGENE
@@ -449,8 +450,12 @@ KRIS EQU __trainer_class__
 	const NORTON
 	const HUGH
 	const MARKUS
+	const BRADY
 
 	trainerclass RIVAL2 ; 2a
+	const RIVAL2_5_CHIKORITA
+	const RIVAL2_5_CYNDAQUIL
+	const RIVAL2_5_TOTODILE
 	const RIVAL2_1_CHIKORITA
 	const RIVAL2_1_CYNDAQUIL
 	const RIVAL2_1_TOTODILE
@@ -496,6 +501,7 @@ KRIS EQU __trainer_class__
 	const RILEY
 	const JOEL
 	const GLENN
+	const GRYPHON
 
 	trainerclass BLAINE ; 2e
 	const BLAINE1
@@ -533,6 +539,7 @@ KRIS EQU __trainer_class__
 	const LUNG
 	const KENJI3
 	const WAI
+	const BOBBY
 
 	trainerclass EXECUTIVEM ; 33
 	const EXECUTIVEM_1
@@ -581,6 +588,7 @@ KRIS EQU __trainer_class__
 	const GINA4
 	const GINA5
 	const TIFFANY4
+	const BETH
 
 	trainerclass CAMPER ; 36
 	const ROLAND
@@ -619,7 +627,7 @@ KRIS EQU __trainer_class__
 	const PING
 	const EDMOND
 	const NEAL
-	const LI
+	const JASON
 	const GAKU
 	const MASA
 	const KOJI
@@ -637,6 +645,8 @@ KRIS EQU __trainer_class__
 	const RONALD
 	const BRAD
 	const DOUGLAS
+	const THEO
+	const JORDAN
 
 	trainerclass POKEFANM ; 3b
 	const WILLIAM
@@ -701,5 +711,24 @@ KRIS EQU __trainer_class__
 
 	trainerclass MYSTICALMAN ; 43
 	const EUSINE
+	
+	trainerclass RIVAL0
+	const RIVAL1_1_CHIKORITA
+	const RIVAL1_1_CYNDAQUIL
+	const RIVAL1_1_TOTODILE
+	const RIVAL1_2_CHIKORITA
+	const RIVAL1_2_CYNDAQUIL
+	const RIVAL1_2_TOTODILE
+	
+	trainerclass CRYSTAL ; c
+	const CRYSTAL1
+	const CRYSTAL2
+	const CRYSTAL3
+	
+	trainerclass NICHOLAS
+	const NICHOLAS1
+	
+	trainerclass ARCHER
+	const ARCHER1
 
 NUM_TRAINER_CLASSES EQU __trainer_class__

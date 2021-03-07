@@ -1,6 +1,6 @@
-CELADONDEPTSTORE6F_FRESH_WATER_PRICE EQU 200
-CELADONDEPTSTORE6F_SODA_POP_PRICE    EQU 300
-CELADONDEPTSTORE6F_LEMONADE_PRICE    EQU 350
+CELADONDEPTSTORE6F_LEMONADE_PRICE    EQU 900
+CELADONDEPTSTORE6F_SODA_POP_PRICE    EQU 750
+CELADONDEPTSTORE6F_FRESH_WATER_PRICE EQU 650
 
 	object_const_def
 	const CELADONDEPTSTORE6F_SUPER_NERD
@@ -30,9 +30,9 @@ CeladonDeptStore6FVendingMachine:
 	loadmenu .MenuHeader
 	verticalmenu
 	closewindow
-	ifequal 1, .FreshWater
+	ifequal 1, .Lemonade
 	ifequal 2, .SodaPop
-	ifequal 3, .Lemonade
+	ifequal 3, .FreshWater
 	closetext
 	end
 
@@ -90,9 +90,9 @@ CeladonDeptStore6FVendingMachine:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
-	db "FRESH WATER  ¥200@"
-	db "SODA POP     ¥300@"
-	db "LEMONADE     ¥350@"
+	db "LEMONADE     ¥900@"
+	db "SODA POP     ¥750@"
+	db "FRESH WATER  ¥650@"
 	db "CANCEL@"
 
 CeladonDeptStore6FDirectory:

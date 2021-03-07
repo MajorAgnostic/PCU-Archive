@@ -37,9 +37,9 @@ JoeyLostAMonText:
 	line "going for it, but"
 
 	para "I decided to work"
-	line "with my one-and-"
+	line "with my favourite"
 
-	para "only right to the"
+	para "two right to the"
 	line "extreme end."
 	done
 

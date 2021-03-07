@@ -11,17 +11,6 @@ Route37_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, .Sunny
-
-.Sunny:
-	readvar VAR_WEEKDAY
-	ifequal SUNDAY, .SunnyAppears
-	disappear ROUTE37_SUNNY
-	endcallback
-
-.SunnyAppears:
-	appear ROUTE37_SUNNY
-	endcallback
 
 TrainerTwinsAnnandanne1:
 	trainer TWINS, ANNANDANNE1, EVENT_BEAT_TWINS_ANN_AND_ANNE, TwinsAnnandanne1SeenText, TwinsAnnandanne1BeatenText, 0, .Script
@@ -61,23 +50,8 @@ SunnyScript:
 	opentext
 	checkevent EVENT_GOT_MAGNET_FROM_SUNNY
 	iftrue SunnySundayScript
-	readvar VAR_WEEKDAY
-	ifnotequal SUNDAY, SunnyNotSundayScript
-	checkevent EVENT_MET_SUNNY_OF_SUNDAY
-	iftrue .MetSunny
-	writetext MeetSunnyText
+	writetext SunnyGivesGiftText
 	promptbutton
-	setevent EVENT_MET_SUNNY_OF_SUNDAY
-.MetSunny:
-	checkflag ENGINE_PLAYER_IS_FEMALE
-	iftrue .Kris
-	writetext SunnyGivesGiftText1
-	promptbutton
-	sjump .next
-.Kris:
-	writetext SunnyGivesGiftText2
-	promptbutton
-.next
 	verbosegiveitem MAGNET
 	iffalse SunnyDoneScript
 	setevent EVENT_GOT_MAGNET_FROM_SUNNY
@@ -87,8 +61,13 @@ SunnyScript:
 	end
 
 SunnySundayScript:
+	readvar VAR_WEEKDAY
+	ifnotequal SUNDAY, SunnyNotSundayScript
 	writetext SunnySundayText
 	waitbutton
+	closetext
+	end
+	
 SunnyDoneScript:
 	closetext
 	end
@@ -179,13 +158,7 @@ MeetSunnyText:
 	cont "Sunday today!"
 	done
 
-SunnyGivesGiftText1:
-	text "I was told to give"
-	line "you this if I saw"
-	cont "you!"
-	done
-
-SunnyGivesGiftText2:
+SunnyGivesGiftText:
 	text "I was told to give"
 	line "you this if I saw"
 	cont "you!"
@@ -210,8 +183,7 @@ SunnyGaveGiftText:
 	line "it."
 
 	para "My sis MONICA said"
-	line "it powers up"
-	cont "electric moves!"
+	line "it powers them up!"
 	done
 
 SunnySundayText:

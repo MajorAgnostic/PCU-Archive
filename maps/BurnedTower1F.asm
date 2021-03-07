@@ -3,6 +3,8 @@
 	const BURNEDTOWER1F_EUSINE
 	const BURNEDTOWER1F_SILVER
 	const BURNEDTOWER1F_MORTY
+	const BURNEDTOWER1F_FISHER1
+	const BURNEDTOWER1F_FISHER2
 	const BURNEDTOWER1F_POKE_BALL
 
 BurnedTower1F_MapScripts:
@@ -45,6 +47,28 @@ BurnedTower1F_MapScripts:
 	closetext
 	moveobject BURNEDTOWER1F_EUSINE, 9, 14
 	setscene SCENE_BURNEDTOWER1F_RIVAL_BATTLE
+	end
+	
+TrainerFirebreatherNed:
+	trainer FIREBREATHER, NED, EVENT_BEAT_FIREBREATHER_NED, FirebreatherNedSeenText, FirebreatherNedBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext FirebreatherNedAfterBattleText
+	waitbutton
+	closetext
+	end
+	
+TrainerFirebreatherDick:
+	trainer FIREBREATHER, DICK, EVENT_BEAT_FIREBREATHER_DICK, FirebreatherDickSeenText, FirebreatherDickBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext FirebreatherDickAfterBattleText
+	waitbutton
+	closetext
 	end
 
 BurnedTowerRivalBattleScript:
@@ -135,7 +159,7 @@ BurnedTower1FHiddenUltraBall:
 	hiddenitem ULTRA_BALL, EVENT_BURNED_TOWER_1F_HIDDEN_ULTRA_BALL
 
 BurnedTower1FHPUp:
-	itemball HP_UP
+	itemball HYPER_POTION
 
 BurnedTowerMovement_PlayerWalksToSilver:
 	step LEFT
@@ -274,6 +298,57 @@ BurnedTower1FMortyText:
 	para "investigate the"
 	line "TOWER with him."
 	done
+	
+FirebreatherNedSeenText:
+	text "My soul is on"
+	line "fire. I'll show"
+	
+	para "you how hot it"
+	line "burns!"
+	done
+
+FirebreatherNedBeatenText:
+	text "Still not hot"
+	line "enough…"
+	done
+
+FirebreatherNedAfterBattleText:
+	text "In the past, there"
+	line "were these #MON"
+	
+	para "that ran through"
+	line "grass at super-"
+	
+	para "high speeds. They"
+	line "say that they run"
+	cont "like the wind."
+	
+	para "If you run into"
+	line "one in grass, it"
+	cont "will likely bolt."
+	done
+	
+FirebreatherDickSeenText:
+	text "Hey, I'm training"
+	line "secretly here!"
+	
+	para "Don't embarrass me"
+	line "by looking!"
+	done
+
+FirebreatherDickBeatenText:
+	text "I burned down to"
+	line "white ashes…"
+	done
+
+FirebreatherDickAfterBattleText:
+	text "I was so into my"
+	line "training that I"
+	
+	para "fell down this"
+	line "ho- …wait, wrong"
+	cont "game."
+	done
 
 BurnedTower1F_MapEvents:
 	db 0, 0 ; filler
@@ -303,7 +378,9 @@ BurnedTower1F_MapEvents:
 
 	def_object_events
 	object_event 15,  4, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BurnedTower1FRock, -1
-	object_event 12, 12, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BurnedTower1FEusineScript, EVENT_BURNED_TOWER_1F_EUSINE
+	object_event 12, 12, SPRITE_EUSINE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, BurnedTower1FEusineScript, EVENT_BURNED_TOWER_1F_EUSINE
 	object_event  8,  9, SPRITE_SILVER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, ObjectEvent, EVENT_RIVAL_BURNED_TOWER
 	object_event 14, 14, SPRITE_MORTY, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, BurnedTower1FMortyScript, EVENT_BURNED_TOWER_MORTY
 	object_event 14,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, BurnedTower1FHPUp, EVENT_BURNED_TOWER_1F_HP_UP
+	object_event  8,  3, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerFirebreatherNed, -1
+	object_event 17,  6, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerFirebreatherDick, -1

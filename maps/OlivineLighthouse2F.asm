@@ -23,7 +23,6 @@ TrainerSailorHuey:
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_SAILOR_HUEY
-	endifjustbattled
 	opentext
 	checkflag ENGINE_HUEY_READY_FOR_REMATCH
 	iftrue .WantsBattle
@@ -48,21 +47,12 @@ TrainerSailorHuey:
 .WantsBattle:
 	scall .Rematch
 	winlosstext SailorHueyBeatenText, 0
-	readmem wHueyFightCount
-	ifequal 3, .Fight3
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight3:
-	checkevent EVENT_RESTORED_POWER_TO_KANTO
+	checkflag ENGINE_FLYPOINT_BLACKTHORN
 	iftrue .LoadFight3
-.Fight2:
-	checkevent EVENT_BEAT_ELITE_FOUR
+	checkevent EVENT_CLEARED_ROCKET_HIDEOUT
 	iftrue .LoadFight2
-.Fight1:
-	checkevent EVENT_CLEARED_RADIO_TOWER
+	checkflag ENGINE_FLYPOINT_CIANWOOD
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer SAILOR, HUEY1
 	startbattle
 	reloadmapafterbattle
@@ -96,7 +86,7 @@ TrainerSailorHuey:
 	checkevent EVENT_GOT_PROTEIN_FROM_HUEY
 	iftrue .SkipGift
 	scall .RematchGift
-	verbosegiveitem PROTEIN
+	verbosegiveitem BERRY_JUICE
 	iffalse .PackFull
 	setevent EVENT_GOT_PROTEIN_FROM_HUEY
 	sjump .NumberAccepted
@@ -108,7 +98,7 @@ TrainerSailorHuey:
 	opentext
 	writetext SailorHueyGiveProteinText
 	waitbutton
-	verbosegiveitem PROTEIN
+	verbosegiveitem BERRY_JUICE
 	iffalse .PackFull
 	clearevent EVENT_HUEY_PROTEIN
 	setevent EVENT_GOT_PROTEIN_FROM_HUEY

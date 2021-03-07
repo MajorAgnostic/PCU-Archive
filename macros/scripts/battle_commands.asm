@@ -52,6 +52,7 @@ ENDM
 	command transform               ; 2d
 	command screen                  ; 2e
 	command poison                  ; 2f
+	command burn                    ; Ultimate
 	command paralyze                ; 30
 	command substitute              ; 31
 	command rechargenextturn        ; 32
@@ -180,6 +181,7 @@ ENDM
 	command supereffectivelooptext  ; ad
 	command startloop               ; ae
 	command curl                    ; af
+	command checkgrasstype          ; Ultimate
 
 	const_def -1, -1
 	command endmove                 ; ff

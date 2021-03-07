@@ -69,3 +69,7 @@ TrainerPicPointers::
 	dba_pic OfficerPic
 	dba_pic GruntfPic
 	dba_pic MysticalmanPic
+	dba_pic Rival1Pic
+	dba_pic CrystalPic
+	dba_pic NicholasPic
+	dba_pic ArcherPic

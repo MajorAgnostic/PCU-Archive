@@ -174,7 +174,7 @@ DragonShrineSignpost:
 	jumptext DragonShrineSignpostText
 
 DragonsDenB1FCalcium:
-	itemball CALCIUM
+	itemball BIG_PEARL
 
 DragonsDenB1FMaxElixer:
 	itemball MAX_ELIXER
@@ -345,17 +345,15 @@ CooltrainerfCaraBeatenText:
 	done
 
 CooltrainerfCaraAfterBattleText:
-	text "Soon I'm going to"
-	line "get permission"
+	text "I finally got per-"
+	line "mission from our"
 
-	para "from our MASTER to"
-	line "use dragons."
+	para "MASTER to use dra-"
+	line "gons."
 
-	para "When I do, I'm"
-	line "going to become an"
-
-	para "admirable dragon"
-	line "trainer and gain"
+	para "I'm going to be an"
+	line "admirable dragon"
+	cont "trainer and gain"
 
 	para "our MASTER's"
 	line "approval."

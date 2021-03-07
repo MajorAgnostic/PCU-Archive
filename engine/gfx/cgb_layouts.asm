@@ -650,9 +650,10 @@ _CGB_TrainerCard:
 	ld a, PRYCE
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, PREDEFPAL_CGB_BADGE
-	call GetPredefPal
-	call LoadHLPaletteIntoDE
+	ld hl, .BadgePalettes
+	ld bc, 8 palettes
+	ld a, BANK(wOBPals1)
+	call FarCopyWRAM
 
 	; fill screen with opposite-gender palette for the card border
 	hlcoord 0, 0, wAttrmap
@@ -677,32 +678,32 @@ _CGB_TrainerCard:
 	; top-right corner still uses the border's palette
 	hlcoord 18, 1, wAttrmap
 	ld [hl], $1
-	hlcoord 2, 11, wAttrmap
-	lb bc, 2, 4
+	hlcoord 3, 10, wAttrmap
+	lb bc, 3, 3
 	ld a, $1 ; falkner
 	call FillBoxCGB
-	hlcoord 6, 11, wAttrmap
-	lb bc, 2, 4
+	hlcoord 7, 10, wAttrmap
+	lb bc, 3, 3
 	ld a, $2 ; bugsy
 	call FillBoxCGB
-	hlcoord 10, 11, wAttrmap
-	lb bc, 2, 4
+	hlcoord 11, 10, wAttrmap
+	lb bc, 3, 3
 	ld a, $3 ; whitney
 	call FillBoxCGB
-	hlcoord 14, 11, wAttrmap
-	lb bc, 2, 4
+	hlcoord 15, 10, wAttrmap
+	lb bc, 3, 3
 	ld a, $4 ; morty
 	call FillBoxCGB
-	hlcoord 2, 14, wAttrmap
-	lb bc, 2, 4
+	hlcoord 3, 13, wAttrmap
+	lb bc, 3, 3
 	ld a, $5 ; chuck
 	call FillBoxCGB
-	hlcoord 6, 14, wAttrmap
-	lb bc, 2, 4
+	hlcoord 7, 13, wAttrmap
+	lb bc, 3, 3
 	ld a, $6 ; jasmine
 	call FillBoxCGB
-	hlcoord 10, 14, wAttrmap
-	lb bc, 2, 4
+	hlcoord 11, 13, wAttrmap
+	lb bc, 3, 3
 	ld a, $7 ; pryce
 	call FillBoxCGB
 	; clair uses kris's palette
@@ -710,8 +711,8 @@ _CGB_TrainerCard:
 	and a
 	push af
 	jr z, .got_gender3
-	hlcoord 14, 14, wAttrmap
-	lb bc, 2, 4
+	hlcoord 15, 13, wAttrmap
+	lb bc, 3, 3
 	ld a, $1
 	call FillBoxCGB
 .got_gender3
@@ -728,6 +729,9 @@ _CGB_TrainerCard:
 	ld a, $1
 	ldh [hCGBPalUpdate], a
 	ret
+	
+.BadgePalettes:
+INCLUDE "gfx/trainer_card/johto_badges.pal"
 
 _CGB_MoveList:
 	ld de, wBGPals1

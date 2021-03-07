@@ -16,7 +16,7 @@ GiveDratini:
 .CheckForDratini:
 ; start at the end of the party and search backwards for a Dratini
 	ld a, [hl]
-	cp DRATINI
+	cp DRAGONAIR
 	jr z, .GiveMoveset
 	ld a, l
 	sub e
@@ -71,17 +71,17 @@ GiveDratini:
 .Movesets:
 .Moveset0:
 ; Dratini does not normally learn Extremespeed. This is a special gift.
-	db WRAP
-	db THUNDER_WAVE
 	db TWISTER
+	db THUNDER_WAVE
+	db AGILITY
 	db EXTREMESPEED
 	db 0
 .Moveset1:
 ; This is the normal moveset of a level 15 Dratini
-	db WRAP
-	db LEER
-	db THUNDER_WAVE
 	db TWISTER
+	db THUNDER_WAVE
+	db AGILITY
+	db SLAM
 	db 0
 
 .GetNthPartyMon:

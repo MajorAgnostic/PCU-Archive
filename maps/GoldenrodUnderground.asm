@@ -458,8 +458,9 @@ SupernerdTeruAfterBattleText:
 	text "I know my #MON"
 	line "type alignments."
 
-	para "But I only use one"
-	line "type of #MON."
+	para "But my #MON are"
+	line "mostly weak to the"
+	cont "same type…"
 	done
 
 PokemaniacIssacSeenText:

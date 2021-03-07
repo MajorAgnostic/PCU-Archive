@@ -152,12 +152,25 @@ EcruteakPokecenter1F_BillText2:
 
 	para "running at all"
 	line "#MON CENTERS."
+	
+	para "Oh, I could also"
+	line "use a favour from"
+	
+	para "a #MON trainer"
+	line "like you. If you"
+
+	para "help me out with a"
+	line "little something,"
+	cont "I'll let you try"
+	
+	para "out one of my new"
+	line "prototypes!"
 
 	para "I have to hurry on"
 	line "back to GOLDENROD"
 	cont "and see my folks."
 
-	para "Buh-bye!"
+	para "Drop by soon!"
 	done
 
 EcruteakPokecenter1FPokefanMText:

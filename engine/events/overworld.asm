@@ -289,7 +289,7 @@ FlashFunction:
 	pop hl
 	jr c, .useflash
 	ld a, [wTimeOfDayPalset]
-	cp %11111111 ; 3, 3, 3, 3
+	cp DARKNESS_PALSET
 	jr nz, .notadarkcave
 .useflash
 	call UseFlash
@@ -1619,6 +1619,29 @@ RodNothingText:
 UnusedNothingHereText: ; unused
 	text_far _UnusedNothingHereText
 	text_end
+	
+PocketPCFunction:
+	call .LoadPocketPC
+	and $7f
+	ld [wFieldMoveSucceeded], a
+	ret
+	
+.LoadPocketPC:
+	ld a, [wPlayerState]
+	ld hl, Script_LoadPocketPC
+	ld de, Script_LoadPocketPC_Register
+	call .CheckIfRegistered
+	call QueueScript
+	ld a, $1
+	ret
+	
+.CheckIfRegistered:
+	ld a, [wUsingItemWithSelect]
+	and a
+	ret z
+	ld h, d
+	ld l, e
+	ret
 
 BikeFunction:
 	call .TryBike
@@ -1691,6 +1714,8 @@ BikeFunction:
 	jr z, .ok
 	cp CAVE
 	jr z, .ok
+	cp ENVIRONMENT_5
+	jr z, .ok
 	cp GATE
 	jr z, .ok
 	jr .nope
@@ -1705,6 +1730,18 @@ BikeFunction:
 .nope
 	scf
 	ret
+
+Script_LoadPocketPC:
+	reloadmappart
+	special UpdateTimePals
+	special PocketPC
+	reloadmappart
+	end
+
+Script_LoadPocketPC_Register:
+	special PocketPC
+	reloadmappart
+	end
 
 Script_GetOnBike:
 	reloadmappart

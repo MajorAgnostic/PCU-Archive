@@ -113,15 +113,19 @@ INIT_MON_LIST        EQU 5
 	const MORN_F     ; 0
 	const DAY_F      ; 1
 	const NITE_F     ; 2
-	const DARKNESS_F ; 3
+	const EVE_F      ; 3
 NUM_DAYTIMES EQU const_value
 
 MORN     EQU 1 << MORN_F
 DAY      EQU 1 << DAY_F
 NITE     EQU 1 << NITE_F
-DARKNESS EQU 1 << DARKNESS_F
+EVE      EQU 1 << EVE_F
 
-ANYTIME EQU MORN | DAY | NITE
+ANYTIME EQU MORN | DAY | EVE | NITE
+
+; wTimeOfDayPalset::
+; Must be different from any in ReplaceTimeOfDayPals.BrightnessLevels
+DARKNESS_PALSET EQU (MORN_F << 6) | (DAY_F << 4) | (EVE_F << 2) | NITE_F
 
 ; wBattleAnimFlags::
 	const_def
@@ -178,7 +182,7 @@ SPAWN_RED   EQU 2
 
 ; wMapObjects::
 PLAYER_OBJECT EQU 0
-NUM_OBJECTS   EQU 16
+NUM_OBJECTS   EQU 18
 
 ; wStatusFlags::
 	const_def

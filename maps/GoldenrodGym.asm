@@ -32,6 +32,7 @@ GoldenrodGymWhitneyScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_WHITNEY
+	clearevent EVENT_HOMEPPUP
 	setevent EVENT_MADE_WHITNEY_CRY
 	setscene SCENE_GOLDENRODGYM_WHITNEY_STOPS_CRYING
 	setevent EVENT_BEAT_BEAUTY_VICTORIA
@@ -240,10 +241,6 @@ WhitneyPlainBadgeText:
 	para "STRENGTH outside"
 	line "of battle."
 
-	para "It also boosts"
-	line "your #MON's"
-	cont "SPEED."
-
 	para "Oh, you can have"
 	line "this too!"
 	done
@@ -369,6 +366,10 @@ GoldenrodGymGuideText:
 	para "I recommend you"
 	line "use fighting-type"
 	cont "#MON."
+	
+	para "You just have to"
+	line "take the bull by"
+	cont "the horns!"
 	done
 
 GoldenrodGymGuideWinText:

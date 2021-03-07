@@ -193,7 +193,7 @@ VermilionPortSuperNerdScript:
 	end
 
 VermilionPortHiddenIron:
-	hiddenitem IRON, EVENT_VERMILION_PORT_HIDDEN_IRON
+	hiddenitem MAX_REVIVE, EVENT_VERMILION_PORT_HIDDEN_IRON
 
 MovementData_0x74ef1:
 	step DOWN

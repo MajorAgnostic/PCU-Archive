@@ -67,6 +67,7 @@ MoveEffectsPointers:
 	dw EvasionDown2
 	dw Reflect
 	dw DoPoison
+	dw DoBurn
 	dw DoParalyze
 	dw AttackDownHit
 	dw DefenseDownHit
@@ -157,3 +158,6 @@ MoveEffectsPointers:
 	dw BeatUp
 	dw Fly
 	dw DefenseCurl
+	dw GrassPowderSleep ; Ultimate-only
+	dw GrassPowderParalyze
+	dw RockSlide

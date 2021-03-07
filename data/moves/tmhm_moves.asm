@@ -31,6 +31,21 @@ n = n + 1
 endr
 
 ; Move tutor
+	db FLAMETHROWER
+	db THUNDERBOLT
+	db ICE_BEAM
+	db ROCK_SLIDE
+	db SWORDS_DANCE
+	db BODY_SLAM
+	db DOUBLE_EDGE
+	db SUBMISSION
+	db COUNTER
+	db SEISMIC_TOSS
+	db FISSURE
+	db REFLECT
+	db THUNDER_WAVE
+	db EXPLOSION
+	db SUBSTITUTE
 n = 1
 rept NUM_TUTORS
 if n < 10

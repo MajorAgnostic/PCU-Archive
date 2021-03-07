@@ -174,6 +174,7 @@ PowerPlantManager:
 	verbosegiveitem TM_ZAP_CANNON
 	iffalse .NoRoom
 	setevent EVENT_GOT_TM07_ZAP_CANNON
+	clearevent EVENT_HOMEBRICKPIECE
 	writetext PowerPlantManagerTM07IsZapCannonText
 	waitbutton
 .NoRoom:

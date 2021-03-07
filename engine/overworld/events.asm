@@ -941,9 +941,17 @@ DoRepelStep:
 	dec a
 	ld [wRepelEffect], a
 	ret nz
-
+	
+	ld a, [wRepelType]
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
 	ld a, BANK(RepelWoreOffScript)
 	ld hl, RepelWoreOffScript
+	jr nc, .got_script
+	ld a, BANK(UseAnotherRepelScript)
+	ld hl, UseAnotherRepelScript
+.got_script
 	call CallScript
 	scf
 	ret
@@ -1174,6 +1182,8 @@ CanUseSweetScent::
 	jr nz, .no
 	ld a, [wEnvironment]
 	cp CAVE
+	jr z, .ice_check
+	cp ENVIRONMENT_5
 	jr z, .ice_check
 	cp DUNGEON
 	jr z, .ice_check

@@ -61,13 +61,18 @@ CianwoodGymGuideText:
 
 	para "So you should"
 	line "confound him with"
-	cont "psychic #MON."
+	cont "psychic #MON,"
+	cont "but be careful!"
 
-	para "Wipe out his #-"
-	line "MON before they"
+	para "He has a #MON"
+	line "that can knock"
 
-	para "can use their"
-	line "physical strength."
+	para "them out in an"
+	line "instant!"
+	
+	para "Another one holds"
+	line "some sort of CLAW,"
+	cont "as well."
 
 	para "And those boulders"
 	line "in the middle of"

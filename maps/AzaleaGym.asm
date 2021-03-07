@@ -21,6 +21,8 @@ AzaleaGymBugsyScript:
 	waitbutton
 	closetext
 	winlosstext BugsyText_ResearchIncomplete, 0
+	checkevent EVENT_GOT_CYNDAQUIL_FROM_ELM
+	iftrue .CyndaquilBugsy
 	loadtrainer BUGSY, BUGSY1
 	startbattle
 	reloadmapafterbattle
@@ -33,6 +35,34 @@ AzaleaGymBugsyScript:
 	readvar VAR_BADGES
 	scall AzaleaGymActivateRockets
 .FightDone:
+	checkevent EVENT_GOT_TM49_FURY_CUTTER
+	iftrue .GotFuryCutter
+	setevent EVENT_BEAT_TWINS_AMY_AND_MAY
+	setevent EVENT_BEAT_BUG_CATCHER_BENNY
+	setevent EVENT_BEAT_BUG_CATCHER_AL
+	setevent EVENT_BEAT_BUG_CATCHER_JOSH
+	writetext BugsyText_HiveBadgeSpeech
+	promptbutton
+	verbosegiveitem TM_FURY_CUTTER
+	iffalse .NoRoomForFuryCutter
+	setevent EVENT_GOT_TM49_FURY_CUTTER
+	writetext BugsyText_FuryCutterSpeech
+	waitbutton
+	closetext
+	end
+	
+.CyndaquilBugsy:
+	loadtrainer BUGSY, BUGSY2
+	startbattle
+	reloadmapafterbattle
+	setevent EVENT_BEAT_BUGSY
+	opentext
+	writetext Text_ReceivedHiveBadge
+	playsound SFX_GET_BADGE
+	waitsfx
+	setflag ENGINE_HIVEBADGE
+	readvar VAR_BADGES
+	scall AzaleaGymActivateRockets
 	checkevent EVENT_GOT_TM49_FURY_CUTTER
 	iftrue .GotFuryCutter
 	setevent EVENT_BEAT_TWINS_AMY_AND_MAY
@@ -344,7 +374,12 @@ AzaleaGymGuideText:
 
 	para "Flying-type moves"
 	line "are super-effec-"
-	cont "tive too."
+	
+	para "tive too. But they"
+	line "won't work as well"
+	
+	para "on a certain #-"
+	line "MON of his."
 	done
 
 AzaleaGymGuideWinText:

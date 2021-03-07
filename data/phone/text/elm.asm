@@ -161,9 +161,21 @@ ElmPhoneEggAssistantText:
 ElmPhoneRadioTowerRocketTakeoverText:
 	text "<PLAY_G>, how are"
 	line "things going?"
-
-	para "I called because"
-	line "something weird is"
+	
+	para "I heard that you"
+	line "can find a man in"
+	
+	para "GOLDENROD CITY who"
+	line "teaches powerful"
+	cont "moves to #MON!"
+	
+	para "However, he is not"
+	line "there every day of"
+	cont "the week."
+	
+	para "Oh, almost forgot!"
+	line "I called because"
+	cont "something weird is"
 
 	para "happening with the"
 	line "radio broadcasts."

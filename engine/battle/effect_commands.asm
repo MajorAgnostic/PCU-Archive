@@ -697,7 +697,7 @@ BattleCommand_CheckObedience:
 	jr nz, .getlevel
 
 	; no badges
-	ld a, 10
+	ld a, 15
 
 .getlevel
 ; c = obedience level
@@ -1146,7 +1146,7 @@ BattleCommand_Critical:
 .Item:
 	ld c, 0
 
-	cp CHANSEY
+	cp BLISSEY
 	jr nz, .Farfetchd
 	ld a, [hl]
 	cp LUCKY_PUNCH
@@ -1406,20 +1406,15 @@ BattleCheckTypeMatchup:
 	ld hl, wEnemyMonType1
 	ldh a, [hBattleTurn]
 	and a
-	jr z, CheckTypeMatchup
+	jr z, .get_type
 	ld hl, wBattleMonType1
+.get_type
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVar ; preserves hl, de, and bc
 CheckTypeMatchup:
-; There is an incorrect assumption about this function made in the AI related code: when
-; the AI calls CheckTypeMatchup (not BattleCheckTypeMatchup), it assumes that placing the
-; offensive type in a will make this function do the right thing. Since a is overwritten,
-; this assumption is incorrect. A simple fix would be to load the move type for the
-; current move into a in BattleCheckTypeMatchup, before falling through, which is
-; consistent with how the rest of the code assumes this code works like.
 	push hl
 	push de
 	push bc
-	ld a, BATTLE_VARS_MOVE_TYPE
-	call GetBattleVar
 	ld d, a
 	ld b, [hl]
 	inc hl
@@ -1573,8 +1568,14 @@ BattleCommand_CheckHit:
 
 	call .FlyDigMoves
 	jp nz, .Miss
+	
+	call .Stomp
+    ret nz
 
 	call .ThunderRain
+	ret z
+	
+	call .RockSlideSandstorm
 	ret z
 
 	call .XAccuracy
@@ -1752,6 +1753,27 @@ BattleCommand_CheckHit:
 	ret z
 	cp MAGNITUDE
 	ret
+	
+.Stomp:
+; New: made it so STOMP never misses minimized foes; thanks to Electro for their help
+    ld a, BATTLE_VARS_MOVE_EFFECT
+    call GetBattleVar
+    cp EFFECT_STOMP
+    jr nz, .not_stomp
+
+    ld hl, wEnemyMinimized
+    ldh a, [hBattleTurn]
+    and a
+    jr z, .got_minimized
+    ld hl, wPlayerMinimized
+.got_minimized
+    ld a, [hl]
+    and a
+    ret ; will return nz if it's minimized
+
+.not_stomp
+    xor a
+    ret ; return with z
 
 .ThunderRain:
 ; Return z if the current move always hits in rain, and it is raining.
@@ -1762,6 +1784,17 @@ BattleCommand_CheckHit:
 
 	ld a, [wBattleWeather]
 	cp WEATHER_RAIN
+	ret
+	
+.RockSlideSandstorm:
+; Return z if the current move always hits in a sandstorm, and one is brewing.
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_ROCK_SLIDE
+	ret nz
+
+	ld a, [wBattleWeather]
+	cp WEATHER_SANDSTORM
 	ret
 
 .XAccuracy:
@@ -1879,9 +1912,11 @@ BattleCommand_EffectChance:
 	ld hl, wEnemyMoveStruct + MOVE_CHANCE
 .got_move_chance
 
-	; BUG: 1/256 chance to fail even for a 100% effect chance,
-	; since carry is not set if BattleRandom == [hl] == 255
-	call BattleRandom
+	ld a, [hl]
+	sub 100 percent
+	; If chance was 100%, RNG won't be called (carry not set)
+	; Thus chance will be subtracted from 0, guaranteeing a carry
+	call c, BattleRandom
 	cp [hl]
 	pop hl
 	ret c
@@ -2115,6 +2150,8 @@ BattleCommand_FailureText:
 	cp EFFECT_DOUBLE_HIT
 	jr z, .multihit
 	cp EFFECT_POISON_MULTI_HIT
+	jr z, .multihit
+	cp EFFECT_BEAT_UP
 	jr z, .multihit
 	jp EndMoveEffect
 
@@ -2560,6 +2597,17 @@ DittoMetalPowder:
 .done
 	scf
 	rr c
+	
+	ld a, HIGH(MAX_STAT_VALUE)
+	cp b
+	jr c, .cap
+	ret nz
+	ld a, LOW(MAX_STAT_VALUE)
+	cp c
+	ret nc
+
+.cap
+	ld bc, MAX_STAT_VALUE
 	ret
 
 BattleCommand_DamageStats:
@@ -2684,9 +2732,6 @@ TruncateHL_BC:
 	inc l
 
 .finish
-	ld a, [wLinkMode]
-	cp LINK_COLOSSEUM
-	jr z, .done
 ; If we go back to the loop point,
 ; it's the same as doing this exact
 ; same check twice.
@@ -2694,7 +2739,6 @@ TruncateHL_BC:
 	or b
 	jr nz, .loop
 
-.done
 	ld b, l
 	ret
 
@@ -2812,6 +2856,17 @@ SpeciesItemBoost:
 ; Double the stat
 	sla l
 	rl h
+
+	ld a, HIGH(MAX_STAT_VALUE)
+	cp h
+	jr c, .cap
+	ret nz
+	ld a, LOW(MAX_STAT_VALUE)
+	cp l
+	ret nc
+
+.cap
+	ld hl, MAX_STAT_VALUE
 	ret
 
 EnemyAttackDamage:
@@ -3641,8 +3696,6 @@ BattleCommand_SleepTarget:
 	jp nz, PrintDidntAffect2
 
 	ld hl, DidntAffect1Text
-	call .CheckAIRandomFail
-	jr c, .fail
 
 	ld a, [de]
 	and a
@@ -3682,34 +3735,6 @@ BattleCommand_SleepTarget:
 	call AnimateFailedMove
 	pop hl
 	jp StdBattleTextbox
-
-.CheckAIRandomFail:
-	; Enemy turn
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .dont_fail
-
-	; Not in link battle
-	ld a, [wLinkMode]
-	and a
-	jr nz, .dont_fail
-
-	ld a, [wInBattleTowerBattle]
-	and a
-	jr nz, .dont_fail
-
-	; Not locked-on by the enemy
-	ld a, [wPlayerSubStatus5]
-	bit SUBSTATUS_LOCK_ON, a
-	jr nz, .dont_fail
-
-	call BattleRandom
-	cp 25 percent + 1 ; 25% chance AI fails
-	ret c
-
-.dont_fail
-	xor a
-	ret
 
 BattleCommand_PoisonTarget:
 ; poisontarget
@@ -3781,27 +3806,6 @@ BattleCommand_Poison:
 	and a
 	jr nz, .failed
 
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .dont_sample_failure
-
-	ld a, [wLinkMode]
-	and a
-	jr nz, .dont_sample_failure
-
-	ld a, [wInBattleTowerBattle]
-	and a
-	jr nz, .dont_sample_failure
-
-	ld a, [wPlayerSubStatus5]
-	bit SUBSTATUS_LOCK_ON, a
-	jr nz, .dont_sample_failure
-
-	call BattleRandom
-	cp 25 percent + 1 ; 25% chance AI fails
-	jr c, .failed
-
-.dont_sample_failure
 	call CheckSubstituteOpp
 	jr nz, .failed
 	ld a, [wAttackMissed]
@@ -3872,6 +3876,88 @@ PoisonOpponent:
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	set PSN, [hl]
+	jp UpdateOpponentInParty
+	
+BattleCommand_Burn:
+; burn
+
+	ld hl, DoesntAffectText
+	ld a, [wTypeModifier]
+	and $7f
+	jp z, .failed
+
+	call CheckIfTargetIsFireType
+	jp z, .failed
+
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVar
+	ld b, a
+	ld hl, AlreadyBurnedText
+	and 1 << BRN
+	jp nz, .failed
+
+	call GetOpponentItem
+	ld a, b
+	cp HELD_PREVENT_BURN
+	jr nz, .do_burn
+	ld a, [hl]
+	ld [wNamedObjectIndexBuffer], a
+	call GetItemName
+	ld hl, ProtectedByText
+	jr .failed
+
+.do_burn
+	ld hl, DidntAffect1Text
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVar
+	and a
+	jr nz, .failed
+
+	call CheckSubstituteOpp
+	jr nz, .failed
+	ld a, [wAttackMissed]
+	and a
+	jr nz, .failed
+
+	call .apply_burn
+	ld hl, WasBurnedText
+	call StdBattleTextbox
+	jr .finished
+
+.finished
+	farcall UseHeldStatusHealingItem
+	ret
+
+.failed
+	push hl
+	call AnimateFailedMove
+	pop hl
+	jp StdBattleTextbox
+
+.apply_burn
+	call AnimateCurrentMove
+	call BurnOpponent
+	jp RefreshBattleHuds
+
+CheckIfTargetIsFireType:
+	ld de, wEnemyMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .ok
+	ld de, wBattleMonType1
+.ok
+	ld a, [de]
+	inc de
+	cp FIRE
+	ret z
+	ld a, [de]
+	cp FIRE
+	ret
+
+BurnOpponent:
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVarAddr
+	set BRN, [hl]
 	jp UpdateOpponentInParty
 
 BattleCommand_DrainTarget:
@@ -4432,41 +4518,12 @@ BattleCommand_StatDown:
 ; Sharply lower the stat if applicable.
 	ld a, [wLoweredStat]
 	and $f0
-	jr z, .ComputerMiss
+	jr z, .GotAmountToLower
 	dec b
-	jr nz, .ComputerMiss
+	jr nz, .GotAmountToLower
 	inc b
 
-.ComputerMiss:
-; Computer opponents have a 25% chance of failing.
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .DidntMiss
-
-	ld a, [wLinkMode]
-	and a
-	jr nz, .DidntMiss
-
-	ld a, [wInBattleTowerBattle]
-	and a
-	jr nz, .DidntMiss
-
-; Lock-On still always works.
-	ld a, [wPlayerSubStatus5]
-	bit SUBSTATUS_LOCK_ON, a
-	jr nz, .DidntMiss
-
-; Attacking moves that also lower accuracy are unaffected.
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
-	cp EFFECT_ACCURACY_DOWN_HIT
-	jr z, .DidntMiss
-
-	call BattleRandom
-	cp 25 percent + 1 ; 25% chance AI fails
-	jr c, .Failed
-
-.DidntMiss:
+.GotAmountToLower:
 	call CheckSubstituteOpp
 	jr nz, .Failed
 
@@ -4846,6 +4903,38 @@ BattleCommand_Curl:
 	call GetBattleVarAddr
 	set SUBSTATUS_CURLED, [hl]
 	ret
+	
+BattleCommand_CheckGrassType:
+; checkgrasstype - new to Ultimate
+    ld a, [wTypeModifier]
+    and $7f
+    jp z, .failed
+
+    call CheckIfTargetIsGrassType
+    ret nz
+	
+.failed
+	push hl
+	call AnimateFailedMove
+	pop hl
+	ld a, $01
+    ld [wAttackMissed], a
+    ret
+	
+CheckIfTargetIsGrassType:
+	ld de, wEnemyMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .ok
+	ld de, wBattleMonType1
+.ok
+	ld a, [de]
+	inc de
+	cp GRASS
+	ret z
+	ld a, [de]
+	cp GRASS
+	ret
 
 BattleCommand_RaiseSubNoAnim:
 	ld hl, GetBattleMonBackpic
@@ -4878,9 +4967,6 @@ CalcPlayerStats:
 
 	ld a, 5
 	call CalcBattleStats
-
-	ld hl, BadgeStatBoosts
-	call CallBattleCore
 
 	call BattleCommand_SwitchTurn
 
@@ -5368,8 +5454,7 @@ BattleCommand_EndLoop:
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVarAddr
 	res SUBSTATUS_IN_LOOP, [hl]
-	call BattleCommand_BeatUpFailText
-	jp EndMoveEffect
+	ret
 
 .not_triple_kick
 	call BattleRandom
@@ -5967,27 +6052,6 @@ BattleCommand_Paralyze:
 	jp StdBattleTextbox
 
 .no_item_protection
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .dont_sample_failure
-
-	ld a, [wLinkMode]
-	and a
-	jr nz, .dont_sample_failure
-
-	ld a, [wInBattleTowerBattle]
-	and a
-	jr nz, .dont_sample_failure
-
-	ld a, [wPlayerSubStatus5]
-	bit SUBSTATUS_LOCK_ON, a
-	jr nz, .dont_sample_failure
-
-	call BattleRandom
-	cp 25 percent + 1 ; 25% chance AI fails
-	jr c, .failed
-
-.dont_sample_failure
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	and a
@@ -6548,14 +6612,14 @@ BattleCommand_HealMorn:
 	ld b, MORN_F
 	jr BattleCommand_TimeBasedHealContinue
 
-BattleCommand_HealDay:
-; healday
-	ld b, DAY_F
-	jr BattleCommand_TimeBasedHealContinue
-
 BattleCommand_HealNite:
 ; healnite
 	ld b, NITE_F
+	jr BattleCommand_TimeBasedHealContinue2
+
+BattleCommand_HealDay:
+; healday
+	ld b, DAY_F
 	; fallthrough
 
 BattleCommand_TimeBasedHealContinue:
@@ -6585,9 +6649,8 @@ BattleCommand_TimeBasedHealContinue:
 	and a
 	jr nz, .Weather
 
-	ld a, [wTimeOfDay]
-	cp b
-	jr z, .Weather
+	and a
+	jr nz, .Weather
 	dec c ; double
 
 .Weather:
@@ -6635,9 +6698,90 @@ BattleCommand_TimeBasedHealContinue:
 	jp StdBattleTextbox
 
 .Multipliers:
-	dw GetEighthMaxHP
-	dw GetQuarterMaxHP
+	dw GetThirdMaxHP
 	dw GetHalfMaxHP
+	dw GetMaxHP
+	dw GetMaxHP
+	
+BattleCommand_TimeBasedHealContinue2:
+; Time- and weather-sensitive heal - this one is for Moonlight.
+
+	ld hl, wBattleMonMaxHP
+	ld de, wBattleMonHP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .start2
+	ld hl, wEnemyMonMaxHP
+	ld de, wEnemyMonHP
+
+.start2
+; Index for .Multipliers
+; Default restores half max HP.
+	ld c, 2
+
+; Don't bother healing if HP is already full.
+	push bc
+	call CompareBytes
+	pop bc
+	jr z, .Full2
+
+; Don't factor in time of day in link battles.
+	ld a, [wLinkMode]
+	and a
+	jr nz, .Weather2
+
+	and a
+	jr nz, .Weather2
+	dec c ; double
+
+.Weather2:
+	ld a, [wBattleWeather]
+	and a
+	jr z, .Heal2
+
+; x2 in sun
+; /2 in rain/sandstorm
+	inc c
+	cp WEATHER_RAIN
+	jr z, .Heal2
+	dec c
+	dec c
+
+.Heal2:
+	ld b, 0
+	ld hl, .Multipliers2
+	add hl, bc
+	add hl, bc
+
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld a, BANK(GetMaxHP)
+	rst FarCall
+
+	call AnimateCurrentMove
+	call BattleCommand_SwitchTurn
+
+	callfar RestoreHP
+
+	call BattleCommand_SwitchTurn
+	call UpdateUserInParty
+
+; 'regained health!'
+	ld hl, RegainedHealthText
+	jp StdBattleTextbox
+
+.Full2:
+	call AnimateFailedMove
+
+; 'hp is full!'
+	ld hl, HPIsFullText
+	jp StdBattleTextbox
+
+.Multipliers2:
+	dw GetThirdMaxHP
+	dw GetHalfMaxHP
+	dw GetMaxHP
 	dw GetMaxHP
 
 INCLUDE "engine/battle/move_effects/hidden_power.asm"
@@ -6687,10 +6831,7 @@ INCLUDE "engine/battle/move_effects/future_sight.asm"
 INCLUDE "engine/battle/move_effects/thunder.asm"
 
 CheckHiddenOpponent:
-; BUG: This routine is completely redundant and introduces a bug, since BattleCommand_CheckHit does these checks properly.
-	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVar
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	xor a
 	ret
 
 GetUserItem:

@@ -41,6 +41,8 @@ BrunosRoom_MapScripts:
 	end
 
 BrunoScript_Battle:
+	readvar VAR_BADGES
+	ifequal 16, .REMATCH
 	faceplayer
 	opentext
 	checkevent EVENT_BEAT_ELITE_4_BRUNO
@@ -65,8 +67,39 @@ BrunoScript_Battle:
 	waitsfx
 	end
 
+.REMATCH:
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_ELITE_4_BRUNO
+	iftrue BrunoScript_AfterBattle2
+	writetext BrunoScript_BrunoRematchText
+	waitbutton
+	closetext
+	winlosstext BrunoScript_BrunoBeatenText, 0
+	loadtrainer BRUNO, BRUNO2
+	startbattle
+	reloadmapafterbattle
+	setevent EVENT_BEAT_ELITE_4_BRUNO
+	opentext
+	writetext BrunoScript_BrunoDefeatText2
+	waitbutton
+	closetext
+	playsound SFX_ENTER_DOOR
+	changeblock 4, 2, $16 ; open door
+	reloadmappart
+	closetext
+	setevent EVENT_BRUNOS_ROOM_EXIT_OPEN
+	waitsfx
+	end
+
 BrunoScript_AfterBattle:
 	writetext BrunoScript_BrunoDefeatText
+	waitbutton
+	closetext
+	end
+
+BrunoScript_AfterBattle2:
+	writetext BrunoScript_BrunoDefeatText2
 	waitbutton
 	closetext
 	end
@@ -108,6 +141,26 @@ BrunoScript_BrunoBeforeText:
 	para "Hoo hah!"
 	done
 
+BrunoScript_BrunoRematchText:
+	text "Greetings, once"
+	line "again, champion."
+
+	para "Long have we trai-"
+	line "ined since your"
+	cont "initial challenge."
+
+	para "It would disturb"
+	line "me were you to"
+	cont "underestimate my"
+	cont "fighting #MON."
+	
+	para "Either way, I will"
+	line "teach you the mea-"
+	cont "ning of pro-PAIN!"
+
+	para "Hoo hah, TSU-OHH!"
+	done
+
 BrunoScript_BrunoBeatenText:
 	text "Why? How could we"
 	line "lose?"
@@ -120,6 +173,24 @@ BrunoScript_BrunoDefeatText:
 
 	para "Go face your next"
 	line "challenge!"
+	done
+
+BrunoScript_BrunoDefeatText2:
+	text "Truly amazing. I"
+	line "always enjoy a"
+	cont "good thrashing."
+	
+	para "That's how I got"
+	line "to be so strong!"
+	
+	para "It won't get any"
+	line "easier, however."
+	
+	para "Steel yourself"
+	line "for the trials"
+	cont "to come."
+
+	para "Continue on!"
 	done
 
 BrunosRoom_MapEvents:

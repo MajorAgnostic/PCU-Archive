@@ -15,7 +15,7 @@ OaksLab_MapScripts:
 Oak:
 	faceplayer
 	opentext
-	checkevent EVENT_OPENED_MT_SILVER
+	checkevent EVENT_OPENED_RIGHTBB
 	iftrue .CheckPokedex
 	checkevent EVENT_TALKED_TO_OAK_IN_KANTO
 	iftrue .CheckBadges
@@ -40,7 +40,8 @@ Oak:
 .OpenMtSilver:
 	writetext OakOpenMtSilverText
 	promptbutton
-	setevent EVENT_OPENED_MT_SILVER
+	setevent EVENT_OPENED_RIGHTBB
+	clearevent EVENT_HOMEBIGONIXDOLL
 	sjump .CheckPokedex
 
 .Complain:
@@ -109,18 +110,17 @@ OakOpenMtSilverText:
 	line "excellent!"
 
 	para "You collected the"
-	line "BADGES of GYMS in"
-	cont "KANTO. Well done!"
+	line "BADGES from all of"
+	cont "the gyms in KANTO."
+	cont "Well done!"
 
 	para "I was right in my"
 	line "assessment of you."
 
-	para "Tell you what,"
-	line "<PLAY_G>. I'll make"
-
-	para "arrangements so"
-	line "that you can go to"
-	cont "MT.SILVER."
+	para "Hmm… maybe I will"
+	line "ask LANCE to allow"
+	cont "you to enter MT."
+	cont "SILVER."
 
 	para "MT.SILVER is a big"
 	line "mountain that is"
@@ -141,8 +141,20 @@ OakOpenMtSilverText:
 	para "Go up to INDIGO"
 	line "PLATEAU. You can"
 
-	para "reach MT.SILVER"
-	line "from there."
+	para "once again cha-"
+	line "llenge the ELITE"
+	
+	para "FOUR and display"
+	line "your new strength"
+	
+	para "and experience to"
+	line "LANCE. I am sure"
+	
+	para "that he'll grant"
+	line "you entrance to"
+	
+	para "MT.SILVER if you"
+	line "do."
 	done
 
 OakNoKantoBadgesText:
@@ -175,9 +187,6 @@ OakYesKantoBadgesText:
 	para "Come see me when"
 	line "you get them all."
 
-	para "I'll have a gift"
-	line "for you."
-
 	para "Keep trying hard,"
 	line "<PLAY_G>!"
 	done
@@ -199,7 +208,7 @@ OaksAssistant2Text:
 	cont "DEX, the PROF's"
 
 	para "research is coming"
-	line "along great."
+	line "along great!"
 	done
 
 OaksAssistant3Text:

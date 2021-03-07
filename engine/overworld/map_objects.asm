@@ -2009,7 +2009,7 @@ SpawnShadow:
 
 .ShadowObject:
 	; vtile, palette, movement
-	db $00, PAL_OW_SILVER, SPRITEMOVEDATA_SHADOW
+	db $00, PAL_OW_GRAY, SPRITEMOVEDATA_SHADOW
 
 SpawnStrengthBoulderDust:
 	push bc
@@ -2020,7 +2020,7 @@ SpawnStrengthBoulderDust:
 	ret
 
 .BoulderDustObject:
-	db $00, PAL_OW_SILVER, SPRITEMOVEDATA_BOULDERDUST
+	db $00, PAL_OW_GRAY, SPRITEMOVEDATA_BOULDERDUST
 
 SpawnEmote:
 	push bc
@@ -2031,7 +2031,7 @@ SpawnEmote:
 	ret
 
 .EmoteObject:
-	db $00, PAL_OW_SILVER, SPRITEMOVEDATA_EMOTE
+	db $00, PAL_OW_GRAY, SPRITEMOVEDATA_EMOTE
 
 ShakeGrass:
 	push bc
@@ -2056,7 +2056,7 @@ ShakeScreen:
 	ret
 
 .ScreenShakeObject:
-	db $00, PAL_OW_SILVER, SPRITEMOVEDATA_SCREENSHAKE
+	db $00, PAL_OW_GRAY, SPRITEMOVEDATA_SCREENSHAKE
 
 DespawnEmote:
 	push bc

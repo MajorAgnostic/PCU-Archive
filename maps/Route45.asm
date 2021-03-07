@@ -23,7 +23,6 @@ TrainerBlackbeltKenji:
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_BLACKBELT_KENJI
-	endifjustbattled
 	opentext
 	checkcellnum PHONE_BLACKBELT_KENJI
 	iftrue .Registered
@@ -51,7 +50,7 @@ TrainerBlackbeltKenji:
 	ifnotequal 1, Route45NumberAcceptedM
 	checktime MORN
 	iftrue .Morning
-	checktime NITE
+	checktime EVE | NITE
 	iftrue .Night
 	checkevent EVENT_KENJI_ON_BREAK
 	iffalse Route45NumberAcceptedM
@@ -176,17 +175,10 @@ TrainerHikerParry:
 .WantsBattle:
 	scall Route45RematchM
 	winlosstext HikerParry3BeatenText, 0
-	readmem wParryFightCount
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight2:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight2
-.Fight1:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer HIKER, PARRY3
 	startbattle
 	reloadmapafterbattle
@@ -212,7 +204,7 @@ TrainerHikerParry:
 	checkevent EVENT_GOT_IRON_FROM_PARRY
 	iftrue .GotIron
 	scall Route45RematchGiftM
-	verbosegiveitem IRON
+	verbosegiveitem NUGGET
 	iffalse HikerParryHasIron
 	setevent EVENT_GOT_IRON_FROM_PARRY
 	sjump Route45NumberAcceptedM
@@ -224,7 +216,7 @@ TrainerHikerParry:
 	opentext
 	writetext HikerParryGivesIronText
 	waitbutton
-	verbosegiveitem IRON
+	verbosegiveitem NUGGET
 	iffalse HikerParryHasIron
 	clearevent EVENT_PARRY_IRON
 	setevent EVENT_GOT_IRON_FROM_PARRY

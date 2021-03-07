@@ -363,6 +363,8 @@ CheckIndoorMap::
 	ret z
 	cp CAVE
 	ret z
+	cp ENVIRONMENT_5
+	ret z
 	cp DUNGEON
 	ret z
 	cp GATE
@@ -1395,6 +1397,11 @@ LoadTilesetGFX::
 .skip_roof
 	xor a
 	ldh [hTileAnimFrame], a
+	ld [wCarpetTile], a
+	ld [wFloorTile], a
+
+	ld a, MAPCALLBACK_GRAPHICS
+	call RunMapCallback
 	ret
 
 BufferScreen::
@@ -2199,19 +2206,20 @@ GetWorldMapLocation::
 	ret
 
 GetMapMusic::
-	push hl
-	push bc
-	ld de, MAP_MUSIC
-	call GetMapField
-	ld a, c
-	cp MUSIC_MAHOGANY_MART
-	jr z, .mahoganymart
-	bit RADIO_TOWER_MUSIC_F, c
-	jr nz, .radiotower
-	farcall Function8b342
-	ld e, c
-	ld d, 0
+    push hl
+    push bc
+    ld de, MAP_MUSIC
+    call GetMapField
+    ld a, c
+    cp MUSIC_MAHOGANY_MART
+    jr z, .mahoganymart
+    cp MUSIC_RADIO_TOWER
+    jr z, .radiotower
+    farcall Function8b342
 .done
+	call ChangeMusicIfNight
+    ld e, c
+    ld d, 0
 	pop bc
 	pop hl
 	ret
@@ -2220,27 +2228,38 @@ GetMapMusic::
 	ld a, [wStatusFlags2]
 	bit STATUSFLAGS2_ROCKETS_IN_RADIO_TOWER_F, a
 	jr z, .clearedradiotower
-	ld de, MUSIC_ROCKET_OVERTURE
+	ld c, MUSIC_ROCKET_OVERTURE
 	jr .done
 
 .clearedradiotower
-	; the rest of the byte
-	ld a, c
-	and RADIO_TOWER_MUSIC - 1
-	ld e, a
-	ld d, 0
+	ld c, MUSIC_GOLDENROD_CITY
 	jr .done
 
 .mahoganymart
 	ld a, [wStatusFlags2]
 	bit STATUSFLAGS2_ROCKETS_IN_MAHOGANY_F, a
 	jr z, .clearedmahogany
-	ld de, MUSIC_ROCKET_HIDEOUT
+	ld c, MUSIC_ROCKET_HIDEOUT
 	jr .done
 
 .clearedmahogany
-	ld de, MUSIC_CHERRYGROVE_CITY
+	ld c, MUSIC_CHERRYGROVE_CITY
 	jr .done
+	
+ChangeMusicIfNight::
+	ld a, [wTimeOfDay]
+  	cp NITE_F
+	ret c
+	ld hl, NightMusicTable
+.loop
+    ld a, [hli]
+    cp -1
+    ret z
+    cp c
+    ld a, [hli]
+    jr nz, .loop
+    ld c, a
+    ret
 
 GetMapTimeOfDay::
 	call GetPhoneServiceTimeOfDayByte

@@ -277,6 +277,8 @@ DoPlayerMovement::
 	jr nc, .ice
 
 ; Downhill riding is slower when not moving down.
+	call .RunCheck
+	jr z, .fast
 	call .BikeCheck
 	jr nz, .walk
 
@@ -369,6 +371,32 @@ DoPlayerMovement::
 	ld a, [wFacingDirection]
 	and [hl]
 	jr z, .DontJump
+
+; d = x coordinate of tile across the ledge
+	ld a, [wPlayerStandingMapX]
+	ld d, a
+	ld a, [wWalkingX]
+	add a
+	add d
+	ld d, a
+; e = y coordinate of tile across the ledge
+	ld a, [wPlayerStandingMapY]
+	ld e, a
+	ld a, [wWalkingY]
+	add a
+	add e
+	ld e, a
+; make sure the tile across the ledge is walkable
+	push de
+	call GetCoordTile
+	call .CheckWalkable
+	pop de
+	jr c, .DontJump
+; make sure there's no NPC across the ledge
+	xor a
+	ldh [hMapObjectIndexBuffer], a
+	farcall IsNPCAtCoord
+	jr c, .DontJump
 
 	ld de, SFX_JUMP_OVER_LEDGE
 	call PlaySFX
@@ -735,6 +763,15 @@ ENDM
 	cp PLAYER_BIKE
 	ret z
 	cp PLAYER_SKATE
+	ret
+	
+.RunCheck:
+	ld a, [wPlayerState]
+	cp PLAYER_NORMAL
+	ret nz
+	ldh a, [hJoypadDown]
+	and B_BUTTON
+	cp B_BUTTON
 	ret
 
 .CheckWalkable:

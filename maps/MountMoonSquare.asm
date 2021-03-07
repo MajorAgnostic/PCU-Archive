@@ -8,14 +8,15 @@ MountMoonSquare_MapScripts:
 	scene_script .DummyScene ; SCENE_DEFAULT
 
 	def_callbacks
-	callback MAPCALLBACK_NEWMAP, .DisappearMoonStone
+	callback MAPCALLBACK_NEWMAP, .DisappearMoonStoneAndFlyPoint
 	callback MAPCALLBACK_OBJECTS, .DisappearRock
 
 .DummyScene:
 	end
 
-.DisappearMoonStone:
+.DisappearMoonStoneAndFlyPoint:
 	setevent EVENT_MOUNT_MOON_SQUARE_HIDDEN_MOON_STONE
+	setflag ENGINE_FLYPOINT_MT_MOON
 	endcallback
 
 .DisappearRock:

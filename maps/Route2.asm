@@ -59,7 +59,7 @@ Route2MaxPotion:
 	itemball MAX_POTION
 
 Route2Carbos:
-	itemball CARBOS
+	itemball GUARD_SPEC
 
 Route2Elixer:
 	itemball ELIXER

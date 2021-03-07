@@ -5,18 +5,23 @@ Music:
 	dba Music_Nothing
 	dba Music_TitleScreen
 	dba Music_Route1
+	dba Music_Route1Night
 	dba Music_Route3
+	dba Music_Route3_Night
 	dba Music_Route12
+	dba Music_Route12_Night
 	dba Music_MagnetTrain
 	dba Music_KantoGymBattle
 	dba Music_KantoTrainerBattle
 	dba Music_KantoWildBattle
+	dba Music_KantoWildBattleNight
 	dba Music_PokemonCenter
 	dba Music_LookHiker
 	dba Music_LookLass
 	dba Music_LookOfficer
 	dba Music_HealPokemon
 	dba Music_LavenderTown
+	dba Music_LavenderTownNight
 	dba Music_Route2
 	dba Music_MtMoon
 	dba Music_ShowMeAround
@@ -24,13 +29,16 @@ Music:
 	dba Music_Bicycle
 	dba Music_HallOfFame
 	dba Music_ViridianCity
+	dba Music_ViridianCity_Night
 	dba Music_CeladonCity
+	dba Music_CeladonCity_Night
 	dba Music_TrainerVictory
 	dba Music_WildPokemonVictory
 	dba Music_GymLeaderVictory
 	dba Music_MtMoonSquare
 	dba Music_Gym
 	dba Music_PalletTown
+	dba Music_PalletTownNight
 	dba Music_ProfOaksPokemonTalk
 	dba Music_ProfOak
 	dba Music_LookRival
@@ -40,14 +48,19 @@ Music:
 	dba Music_NationalPark
 	dba Music_Credits
 	dba Music_AzaleaTown
+	dba Music_AzaleaTownNight
 	dba Music_CherrygroveCity
+	dba Music_CherrygroveCityNight
 	dba Music_LookKimonoGirl
 	dba Music_UnionCave
 	dba Music_JohtoWildBattle
 	dba Music_JohtoTrainerBattle
 	dba Music_Route30
+	dba Music_Route30Night
 	dba Music_EcruteakCity
+	dba Music_EcruteakCityNight
 	dba Music_VioletCity
+	dba Music_VioletCityNight
 	dba Music_JohtoGymBattle
 	dba Music_ChampionBattle
 	dba Music_RivalBattle
@@ -55,7 +68,9 @@ Music:
 	dba Music_ElmsLab
 	dba Music_DarkCave
 	dba Music_Route29
+	dba Music_Route29Night
 	dba Music_Route36
+	dba Music_Route34Night
 	dba Music_SSAqua
 	dba Music_LookYoungster
 	dba Music_LookBeauty
@@ -63,23 +78,29 @@ Music:
 	dba Music_LookPokemaniac
 	dba Music_LookSage
 	dba Music_NewBarkTown
+	dba Music_NewBarkTownNight
 	dba Music_GoldenrodCity
+	dba Music_GoldenrodCityNight
 	dba Music_VermilionCity
+	dba Music_VermilionCityNight
 	dba Music_PokemonChannel
 	dba Music_PokeFluteChannel
 	dba Music_TinTower
 	dba Music_SproutTower
 	dba Music_BurnedTower
 	dba Music_Lighthouse
-	dba Music_LakeOfRage
+	dba Music_Route42
+	dba Music_Route42Night
 	dba Music_IndigoPlateau
 	dba Music_Route37
+	dba Music_Route38Night
 	dba Music_RocketHideout
 	dba Music_DragonsDen
 	dba Music_JohtoWildBattleNight
 	dba Music_RuinsOfAlphRadio
 	dba Music_SuccessfulCapture
 	dba Music_Route26
+	dba Music_Route26Night
 	dba Music_Mom
 	dba Music_VictoryRoad
 	dba Music_PokemonLullaby
@@ -106,3 +127,19 @@ Music:
 	dba Music_SuicuneBattle
 	dba Music_BattleTowerLobby
 	dba Music_MobileCenter
+	dba Music_Route47GBS
+	dba Music_Route47GBSNight
+	dba Music_RBYIndigoPlateau
+	dba Music_LugiasSong2000
+	dba Music_FinalBattle
+	dba Music_HoennChampionBattle
+	dba Music_LugiaBattle
+	dba Music_HoOhBattle
+	dba Music_KantoLegend
+	dba Music_CeruleanCityGBS
+	dba Music_CeruleanCityGBSNight
+	dba Music_CinnabarIslandGBS
+	dba Music_Route25GBS
+	dba Music_Route25GBSNight
+	dba Music_RBYGymLeaderBattle
+	

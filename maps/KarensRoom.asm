@@ -41,6 +41,8 @@ KarensRoom_MapScripts:
 	end
 
 KarenScript_Battle:
+	readvar VAR_BADGES
+	ifequal 16, .REMATCH
 	faceplayer
 	opentext
 	checkevent EVENT_BEAT_ELITE_4_KAREN
@@ -65,8 +67,39 @@ KarenScript_Battle:
 	waitsfx
 	end
 
+.REMATCH:
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_ELITE_4_KAREN
+	iftrue KarenScript_AfterBattle2
+	writetext KarenScript_KarenRematchText
+	waitbutton
+	closetext
+	winlosstext KarenScript_KarenBeatenText, 0
+	loadtrainer KAREN, KAREN2
+	startbattle
+	reloadmapafterbattle
+	setevent EVENT_BEAT_ELITE_4_KAREN
+	opentext
+	writetext KarenScript_KarenDefeatText2
+	waitbutton
+	closetext
+	playsound SFX_ENTER_DOOR
+	changeblock 4, 2, $16 ; open door
+	reloadmappart
+	closetext
+	setevent EVENT_KARENS_ROOM_EXIT_OPEN
+	waitsfx
+	end
+
 KarenScript_AfterBattle:
 	writetext KarenScript_KarenDefeatText
+	waitbutton
+	closetext
+	end
+
+KarenScript_AfterBattle2:
+	writetext KarenScript_KarenDefeatText2
 	waitbutton
 	closetext
 	end
@@ -101,6 +134,22 @@ KarenScript_KarenBeforeText:
 	para "Let's go."
 	done
 
+KarenScript_KarenRematchText:
+	text "Ah, you! Come to"
+	line "entertain me once"
+	cont "again, have you?"
+
+	para "You've assembled"
+	line "quite the team;"
+	cont "it's clear to see."
+
+	para "Now dance with me"
+	line "in the dark em-"
+	cont "brace of night."
+	
+	para "On your toes!"
+	done
+
 KarenScript_KarenBeatenText:
 	text "Well, aren't you"
 	line "good. I like that"
@@ -128,6 +177,33 @@ KarenScript_KarenDefeatText:
 
 	para "Go on--the CHAM-"
 	line "PION is waiting."
+	done
+
+KarenScript_KarenDefeatText2:
+	text "So cute, yet so"
+	line "strong. Always a"
+	cont "pleasure."
+	
+	para "Although now I"
+	line "must dedicate"
+	
+	para "myself once again"
+	line "to further train-"
+	cont "ing. Ugh, what a"
+	cont "chore."
+	
+	para "But I think you"
+	line "have taught me"
+	
+	para "something impor-"
+	line "tant today."
+
+	para "Lance is looking"
+	line "forward to batt-"
+	cont "ling you again."
+	
+	para "Don't keep him"
+	line "waiting."
 	done
 
 KarensRoom_MapEvents:

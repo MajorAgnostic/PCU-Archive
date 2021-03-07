@@ -33,11 +33,11 @@ ItemEffects:
 	dw RestoreHPEffect     ; POTION
 	dw EscapeRopeEffect    ; ESCAPE_ROPE
 	dw RepelEffect         ; REPEL
-	dw RestorePPEffect     ; MAX_ELIXER
+	dw RestorePPEffect     ; ELIXER
 	dw EvoStoneEffect      ; FIRE_STONE
 	dw EvoStoneEffect      ; THUNDERSTONE
 	dw EvoStoneEffect      ; WATER_STONE
-	dw NoEffect            ; ITEM_19
+	dw PocketPCEffect      ; POCKET_PC
 	dw VitaminEffect       ; HP_UP
 	dw VitaminEffect       ; PROTEIN
 	dw VitaminEffect       ; IRON
@@ -52,17 +52,17 @@ ItemEffects:
 	dw PokeDollEffect      ; POKE_DOLL
 	dw StatusHealingEffect ; FULL_HEAL
 	dw ReviveEffect        ; REVIVE
-	dw ReviveEffect        ; MAX_REVIVE
+	dw RestorePPEffect     ; MAX_ETHER
 	dw GuardSpecEffect     ; GUARD_SPEC
 	dw SuperRepelEffect    ; SUPER_REPEL
 	dw MaxRepelEffect      ; MAX_REPEL
 	dw DireHitEffect       ; DIRE_HIT
-	dw NoEffect            ; ITEM_2D
+	dw PikaBedEffect       ; PIKACHUBED
 	dw RestoreHPEffect     ; FRESH_WATER
 	dw RestoreHPEffect     ; SODA_POP
 	dw RestoreHPEffect     ; LEMONADE
 	dw XItemEffect         ; X_ATTACK
-	dw NoEffect            ; ITEM_32
+	dw GreenCarpetEffect   ; GREENCARPET
 	dw XItemEffect         ; X_DEFEND
 	dw XItemEffect         ; X_SPEED
 	dw XItemEffect         ; X_SPECIAL
@@ -76,8 +76,8 @@ ItemEffects:
 	dw SuperRodEffect      ; SUPER_ROD
 	dw RestorePPEffect     ; PP_UP
 	dw RestorePPEffect     ; ETHER
-	dw RestorePPEffect     ; MAX_ETHER
-	dw RestorePPEffect     ; ELIXER
+	dw ReviveEffect        ; MAX_REVIVE
+	dw RestorePPEffect     ; MAX_ELIXER
 	dw NoEffect            ; RED_SCALE
 	dw NoEffect            ; SECRETPOTION
 	dw NoEffect            ; S_S_TICKET
@@ -102,7 +102,7 @@ ItemEffects:
 	dw NoEffect            ; BIG_MUSHROOM
 	dw NoEffect            ; SILVERPOWDER
 	dw NoEffect            ; BLU_APRICORN
-	dw NoEffect            ; ITEM_5A
+	dw YellowCarpetEffect  ; YELLOWCARPET
 	dw NoEffect            ; AMULET_COIN
 	dw NoEffect            ; YLW_APRICORN
 	dw NoEffect            ; GRN_APRICORN
@@ -112,7 +112,7 @@ ItemEffects:
 	dw NoEffect            ; WHT_APRICORN
 	dw NoEffect            ; BLACKBELT_I
 	dw NoEffect            ; BLK_APRICORN
-	dw NoEffect            ; ITEM_64
+	dw PikaPosterEffect    ; PIKAPOSTER
 	dw NoEffect            ; PNK_APRICORN
 	dw NoEffect            ; BLACKGLASSES
 	dw NoEffect            ; SLOWPOKETAIL
@@ -132,7 +132,7 @@ ItemEffects:
 	dw NoEffect            ; MIRACLE_SEED
 	dw NoEffect            ; THICK_CLUB
 	dw NoEffect            ; FOCUS_BAND
-	dw NoEffect            ; ITEM_78
+	dw SNESEffect          ; SNES
 	dw EnergypowderEffect  ; ENERGYPOWDER
 	dw EnergyRootEffect    ; ENERGY_ROOT
 	dw HealPowderEffect    ; HEAL_POWDER
@@ -147,34 +147,34 @@ ItemEffects:
 	dw NoEffect            ; STAR_PIECE
 	dw BasementKeyEffect   ; BASEMENT_KEY
 	dw NoEffect            ; PASS
-	dw NoEffect            ; ITEM_87
-	dw NoEffect            ; ITEM_88
-	dw NoEffect            ; ITEM_89
+	dw UnownDollEffect     ; UNOWN_DOLL
+	dw JigglypuffDollEffect; JIGGLYPUFF_DOLL
+	dw JigglypuffPosterEffect ; JIGGLYPUFF_POSTER
 	dw NoEffect            ; CHARCOAL
 	dw RestoreHPEffect     ; BERRY_JUICE
 	dw NoEffect            ; SCOPE_LENS
-	dw NoEffect            ; ITEM_8D
-	dw NoEffect            ; ITEM_8E
+	dw ClefairyDollEffect  ; CLEFAIRY_DOLL
+	dw ClefairyPosterEffect; CLEFAIRY_POSTER
 	dw NoEffect            ; METAL_COAT
 	dw NoEffect            ; DRAGON_FANG
-	dw NoEffect            ; ITEM_91
+	dw PinkBedEffect       ; PINKBED
 	dw NoEffect            ; LEFTOVERS
-	dw NoEffect            ; ITEM_93
-	dw NoEffect            ; ITEM_94
-	dw NoEffect            ; ITEM_95
+	dw MagnaPlantEffect    ; MAGNA_PLANT
+	dw TropicPlantEffect   ; TROPIC_PLANT
+	dw JumboPlantEffect    ; JUMBO_PLANT
 	dw RestorePPEffect     ; MYSTERYBERRY
-	dw NoEffect            ; DRAGON_SCALE
+	dw BigLaprasEffect     ; BIG_LAPRAS_DOLL
 	dw NoEffect            ; BERSERK_GENE
-	dw NoEffect            ; ITEM_99
-	dw NoEffect            ; ITEM_9A
-	dw NoEffect            ; ITEM_9B
+	dw PolkadotBedEffect   ; POLKADOTBED
+	dw BlueCarpetEffect    ; BLUECARPET
+	dw RedCarpetEffect     ; REDCARPET
 	dw SacredAshEffect     ; SACRED_ASH
 	dw PokeBallEffect      ; HEAVY_BALL
 	dw NoEffect            ; FLOWER_MAIL
 	dw PokeBallEffect      ; LEVEL_BALL
 	dw PokeBallEffect      ; LURE_BALL
 	dw PokeBallEffect      ; FAST_BALL
-	dw NoEffect            ; ITEM_A2
+	dw NESEffect           ; NES
 	dw NoEffect            ; LIGHT_BALL
 	dw PokeBallEffect      ; FRIEND_BALL
 	dw PokeBallEffect      ; MOON_BALL
@@ -183,15 +183,17 @@ ItemEffects:
 	dw GorgeousBoxEffect   ; GORGEOUS_BOX
 	dw EvoStoneEffect      ; SUN_STONE
 	dw NoEffect            ; POLKADOT_BOW
-	dw NoEffect            ; ITEM_AB
-	dw NoEffect            ; UP_GRADE
+	dw N64Effect           ; N64
+	dw BigOnixEffect       ; BIG_ONIX_DOLL
 	dw RestoreHPEffect     ; BERRY
 	dw RestoreHPEffect     ; GOLD_BERRY
 	dw SquirtbottleEffect  ; SQUIRTBOTTLE
-	dw NoEffect            ; ITEM_B0
+	dw VBoyEffect          ; VIRTUALBOY
 	dw PokeBallEffect      ; PARK_BALL
 	dw NoEffect            ; RAINBOW_WING
-	dw NoEffect            ; ITEM_B3
+	dw VoltorbDollEffect   ; VOLTORB_DOLL
+	dw EvoStoneEffect      ; DRAGON_SCALE
+	dw EvoStoneEffect      ; UP_GRADE
 
 PokeBallEffect:
 	ld a, [wBattleMode]
@@ -318,17 +320,12 @@ PokeBallEffect:
 	jr nz, .statuscheck
 	ld a, 1
 .statuscheck
-; This routine is buggy. It was intended that SLP and FRZ provide a higher
-; catch rate than BRN/PSN/PAR, which in turn provide a higher catch rate than
-; no status effect at all. But instead, it makes BRN/PSN/PAR provide no
-; benefit.
-; Uncomment the line below to fix this.
 	ld b, a
 	ld a, [wEnemyMonStatus]
 	and 1 << FRZ | SLP
 	ld c, 10
 	jr nz, .addstatus
-	; ld a, [wEnemyMonStatus]
+	ld a, [wEnemyMonStatus]
 	and a
 	ld c, 5
 	jr nz, .addstatus
@@ -430,20 +427,9 @@ PokeBallEffect:
 	push af
 	set SUBSTATUS_TRANSFORMED, [hl]
 
-; This code is buggy. Any wild Pokémon that has Transformed will be
-; caught as a Ditto, even if it was something else like Mew.
-; To fix, do not set [wTempEnemyMonSpecies] to DITTO.
 	bit SUBSTATUS_TRANSFORMED, a
-	jr nz, .ditto
-	jr .not_ditto
+	jr nz, .load_data
 
-.ditto
-	ld a, DITTO
-	ld [wTempEnemyMonSpecies], a
-	jr .load_data
-
-.not_ditto
-	set SUBSTATUS_TRANSFORMED, [hl]
 	ld hl, wEnemyBackupDVs
 	ld a, [wEnemyMonDVs]
 	ld [hli], a
@@ -498,6 +484,19 @@ PokeBallEffect:
 
 	ld hl, Text_GotchaMonWasCaught
 	call PrintText
+	
+	ld a, [wTempSpecies]
+	ld l, a
+	ld a, [wCurPartyLevel]
+	ld h, a
+	push hl
+	farcall ApplyExperienceAfterEnemyCaught
+	pop hl
+	ld a, l
+	ld [wCurPartySpecies], a
+	ld [wTempSpecies], a
+	ld a, h
+	ld [wCurPartyLevel], a
 
 	call ClearSprites
 
@@ -726,11 +725,15 @@ BallMultiplierFunctionTable:
 	db -1 ; end
 
 UltraBallMultiplier:
-; multiply catch rate by 2
-	sla b
-	ret nc
-	ld b, $ff
-	ret
+; multiply catch rate by 2.5
+	 ld a, b
+    srl a
+    add b
+    add b
+    ld b, a
+    ret nc
+    ld b, $ff
+    ret
 
 SafariBallMultiplier:
 GreatBallMultiplier:
@@ -830,7 +833,7 @@ endr
 
 .compare
 	ld c, a
-	cp HIGH(1024) ; 102.4 kg
+	cp HIGH(504) ; previously 102.4 kg, now 50.4 kg
 	jr c, .lightmon
 
 	ld hl, .WeightsTable
@@ -860,10 +863,10 @@ endr
 	ret
 
 .WeightsTable:
-; weight factor, boost
-	db HIGH(2048),   0
-	db HIGH(3072),  20
-	db HIGH(4096),  30
+; weight factor, boost - modified categories to be more lenient
+	db HIGH(1024),   0
+	db HIGH(2048),  20
+	db HIGH(3072),  30
 	db HIGH(65280), 40
 
 LureBallMultiplier:
@@ -885,9 +888,7 @@ LureBallMultiplier:
 	ret
 
 MoonBallMultiplier:
-; This function is buggy.
-; Intent:  multiply catch rate by 4 if mon evolves with moon stone
-; Reality: no boost
+; Fixed
 	push bc
 	ld a, [wTempEnemyMonSpecies]
 	dec a
@@ -911,13 +912,10 @@ MoonBallMultiplier:
 	inc hl
 	inc hl
 
-; Moon Stone's constant from Pokémon Red is used.
-; No Pokémon evolve with Burn Heal,
-; so Moon Balls always have a catch rate of 1×.
 	push bc
 	ld a, BANK("Evolutions and Attacks")
 	call GetFarByte
-	cp MOON_STONE_RED ; BURN_HEAL
+	cp MOON_STONE
 	pop bc
 	ret nz
 
@@ -976,7 +974,7 @@ LoveBallMultiplier:
 	pop de
 	cp d
 	pop bc
-	ret nz ; for the intended effect, this should be "ret z"
+	ret z
 
 	sla b
 	jr c, .max
@@ -1014,7 +1012,7 @@ FastBallMultiplier:
 	cp -1
 	jr z, .next
 	cp c
-	jr nz, .next ; for the intended effect, this should be "jr nz, .loop"
+	jr nz, .loop
 	sla b
 	jr c, .max
 
@@ -2082,6 +2080,8 @@ UseRepel:
 
 	ld a, b
 	ld [wRepelEffect], a
+	ld a, [wCurItem]
+	ld [wRepelType], a
 	jp UseItemText
 
 RepelUsedEarlierIsStillInEffectText:
@@ -2283,6 +2283,10 @@ UseRod:
 
 ItemfinderEffect:
 	farcall ItemFinder
+	ret
+	
+PocketPCEffect:
+	farcall PocketPCFunction
 	ret
 
 RestorePPEffect:
@@ -2557,6 +2561,98 @@ SacredAshEffect:
 
 NormalBoxEffect:
 	ld c, DECOFLAG_SILVER_TROPHY_DOLL
+	jr OpenBox
+	
+UnownDollEffect:
+	ld c, DECOFLAG_UNOWN_DOLL
+	jr OpenBox
+	
+JigglypuffDollEffect:
+	ld c, DECOFLAG_JIGGLYPUFF_DOLL
+	jr OpenBox
+	
+JigglypuffPosterEffect:
+	ld c, DECOFLAG_JIGGLYPUFF_POSTER
+	jr OpenBox
+	
+ClefairyDollEffect:
+	ld c, DECOFLAG_CLEFAIRY_DOLL
+	jr OpenBox
+	
+ClefairyPosterEffect:
+	ld c, DECOFLAG_CLEFAIRY_POSTER
+	jr OpenBox
+	
+PinkBedEffect:
+	ld c, DECOFLAG_PINK_BED
+	jr OpenBox
+	
+MagnaPlantEffect:
+	ld c, DECOFLAG_MAGNAPLANT
+	jr OpenBox
+	
+TropicPlantEffect:
+	ld c, DECOFLAG_TROPICPLANT
+	jr OpenBox
+	
+JumboPlantEffect:
+	ld c, DECOFLAG_JUMBOPLANT
+	jr OpenBox
+	
+PolkadotBedEffect:
+	ld c, DECOFLAG_POLKADOT_BED
+	jr OpenBox
+	
+BlueCarpetEffect:
+	ld c, DECOFLAG_BLUE_CARPET
+	jr OpenBox
+	
+RedCarpetEffect:
+	ld c, DECOFLAG_RED_CARPET
+	jr OpenBox
+	
+NESEffect:
+	ld c, DECOFLAG_FAMICOM
+	jr OpenBox
+	
+PikaBedEffect:
+	ld c, DECOFLAG_PIKACHU_BED
+	jr OpenBox
+	
+GreenCarpetEffect:
+	ld c, DECOFLAG_GREEN_CARPET
+	jr OpenBox
+	
+YellowCarpetEffect:
+	ld c, DECOFLAG_YELLOW_CARPET
+	jr OpenBox
+	
+PikaPosterEffect:
+	ld c, DECOFLAG_PIKACHU_POSTER
+	jr OpenBox
+	
+SNESEffect:
+	ld c, DECOFLAG_SNES
+	jr OpenBox
+	
+N64Effect:
+	ld c, DECOFLAG_N64
+	jr OpenBox
+	
+VBoyEffect:
+	ld c, DECOFLAG_VIRTUAL_BOY
+	jr OpenBox
+	
+BigOnixEffect:
+	ld c, DECOFLAG_BIG_ONIX_DOLL
+	jr OpenBox
+	
+BigLaprasEffect:
+	ld c, DECOFLAG_BIG_LAPRAS_DOLL
+	jr OpenBox
+	
+VoltorbDollEffect:
+	ld c, DECOFLAG_VOLTORB_DOLL
 	jr OpenBox
 
 GorgeousBoxEffect:

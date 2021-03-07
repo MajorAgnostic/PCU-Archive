@@ -1,3 +1,6 @@
+	object_const_def
+	const ROUTE28_POKE_BALL
+
 Route28_MapScripts:
 	def_scene_scripts
 
@@ -5,9 +8,12 @@ Route28_MapScripts:
 
 Route28Sign:
 	jumptext Route28SignText
+	
+Route28MaxRevive:
+	itemball MAX_REVIVE
 
 Route28HiddenRareCandy:
-	hiddenitem RARE_CANDY, EVENT_ROUTE_28_HIDDEN_RARE_CANDY
+	hiddenitem MAX_ELIXER, EVENT_ROUTE_28_HIDDEN_RARE_CANDY
 
 Route28SignText:
 	text "ROUTE 28"
@@ -27,3 +33,4 @@ Route28_MapEvents:
 	bg_event 25,  2, BGEVENT_ITEM, Route28HiddenRareCandy
 
 	def_object_events
+	object_event  5,  9, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route28MaxRevive, EVENT_ROUTE_28_MAX_REVIVE

@@ -9,7 +9,7 @@ RockTunnelB1F_MapScripts:
 	def_callbacks
 
 RockTunnelB1FIron:
-	itemball IRON
+	itemball NUGGET
 
 RockTunnelB1FPPUp:
 	itemball PP_UP

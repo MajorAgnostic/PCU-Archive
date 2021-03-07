@@ -251,7 +251,7 @@ BattleAnimations::
 	dw BattleAnim_FutureSight
 	dw BattleAnim_RockSmash
 	dw BattleAnim_Whirlpool
-	dw BattleAnim_BeatUp
+	dw BattleAnim_MegaPunch
 	dw BattleAnim_252
 	dw BattleAnim_253
 	dw BattleAnim_254

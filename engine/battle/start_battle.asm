@@ -64,6 +64,21 @@ PlayBattleMusic:
 	jp z, .done
 	cp BATTLETYPE_ROAMING
 	jp z, .done
+	
+	ld a, [wBattleType]
+	cp BATTLETYPE_LUGIA
+	ld de, MUSIC_LUGIABATTLE
+	jp z, .done
+	
+	ld a, [wBattleType]
+	cp BATTLETYPE_HOOH
+	ld de, MUSIC_HOOHBATTLE
+	jp z, .done
+	
+	ld a, [wBattleType]
+	cp BATTLETYPE_KANTOLEGEND
+	ld de, MUSIC_KANTOLEGENDBATTLE
+	jp z, .done
 
 	; Are we fighting a trainer?
 	ld a, [wOtherTrainerClass]
@@ -76,28 +91,55 @@ PlayBattleMusic:
 	jr nz, .kantowild
 
 	ld de, MUSIC_JOHTO_WILD_BATTLE
-	ld a, [wTimeOfDay]
-	cp NITE_F
-	jr nz, .done
-	ld de, MUSIC_JOHTO_WILD_BATTLE_NIGHT
-	jr .done
+    ld a, [wTimeOfDay]
+    cp NITE_F
+    jp c, .done ; not NITE_F or EVE_F
+    ld de, MUSIC_JOHTO_WILD_BATTLE_NIGHT
+    jp .done
 
 .kantowild
-	ld de, MUSIC_KANTO_WILD_BATTLE
-	jr .done
+        ;new code    
+    ld de, MUSIC_KANTO_WILD_BATTLE
+    ld a, [wTimeOfDay]
+    cp NITE_F
+    jp c, .done ; not NITE_F or EVE_F
+        ;end new code
+    ld de, MUSIC_KANTO_WILD_BATTLE_NIGHT
+    jp .done
 
 .trainermusic
 	ld de, MUSIC_CHAMPION_BATTLE
 	cp CHAMPION
+	jp z, .done
+	cp CAL
+	jp z, .done
+	cp CRYSTAL
 	jr z, .done
+	
+	ld de, MUSIC_KANTO_CHAMPION
 	cp RED
 	jr z, .done
+	
+	ld de, MUSIC_STEVEN
+	cp NICHOLAS
+	jr z, .done
+	
+	ld de, MUSIC_RBY_KANTO_GYM_LEADER_BATTLE
+	cp BLUE
+	jr z, .done
 
-	; They should have included EXECUTIVEM, EXECUTIVEF, and SCIENTIST too...
 	ld de, MUSIC_ROCKET_BATTLE
 	cp GRUNTM
 	jr z, .done
 	cp GRUNTF
+	jr z, .done
+	cp EXECUTIVEM
+	jr z, .done
+	cp EXECUTIVEF
+	jr z, .done
+	cp SCIENTIST
+	jr z, .done
+	cp ARCHER
 	jr z, .done
 
 	ld de, MUSIC_KANTO_GYM_LEADER_BATTLE
@@ -112,6 +154,8 @@ PlayBattleMusic:
 
 	ld de, MUSIC_RIVAL_BATTLE
 	ld a, [wOtherTrainerClass]
+	cp RIVAL0
+	jp z, .done
 	cp RIVAL1
 	jr z, .done
 	cp RIVAL2

@@ -14,27 +14,12 @@ Route29_MapScripts:
 	scene_script .DummyScene1 ; SCENE_ROUTE29_CATCH_TUTORIAL
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, .Tuscany
 
 .DummyScene0:
 	end
 
 .DummyScene1:
 	end
-
-.Tuscany:
-	checkflag ENGINE_ZEPHYRBADGE
-	iftrue .DoesTuscanyAppear
-
-.TuscanyDisappears:
-	disappear ROUTE29_TUSCANY
-	endcallback
-
-.DoesTuscanyAppear:
-	readvar VAR_WEEKDAY
-	ifnotequal TUESDAY, .TuscanyDisappears
-	appear ROUTE29_TUSCANY
-	endcallback
 
 Route29Tutorial1:
 	turnobject ROUTE29_COOLTRAINER_M1, UP
@@ -150,7 +135,7 @@ Route29CooltrainerMScript:
 	opentext
 	checktime DAY
 	iftrue .day_morn
-	checktime NITE
+	checktime EVE | NITE
 	iftrue .nite
 .day_morn
 	writetext Route29CooltrainerMText_WaitingForNight
@@ -169,14 +154,6 @@ TuscanyScript:
 	opentext
 	checkevent EVENT_GOT_PINK_BOW_FROM_TUSCANY
 	iftrue TuscanyTuesdayScript
-	readvar VAR_WEEKDAY
-	ifnotequal TUESDAY, TuscanyNotTuesdayScript
-	checkevent EVENT_MET_TUSCANY_OF_TUESDAY
-	iftrue .MetTuscany
-	writetext MeetTuscanyText
-	promptbutton
-	setevent EVENT_MET_TUSCANY_OF_TUESDAY
-.MetTuscany:
 	writetext TuscanyGivesGiftText
 	promptbutton
 	verbosegiveitem PINK_BOW
@@ -188,8 +165,13 @@ TuscanyScript:
 	end
 
 TuscanyTuesdayScript:
+	readvar VAR_WEEKDAY
+	ifnotequal TUESDAY, TuscanyNotTuesdayScript
 	writetext TuscanyTuesdayText
 	waitbutton
+	closetext
+	end
+	
 TuscanyDoneScript:
 	closetext
 	end
@@ -327,8 +309,9 @@ Text_WaitingForDay:
 	text "I'm waiting for"
 	line "#MON that"
 
-	para "appear only in the"
-	line "daytime."
+	para "appear only in"
+	line "the evening or"
+	cont "at night."
 	done
 
 Route29CooltrainerMText_WaitingForNight:
@@ -352,7 +335,7 @@ MeetTuscanyText:
 	line "lieve that this is"
 
 	para "the first time"
-	line "we've met?"
+	line "we've met."
 
 	para "Please allow me to"
 	line "introduce myself."

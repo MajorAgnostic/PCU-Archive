@@ -19,7 +19,6 @@ LakeOfRage_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
-	callback MAPCALLBACK_OBJECTS, .Wesley
 
 .DummyScene0:
 	end
@@ -29,16 +28,6 @@ LakeOfRage_MapScripts:
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_LAKE_OF_RAGE
-	endcallback
-
-.Wesley:
-	readvar VAR_WEEKDAY
-	ifequal WEDNESDAY, .WesleyAppears
-	disappear LAKEOFRAGE_WESLEY
-	endcallback
-
-.WesleyAppears:
-	appear LAKEOFRAGE_WESLEY
 	endcallback
 
 LakeOfRageLanceScript:
@@ -84,7 +73,7 @@ RedGyarados:
 	pause 15
 	cry GYARADOS
 	closetext
-	loadwildmon GYARADOS, 30
+	loadwildmon GYARADOS, 50
 	loadvar VAR_BATTLETYPE, BATTLETYPE_SHINY
 	startbattle
 	ifequal LOSE, .NotBeaten
@@ -92,7 +81,7 @@ RedGyarados:
 .NotBeaten:
 	reloadmapafterbattle
 	opentext
-	giveitem RED_SCALE
+	giveitem BLUE_SCALE
 	waitsfx
 	writetext LakeOfRageGotRedScaleText
 	playsound SFX_ITEM
@@ -192,14 +181,6 @@ WesleyScript:
 	opentext
 	checkevent EVENT_GOT_BLACKBELT_FROM_WESLEY
 	iftrue WesleyWednesdayScript
-	readvar VAR_WEEKDAY
-	ifnotequal WEDNESDAY, WesleyNotWednesdayScript
-	checkevent EVENT_MET_WESLEY_OF_WEDNESDAY
-	iftrue .MetWesley
-	writetext MeetWesleyText
-	promptbutton
-	setevent EVENT_MET_WESLEY_OF_WEDNESDAY
-.MetWesley:
 	writetext WesleyGivesGiftText
 	promptbutton
 	verbosegiveitem BLACKBELT_I
@@ -211,8 +192,13 @@ WesleyScript:
 	end
 
 WesleyWednesdayScript:
+	readvar VAR_WEEKDAY
+	ifnotequal WEDNESDAY, WesleyNotWednesdayScript
 	writetext WesleyWednesdayText
 	waitbutton
+	closetext
+	end
+	
 WesleyDoneScript:
 	closetext
 	end
@@ -244,8 +230,7 @@ LakeOfRageLanceTeleportIntoSkyMovement:
 
 LakeOfRageLanceForcedToEvolveText:
 	text "This lake is full"
-	line "of GYARADOS but"
-	cont "nothing else…"
+	line "of GYARADOS…"
 
 	para "So the MAGIKARP"
 	line "are being forced"
@@ -316,7 +301,7 @@ LakeOfRageGyaradosCryText:
 
 LakeOfRageGotRedScaleText:
 	text "<PLAYER> obtained a"
-	line "RED SCALE."
+	line "BLUE SCALE."
 	done
 
 LakeOfRageGrampsText:
@@ -347,12 +332,12 @@ LakeOfRageCooltrainerFText:
 	text "Did my eyes de-"
 	line "ceive me? I saw a"
 
-	para "red GYARADOS in"
+	para "blue GYARADOS in"
 	line "the LAKE…"
 
 	para "But I thought"
 	line "GYARADOS were"
-	cont "usually blue?"
+	cont "usually red?"
 	done
 
 FisherAndreSeenText:
@@ -419,7 +404,7 @@ CooltrainermAaronAfterBattleText:
 
 CooltrainerfLoisSeenText:
 	text "What happened to"
-	line "the red GYARADOS?"
+	line "the blue GYARADOS?"
 
 	para "It's gone?"
 
@@ -516,7 +501,7 @@ LakeOfRage_MapEvents:
 	object_event 24, 26, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerFisherRaymond, EVENT_LAKE_OF_RAGE_CIVILIANS
 	object_event  4, 15, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainermAaron, EVENT_LAKE_OF_RAGE_CIVILIANS
 	object_event 36,  7, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerCooltrainerfLois, EVENT_LAKE_OF_RAGE_CIVILIANS
-	object_event 18, 22, SPRITE_GYARADOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RedGyarados, EVENT_LAKE_OF_RAGE_RED_GYARADOS
+	object_event 18, 22, SPRITE_GYARADOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, RedGyarados, EVENT_LAKE_OF_RAGE_RED_GYARADOS
 	object_event  4,  4, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WesleyScript, EVENT_LAKE_OF_RAGE_WESLEY_OF_WEDNESDAY
 	object_event  7, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, LakeOfRageElixer, EVENT_LAKE_OF_RAGE_ELIXER
 	object_event 35,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, LakeOfRageTMDetect, EVENT_LAKE_OF_RAGE_TM_DETECT

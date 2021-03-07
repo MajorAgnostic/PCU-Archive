@@ -6,7 +6,12 @@ _SwapTextboxPalettes::
 	push bc
 	ld c, SCREEN_WIDTH
 .innerloop
-	ld a, [hl]
+	ld a, [wFloorTile]
+	cp [hl] ; if this tile is [wFloorTile]...
+ 	ld a, [hl]
+	jr nz, .not_floor
+	ld a, [wCarpetTile] ; ...use the palette of [wCarpetTile] instead
+.not_floor
 	push hl
 	srl a
 	jr c, .UpperNybble
@@ -48,7 +53,12 @@ _ScrollBGMapPalettes::
 	ld hl, wBGMapBuffer
 	ld de, wBGMapPalBuffer
 .loop
-	ld a, [hl]
+	ld a, [wFloorTile]
+	cp [hl] ; if this tile is [wFloorTile]...
+ 	ld a, [hl]
+	jr nz, .not_floor
+	ld a, [wCarpetTile] ; ...use the palette of [wCarpetTile] instead
+.not_floor
 	push hl
 	srl a
 	jr c, .UpperNybble

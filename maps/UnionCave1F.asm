@@ -70,13 +70,13 @@ TrainerFirebreatherRay:
 	end
 
 UnionCave1FGreatBall:
-	itemball GREAT_BALL
+	itemball STARDUST
 
 UnionCave1FXAttack:
 	itemball X_ATTACK
 
 UnionCave1FPotion:
-	itemball POTION
+	itemball GREAT_BALL
 
 UnionCave1FAwakening:
 	itemball AWAKENING

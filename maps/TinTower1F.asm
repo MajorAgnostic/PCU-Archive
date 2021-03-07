@@ -3,6 +3,7 @@
 	const TINTOWER1F_RAIKOU
 	const TINTOWER1F_ENTEI
 	const TINTOWER1F_EUSINE
+	const TINTOWER1F_MORTY
 	const TINTOWER1F_SAGE1
 	const TINTOWER1F_SAGE2
 	const TINTOWER1F_SAGE3
@@ -116,7 +117,7 @@ TinTower1F_MapScripts:
 	applymovement TINTOWER1F_SUICUNE, TinTowerSuicuneMovement
 	cry SUICUNE
 	pause 20
-	loadwildmon SUICUNE, 40
+	loadwildmon SUICUNE, 60
 	loadvar VAR_BATTLETYPE, BATTLETYPE_SUICUNE
 	startbattle
 	dontrestartmapmusic
@@ -165,6 +166,19 @@ TinTower1F_MapScripts:
 	special FadeOutMusic
 	pause 20
 	playmapmusic
+	pause 20
+	playsound SFX_ENTER_DOOR
+	moveobject TINTOWER1F_MORTY, 10, 15
+	appear TINTOWER1F_MORTY
+	applymovement TINTOWER1F_MORTY, MovementData_0x1851ec
+	turnobject PLAYER, RIGHT
+	opentext
+	writetext TinTowerMortyText
+	waitbutton
+	closetext
+	applymovement TINTOWER1F_MORTY, MovementData_0x1851f1
+	playsound SFX_EXIT_BUILDING
+	disappear TINTOWER1F_MORTY
 	end
 
 TinTower1FSage1Script:
@@ -226,6 +240,9 @@ TinTower1FSage6Script:
 
 TinTowerEusine:
 	jumptextfaceplayer TinTowerEusineHoOhText
+	
+TinTowerMorty:
+	jumptextfaceplayer TinTowerMortyHoOhText
 
 TinTowerPlayerMovement1:
 	slow_step UP
@@ -275,9 +292,9 @@ TinTowerPlayerMovement2:
 	step_end
 
 MovementData_0x1851ec:
-	step UP
-	step UP
-	step UP
+	slow_step UP
+	slow_step UP
+	slow_step UP
 	turn_head LEFT
 	step_end
 
@@ -461,6 +478,55 @@ TinTowerEusineHoOhText:
 	para "to become a famous"
 	line "#MANIAC!"
 	done
+	
+TinTowerMortyText:
+	text "MORTY: To think"
+	line "that you would be"
+	
+	para "the one to set it"
+	line "all in motion…"
+	
+	para "I am truly impre-"
+	line "ssed, <PLAYER>!"
+
+	para "I must redouble my"
+	line "training efforts"
+	
+	para "and prove to HO-OH"
+	line "that I'm worthy of"
+	
+	para "being graced with"
+	line "its presence."
+	
+	para "The tales of the"
+	line "legendary #MON"
+	
+	para "form the history"
+	line "of ECRUTEAK CITY"
+	
+	para "as well as my own"
+	line "dream."
+	
+	para "The time will come"
+	line "when we must face"
+	
+	para "the #MON of"
+	line "rainbow colors."
+	
+	para "When it does, I'll"
+	line "be ready for any-"
+	cont "thing, <PLAYER>."
+	
+	para "Let's see which of"
+	line "us will have their"
+	cont "name etched into"
+	cont "legend!"
+	done
+	
+TinTowerMortyHoOhText:
+	text "One step closer to"
+	line "my dream…"
+	done
 
 TinTower1FSage4Text2:
 	text "The legendary"
@@ -534,9 +600,10 @@ TinTower1F_MapEvents:
 
 	def_object_events
 	object_event  9,  9, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_SUICUNE
-	object_event  7,  9, SPRITE_RAIKOU, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_RAIKOU
+	object_event  7,  9, SPRITE_RAIKOU, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_RAIKOU
 	object_event 12,  9, SPRITE_ENTEI, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_ENTEI
-	object_event  8,  3, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TinTowerEusine, EVENT_TIN_TOWER_1F_EUSINE
+	object_event  8,  3, SPRITE_EUSINE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, TinTowerEusine, EVENT_TIN_TOWER_1F_EUSINE
+	object_event 10, 12, SPRITE_MORTY, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TinTowerMorty, EVENT_TIN_TOWER_1F_MORTY
 	object_event  5,  9, SPRITE_SAGE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TinTower1FSage1Script, EVENT_TIN_TOWER_1F_WISE_TRIO_1
 	object_event 11, 11, SPRITE_SAGE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TinTower1FSage2Script, EVENT_TIN_TOWER_1F_WISE_TRIO_1
 	object_event 14,  6, SPRITE_SAGE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TinTower1FSage3Script, EVENT_TIN_TOWER_1F_WISE_TRIO_1

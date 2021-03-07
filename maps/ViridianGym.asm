@@ -115,12 +115,22 @@ Text_ReceivedEarthBadge:
 LeaderBlueAfterText:
 	text "BLUE: …"
 
-	para "All right, I was"
+	para "Alright, I was"
 	line "wrong. You're the"
 
-	para "real deal. You are"
+	para "real deal. You're"
 	line "a good trainer."
+	
+	para "You know, you may"
+	line "even give my rival"
 
+	para "RED a run for his"
+	line "money!"
+	
+	para "You should go see"
+	line "my gramps, if you"
+	cont "are interested."
+	
 	para "But I'm going to"
 	line "beat you someday."
 
@@ -145,7 +155,7 @@ ViridianGymGuideText:
 	cont "on a roll."
 
 	para "The GYM LEADER is"
-	line "a guy who battled"
+	line "a guy who became"
 
 	para "the CHAMPION three"
 	line "years ago."

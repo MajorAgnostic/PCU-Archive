@@ -1379,7 +1379,11 @@ wEnemyHPPal:: db
 wHPPals:: ds PARTY_LENGTH
 wCurHPPal:: db
 
-	ds 7
+	ds 4
+	
+wCarpetTile:: db
+wFloorTile:: db
+wCoveredTile:: db
 
 wSGBPals:: ds 48
 
@@ -2242,7 +2246,10 @@ wOtherDecoration::    db
 wCurEnemyItem:: db
 ENDU
 
-	ds 3
+wOtherTrainerType:: db
+wTrainerGroupBank:: db
+
+	ds 1
 
 wLinkBattleRNs:: ds 10
 
@@ -2316,11 +2323,10 @@ wCurBaseDataEnd::
 
 wCurDamage:: dw
 
-	ds 2
-
 wMornEncounterRate::  db
 wDayEncounterRate::   db
 wNiteEncounterRate::  db
+wEveEncounterRate::   db
 wWaterEncounterRate:: db
 wListMoves_MoveIndicesBuffer:: ds NUM_MOVES
 wPutativeTMHMMove:: db
@@ -2446,7 +2452,7 @@ wScriptTextBank::
 wPriorityScriptAddr::
 wScriptTextAddr::
 	dw
-	ds 1
+wWildBattlePanic:: db
 wWildEncounterCooldown:: db
 wXYComparePointer:: dw
 
@@ -2561,7 +2567,6 @@ wObjectStructsEnd::
 
 wCmdQueue:: ds CMDQUEUE_CAPACITY * CMDQUEUE_ENTRY_SIZE
 
-	ds 40
 
 wMapObjects::
 wPlayerObject:: map_object wPlayer
@@ -2580,6 +2585,8 @@ wMap12Object::  map_object wMap12
 wMap13Object::  map_object wMap13
 wMap14Object::  map_object wMap14
 wMap15Object::  map_object wMap15
+wMap16Object::  map_object wMap16
+wMap17Object::  map_object wMap17
 wMapObjectsEnd::
 
 wObjectMasks:: ds NUM_OBJECTS
@@ -2676,7 +2683,7 @@ wMooMooBerries:: db
 wUndergroundSwitchPositions:: db
 wFarfetchdPosition:: db
 
-	ds 13
+	ds 3
 
 ; map scene ids
 wPokecenter2FSceneID::                            db
@@ -2758,8 +2765,10 @@ wFastShipB1FSceneID::                             db
 wMountMoonSquareSceneID::                         db
 wMobileTradeRoomSceneID::                         db
 wMobileBattleRoomSceneID::                        db
+wRoute42EcruteakGateSceneID::                     db
+wSilverCaveRoom2SceneID::                         db
 
-	ds 49
+	ds 27
 
 ; fight counts
 wJackFightCount::    db
@@ -2791,7 +2800,7 @@ wKenjiFightCount::   db ; unused
 wParryFightCount::   db
 wErinFightCount::    db
 
-	ds 100
+	ds 30
 
 wEventFlags:: flag_array NUM_EVENTS
 
@@ -2898,10 +2907,10 @@ wSafariTimeRemaining:: dw
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1
 
-	ds 22
+	ds 2
 
 wLuckyNumberShowFlag:: db
-	ds 1
+wRepelType:: db
 wLuckyIDNumber:: dw
 
 wRepelEffect:: db ; If a Repel is in use, it contains the nr of steps it's still active

@@ -38,6 +38,11 @@ DayOfWeekSiblingsHousePokedexText2:
 	para "When trainers talk"
 	line "to you, give them"
 	cont "something useful."
+	
+	para "And don't forget"
+	line "to be ready for a"
+	cont "battle on your"
+	cont "day of the week!"
 
 	para "Love,"
 	line "MONICA"

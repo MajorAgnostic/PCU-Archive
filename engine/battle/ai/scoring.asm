@@ -983,6 +983,7 @@ AI_Smart_Reflect:
 AI_Smart_Ohko:
 ; Dismiss this move if player's level is higher than enemy's level.
 ; Else, discourage this move is player's HP is below 50%.
+; Else, encourage move if Evasion is lowered - added in Ultimate
 
 	ld a, [wBattleMonLevel]
 	ld b, a
@@ -990,8 +991,19 @@ AI_Smart_Ohko:
 	cp b
 	jp c, AIDiscourageMove
 	call AICheckPlayerHalfHP
-	ret c
+	jr nc, .discourage
+	ld a, [wPlayerEvaLevel]
+	cp BASE_STAT_LEVEL
+	jr c, .encourage
+.discourage
 	inc [hl]
+	ret
+	
+.encourage
+	call AI_80_20
+	ret c
+	dec [hl]
+	dec [hl]
 	ret
 
 AI_Smart_TrapTarget:
@@ -1739,9 +1751,8 @@ AI_Smart_MeanLook:
 	pop hl
 	jp z, AIDiscourageMove
 
-; 80% chance to greatly encourage this move if the enemy is badly poisoned (buggy).
-; Should check wPlayerSubStatus5 instead.
-	ld a, [wEnemySubStatus5]
+; 80% chance to greatly encourage this move if the player is badly poisoned
+	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_TOXIC, a
 	jr nz, .encourage
 
@@ -2289,18 +2300,12 @@ AI_Smart_HiddenPower:
 	ldh [hBattleTurn], a
 
 ; Calculate Hidden Power's type and base power based on enemy's DVs.
-	callfar HiddenPowerDamage
 	callfar BattleCheckTypeMatchup
 	pop hl
 
 ; Discourage Hidden Power if not very effective.
 	ld a, [wTypeMatchup]
 	cp EFFECTIVE
-	jr c, .bad
-
-; Discourage Hidden Power if its base power	is lower than 50.
-	ld a, d
-	cp 50
 	jr c, .bad
 
 ; Encourage Hidden Power if super-effective.
@@ -3096,10 +3101,16 @@ AI_Status:
 	jr z, .poisonimmunity
 	cp EFFECT_POISON
 	jr z, .poisonimmunity
+	cp EFFECT_BURN
+	jr z, .burnimmunity
 	cp EFFECT_SLEEP
 	jr z, .typeimmunity
 	cp EFFECT_PARALYZE
 	jr z, .typeimmunity
+	cp EFFECT_POWDER_SLEEP
+	jr z, .powderimmunity
+	cp EFFECT_POWDER_PARALYZE
+	jr z, .powderimmunity
 
 	ld a, [wEnemyMoveStruct + MOVE_POWER]
 	and a
@@ -3113,6 +3124,22 @@ AI_Status:
 	jr z, .immune
 	ld a, [wBattleMonType2]
 	cp POISON
+	jr z, .immune
+	
+.burnimmunity
+	ld a, [wBattleMonType1]
+	cp FIRE
+	jr z, .immune
+	ld a, [wBattleMonType2]
+	cp FIRE
+	jr z, .immune
+	
+.powderimmunity ; added in Ultimate
+	ld a, [wBattleMonType1]
+	cp GRASS
+	jr z, .immune
+	ld a, [wBattleMonType2]
+	cp GRASS
 	jr z, .immune
 
 .typeimmunity

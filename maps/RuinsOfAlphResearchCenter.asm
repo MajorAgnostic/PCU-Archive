@@ -76,6 +76,8 @@ RuinsOfAlphResearchCenterScientist3Script:
 RuinsOfAlphResearchCenterScientist1Script:
 	faceplayer
 	opentext
+	checkevent EVENT_GOT_UNOWN_DOLL
+	iftrue .gotdoll
 	readvar VAR_UNOWNCOUNT
 	ifequal NUM_UNOWN, .GotAllUnown
 	checkflag ENGINE_UNOWN_DEX
@@ -101,9 +103,16 @@ RuinsOfAlphResearchCenterScientist1Script:
 
 .GotAllUnown:
 	writetext RuinsOfAlphResearchCenterScientist1Text_GotAllUnown
-	waitbutton
-	closetext
+	promptbutton
+	verbosegiveitem UNOWN_DOLL
+	iffalse .bagfull
+	setevent EVENT_GOT_UNOWN_DOLL
 	clearevent EVENT_RUINS_OF_ALPH_OUTSIDE_TOURIST_YOUNGSTERS
+.gotdoll
+	writetext RuinsOfAlphResearchCenterScientist1Text_GotUnownDoll
+	waitbutton
+.bagfull
+	closetext
 	end
 
 RuinsOfAlphResearchCenterScientist2Script:
@@ -268,8 +277,16 @@ RuinsOfAlphResearchCenterScientist1Text_GotAllUnown:
 
 	para "giving us insight"
 	line "into the RUINS."
-
-	para "The RUINS appear"
+	
+	para "To thank you for"
+	line "aiding us in our"
+	
+	para "research, I'd like"
+	line "to give you this!"
+	done
+	
+RuinsOfAlphResearchCenterScientist1Text_GotUnownDoll:
+	text "The RUINS appear"
 	line "to have been built"
 
 	para "as a habitat for"

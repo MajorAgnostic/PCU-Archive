@@ -51,6 +51,7 @@ BattleCommandPointers:
 	dw BattleCommand_Transform
 	dw BattleCommand_Screen
 	dw BattleCommand_Poison
+	dw BattleCommand_Burn ; Ultimate
 	dw BattleCommand_Paralyze
 	dw BattleCommand_Substitute
 	dw BattleCommand_RechargeNextTurn
@@ -179,3 +180,4 @@ BattleCommandPointers:
 	dw BattleCommand_SuperEffectiveLoopText
 	dw BattleCommand_StartLoop
 	dw BattleCommand_Curl
+	dw BattleCommand_CheckGrassType ; Ultimate

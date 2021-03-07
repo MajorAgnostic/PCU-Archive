@@ -1828,12 +1828,12 @@ Slots_GetPayout:
 	ret
 
 .PayoutTable:
-	dw 300
-	dw  50
-	dw   6
-	dw   8
+	dw 777
+	dw 150
 	dw  10
 	dw  15
+	dw  20
+	dw  30
 
 .no_win
 	ld hl, wPayout
@@ -1876,12 +1876,12 @@ Slots_PayoutText:
 	ret
 
 .PayoutStrings:
-	dbw "300@", .LinedUpSevens
-	dbw "50@@", .LinedUpPokeballs
-	dbw "6@@@", .LinedUpMonOrCherry
-	dbw "8@@@", .LinedUpMonOrCherry
+	dbw "777@", .LinedUpSevens
+	dbw "150@", .LinedUpPokeballs
 	dbw "10@@", .LinedUpMonOrCherry
 	dbw "15@@", .LinedUpMonOrCherry
+	dbw "20@@", .LinedUpMonOrCherry
+	dbw "30@@", .LinedUpMonOrCherry
 
 .Text_PrintPayout:
 	text_asm
