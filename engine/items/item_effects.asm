@@ -726,7 +726,7 @@ BallMultiplierFunctionTable:
 
 UltraBallMultiplier:
 ; multiply catch rate by 2.5
-	 ld a, b
+	ld a, b
     srl a
     add b
     add b
@@ -833,7 +833,8 @@ endr
 
 .compare
 	ld c, a
-	cp HIGH(504) ; previously 102.4 kg, now 50.4 kg
+	cp HIGH(504) ; previously 102.4 kg, now 50.4 kg - Pokemon that weigh
+	; between 50.5kg - 51.1kg (none exist in gen 2) will surpass the HIGH check
 	jr c, .lightmon
 
 	ld hl, .WeightsTable
@@ -870,22 +871,26 @@ endr
 	db HIGH(65280), 40
 
 LureBallMultiplier:
-; multiply catch rate by 3 if this is a fishing rod battle
+; multiply catch rate by 5 if this is a fishing rod battle
 	ld a, [wBattleType]
-	cp BATTLETYPE_FISH
-	ret nz
+    cp BATTLETYPE_FISH
+    ret nz
 
-	ld a, b
-	add a
-	jr c, .max
+    ld a, b ; 1x
+    add a ;2x
+    jr c, .max
 
-	add b
-	jr nc, .done
+
+    add a; 4x
+    jr c, .max
+
+    add b ; 4x + 1x = 5x
+    jr nc, .done
 .max
-	ld a, $ff
+    ld a, $ff
 .done
-	ld b, a
-	ret
+    ld b, a
+    ret
 
 MoonBallMultiplier:
 ; Fixed
@@ -929,18 +934,18 @@ MoonBallMultiplier:
 	ret
 
 LoveBallMultiplier:
-; This function is buggy.
-; Intent:  multiply catch rate by 8 if mons are of same species, different sex
-; Reality: multiply catch rate by 8 if mons are of same species, same sex
+	push bc
+    farcall CheckBattleEggGroupCompatibility
+    pop bc
+    ; does species match? - Ultimate (from Idain): removed and instead checks
+	; for matching egg group
+;    ld a, [wTempEnemyMonSpecies]
+;    ld c, a
+;    ld a, [wTempBattleMonSpecies]
+;    cp c
+;    ret nz
 
-	; does species match?
-	ld a, [wTempEnemyMonSpecies]
-	ld c, a
-	ld a, [wTempBattleMonSpecies]
-	cp c
-	ret nz
-
-	; check player mon species
+    ; check player mon species
 	push bc
 	ld a, [wTempBattleMonSpecies]
 	ld [wCurPartySpecies], a
@@ -979,8 +984,6 @@ LoveBallMultiplier:
 	sla b
 	jr c, .max
 	sla b
-	jr c, .max
-	sla b
 	ret nc
 .max
 	ld b, $ff
@@ -1000,33 +1003,46 @@ FastBallMultiplier:
 ; Reality: multiply catch rate by 4 if enemy mon is one of the first three in
 ;          the first FleeMons table.
 	ld a, [wTempEnemyMonSpecies]
-	ld c, a
-	ld hl, FleeMons
-	ld d, 3
+    ld c, a
+    ld hl, FleeMons
+    ld d, 3
 
 .loop
-	ld a, BANK(FleeMons)
-	call GetFarByte
+    ld a, BANK(FleeMons)
+    call GetFarByte
 
-	inc hl
-	cp -1
-	jr z, .next
-	cp c
-	jr nz, .loop
-	sla b
+    inc hl
+    cp -1
+    jr z, .next
+    cp c
+    jr nz, .loop
+    ld a, d
+    dec a
+    jr z, .Alwaysflee
+    sla b
+    jr c, .max
+
+    sla b
 	jr c, .max
-
-	sla b
-	ret nc
+    ret
+.Alwaysflee
+    sla b
+    jr c, .max
+    
+    sla b
+	jr c, .max
+	
+    sla b
+    ret nc
 
 .max
-	ld b, $ff
-	ret
+    ld b, $ff
+    ret
 
 .next
-	dec d
-	jr nz, .loop
-	ret
+    dec d
+    jr nz, .loop
+    ret
 
 LevelBallMultiplier:
 ; multiply catch rate by 8 if player mon level / 4 > enemy mon level
@@ -2494,9 +2510,9 @@ RestorePP:
 	cp MAX_ETHER
 	jr z, .restore_all
 
-	ld c, 5
-	cp MYSTERYBERRY
-	jr z, .restore_some
+;	ld c, 5
+;	cp MYSTERYBERRY
+;	jr z, .restore_some
 
 	ld c, 10
 

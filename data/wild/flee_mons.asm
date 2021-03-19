@@ -6,11 +6,10 @@ SometimesFleeMons:
 	db GRIMER
 	db TANGELA
 	db MR__MIME
-	db EEVEE
 	db PORYGON
 	db DRATINI
 	db DRAGONAIR
-	db TOGETIC
+	db PHANPY
 	db UMBREON
 	db UNOWN
 	db SNUBBULL
@@ -19,16 +18,14 @@ SometimesFleeMons:
 
 OftenFleeMons:
 	db CUBONE
-	db ARTICUNO
-	db ZAPDOS
-	db MOLTRES
 	db QUAGSIRE
 	db DELIBIRD
-	db PHANPY
+	db TOGETIC
 	db TEDDIURSA
 	db -1
 
 AlwaysFleeMons:
 	db RAIKOU
 	db ENTEI
+	db EEVEE
 	db -1

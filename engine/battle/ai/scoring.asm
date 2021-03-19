@@ -706,14 +706,14 @@ AI_Smart_EvasionUp:
 AI_Smart_AlwaysHit:
 ; 80% chance to greatly encourage this move if either...
 
-; ...enemy's accuracy level has been lowered three or more stages
+; ...enemy's accuracy level has been lowered three or more stages (Ultimate: changed to 2+)
 	ld a, [wEnemyAccLevel]
-	cp BASE_STAT_LEVEL - 2
+	cp BASE_STAT_LEVEL - 1
 	jr c, .encourage
 
-; ...or player's evasion level has been raised three or more stages.
+; ...or player's evasion level has been raised three or more stages (Ultimate: changed to 2+)
 	ld a, [wPlayerEvaLevel]
-	cp BASE_STAT_LEVEL + 3
+	cp BASE_STAT_LEVEL + 2
 	ret c
 
 .encourage

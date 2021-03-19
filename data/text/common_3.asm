@@ -1546,26 +1546,24 @@ _MoveReminderIntro::
 	para "I can teach your"
 	line "#MON a move it"
 	cont "has learned pre-"
-	cont "viously. It'll"
+	cont "viously. It will"
 	cont "only cost a tad!"
 	done
 
 _MoveReminderPrompt::
-	text "Are you"
-	line "interested?"
+	text "Interested?"
 	done
 
 _MoveReminderWhichMon::
-	text "Which #MON"
-	next "would you like"
-	cont "to remember a"
-	cont "move?"
+	text "Which #MON do"
+	next "you want to have"
+	cont "remember a move?"
 	done
 
 _MoveReminderWhichMove::
 	text "Which move would"
-	next "you like to"
-	cont "remember?"
+	next "you like to have"
+	cont "remembered?"
 	done
 
 _MoveReminderCancel::

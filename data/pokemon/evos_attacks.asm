@@ -2046,6 +2046,7 @@ KabutoEvosAttacks:
 
 KabutopsEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, RAZOR_WIND
 	db 1, SCRATCH
 	db 1, HARDEN
 	db 1, ROCK_THROW
@@ -2244,6 +2245,7 @@ BayleefEvosAttacks:
 
 MeganiumEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, SWORDS_DANCE
 	db 1, TACKLE
 	db 1, GROWL
 	db 1, VINE_WHIP
@@ -2709,8 +2711,8 @@ HoppipEvosAttacks:
 	db 10, POISONPOWDER
 	db 13, SYNTHESIS
 	db 15, STUN_SPORE
-	db 17, SLEEP_POWDER
-	db 20, MEGA_DRAIN
+	db 17, MEGA_DRAIN
+	db 20, SLEEP_POWDER
 	db 25, LEECH_SEED
 	db 30, COTTON_SPORE
 	db 0 ; no more level-up moves
@@ -2727,8 +2729,8 @@ SkiploomEvosAttacks:
 	db 10, POISONPOWDER
 	db 13, SYNTHESIS
 	db 15, STUN_SPORE
-	db 17, SLEEP_POWDER
-	db 22, MEGA_DRAIN
+	db 17, MEGA_DRAIN
+	db 22, SLEEP_POWDER
 	db 29, LEECH_SEED
 	db 36, COTTON_SPORE
 	db 0 ; no more level-up moves
@@ -2744,8 +2746,8 @@ JumpluffEvosAttacks:
 	db 10, POISONPOWDER
 	db 13, SYNTHESIS
 	db 15, STUN_SPORE
-	db 17, SLEEP_POWDER
-	db 22, MEGA_DRAIN
+	db 17, MEGA_DRAIN
+	db 22, SLEEP_POWDER
 	db 33, LEECH_SEED
 	db 44, COTTON_SPORE
 	db 55, MEAN_LOOK
@@ -2778,6 +2780,7 @@ SunkernEvosAttacks:
 
 SunfloraEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, SYNTHESIS
 	db 1, ABSORB
 	db 1, GROWTH
 	db 10, MEGA_DRAIN

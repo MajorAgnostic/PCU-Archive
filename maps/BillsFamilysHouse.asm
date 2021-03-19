@@ -253,8 +253,19 @@ BillPocketPCExplanationText:
 	line "can only use it to"
 	cont "deposit #MON."
 	
-	para "I hope it proves"
-	line "useful to you!"
+	para "Be careful not to"
+	line "deposit a #MON"
+	
+	para "that knows an HM"
+	line "required to leave"
+	cont "an area."
+	
+	para "You don't want to"
+	line "get stranded!"
+	
+	para "Anyway, I hope it"
+	line "proves useful to"
+	cont "you."
 	done
 
 BillPopWontWorkText:

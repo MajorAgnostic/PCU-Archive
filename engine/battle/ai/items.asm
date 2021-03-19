@@ -135,7 +135,7 @@ SwitchSometimes:
 
 	; $30
 	call Random
-	cp 20 percent - 1
+	cp 4 percent
 	jp c, DontSwitch
 
 .switch

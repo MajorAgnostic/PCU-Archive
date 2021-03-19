@@ -53,7 +53,7 @@ CheckBreedmonCompatibility:
 	jr z, .done
 
 .compute
-	call .CheckDVs
+	; call .CheckDVs - removed for Ultimate cuz incest is a-ok
 	ld c, 255
 	jp z, .done
 	ld a, [wBreedMon2Species]
@@ -194,6 +194,76 @@ DoEggStep::
 	add hl, de
 	pop de
 	jr .loop
+	
+CheckBattleEggGroupCompatibility:
+; Copy of CheckBreedingEggGroupCompatibility, but with battling mons.
+
+; Ditto is automatically discarded.
+; If not Ditto, load the breeding groups into b/c and d/e.
+    
+    ld a, [wTempEnemyMonSpecies]
+    cp DITTO
+    jr z, .Incompatible
+
+    ld [wCurSpecies], a
+    call GetBaseData
+    ld a, [wBaseEggGroups]
+    push af
+    and $f
+    cp EGG_NONE
+    jr z, .pop_incompatible
+    ld b, a
+    pop af
+    and $f0
+    cp EGG_NONE << 4
+    jr z, .Incompatible
+    swap a
+    ld c, a
+
+    ld a, [wTempBattleMonSpecies]
+    cp DITTO
+    jr z, .Incompatible
+
+    ld [wCurSpecies], a
+    push bc
+    call GetBaseData
+    pop bc
+    ld a, [wBaseEggGroups]
+    push af
+    and $f
+    cp EGG_NONE
+    jr z, .pop_incompatible
+    ld d, a
+    pop af
+    and $f0
+    cp EGG_NONE << 4
+    jr z, .Incompatible
+    swap a
+    ld e, a
+
+    ld a, d
+    cp b
+    jr z, .Compatible
+    cp c
+    jr z, .Compatible
+
+    ld a, e
+    cp b
+    jr z, .Compatible
+    cp c
+    jr z, .Compatible
+    jr .Incompatible
+
+.pop_incompatible:
+    pop af
+
+.Incompatible:
+    xor a
+    ret
+
+.Compatible:
+    scf
+    ret
 
 OverworldHatchEgg::
 	call RefreshScreen

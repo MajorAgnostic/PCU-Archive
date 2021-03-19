@@ -74,7 +74,27 @@ Route34IlexForestGateButterfreeScript:
 	end
 
 Route34IlexForestGateLassScript:
-	jumptextfaceplayer Route34IlexForestGateLassText
+	faceplayer
+	opentext
+	checkevent EVENT_ILEX_LUCKY_EGG
+	iftrue .GotEgg
+	writetext Route34IlexForestGateLassEggText
+	promptbutton
+	verbosegiveitem LUCKY_EGG
+	iffalse .NoRoom
+	setevent EVENT_ILEX_LUCKY_EGG
+.GotSweetScent:
+	writetext Route34IlexForestGateLassGotEggText
+	waitbutton
+.NoRoom:
+	closetext
+	end
+	
+.GotEgg:
+	writetext Route34IlexForestGateLassText
+	promptbutton
+	closetext
+	end
 
 MovementData_0x62d97:
 	step UP
@@ -131,6 +151,24 @@ Route34IlexForestGateLassText:
 	para "I think that it"
 	line "must be a grass-"
 	cont "type #MON."
+	done
+	
+Route34IlexForestGateLassEggText:
+	text "Knowing that the"
+	line "forest is protec-"
+	cont "ted makes me feel"
+	cont "lucky!"
+	done
+	
+Route34IlexForestGateLassGotEggText:
+	text "That will allow"
+	line "#MON to gain"
+
+	para "experience at an"
+	line "increased rate!"
+
+	para "Don't you feel"
+	line "lucky too?"
 	done
 
 Route34IlexForestGate_MapEvents:

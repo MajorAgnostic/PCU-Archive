@@ -295,6 +295,7 @@
 	const EVENT_MT_SILVER_MASTER_BALL
 	const EVENT_ROUTE_28_MAX_REVIVE
 	const EVENT_TIN_TOWER_1F_MORTY
+	const EVENT_ILEX_LUCKY_EGG
 
 	const_next 600
 ; Kurt Apricorn events

@@ -810,7 +810,7 @@ TryEnemyFlee:
 
 	call BattleRandom
 	ld b, a
-	cp 50 percent + 1
+	cp 30 percent + 1
 	jr nc, .Stay
 
 	push bc

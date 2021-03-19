@@ -49,7 +49,7 @@ CheckPlayerMoveTypeMatchups:
 	jr .next
 
 .super_effective
-	call .DecreaseScore
+	call .doubledown
 	pop hl
 	jr .done
 
@@ -174,11 +174,48 @@ CheckPlayerMoveTypeMatchups:
 	ret
 
 CheckAbleToSwitch:
+; added stat drop checks for Ultimate
 	xor a
 	ld [wEnemySwitchMonParam], a
 	call FindAliveEnemyMons
 	ret c
 
+	ld hl, TrainerClassAttributes + TRNATTR_AI_ITEM_SWITCH
+	
+	ld a, [wTrainerClass]
+	dec a
+	ld bc, NUM_TRAINER_ATTRIBUTES
+	call AddNTimes
+	
+	ld a, BANK(TrainerClassAttributes)
+	call GetFarByte
+	bit SWITCH_OFTEN_F, a
+	jr nz, .checkstat
+	bit SWITCH_SOMETIMES_F, a
+	jr nz, .checkstat
+	jr .checkperish
+.checkstat
+	 ; Checks if non-spd or sp atk stat is below -2
+	ld a, [wEnemyAccLevel]
+    cp BASE_STAT_LEVEL - 2
+    jr c, .rollswitch
+	ld a, [wEnemyAtkLevel]
+    cp BASE_STAT_LEVEL - 2
+    jr c, .rollswitch
+	ld a, [wEnemyDefLevel]
+    cp BASE_STAT_LEVEL - 2
+    jr c, .rollswitch
+	ld a, [wEnemySDefLevel]
+    cp BASE_STAT_LEVEL - 2
+    jr c, .rollswitch
+	jr .checkperish
+.rollswitch
+	call Random
+	cp 65 percent
+	jr c, .switch
+	jr .checkperish
+	
+.checkperish
 	ld a, [wEnemySubStatus1]
 	bit SUBSTATUS_PERISH, a
 	jr z, .no_perish
@@ -188,7 +225,7 @@ CheckAbleToSwitch:
 	jr nz, .no_perish
 
 	; Perish count is 1
-
+.switch
 	call FindAliveEnemyMons
 	call FindEnemyMonsWithAtLeastQuarterMaxHP
 	call FindEnemyMonsThatResistPlayer

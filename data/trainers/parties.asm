@@ -63,7 +63,7 @@ WhitneyGroup:
 			db $cc, $cc ; atk|def, spd|spc
 			dw $000C, $000C, $000C, $000C, $000C
 			db BERSERK_GENE
-			db ICY_WIND, HORN_ATTACK, HORN_DRILL, PURSUIT
+			db ICY_WIND, STOMP, HORN_DRILL, PURSUIT
 	db -1 ; end
 
 BugsyGroup:
@@ -957,19 +957,19 @@ YoungsterGroup:
 	db "ALBERT@", TRAINERTYPE_STAT_EXP
 	db 13, SENTRET
 			dw $0002, $0002, $0002, $0002, $0002
-	db 13, ZUBAT
+	db 14, ZUBAT
 			dw $0002, $0002, $0002, $0002, $0002
-	db 14, TEDDIURSA
+	db 15, TEDDIURSA
 			dw $0002, $0002, $0002, $0002, $0002
 	db -1 ; end
 
 	; YOUNGSTER (4)
 	db "GORDON@", TRAINERTYPE_STAT_EXP
-	db 15, GROWLITHE
+	db 15, WOOPER
 			dw $0002, $0002, $0002, $0002, $0002
-	db 15, SANDSHREW
+	db 16, GROWLITHE
 			dw $0002, $0002, $0002, $0002, $0002
-	db 16, WOOPER
+	db 17, SANDSHREW
 			dw $0002, $0002, $0002, $0002, $0002
 	db -1 ; end
 
@@ -1436,11 +1436,11 @@ BirdKeeperGroup:
 			dw $0002, $0002, $0002, $0002, $0002
 	db 15, LEDYBA
 			dw $0002, $0002, $0002, $0002, $0002
-	db 15, PIDGEY
-			dw $0002, $0002, $0002, $0002, $0002
 	db 16, NATU
 			dw $0002, $0002, $0002, $0002, $0002
 	db 16, HOOTHOOT
+			dw $0002, $0002, $0002, $0002, $0002
+	db 17, SKIPLOOM
 			dw $0002, $0002, $0002, $0002, $0002
 	db -1 ; end
 
@@ -3026,19 +3026,19 @@ FisherGroup:
 			dw $0002, $0002, $0002, $0002, $0002
 	db 14, REMORAID
 			dw $0002, $0002, $0002, $0002, $0002
-	db 13, PSYDUCK
-			dw $0002, $0002, $0002, $0002, $0002
 	db 14, CHINCHOU
+			dw $0002, $0002, $0002, $0002, $0002
+	db 16, PSYDUCK
 			dw $0002, $0002, $0002, $0002, $0002
 	db -1 ; end
 
 	; FISHER (2) - Rematch Trainer
 	db "RALPH@", TRAINERTYPE_STAT_EXP
-	db 14, GOLDEEN
+	db 15, GOLDEEN
 			dw $0002, $0002, $0002, $0002, $0002
-	db 14, TOTODILE
+	db 15, TOTODILE
 			dw $0002, $0002, $0002, $0002, $0002
-	db 16, WARTORTLE
+	db 17, WARTORTLE
 			dw $0002, $0002, $0002, $0002, $0002
 	db -1 ; end
 
@@ -3062,9 +3062,9 @@ FisherGroup:
 	db "HENRY@", TRAINERTYPE_STAT_EXP
 	db 14, POLIWAG
 			dw $0002, $0002, $0002, $0002, $0002
-	db 14, MARILL
+	db 15, MARILL
 			dw $0002, $0002, $0002, $0002, $0002
-	db 16, QWILFISH
+	db 17, QWILFISH
 			dw $0002, $0002, $0002, $0002, $0002
 	db -1 ; end
 
@@ -4995,7 +4995,7 @@ PicnickerGroup:
 			dw $0002, $0002, $0002, $0002, $0002
 	db 14, NIDORAN_M
 			dw $0002, $0002, $0002, $0002, $0002
-	db 14, MAREEP
+	db 16, MAREEP
 			dw $0002, $0002, $0002, $0002, $0002
 	db -1 ; end
 
@@ -5260,7 +5260,7 @@ CamperGroup:
 	db "ROLAND@", TRAINERTYPE_STAT_EXP
 	db 15, NIDORAN_M
 			dw $0002, $0002, $0002, $0002, $0002
-	db 15, DUNSPARCE
+	db 17, DUNSPARCE
 			dw $0002, $0002, $0002, $0002, $0002
 	db -1 ; end
 
