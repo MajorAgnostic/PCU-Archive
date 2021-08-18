@@ -142,4 +142,11 @@ Music:
 	dba Music_Route25GBS
 	dba Music_Route25GBSNight
 	dba Music_RBYGymLeaderBattle
+	dba Music_LookZinnia
+	dba Music_ZinniaBattle
+	dba Music_BrendanEncounter
+	dba Music_Dungeon2 ; ViridianForest
+	dba Music_UnovaEliteFourBattle
+	dba Music_AlolaEliteFourBattle
+	dba Music_WallyBattle
 	

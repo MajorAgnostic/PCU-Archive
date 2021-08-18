@@ -1157,7 +1157,7 @@ BattleTowerRoomMenu_PlacePickLevelMenu:
 	bit STATUSFLAGS_HALL_OF_FAME_F, a
 	jr nz, .asm_11896b
 	ld hl, Strings_Ll0ToL40 ; Address to list of strings with the choosable levels
-	ld a, 5                 ; 4 levels to choose from, including 'Cancel'-option
+	ld a, 8                 ; 4 levels to choose from, including 'Cancel'-option
 	jr .asm_118970
 
 .asm_11896b
@@ -3888,6 +3888,9 @@ Strings_Ll0ToL40:
 	db " L:20 @@"
 	db " L:30 @@"
 	db " L:40 @@"
+	db " L:50 @@"
+	db " L:60 @@"
+	db " L:70 @@"
 	db "CANCEL@@"
 
 BattleTowerCancelString: ; unreferenced

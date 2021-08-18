@@ -22,6 +22,7 @@ OftenFleeMons:
 	db DELIBIRD
 	db TOGETIC
 	db TEDDIURSA
+	db ABRA
 	db -1
 
 AlwaysFleeMons:

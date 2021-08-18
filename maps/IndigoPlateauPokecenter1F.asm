@@ -4,6 +4,8 @@
 	const INDIGOPLATEAUPOKECENTER1F_COOLTRAINER_M
 	const INDIGOPLATEAUPOKECENTER1F_SILVER
 	const INDIGOPLATEAUPOKECENTER1F_GRAMPS
+	const INDIGOPLATEAUPOKECENTER1F_OFFICER1
+	const INDIGOPLATEAUPOKECENTER1F_OFFICER2
 	const INDIGOPLATEAUPOKECENTER1F_ABRA
 
 IndigoPlateauPokecenter1F_MapScripts:
@@ -43,6 +45,8 @@ IndigoPlateauPokecenter1F_MapScripts:
 
 PlateauRivalBattle1:
 	checkevent EVENT_BEAT_RIVAL_IN_MT_MOON
+	iffalse PlateauRivalScriptDone
+	checkevent EVENT_OPENED_MT_SILVER
 	iffalse PlateauRivalScriptDone
 	checkflag ENGINE_INDIGO_PLATEAU_RIVAL_FIGHT
 	iftrue PlateauRivalScriptDone
@@ -96,6 +100,7 @@ PlateauRivalBattleCommon:
 	winlosstext PlateauRivalWinText, PlateauRivalLoseText
 	setlasttalked INDIGOPLATEAUPOKECENTER1F_SILVER
 	loadtrainer RIVAL2, RIVAL2_2_TOTODILE
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
@@ -105,6 +110,7 @@ PlateauRivalBattleCommon:
 	winlosstext PlateauRivalWinText, PlateauRivalLoseText
 	setlasttalked INDIGOPLATEAUPOKECENTER1F_SILVER
 	loadtrainer RIVAL2, RIVAL2_2_CHIKORITA
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
@@ -114,6 +120,7 @@ PlateauRivalBattleCommon:
 	winlosstext PlateauRivalWinText, PlateauRivalLoseText
 	setlasttalked INDIGOPLATEAUPOKECENTER1F_SILVER
 	loadtrainer RIVAL2, RIVAL2_2_CYNDAQUIL
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
@@ -140,6 +147,22 @@ IndigoPlateauPokecenter1FNurseScript:
 IndigoPlateauPokecenter1FClerkScript:
 	opentext
 	pokemart MARTTYPE_STANDARD, MART_INDIGO_PLATEAU
+	closetext
+	end
+	
+VictoryRoadGateOfficer1Script:
+	faceplayer
+	opentext
+	writetext OfficerText
+	waitbutton
+	closetext
+	end
+
+VictoryRoadGateOfficer2Script:
+	faceplayer
+	opentext
+	writetext OfficerText
+	waitbutton
 	closetext
 	end
 
@@ -295,6 +318,17 @@ TeleportGuyNoText:
 	text "OK, OK. The best"
 	line "of luck to you!"
 	done
+	
+OfficerText:
+	text "The ELITE FOUR are"
+	line "currently training"
+	cont "on MT.SILVER. "
+
+	para "We are afraid that"
+	line "you cannot issue a"
+	cont "challenge at this"
+	cont "time."
+	done
 
 AbraText:
 	text "ABRA: Aabra…"
@@ -321,4 +355,6 @@ IndigoPlateauPokecenter1F_MapEvents:
 	object_event 11, 11, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IndigoPlateauPokecenter1FCooltrainerMScript, -1
 	object_event 16,  9, SPRITE_SILVER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_INDIGO_PLATEAU_POKECENTER_RIVAL
 	object_event  1,  9, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, TeleportGuyScript, EVENT_TELEPORT_GUY
+	object_event 16,  5, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VictoryRoadGateOfficer1Script, EVENT_NO_E4_REMATCH
+	object_event 17,  5, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VictoryRoadGateOfficer2Script, EVENT_NO_E4_REMATCH
 	object_event  0,  9, SPRITE_ABRA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, AbraScript, EVENT_TELEPORT_GUY

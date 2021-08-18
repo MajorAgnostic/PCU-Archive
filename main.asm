@@ -319,6 +319,8 @@ INCLUDE "engine/events/buena.asm"
 INCLUDE "engine/events/dratini.asm"
 INCLUDE "engine/events/battle_tower/rules.asm"
 INCLUDE "mobile/mobile_22_2.asm"
+INCLUDE "engine/events/elekid.asm" ; Ultimate
+INCLUDE "engine/events/magby.asm"
 
 
 SECTION "bank23", ROMX

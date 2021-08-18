@@ -11,5 +11,6 @@ RainDanceMoves:
 	db BUBBLE
 	db CRABHAMMER
 	db OCTAZOOKA
+	db MOONLIGHT
 	db WHIRLPOOL
 	db -1 ; end

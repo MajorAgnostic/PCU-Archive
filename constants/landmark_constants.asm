@@ -55,6 +55,7 @@ KANTO_LANDMARK EQU const_value
 	const LANDMARK_ROUTE_1           ; 30
 	const LANDMARK_VIRIDIAN_CITY     ; 31
 	const LANDMARK_ROUTE_2           ; 32
+	const LANDMARK_VIRIDIAN_FOREST   ; NEW
 	const LANDMARK_PEWTER_CITY       ; 33
 	const LANDMARK_ROUTE_3           ; 34
 	const LANDMARK_MT_MOON           ; 35
@@ -87,8 +88,8 @@ KANTO_LANDMARK EQU const_value
 	const LANDMARK_ROUTE_18          ; 50
 	const LANDMARK_FUCHSIA_CITY      ; 51
 	const LANDMARK_ROUTE_19          ; 52
-	const LANDMARK_ROUTE_20          ; 53
 	const LANDMARK_SEAFOAM_ISLANDS   ; 54
+	const LANDMARK_ROUTE_20          ; 53
 	const LANDMARK_CINNABAR_ISLAND   ; 55
 	const LANDMARK_ROUTE_21          ; 56
 	const LANDMARK_ROUTE_22          ; 57

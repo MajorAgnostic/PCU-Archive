@@ -17,9 +17,11 @@ ViridianGymBlueScript:
 	closetext
 	winlosstext LeaderBlueWinText, 0
 	loadtrainer BLUE, BLUE1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BLUE
+	clearevent EVENT_HOMEBIGONIXDOLL
 	opentext
 	writetext Text_ReceivedEarthBadge
 	playsound SFX_GET_BADGE
@@ -130,6 +132,21 @@ LeaderBlueAfterText:
 	para "You should go see"
 	line "my gramps, if you"
 	cont "are interested."
+	
+	para "Speaking of RED, I"
+	line "left something for"
+	cont "him in his room."
+	
+	para "I bet he never got"
+	line "around to opening"
+	cont "the gift!"
+	
+	para "Why don't you go"
+	line "ahead and grab it?"
+	
+	para "No point letting"
+	line "it sit there and"
+	cont "collect dust."
 	
 	para "But I'm going to"
 	line "beat you someday."

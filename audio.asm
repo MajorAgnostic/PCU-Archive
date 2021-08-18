@@ -138,6 +138,17 @@ INCLUDE "audio/music/route25.asm"
 INCLUDE "audio/music/rbykantogymbattle.asm"
 
 
+SECTION "New Songs 2", ROMX
+
+INCLUDE "audio/music/zinniaencounter.asm"
+INCLUDE "audio/music/zinniabattle.asm"
+INCLUDE "audio/music/brendanencounter.asm"
+INCLUDE "audio/music/viridianforest.asm"
+INCLUDE "audio/music/unovae4.asm"
+INCLUDE "audio/music/alolae4.asm"
+INCLUDE "audio/music/wallybattle.asm"
+
+
 SECTION "Sound Effects", ROMX
 
 INCLUDE "audio/sfx.asm"

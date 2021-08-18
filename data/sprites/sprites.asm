@@ -126,3 +126,5 @@ OverworldSprites:
 	overworld_sprite GrimerSpriteGFX, 4, STILL_SPRITE, PAL_OW_PURPLE
 	overworld_sprite TentacoolSpriteGFX, 4, STILL_SPRITE, PAL_OW_BLUE
 	overworld_sprite MachopSpriteGFX, 4, STILL_SPRITE, PAL_OW_BROWN
+	overworld_sprite SlowbroSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
+	overworld_sprite AndreaSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED

@@ -187,6 +187,7 @@
 	const VOLTORB_DOLL ; be
 	const DRAGON_SCALE ; bf
 	const UP_GRADE     ; c0
+	const GOLD_B_JUICE ; be
 	const BRICK_PIECE  ; b4
 	const SURF_MAIL    ; b5
 	const LITEBLUEMAIL ; b6
@@ -197,7 +198,6 @@
 	const BLUESKY_MAIL ; bb
 	const MUSIC_MAIL   ; bc
 	const MIRAGE_MAIL  ; bd
-	const ITEM_BE      ; be
 
 __tmhm_value__ = 1
 

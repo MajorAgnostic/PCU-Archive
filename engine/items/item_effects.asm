@@ -45,7 +45,7 @@ ItemEffects:
 	dw NoEffect            ; LUCKY_PUNCH
 	dw VitaminEffect       ; CALCIUM
 	dw RareCandyEffect     ; RARE_CANDY
-	dw XAccuracyEffect     ; X_ACCURACY
+	dw XItemEffect         ; X_ACCURACY
 	dw EvoStoneEffect      ; LEAF_STONE
 	dw NoEffect            ; METAL_POWDER
 	dw NoEffect            ; NUGGET
@@ -194,6 +194,7 @@ ItemEffects:
 	dw VoltorbDollEffect   ; VOLTORB_DOLL
 	dw EvoStoneEffect      ; DRAGON_SCALE
 	dw EvoStoneEffect      ; UP_GRADE
+	dw RestoreHPEffect     ; GOLD_B_JUICE
 
 PokeBallEffect:
 	ld a, [wBattleMode]

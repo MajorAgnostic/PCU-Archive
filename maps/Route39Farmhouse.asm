@@ -1,4 +1,5 @@
 ROUTE39FARMHOUSE_MILK_PRICE EQU 1000
+ROUTE39FARMHOUSE_DOZEN_MILK_PRICE EQU 11000
 
 	object_const_def
 	const ROUTE39FARMHOUSE_POKEFAN_M
@@ -21,23 +22,53 @@ PokefanM_DairyFarmer:
 	end
 
 FarmerMScript_SellMilk:
-	writetext FarmerMText_BuyMilk
-	special PlaceMoneyTopRight
-	yesorno
-	iffalse FarmerMScript_NoSale
-	checkmoney YOUR_MONEY, ROUTE39FARMHOUSE_MILK_PRICE
-	ifequal HAVE_LESS, FarmerMScript_NoMoney
-	giveitem MOOMOO_MILK
-	iffalse FarmerMScript_NoRoom
-	takemoney YOUR_MONEY, ROUTE39FARMHOUSE_MILK_PRICE
-	special PlaceMoneyTopRight
-	waitsfx
-	playsound SFX_TRANSACTION
-	writetext FarmerMText_GotMilk
-	promptbutton
-	itemnotify
-	closetext
-	end
+    writetext FarmerMText_BuyMilk
+FarmerMScript_SellMilk_LoopScript:
+    special PlaceMoneyTopRight
+    loadmenu FarmerMScript_SellMilkMenuHeader
+    verticalmenu
+    closewindow
+    ifequal 1, .OneBottle
+    ifequal 2, .OneDozen
+    sjump FarmerMScript_NoSale
+
+.OneBottle
+    checkmoney YOUR_MONEY, ROUTE39FARMHOUSE_MILK_PRICE
+    ifequal HAVE_LESS, FarmerMScript_NoMoney
+    giveitem MOOMOO_MILK
+    iffalse FarmerMScript_NoRoom
+    takemoney YOUR_MONEY, ROUTE39FARMHOUSE_MILK_PRICE
+    special PlaceMoneyTopRight
+    sjump FarmerMScript_SellMil_FinishScript
+
+.OneDozen
+    checkmoney YOUR_MONEY, ROUTE39FARMHOUSE_DOZEN_MILK_PRICE
+    ifequal HAVE_LESS, FarmerMScript_NoMoney
+    giveitem MOOMOO_MILK, 12
+    iffalse FarmerMScript_NoRoom
+    takemoney YOUR_MONEY, ROUTE39FARMHOUSE_DOZEN_MILK_PRICE
+    special PlaceMoneyTopRight
+    ; fallthrough
+FarmerMScript_SellMil_FinishScript:
+    waitsfx
+    playsound SFX_TRANSACTION
+    writetext FarmerMText_GotMilk
+    promptbutton
+    itemnotify
+    sjump FarmerMScript_SellMilk_LoopScript
+	
+FarmerMScript_SellMilkMenuHeader:
+    db MENU_BACKUP_TILES ; flags
+    menu_coords 0, 3, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
+    dw .MenuData
+    db 1 ; default option
+
+.MenuData:
+    db STATICMENU_CURSOR ; flags
+    db 3 ; items
+    db "ONE BOTTLE  ¥{d:ROUTE39FARMHOUSE_MILK_PRICE}@"
+    db "ONE DOZEN  ¥{d:ROUTE39FARMHOUSE_DOZEN_MILK_PRICE}@"
+    db "CANCEL@"
 
 FarmerMScript_NoMoney:
 	writetext FarmerMText_NoMoney
@@ -113,8 +144,8 @@ FarmerMText_BuyMilk:
 	para "Give it to #MON"
 	line "to restore HP!"
 
-	para "I'll give it to ya"
-	line "fer just ¥1000."
+	para "Grab a bottle or"
+	line "a dozen!"
 	done
 
 FarmerMText_GotMilk:

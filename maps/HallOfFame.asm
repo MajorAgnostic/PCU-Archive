@@ -16,12 +16,12 @@ HallOfFame_MapScripts:
 	end
 
 .EnterHallOfFameScript:
-	follow HALLOFFAME_LANCE, PLAYER
-	applymovement HALLOFFAME_LANCE, HallOfFame_WalkUpWithLance
-	stopfollow
 	readvar VAR_BADGES
 	ifequal 16, .REMATCH
 	turnobject PLAYER, RIGHT
+	follow HALLOFFAME_LANCE, PLAYER
+	applymovement HALLOFFAME_LANCE, HallOfFame_WalkUpWithLance
+	stopfollow
 	opentext
 	writetext HallOfFame_LanceText
 	waitbutton
@@ -36,9 +36,9 @@ HallOfFame_MapScripts:
 	clearevent EVENT_HOMEBIGLAPRASDOLL
 	setevent EVENT_TELEPORT_GUY
 	setevent EVENT_RIVAL_SPROUT_TOWER
-	clearevent EVENT_RED_IN_MT_SILVER
 	setevent EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME
 	clearevent EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
+	clearevent EVENT_NO_E4_REMATCH
 	setmapscene SPROUT_TOWER_3F, SCENE_FINISHED
 	special HealParty
 	checkevent EVENT_GOT_SS_TICKET_FROM_ELM
@@ -49,9 +49,18 @@ HallOfFame_MapScripts:
 	end
 	
 .REMATCH:
-	turnobject PLAYER, RIGHT
+	pause 15
+	turnobject HALLOFFAME_LANCE, DOWN
 	opentext
 	writetext HallOfFame_LanceText2
+	waitbutton
+	closetext
+	follow HALLOFFAME_LANCE, PLAYER
+	applymovement HALLOFFAME_LANCE, HallOfFame_WalkUpWithLance
+	stopfollow
+	turnobject PLAYER, RIGHT
+	opentext
+	writetext HallOfFame_LanceText3
 	waitbutton
 	closetext
 	turnobject HALLOFFAME_LANCE, UP
@@ -62,17 +71,10 @@ HallOfFame_MapScripts:
 	special HealMachineAnim
 	setevent EVENT_BEAT_ELITE_FOUR
 	setevent EVENT_OPENED_MT_SILVER
-	setevent EVENT_TELEPORT_GUY
 	setevent EVENT_RIVAL_SPROUT_TOWER
 	clearevent EVENT_RED_IN_MT_SILVER
-	setevent EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME
-	clearevent EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
-	setmapscene SPROUT_TOWER_3F, SCENE_FINISHED
+	clearevent EVENT_BEAT_ANDREA
 	special HealParty
-	checkevent EVENT_GOT_SS_TICKET_FROM_ELM
-	iftrue .SkipPhoneCall2
-	specialphonecall SPECIALCALL_SSTICKET
-.SkipPhoneCall2:
 	halloffame
 	end
 
@@ -115,9 +117,9 @@ HallOfFame_LanceText:
 	line "CHAMPION--a"
 
 	para "trainer who feels"
-	line "compassion for,"
+	line "compassion for"
 
-	para "and trust toward,"
+	para "and trust toward"
 	line "all #MON."
 
 	para "A trainer who"
@@ -140,48 +142,72 @@ HallOfFame_LanceText:
 	done
 	
 HallOfFame_LanceText2:
-	text "LANCE: Although"
-	line "it hasn't been"
-	cont "very long since"
+	text "LANCE: <PLAY_G>!"
+	
+	para "Congratulations"
+	line "on defeating the"
 
-	para "we last entered"
-	line "this room, I get"
+	para "LEAGUE CHAMPION"
+	line "once again!"
 	
-	para "chills each and"
-	line "every time…"
+	para "It's good to see"
+	line "you after such a"
+	cont "long time."
+	done
 	
-	para "Oh! I was about"
-	line "to say, prior to"
+HallOfFame_LanceText3:
+	text "It has not been"
+	line "very long since I"
+
+	para "last entered this"
+	line "room, but I still"
 	
-	para "the little in-"
-	line "terruption, that"
+	para "get chills every"
+	line "time…"
 	
-	para "you should cha-"
-	line "llenge RED. He"
+	para "Oh, right! PROF."
+	line "OAK wanted me to"
 	
-	para "awaits you in"
-	line "SILVER CAVE."
+	para "allow you entry"
+	line "into MT.SILVER."
 	
-	para "I will arrange"
-	line "for the MT.SIL-"
+	para "Although I am no"
+	line "longer the LEAGUE"
 	
-	para "VER guard to let"
-	line "you pass, but"
+	para "CHAMPION, I've de-"
+	line "cided to help out"
+	cont "with logistics."
 	
-	para "you must tread"
-	line "with caution."
+	para "I will arrange for"
+	line "the MT.SILVER gu-"
 	
-	para "The road to the"
-	line "end of SILVER"
+	para "ard to grant you"
+	line "passage, but you"
 	
-	para "CAVE is fraught"
-	line "with peril."
+	para "must tread with"
+	line "caution."
 	
-	para "But first, let's"
-	line "register your"
+	para "The MT.SILVER and"
+	line "SILVER CAVE areas"
 	
-	para "#MON in the"
-	line "HALL OF FAME!"
+	para "are fraught with"
+	line "peril."
+	
+	para "Even the most sea-"
+	line "soned of trainers"
+	cont "must be wary."
+	
+	para "But nevermind that"
+	line "right now."
+	
+	para "This is a moment"
+	line "of celebration!"
+	
+	para "Let's register the"
+	line "#MON that stood"
+	
+	para "by your side into"
+	line "the HALL OF FAME."
 	done
 
 HallOfFame_MapEvents:

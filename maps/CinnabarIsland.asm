@@ -127,7 +127,7 @@ CinnabarIslandBlueTeleportText:
 
 	para "You've managed to"
 	line "defeat every other"
-	cont "GYM LEADER, huh?"
+	cont "GYM LEADER, eh?"
 
 	para "If I see a strong"
 	line "opponent, it makes"

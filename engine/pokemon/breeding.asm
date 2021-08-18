@@ -54,8 +54,8 @@ CheckBreedmonCompatibility:
 
 .compute
 	; call .CheckDVs - removed for Ultimate cuz incest is a-ok
-	ld c, 255
-	jp z, .done
+	; ld c, 255
+	; jp z, .done
 	ld a, [wBreedMon2Species]
 	ld b, a
 	ld a, [wBreedMon1Species]

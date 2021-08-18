@@ -79,6 +79,19 @@ SantosScript:
 	opentext
 	checkevent EVENT_GOT_SPELL_TAG_FROM_SANTOS
 	iftrue .Saturday
+	writetext MeetSantosText
+	promptbutton
+	readvar VAR_WEEKDAY
+	ifequal SATURDAY, .GiveTag
+	writetext SantosSeenText
+	waitbutton
+	closetext
+	winlosstext SantosBeatenText, 0
+	loadtrainer POKEMANIAC, SANTOS
+	startbattle
+	reloadmapafterbattle
+	opentext
+.GiveTag:
 	writetext SantosGivesGiftText
 	promptbutton
 	verbosegiveitem SPELL_TAG
@@ -213,10 +226,24 @@ BlackthornYoungsterText:
 MeetSantosText:
 	text "SANTOS: …"
 
-	para "It's Saturday…"
-
 	para "I'm SANTOS of"
 	line "Saturday…"
+	done
+	
+SantosSeenText:
+	text "Do you want some-"
+	line "thing?"
+
+	para "It's not Saturday"
+	line "today."
+	
+	para "If you want SPELL"
+	line "TAG, then you'll"
+	cont "have to take it."
+	done
+	
+SantosBeatenText:
+	text "…terrifying."
 	done
 
 SantosGivesGiftText:

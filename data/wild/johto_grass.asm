@@ -63,17 +63,17 @@ JohtoGrassWildMons:
 	db 61, RATICATE
 	db 62, RATICATE
 	db 62, RATICATE
-	db 63, RATICATE
-	db 64, RATICATE
-	db 64, RATICATE
+	db 63, MISDREAVUS
+	db 64, MISDREAVUS
+	db 64, MISDREAVUS
 	; day
 	db 60, RATICATE
 	db 61, RATICATE
 	db 62, RATICATE
 	db 62, RATICATE
-	db 63, RATICATE
-	db 64, RATICATE
-	db 64, RATICATE
+	db 63, MISDREAVUS
+	db 64, MISDREAVUS
+	db 64, MISDREAVUS
 	; nite
 	db 60, HAUNTER
 	db 61, HAUNTER
@@ -90,17 +90,17 @@ JohtoGrassWildMons:
 	db 61, RATICATE
 	db 62, RATICATE
 	db 62, RATICATE
-	db 63, RATICATE
-	db 64, RATICATE
-	db 64, RATICATE
+	db 63, MISDREAVUS
+	db 64, MISDREAVUS
+	db 64, MISDREAVUS
 	; day
 	db 60, RATICATE
 	db 61, RATICATE
 	db 62, RATICATE
 	db 62, RATICATE
-	db 63, RATICATE
-	db 64, RATICATE
-	db 64, RATICATE
+	db 63, MISDREAVUS
+	db 64, MISDREAVUS
+	db 64, MISDREAVUS
 	; nite
 	db 60, HAUNTER
 	db 61, HAUNTER
@@ -117,17 +117,17 @@ JohtoGrassWildMons:
 	db 61, RATICATE
 	db 62, RATICATE
 	db 62, RATICATE
-	db 63, RATICATE
-	db 64, RATICATE
-	db 64, RATICATE
+	db 63, MISDREAVUS
+	db 64, MISDREAVUS
+	db 64, MISDREAVUS
 	; day
 	db 60, RATICATE
 	db 61, RATICATE
 	db 62, RATICATE
 	db 62, RATICATE
-	db 63, RATICATE
-	db 64, RATICATE
-	db 64, RATICATE
+	db 63, MISDREAVUS
+	db 64, MISDREAVUS
+	db 64, MISDREAVUS
 	; nite
 	db 60, HAUNTER
 	db 61, HAUNTER
@@ -144,17 +144,17 @@ JohtoGrassWildMons:
 	db 61, RATICATE
 	db 62, RATICATE
 	db 62, RATICATE
-	db 63, RATICATE
-	db 64, RATICATE
-	db 64, RATICATE
+	db 63, MISDREAVUS
+	db 64, MISDREAVUS
+	db 64, MISDREAVUS
 	; day
 	db 60, RATICATE
 	db 61, RATICATE
 	db 62, RATICATE
 	db 62, RATICATE
-	db 63, RATICATE
-	db 64, RATICATE
-	db 64, RATICATE
+	db 63, MISDREAVUS
+	db 64, MISDREAVUS
+	db 64, MISDREAVUS
 	; nite
 	db 60, HAUNTER
 	db 61, HAUNTER
@@ -171,17 +171,17 @@ JohtoGrassWildMons:
 	db 61, RATICATE
 	db 62, RATICATE
 	db 62, RATICATE
-	db 63, RATICATE
-	db 64, RATICATE
-	db 64, RATICATE
+	db 63, MISDREAVUS
+	db 64, MISDREAVUS
+	db 64, MISDREAVUS
 	; day
 	db 60, RATICATE
 	db 61, RATICATE
 	db 62, RATICATE
 	db 62, RATICATE
-	db 63, RATICATE
-	db 64, RATICATE
-	db 64, RATICATE
+	db 63, MISDREAVUS
+	db 64, MISDREAVUS
+	db 64, MISDREAVUS
 	; nite
 	db 60, HAUNTER
 	db 61, HAUNTER
@@ -198,17 +198,17 @@ JohtoGrassWildMons:
 	db 61, RATICATE
 	db 62, RATICATE
 	db 62, RATICATE
-	db 63, RATICATE
-	db 64, RATICATE
-	db 64, RATICATE
+	db 63, MISDREAVUS
+	db 64, MISDREAVUS
+	db 64, MISDREAVUS
 	; day
 	db 60, RATICATE
 	db 61, RATICATE
 	db 62, RATICATE
 	db 62, RATICATE
-	db 63, RATICATE
-	db 64, RATICATE
-	db 64, RATICATE
+	db 63, MISDREAVUS
+	db 64, MISDREAVUS
+	db 64, MISDREAVUS
 	; nite
 	db 60, HAUNTER
 	db 61, HAUNTER
@@ -225,17 +225,17 @@ JohtoGrassWildMons:
 	db 61, RATICATE
 	db 62, RATICATE
 	db 62, RATICATE
-	db 63, RATICATE
-	db 64, RATICATE
-	db 64, RATICATE
+	db 63, MISDREAVUS
+	db 64, MISDREAVUS
+	db 64, MISDREAVUS
 	; day
 	db 60, RATICATE
 	db 61, RATICATE
 	db 62, RATICATE
 	db 62, RATICATE
-	db 63, RATICATE
-	db 64, RATICATE
-	db 64, RATICATE
+	db 63, MISDREAVUS
+	db 64, MISDREAVUS
+	db 64, MISDREAVUS
 	; nite
 	db 60, HAUNTER
 	db 61, HAUNTER
@@ -252,17 +252,17 @@ JohtoGrassWildMons:
 	db 61, RATICATE
 	db 62, RATICATE
 	db 62, RATICATE
-	db 63, RATICATE
-	db 64, RATICATE
-	db 64, RATICATE
+	db 63, MISDREAVUS
+	db 64, MISDREAVUS
+	db 64, MISDREAVUS
 	; day
 	db 60, RATICATE
 	db 61, RATICATE
 	db 62, RATICATE
 	db 62, RATICATE
-	db 63, RATICATE
-	db 64, RATICATE
-	db 64, RATICATE
+	db 63, MISDREAVUS
+	db 64, MISDREAVUS
+	db 64, MISDREAVUS
 	; nite
 	db 60, HAUNTER
 	db 61, HAUNTER
@@ -275,56 +275,56 @@ JohtoGrassWildMons:
 	map_id BURNED_TOWER_1F
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
-	db 26, RATTATA
+	db 26, GASTLY
 	db 28, KOFFING
 	db 27, MACHOP
 	db 28, GRIMER
-	db 28, HOUNDOUR
-	db 29, RATICATE
-	db 29, RATICATE
+	db 28, GRIMER
+	db 29, HAUNTER
+	db 29, HAUNTER
 	; day
-	db 26, RATTATA
+	db 26, GASTLY
 	db 28, KOFFING
 	db 27, MACHOP
 	db 28, GRIMER
-	db 28, HOUNDOUR
-	db 29, RATICATE
-	db 29, RATICATE
+	db 28, GRIMER
+	db 29, HAUNTER
+	db 29, HAUNTER
 	; nite
-	db 26, RATTATA
+	db 26, GASTLY
 	db 28, KOFFING
 	db 27, MACHOP
 	db 28, GRIMER
-	db 28, HOUNDOUR
-	db 29, RATICATE
-	db 29, RATICATE
+	db 28, GRIMER
+	db 29, HAUNTER
+	db 29, HAUNTER
 
 	map_id BURNED_TOWER_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 26, RATTATA
+	db 26, GASTLY
 	db 27, GRIMER
-	db 27, KOFFING
-	db 28, GRIMER
-	db 28, HOUNDOUR
+	db 27, GRIMER
 	db 28, KOFFING
-	db 29, WEEZING
+	db 28, KOFFING
+	db 29, MACHOKE
+	db 29, MUK
 	; day
-	db 26, RATTATA
+	db 26, GASTLY
 	db 27, GRIMER
-	db 27, KOFFING
-	db 28, GRIMER
-	db 28, HOUNDOUR
+	db 27, GRIMER
 	db 28, KOFFING
-	db 29, WEEZING
+	db 28, KOFFING
+	db 29, MACHOKE
+	db 29, MUK
 	; nite
-	db 26, RATTATA
+	db 26, GASTLY
 	db 27, GRIMER
-	db 27, KOFFING
-	db 28, GRIMER
-	db 28, HOUNDOUR
+	db 27, GRIMER
 	db 28, KOFFING
-	db 29, WEEZING
+	db 28, KOFFING
+	db 29, MACHOKE
+	db 29, MUK
 
 	map_id NATIONAL_PARK
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
@@ -413,7 +413,7 @@ JohtoGrassWildMons:
 	db 12, GEODUDE
 	db 12, DIGLETT
 	db 11, ZUBAT
-	db 11, RATTATA
+	db 12, MACHOP
 	db 13, ZUBAT
 	db 14, ONIX
 	db 14, ONIX
@@ -421,7 +421,7 @@ JohtoGrassWildMons:
 	db 12, GEODUDE
 	db 12, DIGLETT
 	db 11, ZUBAT
-	db 11, RATTATA
+	db 12, MACHOP
 	db 13, ZUBAT
 	db 14, ONIX
 	db 14, ONIX
@@ -429,7 +429,7 @@ JohtoGrassWildMons:
 	db 12, GEODUDE
 	db 11, ZUBAT
 	db 12, WOOPER
-	db 11, RATTATA
+	db 12, MACHOP
 	db 13, ZUBAT
 	db 14, ONIX
 	db 14, ONIX
@@ -442,24 +442,24 @@ JohtoGrassWildMons:
 	db 14, ZUBAT
 	db 15, ONIX
 	db 14, DIGLETT
-	db 12, RATTATA
-	db 14, RATTATA
+	db 13, MACHOP
+	db 14, MACHOP
 	; day
 	db 14, GEODUDE
 	db 12, ZUBAT
 	db 14, ZUBAT
 	db 15, ONIX
 	db 14, DIGLETT
-	db 12, RATTATA
-	db 14, RATTATA
+	db 13, MACHOP
+	db 14, MACHOP
 	; nite
 	db 14, GEODUDE
 	db 12, ZUBAT
 	db 15, WOOPER
 	db 15, ONIX
 	db 14, DIGLETT
-	db 12, RATTATA
-	db 14, RATTATA
+	db 13, MACHOP
+	db 14, MACHOP
 
 	map_id UNION_CAVE_B2F
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
@@ -1168,27 +1168,27 @@ JohtoGrassWildMons:
 	; morn
 	db 5, LEDYBA
 	db 4, CATERPIE
-	db 5, CATERPIE
-	db 6, PIDGEY
-	db 5, WEEDLE
-	db 5, HOPPIP
-	db 6, HOPPIP
-	; day
+	db 4, CATERPIE
 	db 5, PIDGEY
+	db 5, WEEDLE
+	db 4, HOPPIP
+	db 5, HOPPIP
+	; day
+	db 4, PIDGEY
 	db 4, CATERPIE
 	db 5, CATERPIE
-	db 6, PIDGEY
+	db 5, PIDGEY
 	db 5, WEEDLE
+	db 4, HOPPIP
 	db 5, HOPPIP
-	db 6, HOPPIP
 	; nite
 	db 5, SPINARAK
+	db 4, HOOTHOOT
+	db 5, POLIWAG
 	db 5, HOOTHOOT
-	db 6, POLIWAG
-	db 6, HOOTHOOT
 	db 5, ZUBAT
+	db 4, HOOTHOOT
 	db 5, HOOTHOOT
-	db 6, HOOTHOOT
 
 	map_id ROUTE_31
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
@@ -1456,7 +1456,7 @@ JohtoGrassWildMons:
 	db 39, GIRAFARIG
 	db 37, VULPIX
 	db 39, TAUROS
-	db 38, VULPIX
+	db 38, HOUNDOUR
 	db 38, RATICATE
 	db 40, GLIGAR
 
@@ -1495,7 +1495,7 @@ JohtoGrassWildMons:
 	db 45, KADABRA
 	db 45, WEEPINBELL
 	db 47, LICKITUNG
-	db 47, LICKITUNG
+	db 47, PORYGON
 	db 47, LICKITUNG
 	; day
 	db 46, TANGELA
@@ -1503,7 +1503,7 @@ JohtoGrassWildMons:
 	db 45, KADABRA
 	db 45, WEEPINBELL
 	db 47, LICKITUNG
-	db 47, LICKITUNG
+	db 47, PORYGON
 	db 47, LICKITUNG
 	; nite
 	db 46, TANGELA
@@ -1511,7 +1511,7 @@ JohtoGrassWildMons:
 	db 45, KADABRA
 	db 45, WEEPINBELL
 	db 46, HOUNDOUR
-	db 47, LICKITUNG
+	db 47, PORYGON
 	db 47, LICKITUNG
 
 	map_id ROUTE_45
@@ -1546,9 +1546,9 @@ JohtoGrassWildMons:
 	; morn
 	db 4, GEODUDE
 	db 5, SPEAROW
+	db 5, PHANPY
 	db 5, GEODUDE
 	db 5, RATTATA
-	db 5, PHANPY
 	db 4, RATTATA
 	db 4, RATTATA
 	; day

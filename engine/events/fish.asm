@@ -25,9 +25,7 @@ endr
 ; Fish for monsters with rod b from encounter data in FishGroup at hl.
 ; Return monster d at level e.
 
-	call Random
-	cp [hl]
-	jr nc, .no_bite
+; REMOVED random chance to get no nibbles
 
 	; Get encounter data by rod:
 	; 0: Old

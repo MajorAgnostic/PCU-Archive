@@ -132,9 +132,6 @@ TrainerCard_Page1_Joypad:
 	ret
 	
 .d_left
-	ld a, [wKantoBadges]
-	and a
-	ret z
 	ld a, TRAINERCARDSTATE_PAGE3_LOADGFX
 	ld [wJumptableIndex], a
 	ret
@@ -183,9 +180,6 @@ TrainerCard_Page2_Joypad:
     ret
 
 .KantoBadgeCheck: ; unreferenced
-    ld a, [wKantoBadges]
-    and a
-    ret z
     ld a, TRAINERCARDSTATE_PAGE3_LOADGFX
     ld [wJumptableIndex], a
     ret
@@ -347,7 +341,7 @@ TrainerCard_Page1_PrintDexCaught_GameTime:
 	hlcoord 2, 10
 	ld de, .Dex_PlayTime
 	call PlaceString
-	hlcoord 10, 15
+	hlcoord 5, 15
 	ld de, .Badges
 	call PlaceString
 	ld hl, wPokedexCaught
@@ -376,7 +370,7 @@ TrainerCard_Page1_PrintDexCaught_GameTime:
 	db "@" ; unused
 
 .Badges:
-	db "←BADGES→ @"
+	db "← BADGES → @"
 
 .StatusTilemap:
 	db $29, $2a, $2b, $2c, $2d, -1
@@ -813,14 +807,14 @@ TrainerCard_KantoBadgesOAM:
 	db $0c, $20, $24, $20 | (1 << 7)
 
 	; Marsh Badge (now Janine's badge)
-	db $68, $78, 3
-	db $10, $20, $24, $20 | (1 << 7)
-	db $10, $20, $24, $20 | (1 << 7)
-
-	; Soul Badge (now Sabrina's badge)
 	db $80, $18, 2
 	db $14, $20, $24, $20 | (1 << 7)
 	db $14, $20, $24, $20 | (1 << 7)
+
+	; Soul Badge (now Sabrina's badge)
+	db $68, $78, 3
+	db $10, $20, $24, $20 | (1 << 7)
+	db $10, $20, $24, $20 | (1 << 7)
 
 	; Volcano Badge
 	db $80, $58, 1

@@ -73,3 +73,6 @@ TrainerPicPointers::
 	dba_pic CrystalPic
 	dba_pic NicholasPic
 	dba_pic ArcherPic
+	dba_pic AndreaPic
+	dba_pic Morty2Pic
+	dba_pic Clair2Pic

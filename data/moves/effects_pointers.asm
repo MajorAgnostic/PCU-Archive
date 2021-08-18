@@ -161,3 +161,4 @@ MoveEffectsPointers:
 	dw GrassPowderSleep ; Ultimate-only
 	dw GrassPowderParalyze
 	dw RockSlide
+	dw NightShade

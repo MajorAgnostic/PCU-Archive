@@ -218,7 +218,7 @@ BugsyText_HiveBadgeSpeech:
 	cont "BADGE?"
 
 	para "If you have it,"
-	line "#MON up to L30"
+	line "#MON up to L40"
 
 	para "will obey you,"
 	line "even traded ones."

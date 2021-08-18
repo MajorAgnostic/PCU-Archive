@@ -665,8 +665,8 @@ TeleportDescription:
 	next "from battle.@"
 
 NightShadeDescription:
-	db   "The user's level"
-	next "equals damage HP.@"
+	db   "Uses SPCL.ATK for"
+	next "special damage.@"
 
 MimicDescription:
 	db   "Copies a move used"

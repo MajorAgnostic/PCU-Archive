@@ -122,6 +122,8 @@
 	const SPRITE_GRIMER_DOLL
 	const SPRITE_TENTACOOL_DOLL
 	const SPRITE_MACHOP_DOLL
+	const SPRITE_SLOWBRO
+	const SPRITE_ANDREA
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)
 	const_next $80
@@ -175,6 +177,14 @@ SPRITE_POKEMON EQU const_value
 	const SPRITE_TAUROS
 	const SPRITE_AMPHAROS
 	const SPRITE_TENTACRUEL
+	const SPRITE_BAYLEEF
+	const SPRITE_BLISSEY
+	const SPRITE_KANGASKHAN
+	const SPRITE_RATTATA2
+	const SPRITE_FEAROW
+	const SPRITE_MOLTRES
+	const SPRITE_ZAPDOS
+	const SPRITE_ARTICUNO
 
 ; special GetMonSprite values (see engine/overworld/overworld.asm)
 	const_next $e0

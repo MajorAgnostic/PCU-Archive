@@ -1161,4 +1161,3 @@ Music_HoennChampionBattle_Ch4_branch_3:
 	note C_, 4
 	endchannel
 	
-

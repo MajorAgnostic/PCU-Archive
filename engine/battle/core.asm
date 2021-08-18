@@ -3566,6 +3566,14 @@ CheckWhetherToAskSwitch:
 	ld a, [wOptions]
 	bit BATTLE_SHIFT, a
 	jr nz, .return_nc
+	
+	ld a, [wBattleType] ; Ultimate
+    cp BATTLETYPE_SET
+    jr z, .return_nc
+	ld a, [wBattleType]
+    cp BATTLETYPE_SETNOITEMS
+    jr z, .return_nc
+
 	ld a, [wCurPartyMon]
 	push af
 	ld a, [wCurBattleMon]
@@ -5052,6 +5060,10 @@ BattleMenu_Pack:
 	ld a, [wLinkMode]
 	and a
 	jp nz, .ItemsCantBeUsed
+	
+	ld a, [wBattleType] ; Ultimate
+    cp BATTLETYPE_SETNOITEMS
+    jp z, .ItemsCantBeUsed 
 
 	ld a, [wInBattleTowerBattle]
 	and a
@@ -6121,11 +6133,6 @@ LoadEnemyMon:
 	and a
 	jp nz, InitEnemyMon
 
-; and also not in a BattleTower-Battle
-	ld a, [wInBattleTowerBattle]
-	bit 0, a
-	jp nz, InitEnemyMon
-
 ; Make sure everything knows what species we're working with
 	ld a, [wTempEnemyMonSpecies]
 	ld [wEnemyMonSpecies], a
@@ -7047,10 +7054,6 @@ GiveExperiencePoints:
 ; Don't give experience if linked or in the Battle Tower.
 	ld a, [wLinkMode]
 	and a
-	ret nz
-
-	ld a, [wInBattleTowerBattle]
-	bit 0, a
 	ret nz
 
 	call .EvenlyDivideExpAmongParticipants

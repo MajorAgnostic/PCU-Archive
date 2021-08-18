@@ -14,4 +14,5 @@ HealingHPAmounts:
 	dbw ENERGY_ROOT,  200
 	dbw RAGECANDYBAR,  30
 	dbw BERRY_JUICE,   40
+	dbw GOLD_B_JUICE, 140
 	dbw -1, 0 ; end

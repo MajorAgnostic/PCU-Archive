@@ -1,22 +1,58 @@
 	object_const_def
 	const SAFFRONCITY_LASS1
-	const SAFFRONCITY_POKEFAN_M
+	const SAFFRONCITY_POKEFAN_M1
 	const SAFFRONCITY_COOLTRAINER_M
 	const SAFFRONCITY_COOLTRAINER_F
 	const SAFFRONCITY_FISHER
 	const SAFFRONCITY_YOUNGSTER1
 	const SAFFRONCITY_YOUNGSTER2
 	const SAFFRONCITY_LASS2
+	const SAFFRONCITY_POKEFAN_M2
 
 SaffronCity_MapScripts:
 	def_scene_scripts
+	scene_script .DummyScene0 ; SCENE_DEFAULT
+	scene_script .DummyScene1 ; SCENE_SAFFRON_HOOH
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
+	callback MAPCALLBACK_TILES, .EastRoadLocked
+	
+.DummyScene0:
+.DummyScene1:
+	end
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_SAFFRON
 	endcallback
+	
+.EastRoadLocked:
+	checkflag ENGINE_FLYPOINT_LAVENDER
+	iftrue .KeepEntranceOpen
+	changeblock 39, 23, $13 ; carpet gone
+.KeepEntranceOpen:
+	endcallback
+	
+Saffron_HoohScene:
+	special FadeOutMusic
+	showemote EMOTE_SHOCK, PLAYER, 20
+	turnobject PLAYER, DOWN
+	cry HO_OH
+	opentext
+	writetext SaffronHoOhText
+	pause 40
+	waitbutton
+	cry HO_OH
+	turnobject PLAYER, LEFT
+	pause 20
+	closetext
+	reloadmapafterbattle
+	opentext
+	writetext SaffronHoOh2Text
+	waitbutton
+	closetext
+	setscene SCENE_FINISHED
+	end
 
 SaffronCityLass1Script:
 	faceplayer
@@ -76,6 +112,10 @@ SaffronCityYoungster1Script:
 	jumptextfaceplayer SaffronCityYoungster1Text
 
 SaffronCityYoungster2Script:
+	checkflag ENGINE_FLYPOINT_LAVENDER
+	iftrue .Unblocked
+	jumptextfaceplayer SaffronCityYoungster2BlockedText
+.Unblocked
 	jumptextfaceplayer SaffronCityYoungster2Text
 
 SaffronCityLass2Script:
@@ -104,6 +144,30 @@ SaffronCityPokecenterSign:
 
 SaffronCityMartSign:
 	jumpstd MartSignScript
+	
+SaffronCityGymBlockerScript:
+	jumptextfaceplayer SaffronCityBlockerText
+	
+SaffronCityBlockerText:
+	text "The GYM is closed"
+	line "until the problem"
+
+	para "at the POWER PLANT"
+	line "is solved."
+	done
+	
+SaffronHoOhText:
+	text "Shaoooh!"
+	done
+	
+SaffronHoOh2Text:
+	text "The brilliant"
+	line "rainbow-colored"
+
+	para "#MON flew in"
+	line "the direction of"
+	cont "CELADON CITY!"
+	done
 
 SaffronCityLass1Text:
 	text "A little girl who"
@@ -202,6 +266,21 @@ SaffronCityYoungster1Text:
 	line "me sorta anxious."
 	done
 
+SaffronCityYoungster2BlockedText:
+	text "The road to the"
+	line "east is blocked"
+	cont "off."
+
+	para "Maybe it has to"
+	line "do with the rowdy"
+
+	para "battles that have"
+	line "been going on in"
+	
+	para "the UNDERGROUND"
+	line "PATH lately."
+	done
+	
 SaffronCityYoungster2Text:
 	text "There's a place"
 	line "called TRAINER"
@@ -284,6 +363,8 @@ SaffronCity_MapEvents:
 	warp_event 39, 23, ROUTE_8_SAFFRON_GATE, 2
 
 	def_coord_events
+	coord_event 16, 31, SCENE_DEFAULT, Saffron_HoohScene
+	coord_event 17, 31, SCENE_DEFAULT, Saffron_HoohScene
 
 	def_bg_events
 	bg_event 21,  5, BGEVENT_READ, SaffronCitySign
@@ -304,3 +385,4 @@ SaffronCity_MapEvents:
 	object_event 15, 19, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronCityYoungster1Script, -1
 	object_event 35, 22, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronCityYoungster2Script, -1
 	object_event 19,  8, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SaffronCityLass2Script, -1
+	object_event 34,  4, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SaffronCityGymBlockerScript, EVENT_ROUTE_5_6_POKEFAN_M_BLOCKS_UNDERGROUND_PATH

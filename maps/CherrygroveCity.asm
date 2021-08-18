@@ -170,6 +170,7 @@ CherrygroveSilverSceneNorth:
 	applymovement CHERRYGROVECITY_SILVER, CherrygroveCity_RivalExitsStageLeft
 	disappear CHERRYGROVECITY_SILVER
 	setscene SCENE_CHERRYGROVECITY_NOTHING
+	clearevent EVENT_ROUTE_29_TUSCANY_OF_TUESDAY
 	special HealParty
 	playmapmusic
 	end

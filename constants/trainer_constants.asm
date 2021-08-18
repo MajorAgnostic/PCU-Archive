@@ -187,6 +187,7 @@ KRIS EQU __trainer_class__
 	const DANA3
 	const DANA4
 	const DANA5
+	const JANET
 
 	trainerclass JANINE ; 1a
 	const JANINE1
@@ -255,6 +256,7 @@ KRIS EQU __trainer_class__
 	const THERESA
 	const VALERIE
 	const OLIVIA
+	const MONICA
 
 	trainerclass POKEMANIAC ; 1e
 	const LARRY
@@ -272,6 +274,7 @@ KRIS EQU __trainer_class__
 	const ZACH
 	const BRENT4
 	const MILLER
+	const SANTOS
 
 	trainerclass GRUNTM ; 1f
 	const GRUNTM_1
@@ -321,6 +324,7 @@ KRIS EQU __trainer_class__
 	const COLETTE
 	const HILLARY
 	const SHIRLEY
+	const TUSCANY
 
 	trainerclass SABRINA ; 23
 	const SABRINA1
@@ -347,6 +351,7 @@ KRIS EQU __trainer_class__
 	const WAYNE
 	const TOBIAS
 	const ADAM
+	const SUNNY
 
 	trainerclass FISHER ; 25
 	const JUSTIN
@@ -451,6 +456,7 @@ KRIS EQU __trainer_class__
 	const HUGH
 	const MARKUS
 	const BRADY
+	const WESLEY
 
 	trainerclass RIVAL2 ; 2a
 	const RIVAL2_5_CHIKORITA
@@ -535,7 +541,8 @@ KRIS EQU __trainer_class__
 	const KENJI2
 	const LAO
 	const NOB
-	const KIYO
+	const KIYO1
+	const KIYO2
 	const LUNG
 	const KENJI3
 	const WAI
@@ -589,6 +596,7 @@ KRIS EQU __trainer_class__
 	const GINA5
 	const TIFFANY4
 	const BETH
+	const FRIEDA
 
 	trainerclass CAMPER ; 36
 	const ROLAND
@@ -613,6 +621,7 @@ KRIS EQU __trainer_class__
 	const TODD4
 	const TODD5
 	const QUENTIN
+	const ARTHUR
 
 	trainerclass EXECUTIVEF ; 37
 	const EXECUTIVEF_1
@@ -730,5 +739,14 @@ KRIS EQU __trainer_class__
 	
 	trainerclass ARCHER
 	const ARCHER1
+	
+	trainerclass ANDREA
+	const ANDREA1
+	
+	trainerclass MORTY2
+	const MORTY2A
+	
+	trainerclass CLAIR2
+	const CLAIR2A
 
 NUM_TRAINER_CLASSES EQU __trainer_class__

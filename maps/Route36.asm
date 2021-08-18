@@ -295,6 +295,19 @@ ArthurScript:
 	opentext
 	checkevent EVENT_GOT_HARD_STONE_FROM_ARTHUR
 	iftrue .AlreadyGotStone
+	writetext MeetArthurText
+	promptbutton
+	readvar VAR_WEEKDAY
+	ifequal THURSDAY, .GiveStone
+	writetext ArthurSeenText
+	waitbutton
+	closetext
+	winlosstext ArthurBeatenText, 0
+	loadtrainer CAMPER, ARTHUR
+	startbattle
+	reloadmapafterbattle
+	opentext
+.GiveStone:
 	writetext ArthurGivesGiftText
 	promptbutton
 	verbosegiveitem HARD_STONE
@@ -563,6 +576,31 @@ MeetArthurText:
 
 	para "I'm ARTHUR of"
 	line "Thursday."
+	done
+	
+ArthurSeenText:
+	text "I give these rare"
+	line "stones as gifts to"
+
+	para "trainers on Thurs-"
+	line "day."
+	
+	para "Come back then!"
+	
+	para "Huh? You want to"
+	line "challenge me for"
+	cont "one?"
+	
+	para "I suppose I could"
+	line "if you show me a"
+	cont "good battle."
+	
+	para "You're on!"
+	done
+	
+ArthurBeatenText:
+	text "You caught me by"
+	line "surprise!"
 	done
 
 ArthurGivesGiftText:

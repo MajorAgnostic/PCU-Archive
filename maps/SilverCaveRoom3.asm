@@ -48,6 +48,7 @@ Red:
 	closetext
 	winlosstext RedWinLossText, RedWinLossText
 	loadtrainer RED, RED1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SETNOITEMS
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
@@ -64,7 +65,6 @@ Red:
 	pause 30
 	special HealParty
 	refreshscreen
-	credits
 	end
 	
 MewText:
@@ -97,4 +97,4 @@ SilverCaveRoom3_MapEvents:
 
 	def_object_events
 	object_event  9, 12, SPRITE_RED, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Red, EVENT_RED_IN_MT_SILVER
-	object_event  9, 10, SPRITE_MEW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, Mew, EVENT_MEW_IN_MT_SILVER
+	object_event  9, 10, SPRITE_MEW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Mew, EVENT_MEW_IN_MT_SILVER

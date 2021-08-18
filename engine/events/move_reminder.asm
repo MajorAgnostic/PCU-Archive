@@ -384,7 +384,7 @@ endc
 	
 .Types
 	db "NRM@"
-	db "FGT@"
+	db "FHT@"
 	db "FLY@"
 	db "PSN@"
 	db "GRD@"
@@ -460,3 +460,4 @@ Text_MoveReminderNoMon:
 Text_MoveReminderNoMoves:
 	text_far _MoveReminderNoMoves
 	text_end
+	

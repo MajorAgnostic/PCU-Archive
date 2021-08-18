@@ -1675,7 +1675,7 @@ AI_Smart_Thief:
 AI_Smart_Conversion2:
 	ld a, [wLastPlayerMove]
 	and a
-	jr nz, .discourage
+	jr z, .discourage
 
 	push hl
 	dec a
@@ -3077,7 +3077,6 @@ AI_Cautious:
 
 INCLUDE "data/battle/ai/residual_moves.asm"
 
-
 AI_Status:
 ; Dismiss status moves that don't affect the player.
 
@@ -3087,7 +3086,8 @@ AI_Status:
 .checkmove
 	dec b
 	ret z
-
+	
+	ld c, 0 ; Cleaning register c.
 	inc hl
 	ld a, [de]
 	and a
@@ -3096,6 +3096,7 @@ AI_Status:
 	inc de
 	call AIGetEnemyMove
 
+.normal_status_check
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_TOXIC
 	jr z, .poisonimmunity
@@ -3112,12 +3113,35 @@ AI_Status:
 	cp EFFECT_POWDER_PARALYZE
 	jr z, .powderimmunity
 
+; Discourage moves that inflict status ailments, confuse or lower stats 
+; against a subtitute. Code adapted from Idain's
+; This check also applies for both Leech Seed and Swagger.
+	cp EFFECT_LEECH_SEED
+	jr z, .subs_check
+	cp EFFECT_SWAGGER
+	jr z, .subs_check
+	cp EFFECT_CONFUSE
+	jr z, .subs_check 
+
+; Stat-lowering moves
+	cp EFFECT_ATTACK_DOWN
+	jr c, .powercheck
+	cp EFFECT_EVASION_DOWN + 1
+	jr c, .subs_check
+
+	cp EFFECT_ATTACK_DOWN_2
+	jr c, .powercheck
+	cp EFFECT_EVASION_DOWN_2 + 1
+	jr c, .subs_check
+
+.powercheck
 	ld a, [wEnemyMoveStruct + MOVE_POWER]
+	ld c, a ; Store Move's Power in c.
 	and a
 	jr z, .checkmove
 
 	jr .typeimmunity
-
+	
 .poisonimmunity
 	ld a, [wBattleMonType1]
 	cp POISON
@@ -3125,6 +3149,7 @@ AI_Status:
 	ld a, [wBattleMonType2]
 	cp POISON
 	jr z, .immune
+	; fallthorugh
 	
 .burnimmunity
 	ld a, [wBattleMonType1]
@@ -3155,11 +3180,23 @@ AI_Status:
 
 	ld a, [wTypeMatchup]
 	and a
-	jr nz, .checkmove
+	jr z, .immune
+	; fallthrough
+
+; ** Substitute check starts here **
+.subs_check
+	ld a, BATTLE_VARS_SUBSTATUS4_OPP
+	call GetBattleVar
+	bit SUBSTATUS_SUBSTITUTE, a
+	jp z, .checkmove
+
+	ld a, c ; Load Move's Power back into a.
+	and a
+	jp nz, .checkmove
 
 .immune
 	call AIDiscourageMove
-	jr .checkmove
+	jp .checkmove
 
 
 AI_Risky:

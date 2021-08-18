@@ -181,6 +181,19 @@ WesleyScript:
 	opentext
 	checkevent EVENT_GOT_BLACKBELT_FROM_WESLEY
 	iftrue WesleyWednesdayScript
+	writetext MeetWesleyText
+	promptbutton
+	readvar VAR_WEEKDAY
+	ifequal WEDNESDAY, .GiveBelt
+	writetext WesleySeenText
+	waitbutton
+	closetext
+	winlosstext WesleyBeatenText, 0
+	loadtrainer SUPER_NERD, WESLEY
+	startbattle
+	reloadmapafterbattle
+	opentext
+.GiveBelt:
 	writetext WesleyGivesGiftText
 	promptbutton
 	verbosegiveitem BLACKBELT_I
@@ -429,17 +442,29 @@ MeetWesleyText:
 	text "WESLEY: Well, how"
 	line "do you do?"
 
-	para "Seeing as how it's"
-	line "Wednesday today,"
-
 	para "I'm WESLEY of"
 	line "Wednesday."
 	done
+	
+WesleySeenText:
+	text "It isn't Wednesday"
+	line "today, but I'll"
+
+	para "give you something"
+	line "good if you defeat"
+	cont "me in a battle."
+	
+	para "Well, bring it on!"
+	done
+	
+WesleyBeatenText:
+	text "Stupendous! What a"
+	line "memorable battle!"
+	done
 
 WesleyGivesGiftText:
-	text "Pleased to meet"
-	line "you. Please take a"
-	cont "souvenir."
+	text "Please take this"
+	line "as a souvenir."
 	done
 
 WesleyGaveGiftText:

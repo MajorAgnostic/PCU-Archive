@@ -14,7 +14,7 @@ GameFreakGameDesignerScript:
 	opentext
 	writetext GameFreakGameDesignerText
 	readvar VAR_DEXCAUGHT
-	ifgreater NUM_POKEMON - 1, .CompletedPokedex ; now requires all 251
+	ifgreater NUM_POKEMON - 2, .CompletedPokedex ; now requires all Pokemon (except those added from other gens)
 	waitbutton
 	closetext
 	end

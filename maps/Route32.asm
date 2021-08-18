@@ -421,6 +421,19 @@ FriedaScript:
 	opentext
 	checkevent EVENT_GOT_POISON_BARB_FROM_FRIEDA
 	iftrue .Friday
+	writetext MeetFriedaText
+	promptbutton
+	readvar VAR_WEEKDAY
+	ifequal FRIDAY, .GiveBarb
+	writetext FriedaSeenText
+	waitbutton
+	closetext
+	winlosstext FriedaBeatenText, 0
+	loadtrainer PICNICKER, FRIEDA
+	startbattle
+	reloadmapafterbattle
+	opentext
+.GiveBarb:
 	writetext FriedaGivesGiftText
 	promptbutton
 	verbosegiveitem POISON_BARB
@@ -843,13 +856,29 @@ Text_RoarOutro:
 	done
 
 MeetFriedaText:
-	text "FRIEDA: Yahoo!"
-	line "It's Friday!"
-
-	para "I'm FRIEDA of"
-	line "Friday!"
+	text "FRIEDA: Hiya! I'm"
+	line "FRIEDA of Friday!"
 
 	para "Nice to meet you!"
+	done
+	
+FriedaSeenText:
+	text "Normally I share a"
+	line "gift with trainers"
+
+	para "only on Fridays,"
+	line "but I like you!"
+	
+	para "If you can beat me"
+	line "in a battle, I'll"
+	cont "give you one."
+	
+	para "Deal?"
+	done
+	
+FriedaBeatenText:
+	text "You even beat my"
+	line "NIDORINA? Wow!"
 	done
 
 FriedaGivesGiftText:
@@ -861,8 +890,6 @@ FriedaGaveGiftText:
 	text "FRIEDA: Give it to"
 	line "a #MON that has"
 	cont "poison-type moves."
-
-	para "Oh!"
 
 	para "It's wicked!"
 

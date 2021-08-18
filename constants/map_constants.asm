@@ -130,9 +130,9 @@ ENDM
 	map_const WHIRL_ISLAND_B2F,                            10, 18 ; 72
 	map_const WHIRL_ISLAND_LUGIA_CHAMBER,                  14, 18 ; 73
 	map_const SILVER_CAVE_ROOM_1,                          10, 18 ; 74
-	map_const SILVER_CAVE_ROOM_2,                          15, 18 ; 75
+	map_const SILVER_CAVE_ROOM_2,                          15, 26 ; 75
 	map_const SILVER_CAVE_ROOM_3,                          10, 18 ; 76
-	map_const SILVER_CAVE_ITEM_ROOMS,                      10,  9 ; 77
+	map_const SILVER_CAVE_ITEM_ROOMS,                      20, 12 ; 77
 	map_const DARK_CAVE_VIOLET_ENTRANCE,                   20, 18 ; 78
 	map_const DARK_CAVE_BLACKTHORN_ENTRANCE,               15, 18 ; 79
 	map_const DRAGONS_DEN_1F,                               5,  9 ; 80
@@ -147,6 +147,11 @@ ENDM
 	map_const SAFARI_ZONE_FUCHSIA_GATE_BETA,                5,  4 ; 89
 	map_const SAFARI_ZONE_BETA,                            10, 18 ; 90
 	map_const VICTORY_ROAD,                                10, 36 ; 91
+	map_const SEAFOAM_ISLANDS_1F,                          15,  9 ; 92
+	map_const SEAFOAM_ISLANDS_B1F,                         15,  9 ; 93
+	map_const SEAFOAM_ISLANDS_B2F,                         15,  9 ; 94
+	map_const SEAFOAM_ISLANDS_B3F,                         15,  9 ; 95
+	map_const SEAFOAM_ISLANDS_B4F,                         15,  9 ; 96
 
 	newgroup                                                      ;  4
 
@@ -178,7 +183,7 @@ ENDM
 	map_const CINNABAR_POKECENTER_1F,                       5,  4 ;  1
 	map_const CINNABAR_POKECENTER_2F_BETA,                  8,  4 ;  2
 	map_const ROUTE_19_FUCHSIA_GATE,                        5,  4 ;  3
-	map_const SEAFOAM_GYM,                                  5,  4 ;  4
+	map_const SEAFOAM_GYM,                                 17, 12 ;  4
 	map_const ROUTE_19,                                    10, 18 ;  5
 	map_const ROUTE_20,                                    30,  9 ;  6
 	map_const ROUTE_21,                                    10, 18 ;  7
@@ -444,6 +449,9 @@ ENDM
 	map_const ROUTE_2_NUGGET_HOUSE,                         4,  4 ; 11
 	map_const ROUTE_2_GATE,                                 5,  4 ; 12
 	map_const VICTORY_ROAD_GATE,                           10,  9 ; 13
+	map_const VIRIDIAN_FOREST,                             17, 26 ; 14
+	map_const ROUTE_2_NORTHGATE,                            5,  4 ; 15
+	map_const ROUTE_2_SOUTHGATE,                            4,  4 ; 16
 
 	newgroup                                                      ; 24
 

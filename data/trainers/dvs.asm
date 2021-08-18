@@ -72,3 +72,6 @@ TrainerClassDVs:
 	dn 13, 12, 13, 13 ; CRYSTAL
 	dn 13, 13, 13, 14 ; NICHOLAS
 	dn 13, 14, 11, 11 ; ARCHER
+	dn 15, 15, 15, 15 ; ANDREA
+	dn 13, 14, 11, 11 ; MORTY2
+	dn 13, 13, 13, 14 ; CLAIR2

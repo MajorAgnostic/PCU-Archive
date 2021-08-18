@@ -13,8 +13,8 @@ CeladonMansionRoofHousePharmacistScript:
 	iftrue .GotMewtwo
 	writetext CeladonMansionRoofHousePharmacistIntroText
 	promptbutton
-	readvar VAR_DEXCAUGHT
-	ifgreater NUM_POKEMON - 2, .CompletePokedex ; all except Mewtwo
+	checkevent EVENT_ENABLE_DIPLOMA_PRINTING
+	iffalse .CompletePokedex ; all except Mewtwo
 	writetext CeladonMansionRoofHousePharmacistNotCompleteText
 	waitbutton
 	closetext
@@ -118,9 +118,10 @@ CeladonMansionRoofHousePharmacistStoryText:
 
 	para "…"
 	line "Ba-dum, tss!"
-
-	para "For listening so"
-	line "patiently, you may"
+	
+	para "Pretty good, eh?"
+	line "For listening so"
+	cont "patiently, you may"
 	
 	para "take this--"
 	line "MEWTHREE!"
@@ -132,7 +133,7 @@ PharmacistPartyFullText:
 	cont "for this #MON."
 	
 	para "If only we had"
-	line "portable PCs!"
+	line "POCKET PCs!"
 	done
 	
 ReceivedMewtwoText:
@@ -171,7 +172,19 @@ CeladonMansionRoofHousePharmacistCurseText:
 	done
 	
 CeladonMansionRoofHousePharmacistEndText:
-	text "Maybe we'll meet"
+	text "You know, you re-"
+	line "mind me of another"
+	cont "trainer."
+	
+	para "Name was ANDREA,"
+	line "had red hair and a"
+	cont "cool black jacket."
+	
+	para "I heard he was in"
+	line "ROCK TUNNEL for a"
+	cont "while."
+	
+	para "Maybe we'll meet"
 	line "again, young tr-"
 
 	para "ainer! Perhaps…"

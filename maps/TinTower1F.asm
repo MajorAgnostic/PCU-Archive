@@ -32,7 +32,7 @@ TinTower1F_MapScripts:
 	iftrue .GotRainbowWing
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iffalse .FaceBeasts
-	special BeastsCheck
+	checkevent EVENT_EUSINE_LEAVES
 	iffalse .FaceBeasts
 	clearevent EVENT_TIN_TOWER_1F_WISE_TRIO_2
 	setevent EVENT_TIN_TOWER_1F_WISE_TRIO_1
@@ -160,6 +160,7 @@ TinTower1F_MapScripts:
 	waitbutton
 	closetext
 	applymovement TINTOWER1F_EUSINE, MovementData_0x1851f1
+	turnobject PLAYER, DOWN
 	playsound SFX_EXIT_BUILDING
 	disappear TINTOWER1F_EUSINE
 	waitsfx
@@ -177,8 +178,10 @@ TinTower1F_MapScripts:
 	waitbutton
 	closetext
 	applymovement TINTOWER1F_MORTY, MovementData_0x1851f1
+	turnobject PLAYER, DOWN
 	playsound SFX_EXIT_BUILDING
 	disappear TINTOWER1F_MORTY
+	pause 30
 	end
 
 TinTower1FSage1Script:

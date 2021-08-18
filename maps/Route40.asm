@@ -83,6 +83,19 @@ MonicaScript:
 	opentext
 	checkevent EVENT_GOT_SHARP_BEAK_FROM_MONICA
 	iftrue .MetMonica
+	writetext MeetMonicaText
+	promptbutton
+	readvar VAR_WEEKDAY
+	ifequal MONDAY, .GiveBeak
+	writetext MonicaSeenText
+	waitbutton
+	closetext
+	winlosstext MonicaBeatenText, 0
+	loadtrainer BEAUTY, MONICA
+	startbattle
+	reloadmapafterbattle
+	opentext
+.GiveBeak:
 	writetext MonicaGivesGiftText
 	promptbutton
 	verbosegiveitem SHARP_BEAK
@@ -277,9 +290,34 @@ Route40StandingYoungsterText:
 	line "badly at all."
 	done
 
+MonicaSeenText:
+	text "My siblings and I"
+	line "give useful items"
+	
+	para "to trainers on di-"
+	line "fferent days of"
+	cont "the week."
+	
+	para "Although it isn't"
+	line "Monday today, I"
+	
+	para "can give you some-"
+	line "thing nice if you"
+	cont "show me a good"
+	cont "battle."
+	
+	para "Do you have what"
+	line "it takes?"
+	done
+	
+MonicaBeatenText:
+	text "Oh, I just love"
+	line "how you battle!"
+	done
+
 MeetMonicaText:
 	text "MONICA: Glad to"
-	line "meet you. I'm"
+	line "meet you. I am"
 
 	para "MONICA of Monday."
 	done

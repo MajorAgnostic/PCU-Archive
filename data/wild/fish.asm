@@ -20,6 +20,7 @@ FishGroups:
 	fishgroup 50 percent + 1, .Qwilfish_Old,         .Qwilfish_Good,         .Qwilfish_Super
 	fishgroup 50 percent + 1, .Remoraid_Old,         .Remoraid_Good,         .Remoraid_Super
 	fishgroup 50 percent + 1, .Qwilfish_NoSwarm_Old, .Qwilfish_NoSwarm_Good, .Qwilfish_NoSwarm_Super
+	fishgroup 50 percent + 1, .CloysterHoister_Old,  .CloysterHoister_Good,  .CloysterHoister_Super
 
 .Shore_Old:
 	db  70 percent + 1, MAGIKARP,   10
@@ -203,6 +204,21 @@ FishGroups:
 	db  70 percent,     time_group 7
 	db  90 percent + 1, GYARADOS,   70
 	db 100 percent,     OCTILLERY,  70
+	
+.CloysterHoister_Old:
+	db  70 percent + 1, MAGIKARP,   10
+	db  85 percent + 1, MAGIKARP,   10
+	db 100 percent,     MAGIKARP,   15
+.CloysterHoister_Good:
+	db  35 percent,     MAGIKARP,   15
+	db  70 percent,     MAGIKARP,   35
+	db  90 percent + 1, MAGIKARP,   35
+	db 100 percent,     time_group 0
+.CloysterHoister_Super:
+	db  40 percent,     CLOYSTER,   70
+	db  70 percent,     time_group 22
+	db  90 percent + 1, CLOYSTER,   70
+	db 100 percent,     SHELLDER,   65
 
 TimeFishGroups:
 	;  day              nite
@@ -228,3 +244,4 @@ TimeFishGroups:
 	db SEADRA,     70,  SEADRA,     70 ; 19
 	db TENTACOOL,  35,  TENTACOOL,  35 ; 20
 	db TENTACRUEL, 70,  TENTACRUEL, 70 ; 21
+	db SHELLDER,   65,  SHELLDER,   65 ; 22

@@ -316,9 +316,6 @@ SECTION "Map Blocks 2", ROMX
 Route14_Blocks:
 	INCBIN "maps/Route14.blk"
 
-BetaSproutTower8_Blocks:
-	INCBIN "maps/unused/BetaSproutTower8.blk"
-
 OlivineMart_Blocks:
 EcruteakMart_Blocks:
 BlackthornMart_Blocks:
@@ -336,9 +333,6 @@ CherrygroveMart_Blocks:
 
 Route10North_Blocks:
 	INCBIN "maps/Route10North.blk"
-
-BetaLakeOfRage_Blocks:
-	INCBIN "maps/unused/BetaLakeOfRage.blk"
 
 OlivinePokecenter1F_Blocks:
 MahoganyPokecenter1F_Blocks:
@@ -1045,3 +1039,29 @@ BetaBlank_Blocks:
 
 GoldenrodDeptStoreRoof_Blocks:
 	INCBIN "maps/GoldenrodDeptStoreRoof.blk"
+	
+SECTION "Map Blocks 4", ROMX
+
+ViridianForest_Blocks:
+	INCBIN "maps/ViridianForest.blk"
+	
+Route2NorthGate_Blocks:
+	INCBIN "maps/Route2NorthGate.blk"
+
+Route2SouthGate_Blocks:
+	INCBIN "maps/Route2SouthGate.blk"
+	
+SeafoamIslands1F_Blocks:
+	INCBIN "maps/SeafoamIslands1F.blk"
+	
+SeafoamIslandsB1F_Blocks:
+	INCBIN "maps/SeafoamIslandsB1F.blk"
+	
+SeafoamIslandsB2F_Blocks:
+	INCBIN "maps/SeafoamIslandsB2F.blk"
+	
+SeafoamIslandsB3F_Blocks:
+	INCBIN "maps/SeafoamIslandsB3F.blk"
+	
+SeafoamIslandsB4F_Blocks:
+	INCBIN "maps/SeafoamIslandsB4F.blk"

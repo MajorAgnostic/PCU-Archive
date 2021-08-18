@@ -181,6 +181,7 @@ ItemDescriptions:
 	dw VoltorbDollDesc
 	dw DragonScaleDesc
 	dw UpGradeDesc
+	dw GoldBJuiceDesc
 	dw BrickPieceDesc
 	dw SurfMailDesc
 	dw LiteBlueMailDesc
@@ -191,7 +192,6 @@ ItemDescriptions:
 	dw BlueSkyMailDesc
 	dw MusicMailDesc
 	dw MirageMailDesc
-	dw TeruSama26Desc
 	dw TeruSama26Desc
 	dw TeruSama26Desc
 	dw TeruSama26Desc
@@ -398,7 +398,7 @@ MetalPowderDesc:
 
 NuggetDesc:
 	db   "Made of pure gold."
-	next "Sell high.@"
+	next "Sells high.@"
 
 PokeDollDesc:
 	db   "Use to escape from"
@@ -492,8 +492,8 @@ GoodRodDesc:
 	next "catching #MON.@"
 
 SilverLeafDesc:
-	db   "A strange, silver-"
-	next "colored leaf.@"
+	db   "A strange leaf."
+	next "Sells very high.@"
 
 SuperRodDesc:
 	db   "The best ROD for"
@@ -552,8 +552,8 @@ PsnCureBerryDesc:
 	next "poison. (HOLD)@"
 
 GoldLeafDesc:
-	db   "A strange, gold-"
-	next "colored leaf.@"
+	db   "A strange leaf."
+	next "Sells very high.@"
 
 SoftSandDesc:
 	db   "Powers up ground-"
@@ -596,11 +596,11 @@ RedApricornDesc:
 
 TinyMushroomDesc:
 	db   "An ordinary mush-"
-	next "room. Sell low.@"
+	next "room. Sells low.@"
 
 BigMushroomDesc:
 	db   "A rare mushroom."
-	next "Sell high.@"
+	next "Sells high.@"
 
 SilverPowderDesc:
 	db   "Powers up bug-type"
@@ -659,7 +659,7 @@ BlackGlassesDesc:
 	next "type moves. (HOLD)@"
 
 SlowpokeTailDesc:
-	db   "Very tasty. Sell"
+	db   "Very tasty. Sells"
 	next "high.@"
 
 PinkBowDesc:
@@ -667,8 +667,8 @@ PinkBowDesc:
 	next "type moves. (HOLD)@"
 
 StickDesc:
-	db   "An ordinary stick."
-	next "Sell low.@"
+	db   "An ordinary stick"
+	next "with a green tip.@"
 
 SmokeBallDesc:
 	db   "Escape from wild"
@@ -688,11 +688,11 @@ MiracleBerryDesc:
 
 PearlDesc:
 	db   "A beautiful pearl."
-	next "Sell low.@"
+	next "Sells low.@"
 
 BigPearlDesc:
 	db   "A big, beautiful"
-	next "pearl. Sell high.@"
+	next "pearl. Sells high.@"
 
 EverStoneDesc:
 	db   "Stops evolution."
@@ -703,8 +703,8 @@ SpellTagDesc:
 	next "type moves. (HOLD)@"
 
 RageCandyBarDesc:
-	db   "A self-restore"
-	next "item. (30HP, HOLD)@"
+	db   "Self-restore item."
+	next "(30 HP, HOLD)@"
 
 GSBallDesc:
 	db   "The mysterious"
@@ -719,8 +719,8 @@ MiracleSeedDesc:
 	next "type moves. (HOLD)@"
 
 ThickClubDesc:
-	db   "A bone of some"
-	next "sort. Sell low.@"
+	db   "An odd bone of some"
+	next "sort.@"
 
 FocusBandDesc:
 	db   "May prevent faint-"
@@ -772,11 +772,11 @@ LostItemDesc:
 
 StardustDesc:
 	db   "Pretty, red sand."
-	next "Sell high.@"
+	next "Sells low.@"
 
 StarPieceDesc:
 	db   "A hunk of red gem."
-	next "Sell very high.@"
+	next "Sells high.@"
 
 BasementKeyDesc:
 	db   "Opens doors.@"
@@ -802,8 +802,8 @@ CharcoalDesc:
 	next "type moves. (HOLD)@"
 
 BerryJuiceDesc:
-	db   "A self-restore"
-	next "item. (40HP, HOLD)@"
+	db   "Self-restore item."
+	next "(40 HP, HOLD)@"
 
 ScopeLensDesc:
 	db   "Raises critical"
@@ -938,12 +938,12 @@ BigOnixDesc:
 	next "doll!@"
 
 BerryDesc:
-	db   "A self-restore"
-	next "item. (10HP, HOLD)@"
+	db   "Self-restore item."
+	next "(10 HP, HOLD)@"
 
 GoldBerryDesc:
-	db   "A self-restore"
-	next "item. (20HP, HOLD)@"
+	db   "Self-restore item."
+	next "(20 HP, HOLD)@"
 
 SquirtBottleDesc:
 	db   "A bottle used for"
@@ -972,6 +972,10 @@ DragonScaleDesc:
 UpGradeDesc:
 	db   "A mysterious box"
 	next "made by SILPH CO.@"
+	
+GoldBJuiceDesc:
+	db   "Self-restore item."
+	next "(140 HP, HOLD)@"
 
 BrickPieceDesc:
 	db   "A rare chunk of"

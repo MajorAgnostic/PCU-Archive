@@ -77,6 +77,7 @@ WillScript_Battle:
 	closetext
 	winlosstext WillScript_WillBeatenText, 0
 	loadtrainer WILL, WILL2
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_WILL

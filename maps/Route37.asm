@@ -50,6 +50,19 @@ SunnyScript:
 	opentext
 	checkevent EVENT_GOT_MAGNET_FROM_SUNNY
 	iftrue SunnySundayScript
+	writetext MeetSunnyText
+	promptbutton
+	readvar VAR_WEEKDAY
+	ifequal SUNDAY, .GiveMagnet
+	writetext SunnySeenText
+	waitbutton
+	closetext
+	winlosstext SunnyBeatenText, 0
+	loadtrainer BUG_CATCHER, SUNNY
+	startbattle
+	reloadmapafterbattle
+	opentext
+.GiveMagnet:
 	writetext SunnyGivesGiftText
 	promptbutton
 	verbosegiveitem MAGNET
@@ -154,14 +167,25 @@ MeetSunnyText:
 	text "SUNNY: Hi!"
 
 	para "I'm SUNNY of Sun-"
-	line "day, meaning it's"
-	cont "Sunday today!"
+	line "day."
+	done
+	
+SunnySeenText:
+	text "I'm only supposed"
+	line "to give away gifts"
+
+	para "on Sunday, but if"
+	line "you play with me,"
+	cont "I'll give you one!"
+	done
+	
+SunnyBeatenText:
+	text "Hihi, that was so"
+	line "much fun!"
 	done
 
 SunnyGivesGiftText:
-	text "I was told to give"
-	line "you this if I saw"
-	cont "you!"
+	text "This is for you!"
 	done
 
 SunnyGaveGiftText:

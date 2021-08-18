@@ -190,6 +190,33 @@ KantoGrassWildMons:
 	db 7, ARIADOS
 	db 4, NOCTOWL
 	db 4, NOCTOWL
+	
+	map_id VIRIDIAN_FOREST
+	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	; morn
+	db 3, CATERPIE
+	db 3, LEDYBA
+	db 5, PIDGEY
+	db 7, BUTTERFREE
+	db 7, LEDIAN
+	db 4, PIKACHU
+	db 4, PIKACHU
+	; day
+	db 3, CATERPIE
+	db 3, PIDGEY
+	db 5, PIDGEY
+	db 7, BUTTERFREE
+	db 7, PIDGEOTTO
+	db 4, PIKACHU
+	db 4, PIKACHU
+	; nite
+	db 3, HOOTHOOT
+	db 3, SPINARAK
+	db 5, HOOTHOOT
+	db 7, NOCTOWL
+	db 7, ARIADOS
+	db 4, NOCTOWL
+	db 4, NOCTOWL
 
 	map_id ROUTE_3
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
@@ -595,6 +622,33 @@ KantoGrassWildMons:
 	db 29, GRIMER
 	db 30, MUK
 	db 30, MUK
+	
+	map_id ROUTE_19
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 26, GRIMER
+	db 27, FEAROW
+	db 28, GRIMER
+	db 29, FEAROW
+	db 29, FEAROW
+	db 30, MUK
+	db 30, MUK
+	; day
+	db 26, GRIMER
+	db 27, FEAROW
+	db 28, GRIMER
+	db 29, FEAROW
+	db 29, SLUGMA
+	db 30, MUK
+	db 30, MUK
+	; nite
+	db 26, GRIMER
+	db 27, GRIMER
+	db 28, GRIMER
+	db 29, GRIMER
+	db 29, GRIMER
+	db 30, MUK
+	db 30, MUK
 
 	map_id ROUTE_21
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
@@ -709,7 +763,7 @@ KantoGrassWildMons:
 	; morn
 	db 51, PONYTA
 	db 52, ARBOK
-	db 53, YANMA
+	db 53, MR__MIME
 	db 54, SANDSLASH
 	db 54, DODRIO
 	db 54, DODRIO
@@ -717,7 +771,7 @@ KantoGrassWildMons:
 	; day
 	db 51, PONYTA
 	db 52, ARBOK
-	db 53, YANMA
+	db 53, MR__MIME
 	db 54, SANDSLASH
 	db 54, DODRIO
 	db 54, DODRIO
@@ -736,7 +790,7 @@ KantoGrassWildMons:
 	; morn
 	db 51, PONYTA
 	db 52, ARBOK
-	db 53, PORYGON
+	db 53, MR__MIME
 	db 53, QUAGSIRE
 	db 54, DODRIO
 	db 54, DODRIO
@@ -744,7 +798,7 @@ KantoGrassWildMons:
 	; day
 	db 51, PONYTA
 	db 52, ARBOK
-	db 53, PORYGON
+	db 53, MR__MIME
 	db 53, QUAGSIRE
 	db 54, DODRIO
 	db 54, DODRIO
@@ -757,6 +811,141 @@ KantoGrassWildMons:
 	db 53, NOCTOWL
 	db 53, NOCTOWL
 	db 55, RAPIDASH
+	
+	map_id SEAFOAM_ISLANDS_1F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 45, SEEL
+	db 44, SHELLDER
+	db 44, KRABBY
+	db 46, KINGLER
+	db 45, GOLBAT
+	db 46, SEEL
+	db 47, DEWGONG
+	; day
+	db 45, SEEL
+	db 44, SHELLDER
+	db 44, KRABBY
+	db 46, KINGLER
+	db 45, GOLBAT
+	db 46, SEEL
+	db 47, DEWGONG
+	; nite
+	db 45, SEEL
+	db 44, SHELLDER
+	db 44, KRABBY
+	db 46, KINGLER
+	db 45, GOLBAT
+	db 46, SEEL
+	db 47, DEWGONG
+	
+	map_id SEAFOAM_ISLANDS_B1F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 45, SEEL
+	db 44, SHELLDER
+	db 44, KRABBY
+	db 46, KINGLER
+	db 45, GOLBAT
+	db 46, SEEL
+	db 47, DEWGONG
+	; day
+	db 45, SEEL
+	db 44, SHELLDER
+	db 44, KRABBY
+	db 46, KINGLER
+	db 45, GOLBAT
+	db 46, SEEL
+	db 47, DEWGONG
+	; nite
+	db 45, SEEL
+	db 44, SHELLDER
+	db 44, KRABBY
+	db 46, KINGLER
+	db 45, GOLBAT
+	db 46, SEEL
+	db 47, DEWGONG
+	
+	map_id SEAFOAM_ISLANDS_B2F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 45, SEEL
+	db 44, SHELLDER
+	db 44, KRABBY
+	db 46, KINGLER
+	db 45, GOLBAT
+	db 46, SEEL
+	db 47, DEWGONG
+	; day
+	db 45, SEEL
+	db 44, SHELLDER
+	db 44, KRABBY
+	db 46, KINGLER
+	db 45, GOLBAT
+	db 46, SEEL
+	db 47, DEWGONG
+	; nite
+	db 45, SEEL
+	db 44, SHELLDER
+	db 44, KRABBY
+	db 46, KINGLER
+	db 45, GOLBAT
+	db 46, SEEL
+	db 47, DEWGONG
+	
+	map_id SEAFOAM_ISLANDS_B3F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 45, SEEL
+	db 44, SHELLDER
+	db 44, KRABBY
+	db 46, KINGLER
+	db 45, GOLBAT
+	db 46, SEEL
+	db 47, DEWGONG
+	; day
+	db 45, SEEL
+	db 44, SHELLDER
+	db 44, KRABBY
+	db 46, KINGLER
+	db 45, GOLBAT
+	db 46, SEEL
+	db 47, DEWGONG
+	; nite
+	db 45, SEEL
+	db 44, SHELLDER
+	db 44, KRABBY
+	db 46, KINGLER
+	db 45, GOLBAT
+	db 46, SEEL
+	db 47, DEWGONG
+	
+	map_id SEAFOAM_ISLANDS_B4F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 45, SEEL
+	db 44, SHELLDER
+	db 44, KRABBY
+	db 46, KINGLER
+	db 45, GOLBAT
+	db 46, SEEL
+	db 47, DEWGONG
+	; day
+	db 45, SEEL
+	db 44, SHELLDER
+	db 44, KRABBY
+	db 46, KINGLER
+	db 45, GOLBAT
+	db 46, SEEL
+	db 47, DEWGONG
+	; nite
+	db 45, SEEL
+	db 44, SHELLDER
+	db 44, KRABBY
+	db 46, KINGLER
+	db 45, GOLBAT
+	db 46, SEEL
+	db 47, DEWGONG
 
 	map_id ROUTE_28
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite

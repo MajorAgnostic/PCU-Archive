@@ -33,6 +33,7 @@ MountMoon_MapScripts:
 	winlosstext MountMoonSilverTextWin, MountMoonSilverTextLoss
 	setlasttalked MOUNTMOON_SILVER
 	loadtrainer RIVAL2, RIVAL2_1_TOTODILE
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
@@ -42,6 +43,7 @@ MountMoon_MapScripts:
 	winlosstext MountMoonSilverTextWin, MountMoonSilverTextLoss
 	setlasttalked MOUNTMOON_SILVER
 	loadtrainer RIVAL2, RIVAL2_1_CHIKORITA
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
@@ -51,6 +53,7 @@ MountMoon_MapScripts:
 	winlosstext MountMoonSilverTextWin, MountMoonSilverTextLoss
 	setlasttalked MOUNTMOON_SILVER
 	loadtrainer RIVAL2, RIVAL2_1_CYNDAQUIL
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle

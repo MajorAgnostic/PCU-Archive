@@ -385,10 +385,10 @@ SuperNerdBradyBeatenText:
 
 SuperNerdBradyAfterBattleText:
 	text "If only I could"
-	line "hack in some top"
+	line "hack in some top-"
 
 	para "notch #MON to"
-	line "defeat you!"
+	line "defeat you…"
 	done
 	
 SwimmerfClaireSeenText:

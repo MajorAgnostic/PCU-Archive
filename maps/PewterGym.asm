@@ -18,6 +18,7 @@ PewterGymBrockScript:
 	closetext
 	winlosstext BrockWinLossText, 0
 	loadtrainer BROCK, BROCK1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BROCK
@@ -125,10 +126,11 @@ BrockBoulderBadgeText:
 	cont "upset."
 
 	para "That BOULDERBADGE"
-	line "will make your"
-
-	para "#MON even more"
-	line "powerful."
+	line "serves as proof of"
+	cont "your #MON's power."
+	
+	para "But don't think it"
+	line "will get easier!"
 	done
 
 BrockFightDoneText:

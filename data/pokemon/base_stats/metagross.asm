@@ -1,0 +1,21 @@
+	db METAGROSS
+
+	db  80, 135, 130,  70,  95,  90
+	;   hp  atk  def  spd  sat  sdf
+
+	db STEEL, PSYCHIC_TYPE ; type
+	db 45 ; catch rate
+	db 218 ; base exp
+	db NO_ITEM, NO_ITEM ; items
+	db GENDER_F50 ; gender ratio
+	db 100 ; unknown 1
+	db 40 ; step cycles to hatch
+	db 5 ; unknown 2
+	INCBIN "gfx/pokemon/metagross/front.dimensions"
+	dw NULL, NULL ; unused (beta front/back pics)
+	db GROWTH_SLOW ; growth rate
+	dn EGG_NONE, EGG_NONE ; egg groups
+
+	; tm/hm learnset
+	tmhm DYNAMICPUNCH, HEADBUTT, CURSE, ROLLOUT, TOXIC, ZAP_CANNON, ROCK_SMASH, PSYCH_UP, HIDDEN_POWER, SUNNY_DAY, SNORE, BLIZZARD, HYPER_BEAM, ICY_WIND, PROTECT, RAIN_DANCE, ENDURE, FRUSTRATION, IRON_TAIL, EARTHQUAKE, SOLARBEAM, THUNDER, EARTHQUAKE, RETURN, PSYCHIC_M, SHADOW_BALL, MUD_SLAP, DOUBLE_TEAM, ICE_PUNCH, SWAGGER, SLEEP_TALK, SANDSTORM, FIRE_BLAST, DEFENSE_CURL, THUNDERPUNCH, REST, ATTRACT, FIRE_PUNCH, SURF, STRENGTH, FLAMETHROWER, THUNDERBOLT, ICE_BEAM, ROCK_SLIDE
+	; end

@@ -25,7 +25,7 @@ IcePathB2FMahoganySideHiddenCarbos:
 
 IcePathB2FMahoganySideBoulderText:
 	text "It's immovably"
-	line "imbedded in ice."
+	line "embedded in ice."
 	done
 
 IcePathB2FMahoganySide_MapEvents:

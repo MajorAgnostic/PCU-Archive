@@ -22,6 +22,7 @@ NicholasScene:
 
 TrainerNicholas:
 	faceplayer
+	playmusic MUSIC_BRENDAN_ENCOUNTER
 	opentext
 	checkevent EVENT_BEAT_NICHOLAS
 	iftrue .NicholasBeaten
@@ -30,6 +31,7 @@ TrainerNicholas:
 	closetext
 	winlosstext NicholasBeatenText, 0
 	loadtrainer NICHOLAS, NICHOLAS1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setscene SCENE_FINISHED
@@ -66,26 +68,27 @@ NicholasSeenText:
 	line "in the mountain."
 
 	para "You must be pretty"
-	line "strong, then. How-"
+	line "strong, then."
 	
-	para "ever, my friend is"
-	line "beyond this point"
+	para "I'm visiting KANTO"
+	line "to study precious"
 	
-	para "and he's busy with"
-	line "his training. I am"
+	para "stones, although I"
+	line "certainly am not"
 	
-	para "not to let anyone"
-	line "beyond this point."
-	
-	para "Well, unless they"
-	line "can defeat me, I"
-	cont "should say."
+	para "one to shy away"
+	line "from a battle!"
 	
 	para "Though I must warn"
 	line "you that I am the"
 	
 	para "strongest trainer"
 	line "you'll ever face!"
+	
+	para "Still up for it?"
+	line "Heh…"
+	
+	para "Then let's rock!"
 	done
 
 NicholasBeatenText:
@@ -101,12 +104,15 @@ NicholasAfterBattleText:
 	para "about being the"
 	line "strongest."
 
-	para "My good friend is"
-	line "actually a bit st-"
-	cont "ronger than I am!"
+	para "My friend RED is"
+	line "training just up"
+	cont "that tunnel and"
 
+	para "he's a true #-"
+	line "MON MASTER!"
+	
 	para "However, I think"
-	line "you stand a good"
+	line "that you have a"
 	
 	para "chance of giving"
 	line "him a run for his"
@@ -125,19 +131,20 @@ SilverCaveRoom2_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 17, 31, SILVER_CAVE_ROOM_1, 2
-	warp_event 11,  5, SILVER_CAVE_ROOM_3, 1
-	warp_event 13, 21, SILVER_CAVE_ITEM_ROOMS, 1
-	warp_event 23,  3, SILVER_CAVE_ITEM_ROOMS, 2
+	warp_event 17, 37, SILVER_CAVE_ROOM_1, 2
+	warp_event 11, 11, SILVER_CAVE_ROOM_3, 1
+	warp_event 13, 27, SILVER_CAVE_ITEM_ROOMS, 1
+	warp_event 23,  9, SILVER_CAVE_ITEM_ROOMS, 2
+	warp_event  5,  1, SILVER_CAVE_ITEM_ROOMS, 3
 
 	def_coord_events
-	coord_event 11,  6, SCENE_SILVERCAVEROOM2_NOTHING, NicholasScene
+	coord_event 11, 12, SCENE_SILVERCAVEROOM2_NOTHING, NicholasScene
 
 	def_bg_events
-	bg_event 14, 31, BGEVENT_ITEM, SilverCaveRoom2HiddenMaxPotion
+	bg_event 14, 37, BGEVENT_ITEM, SilverCaveRoom2HiddenMaxPotion
 
 	def_object_events
-	object_event 10,  6, SPRITE_STEVEN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, TrainerNicholas, -1
-	object_event 24, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2Calcium, EVENT_SILVER_CAVE_ROOM_2_CALCIUM
-	object_event 22, 24, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2UltraBall, EVENT_SILVER_CAVE_ROOM_2_ULTRA_BALL
-	object_event  4, 20, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2PPUp, EVENT_SILVER_CAVE_ROOM_2_PP_UP
+	object_event 10, 12, SPRITE_STEVEN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, TrainerNicholas, -1
+	object_event 24, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2Calcium, EVENT_SILVER_CAVE_ROOM_2_CALCIUM
+	object_event 22, 30, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2UltraBall, EVENT_SILVER_CAVE_ROOM_2_ULTRA_BALL
+	object_event  5, 24, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2PPUp, EVENT_SILVER_CAVE_ROOM_2_PP_UP

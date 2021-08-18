@@ -230,7 +230,7 @@ MartMahogany2:
 	db -1 ; end
 
 MartBlackthorn:
-	db 9 ; # items
+	db 10 ; # items
 	db GREAT_BALL
 	db ULTRA_BALL
 	db HYPER_POTION
@@ -385,11 +385,12 @@ MartFuchsia:
 	db -1 ; end
 
 MartSaffron:
-	db 8 ; # items
+	db 9 ; # items
 	db GREAT_BALL
 	db ULTRA_BALL
 	db HYPER_POTION
 	db MAX_POTION
+	db ESCAPE_ROPE
 	db FULL_HEAL
 	db X_ATTACK
 	db X_DEFEND
@@ -398,9 +399,9 @@ MartSaffron:
 
 MartMtMoon:
 	db 10 ; # items
-	db FRESH_WATER
-	db SODA_POP
 	db LEMONADE
+	db SODA_POP
+	db FRESH_WATER
 	db REPEL
 	db POKE_DOLL
 	db PORTRAITMAIL

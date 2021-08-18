@@ -100,6 +100,8 @@ SPDSPCDV_SHINY EQU $EE
 	const BATTLETYPE_LUGIA
 	const BATTLETYPE_HOOH
 	const BATTLETYPE_KANTOLEGEND
+	const BATTLETYPE_SET
+	const BATTLETYPE_SETNOITEMS
 
 ; BattleVarPairs indexes (see home/battle.asm)
 	const_def

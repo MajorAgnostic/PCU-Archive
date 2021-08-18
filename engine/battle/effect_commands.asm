@@ -683,7 +683,7 @@ BattleCommand_CheckObedience:
 
 	; stormbadge
 	bit STORMBADGE, [hl]
-	ld a, 70
+	ld a, 60
 	jr nz, .getlevel
 
 	; fogbadge
@@ -693,11 +693,11 @@ BattleCommand_CheckObedience:
 
 	; hivebadge
 	bit HIVEBADGE, [hl]
-	ld a, 30
+	ld a, 40
 	jr nz, .getlevel
 
 	; no badges
-	ld a, 15
+	ld a, 25
 
 .getlevel
 ; c = obedience level
@@ -1578,7 +1578,7 @@ BattleCommand_CheckHit:
 	call .RockSlideSandstorm
 	ret z
 
-	call .XAccuracy
+	call .XAccuracy; now redundant due to X Accuracy change (Idain)
 	ret nz
 
 	; Perfect-accuracy moves
@@ -2633,6 +2633,11 @@ PlayerAttackDamage:
 	ld a, [hl]
 	cp SPECIAL
 	jr nc, .special
+	
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_NIGHT_SHADE
+	jr z, .special
 
 .physical
 	ld hl, wEnemyMonDefense
@@ -3705,18 +3710,14 @@ BattleCommand_SleepTarget:
 	jr nz, .fail
 
 	call AnimateCurrentMove
-	ld b, $7
-	ld a, [wInBattleTowerBattle]
-	and a
-	jr z, .random_loop
-	ld b, $3
+	ld b, 3
 
 .random_loop
 	call BattleRandom
 	and b
 	jr z, .random_loop
-	cp 7
-	jr z, .random_loop
+;	cp b
+;	jr z, .random_loop
 	inc a
 	ld [de], a
 	call UpdateOpponentInParty

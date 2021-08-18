@@ -41,7 +41,7 @@ Oak:
 	writetext OakOpenMtSilverText
 	promptbutton
 	setevent EVENT_OPENED_RIGHTBB
-	clearevent EVENT_HOMEBIGONIXDOLL
+	setevent EVENT_NO_E4_REMATCH
 	sjump .CheckPokedex
 
 .Complain:
@@ -93,8 +93,8 @@ OakWelcomeKantoText:
 	done
 
 OakLabDexCheckText:
-	text "How is your #-"
-	line "DEX coming?"
+	text "So, how is your"
+	line "#DEX coming?"
 
 	para "Let's see…"
 	done
@@ -118,9 +118,9 @@ OakOpenMtSilverText:
 	line "assessment of you."
 
 	para "Hmm… maybe I will"
-	line "ask LANCE to allow"
-	cont "you to enter MT."
-	cont "SILVER."
+	line "ask that you be"
+	cont "granted access to"
+	cont "MT.SILVER."
 
 	para "MT.SILVER is a big"
 	line "mountain that is"
@@ -138,23 +138,24 @@ OakOpenMtSilverText:
 	line "exception in your"
 	cont "case, <PLAY_G>."
 
-	para "Go up to INDIGO"
-	line "PLATEAU. You can"
+	para "Head up to INDIGO"
+	line "PLATEAU."
 
-	para "once again cha-"
-	line "llenge the ELITE"
+	para "The ELITE FOUR ha-"
+	line "ve returned from"
 	
-	para "FOUR and display"
-	line "your new strength"
+	para "their training and"
+	line "will welcome a new"
+	cont "challenge!"
 	
-	para "and experience to"
-	line "LANCE. I am sure"
+	para "I'm sure they will"
+	line "open the entrance"
+	cont "to MT.SILVER for"
+	cont "you."
 	
-	para "that he'll grant"
-	line "you entrance to"
-	
-	para "MT.SILVER if you"
-	line "do."
+	para "I'll make sure to"
+	line "put in a good word"
+	cont "for you as well."
 	done
 
 OakNoKantoBadgesText:

@@ -55,6 +55,7 @@ TrainerHouseReceptionistScript:
 	winlosstext TrainerHouseB1FCalBeatenText, 0
 	setlasttalked TRAINERHOUSEB1F_CHRIS
 	loadtrainer CAL, CAL2
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SETNOITEMS
 	startbattle
 	reloadmapafterbattle
 	iffalse .End
@@ -79,6 +80,7 @@ TrainerHouseReceptionistScript:
 	winlosstext TrainerHouseB1FCalBeatenText, 0
 	setlasttalked TRAINERHOUSEB1F_CHRIS
 	loadtrainer CRYSTAL, CRYSTAL2
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SETNOITEMS
 	startbattle
 	reloadmapafterbattle
 	iffalse .End
@@ -86,12 +88,14 @@ TrainerHouseReceptionistScript:
 	winlosstext TrainerHouseB1FCalBeatenText, 0
 	setlasttalked TRAINERHOUSEB1F_CHRIS
 	loadtrainer CAL, CAL3
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SETNOITEMS
 	startbattle
 	reloadmapafterbattle
 .NoSpecialBattle2:
 	winlosstext TrainerHouseB1FCalBeatenText, 0
 	setlasttalked TRAINERHOUSEB1F_CHRIS
 	loadtrainer CRYSTAL, CRYSTAL3
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SETNOITEMS
 	startbattle
 	reloadmapafterbattle
 .End:
@@ -161,7 +165,16 @@ TrainerHouseB1FIntroText:
 	line "mind that these"
 	
 	para "trainers are very"
-	line "strong."
+	line "experienced."
+	
+	para "Also, our battle"
+	line "format uses the"
+	
+	para "SET battle style"
+	line "and prohibits the"
+	
+	para "use of items in"
+	line "battle."
 	done
 
 TrainerHouseB1FYourOpponentIsText:

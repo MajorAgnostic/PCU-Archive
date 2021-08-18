@@ -536,10 +536,8 @@ AIUsedItemSound:
 EnemyUsedFullHeal:
 	call AIUsedItemSound
 	call AI_HealStatus
-	ld a, FULL_HEAL
-	ld [wCurEnemyItem], a
-	xor a
 	ld [wEnemyConfuseCount], a
+	ld a, FULL_HEAL
 	jp PrintText_UsedItemOn_AND_AIUpdateHUD
 
 EnemyUsedMaxPotion:
@@ -551,8 +549,6 @@ EnemyUsedFullRestore:
 	call AI_HealStatus
 	ld a, FULL_RESTORE
 	ld [wCurEnemyItem], a
-	xor a
-	ld [wEnemyConfuseCount], a
 
 FullRestoreContinue:
 	ld de, wCurHPAnimOldHP
@@ -726,6 +722,7 @@ AI_HealStatus:
 	xor a
 	ld [hl], a
 	ld [wEnemyMonStatus], a
+	ld [wEnemyConfuseCount], a
 	ld hl, wEnemySubStatus1
 	res SUBSTATUS_NIGHTMARE, [hl]
 	ld hl, wEnemySubStatus3
@@ -735,11 +732,9 @@ AI_HealStatus:
 	ret
 
 EnemyUsedXAccuracy:
-	call AIUsedItemSound
-	ld hl, wEnemySubStatus4
-	set SUBSTATUS_X_ACCURACY, [hl]
-	ld a, X_ACCURACY
-	jp PrintText_UsedItemOn_AND_AIUpdateHUD
+	ld b, ACCURACY
+    ld a, X_ACCURACY
+    jr EnemyUsedXItem
 
 EnemyUsedGuardSpec:
 	call AIUsedItemSound

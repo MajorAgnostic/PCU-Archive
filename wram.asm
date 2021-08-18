@@ -2009,6 +2009,7 @@ wItemsPocketCursor::    db
 wKeyItemsPocketCursor:: db
 wBallsPocketCursor::    db
 wTMHMPocketCursor::     db
+wMedicinePocketCursor:: db
 
 wPCItemsScrollPosition::        db
 wPartyMenuScrollPosition::      db ; unused
@@ -2016,6 +2017,7 @@ wItemsPocketScrollPosition::    db
 wKeyItemsPocketScrollPosition:: db
 wBallsPocketScrollPosition::    db
 wTMHMPocketScrollPosition::     db
+wMedicinePocketScrollPosition:: db
 
 wSwitchMon::
 wSwitchItem::
@@ -2406,6 +2408,7 @@ wDudeNumItems:: db
 wDudeItems:: ds 2 * 4
 wDudeItemsEnd:: db
 
+wDudeNumMedicine:: db
 wDudeNumKeyItems:: db
 wDudeKeyItems:: ds 18
 wDudeKeyItemsEnd:: db
@@ -2565,7 +2568,8 @@ wObject11Struct:: object_struct wObject11
 wObject12Struct:: object_struct wObject12
 wObjectStructsEnd::
 
-wCmdQueue:: ds CMDQUEUE_CAPACITY * CMDQUEUE_ENTRY_SIZE
+wStoneTableAddress:: dw
+
 
 
 wMapObjects::
@@ -2656,6 +2660,10 @@ wKeyItemsEnd::
 wNumBalls:: db
 wBalls:: ds MAX_BALLS * 2 + 1
 wBallsEnd::
+
+wNumMedicine:: db
+wMedicine:: ds MAX_MEDICINE * 2 + 1
+wMedicineEnd::
 
 wNumPCItems:: db
 wPCItems:: ds MAX_PC_ITEMS * 2 + 1
@@ -2767,8 +2775,10 @@ wMobileTradeRoomSceneID::                         db
 wMobileBattleRoomSceneID::                        db
 wRoute42EcruteakGateSceneID::                     db
 wSilverCaveRoom2SceneID::                         db
+wSaffronCitySceneID::                             db
+wTinTowerRoofSceneID::                            db
 
-	ds 27
+	ds 25
 
 ; fight counts
 wJackFightCount::    db

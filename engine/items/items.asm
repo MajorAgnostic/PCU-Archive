@@ -16,6 +16,7 @@ _ReceiveItem::
 	dw .KeyItem
 	dw .Ball
 	dw .TMHM
+	dw .Medicine
 
 .Item:
 	ld h, d
@@ -29,6 +30,10 @@ _ReceiveItem::
 
 .Ball:
 	ld hl, wNumBalls
+	jp PutItemInPocket
+	
+.Medicine:
+	ld hl, wNumMedicine
 	jp PutItemInPocket
 
 .TMHM:
@@ -57,9 +62,14 @@ _TossItem::
 	dw .KeyItem
 	dw .Ball
 	dw .TMHM
+	dw .Medicine
 
 .Ball:
 	ld hl, wNumBalls
+	jp RemoveItemFromPocket
+	
+.Medicine:
+	ld hl, wNumMedicine
 	jp RemoveItemFromPocket
 
 .TMHM:
@@ -100,9 +110,14 @@ _CheckItem::
 	dw .KeyItem
 	dw .Ball
 	dw .TMHM
+	dw .Medicine
 
 .Ball:
 	ld hl, wNumBalls
+	jp CheckTheItem
+	
+.Medicine:
+	ld hl, wNumMedicine
 	jp CheckTheItem
 
 .TMHM:
@@ -152,6 +167,15 @@ GetPocketCapacity:
 	ret z
 
 .not_pc
+	ld c, MAX_MEDICINE
+	ld a, e
+	cp LOW(wMedicine)
+	jr nz, .not_medicine
+	ld a, d
+	cp HIGH(wMedicine)
+	ret z
+
+.not_medicine
 	ld c, MAX_BALLS
 	ret
 

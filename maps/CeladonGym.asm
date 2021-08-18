@@ -21,6 +21,7 @@ CeladonGymErikaScript:
 	closetext
 	winlosstext ErikaBeatenText, 0
 	loadtrainer ERIKA, ERIKA1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ERIKA

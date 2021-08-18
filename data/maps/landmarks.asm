@@ -57,6 +57,7 @@ Landmarks:
 	landmark  52,  92, Route1Name
 	landmark  52,  76, ViridianCityName
 	landmark  52,  64, Route2Name
+	landmark  52,  60, ViridianForestName
 	landmark  52,  52, PewterCityName
 	landmark  64,  52, Route3Name
 	landmark  76,  52, MtMoonName
@@ -89,8 +90,8 @@ Landmarks:
 	landmark  80, 116, Route18Name
 	landmark  92, 116, FuchsiaCityName
 	landmark  92, 128, Route19Name
-	landmark  76, 132, Route20Name
-	landmark  68, 132, SeafoamIslandsName
+	landmark  76, 132, SeafoamIslandsName
+	landmark  64, 132, Route20Name
 	landmark  52, 132, CinnabarIslandName
 	landmark  52, 120, Route21Name
 	landmark  36,  68, Route22Name
@@ -114,7 +115,7 @@ CianwoodCityName:    db "CIANWOOD¯CITY@"
 MahoganyTownName:    db "MAHOGANY¯TOWN@"
 BlackthornCityName:  db "BLACKTHORN¯CITY@"
 LakeOfRageName:      db "LAKE OF¯RAGE@"
-SilverCaveName:      db "SILVER CAVE@"
+SilverCaveName:      db "MT.SILVER@"
 SproutTowerName:     db "SPROUT¯TOWER@"
 RuinsOfAlphName:     db "RUINS¯OF ALPH@"
 UnionCaveName:       db "UNION CAVE@"

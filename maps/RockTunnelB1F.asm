@@ -2,6 +2,7 @@
 	const ROCKTUNNELB1F_POKE_BALL1
 	const ROCKTUNNELB1F_POKE_BALL2
 	const ROCKTUNNELB1F_POKE_BALL3
+	const ROCKTUNNELB1F_ANDREA
 
 RockTunnelB1F_MapScripts:
 	def_scene_scripts
@@ -19,6 +20,155 @@ RockTunnelB1FRevive:
 
 RockTunnelB1FHiddenMaxPotion:
 	hiddenitem MAX_POTION, EVENT_ROCK_TUNNEL_B1F_HIDDEN_MAX_POTION
+	
+Andrea:
+	faceplayer
+	checkevent EVENT_ENABLE_DIPLOMA_PRINTING
+	iffalse .BattleLater
+	waitsfx
+	playmusic MUSIC_ZINNIA_ENCOUNTER
+	opentext
+	writetext AndreaSeenText
+	waitbutton
+	closetext
+	winlosstext AndreaBeatenText, AndreaBeatenText
+	loadtrainer ANDREA, ANDREA1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SETNOITEMS
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	special FadeOutMusic
+	opentext
+	writetext AndreaAfterBattleText
+	waitbutton
+	closetext
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	disappear ROCKTUNNELB1F_ANDREA
+	setevent EVENT_BEAT_ANDREA
+	pause 15
+	special FadeInQuickly
+	pause 30
+	special HealParty
+	refreshscreen
+	end
+	
+.BattleLater:
+	opentext
+	writetext AndreaBattleLaterText
+	waitbutton
+	closetext
+	end
+	
+AndreaBattleLaterText:
+	text "Hey, have you seen"
+	line "a man wearing a"
+
+	para "black coat and fe-"
+	line "dora? Real broody"
+
+	para "and gloomy. He has"
+	line "had it rough rece-"
+	cont "ntly, though."
+	
+	para "He may have hurt a"
+	line "lot of people and"
+	
+	para "#MON, but he is"
+	line "my brother."
+	
+	para "I owe it to him to"
+	line "lend a hand."
+	
+	para "In any case, give"
+	line "him a warm hello"
+	
+	para "for me, should you"
+	line "happen upon him."
+	
+	para "Good luck on your"
+	line "travels, trainer!"
+	done
+	
+AndreaSeenText:
+	text "Hmm… you have that"
+	line "certain look about"
+
+	para "you. Ya know, the"
+	line "one when a strong"
+
+	para "trainer sees some-"
+	line "one worthy of a"
+	cont "challenge?"
+	
+	para "Heh, I'll bite. It"
+	line "has been a while,"
+	cont "after all."
+	
+	para "Believe it or not,"
+	line "I was the #MON"
+	
+	para "LEAGUE CHAMPION a"
+	line "while back."
+	
+	para "Never lost, but I"
+	line "had to resign due"
+	
+	para "to competing obli-"
+	line "gations. You know"
+	
+	para "how it is with us"
+	line "adults."
+	
+	para "Anyway, I bet that"
+	line "you're itching to"
+	cont "battle right now."
+	
+	para "It may have been a"
+	line "while since I last"
+	cont "battled, but know"
+	cont "that my fighting"
+	
+	para "spirit is still"
+	line "blazing with the"
+	cont "passion I have for"
+	cont "#MON!"
+	
+	para "Well, lets see how"
+	line "you do against the"
+	
+	para "one who inherits"
+	line "eternity!"
+	done
+
+AndreaBeatenText:
+	text "Astounding! You're"
+	line "something else!"
+	done
+
+AndreaAfterBattleText:
+	text "So that's how it"
+	line "is, eh?"
+	
+	para "No wonder you've"
+	line "become CHAMPION."
+
+	para "Seems as though I"
+	line "have a bit of rust"
+	cont "to rid myself of."
+	
+	para "Can't just rest on"
+	line "my laurels, now"
+	cont "can I?"
+	
+	para "Maybe I'll see you"
+	line "around here again"
+	cont "sometime."
+	
+	para "I want to see that"
+	line "raging hot fire in"
+	cont "action once more!"
+	done
 
 RockTunnelB1F_MapEvents:
 	db 0, 0 ; filler
@@ -38,3 +188,4 @@ RockTunnelB1F_MapEvents:
 	object_event  7, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RockTunnelB1FIron, EVENT_ROCK_TUNNEL_B1F_IRON
 	object_event  6, 17, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RockTunnelB1FPPUp, EVENT_ROCK_TUNNEL_B1F_PP_UP
 	object_event 15,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RockTunnelB1FRevive, EVENT_ROCK_TUNNEL_B1F_REVIVE
+	object_event  9,  8, SPRITE_ANDREA, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Andrea, EVENT_BEAT_ANDREA

@@ -154,6 +154,17 @@ TuscanyScript:
 	opentext
 	checkevent EVENT_GOT_PINK_BOW_FROM_TUSCANY
 	iftrue TuscanyTuesdayScript
+	readvar VAR_WEEKDAY
+	ifequal TUESDAY, .GiveBow
+	writetext TuscanySeenText
+	waitbutton
+	closetext
+	winlosstext TuscanyBeatenText, 0
+	loadtrainer TEACHER, TUSCANY
+	startbattle
+	reloadmapafterbattle
+	opentext
+.GiveBow:
 	writetext TuscanyGivesGiftText
 	promptbutton
 	verbosegiveitem PINK_BOW
@@ -329,33 +340,54 @@ Route29CooltrainerMText_WaitingForMorning:
 	para "appear only in the"
 	line "morning."
 	done
-
-MeetTuscanyText:
+	
+TuscanySeenText:
 	text "TUSCANY: I do be-"
 	line "lieve that this is"
 
-	para "the first time"
-	line "we've met."
+	para "the first time we"
+	line "have met."
 
 	para "Please allow me to"
 	line "introduce myself."
 
 	para "I am TUSCANY of"
 	line "Tuesday."
+	
+	para "You like my PINK"
+	line "BOW, you say?"
+
+	para "I would give you"
+	line "one if today were"
+	
+	para "TUESDAY, although"
+	line "I suppose I could"
+	
+	para "part with one if"
+	line "you can beat me."
+
+	para "Shall we?"
+	done
+	
+TuscanyBeatenText:
+	text "You're just full"
+	line "of potential!"
 	done
 
 TuscanyGivesGiftText:
-	text "By way of intro-"
-	line "duction, please"
+	text "TUSCANY: I think"
+	line "this would look"
+	cont "lovely on one of"
+	cont "your #MON!"
 
-	para "accept this gift,"
-	line "a PINK BOW."
+	para "Please accept this"
+	line "gift."
 	done
 
 TuscanyGaveGiftText:
-	text "TUSCANY: Wouldn't"
-	line "you agree that it"
-	cont "is most adorable?"
+	text "Wouldn't you agree"
+	line "that it is most"
+	cont "adorable?"
 
 	para "It strengthens"
 	line "normal-type moves."

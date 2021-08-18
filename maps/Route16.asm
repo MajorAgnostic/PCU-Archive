@@ -3,6 +3,7 @@ Route16_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .AlwaysOnBike
+	callback MAPCALLBACK_TILES, .RoadClosed
 
 .AlwaysOnBike:
 	readvar VAR_YCOORD
@@ -14,6 +15,13 @@ Route16_MapScripts:
 
 .CanWalk:
 	clearflag ENGINE_ALWAYS_ON_BIKE
+	endcallback
+	
+.RoadClosed:
+	checkflag ENGINE_FLYPOINT_LAVENDER
+	iftrue .RoadUnblocked
+	changeblock 15, 7, $1b ; road closed
+.RoadUnblocked:
 	endcallback
 
 CyclingRoadSign:

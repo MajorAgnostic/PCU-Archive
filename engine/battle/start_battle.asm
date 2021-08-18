@@ -114,14 +114,24 @@ PlayBattleMusic:
 	cp CAL
 	jp z, .done
 	cp CRYSTAL
-	jr z, .done
+	jp z, .done
+	cp CLAIR2
+	jp z, .done
 	
 	ld de, MUSIC_KANTO_CHAMPION
 	cp RED
-	jr z, .done
+	jp z, .done
 	
 	ld de, MUSIC_STEVEN
 	cp NICHOLAS
+	jp z, .done
+	
+	ld de, MUSIC_ZINNIA_BATTLE
+	cp ANDREA
+	jr z, .done
+	
+	ld de, MUSIC_SUICUNE_BATTLE
+	cp MORTY2
 	jr z, .done
 	
 	ld de, MUSIC_RBY_KANTO_GYM_LEADER_BATTLE
@@ -133,12 +143,16 @@ PlayBattleMusic:
 	jr z, .done
 	cp GRUNTF
 	jr z, .done
+	cp SCIENTIST
+	jr z, .done
+	
+	ld de, MUSIC_UNOVA_E4
 	cp EXECUTIVEM
 	jr z, .done
 	cp EXECUTIVEF
 	jr z, .done
-	cp SCIENTIST
-	jr z, .done
+	
+	ld de, MUSIC_ALOLA_E4
 	cp ARCHER
 	jr z, .done
 
@@ -162,9 +176,9 @@ PlayBattleMusic:
 	jr nz, .othertrainer
 
 	ld a, [wOtherTrainerID]
-	cp RIVAL2_2_CHIKORITA ; Rival in Indigo Plateau
+	cp RIVAL2_1_CHIKORITA ; Rival in Indigo Plateau
 	jr c, .done
-	ld de, MUSIC_CHAMPION_BATTLE
+	ld de, MUSIC_WALLY
 	jr .done
 
 .othertrainer

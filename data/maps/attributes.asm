@@ -427,6 +427,7 @@ ENDM
 	map_attributes TeamRocketBaseB2F, TEAM_ROCKET_BASE_B2F, $00, 0
 	map_attributes TeamRocketBaseB3F, TEAM_ROCKET_BASE_B3F, $00, 0
 	map_attributes IlexForest, ILEX_FOREST, $05, 0
+	map_attributes ViridianForest, VIRIDIAN_FOREST, $05, 0 ; NEW
 	map_attributes GoldenrodUnderground, GOLDENROD_UNDERGROUND, $00, 0
 	map_attributes GoldenrodUndergroundSwitchRoomEntrances, GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES, $00, 0
 	map_attributes GoldenrodDeptStoreB1F, GOLDENROD_DEPT_STORE_B1F, $00, 0
@@ -500,6 +501,11 @@ ENDM
 	map_attributes CinnabarPokecenter2FBeta, CINNABAR_POKECENTER_2F_BETA, $00, 0
 	map_attributes Route19FuchsiaGate, ROUTE_19_FUCHSIA_GATE, $00, 0
 	map_attributes SeafoamGym, SEAFOAM_GYM, $09, 0
+	map_attributes SeafoamIslands1F, SEAFOAM_ISLANDS_1F, $19, 0
+	map_attributes SeafoamIslandsB1F, SEAFOAM_ISLANDS_B1F, $19, 0
+	map_attributes SeafoamIslandsB2F, SEAFOAM_ISLANDS_B2F, $19, 0
+	map_attributes SeafoamIslandsB3F, SEAFOAM_ISLANDS_B3F, $19, 0
+	map_attributes SeafoamIslandsB4F, SEAFOAM_ISLANDS_B4F, $19, 0
 	map_attributes CeruleanGymBadgeSpeechHouse, CERULEAN_GYM_BADGE_SPEECH_HOUSE, $00, 0
 	map_attributes CeruleanPoliceStation, CERULEAN_POLICE_STATION, $00, 0
 	map_attributes CeruleanTradeSpeechHouse, CERULEAN_TRADE_SPEECH_HOUSE, $00, 0
@@ -663,6 +669,8 @@ ENDM
 	map_attributes ViridianPokecenter2FBeta, VIRIDIAN_POKECENTER_2F_BETA, $00, 0
 	map_attributes Route2NuggetHouse, ROUTE_2_NUGGET_HOUSE, $00, 0
 	map_attributes Route2Gate, ROUTE_2_GATE, $00, 0
+	map_attributes Route2NorthGate, ROUTE_2_NORTHGATE, $00, 0
+	map_attributes Route2SouthGate, ROUTE_2_SOUTHGATE, $00, 0
 	map_attributes VictoryRoadGate, VICTORY_ROAD_GATE, $00, 0
 	map_attributes ElmsLab, ELMS_LAB, $00, 0
 	map_attributes PlayersHouse1F, PLAYERS_HOUSE_1F, $00, 0

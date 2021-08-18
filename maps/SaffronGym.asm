@@ -14,13 +14,14 @@ SaffronGym_MapScripts:
 SaffronGymSabrinaScript:
 	faceplayer
 	opentext
-	checkflag ENGINE_MARSHBADGE
+	checkflag ENGINE_SOULBADGE
 	iftrue .FightDone
 	writetext SabrinaIntroText
 	waitbutton
 	closetext
 	winlosstext SabrinaWinLossText, 0
 	loadtrainer SABRINA, SABRINA1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_SABRINA
@@ -32,7 +33,7 @@ SaffronGymSabrinaScript:
 	writetext ReceivedMarshBadgeText
 	playsound SFX_GET_BADGE
 	waitsfx
-	setflag ENGINE_MARSHBADGE
+	setflag ENGINE_SOULBADGE
 	writetext SabrinaMarshBadgeText
 	waitbutton
 	closetext
@@ -105,7 +106,7 @@ SaffronGymGuideScript:
 	end
 
 SaffronGymStatue:
-	checkflag ENGINE_MARSHBADGE
+	checkflag ENGINE_SOULBADGE
 	iftrue .Beaten
 	jumpstd GymStatue1Script
 .Beaten:
@@ -153,16 +154,16 @@ SabrinaWinLossText:
 
 	para "OK, you win. You"
 	line "earned yourself"
-	cont "MARSHBADGE."
+	cont "SOULBADGE."
 	done
 
 ReceivedMarshBadgeText:
 	text "<PLAYER> received"
-	line "MARSHBADGE."
+	line "SOULBADGE."
 	done
 
 SabrinaMarshBadgeText:
-	text "SABRINA: MARSH-"
+	text "SABRINA: SOUL-"
 	line "BADGE draws out"
 
 	para "your subliminal"

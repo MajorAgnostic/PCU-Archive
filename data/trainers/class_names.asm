@@ -71,3 +71,6 @@ TrainerClassNames::
 	db "<PKMN> TRAINER@"
 	db "VETERAN@"
 	db "EXECUTIVE@"
+	db "<PKMN> MASTER@"
+	db "<PKMN> TRAINER@"
+	db "CHAMPION@"

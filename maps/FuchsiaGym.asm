@@ -12,7 +12,7 @@ FuchsiaGym_MapScripts:
 	def_callbacks
 
 FuchsiaGymJanineScript:
-	checkflag ENGINE_SOULBADGE
+	checkflag ENGINE_MARSHBADGE
 	iftrue .FightDone
 	applymovement FUCHSIAGYM_JANINE, Movement_NinjaSpin
 	faceplayer
@@ -22,6 +22,7 @@ FuchsiaGymJanineScript:
 	closetext
 	winlosstext JanineText_ToughOne, 0
 	loadtrainer JANINE, JANINE1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_JANINE
@@ -38,7 +39,7 @@ FuchsiaGymJanineScript:
 	writetext Text_ReceivedSoulBadge
 	playsound SFX_GET_BADGE
 	waitsfx
-	setflag ENGINE_SOULBADGE
+	setflag ENGINE_MARSHBADGE
 	sjump .AfterBattle
 .FightDone:
 	faceplayer
@@ -210,7 +211,7 @@ FuchsiaGymGuideScript:
 	end
 
 FuchsiaGymStatue:
-	checkflag ENGINE_SOULBADGE
+	checkflag ENGINE_MARSHBADGE
 	iftrue .Beaten
 	jumpstd GymStatue1Script
 .Beaten:
@@ -252,13 +253,13 @@ JanineText_ToughOne:
 	line "tough one. You"
 	cont "definitely won…"
 
-	para "Here's SOULBADGE."
+	para "Here's MARSHBADGE."
 	line "Take it."
 	done
 
 Text_ReceivedSoulBadge:
 	text "<PLAYER> received"
-	line "SOULBADGE."
+	line "MARSHBADGE."
 	done
 
 JanineText_ToxicSpeech:

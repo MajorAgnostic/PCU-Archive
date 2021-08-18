@@ -1,8 +1,11 @@
+GAME_FEE EQU 1000
+	
 	object_const_def
 	const FUCHSIACITY_YOUNGSTER
-	const FUCHSIACITY_POKEFAN_M
+	const FUCHSIACITY_POKEFAN_M1
 	const FUCHSIACITY_TEACHER
 	const FUCHSIACITY_FRUIT_TREE
+	const FUCHSIACITY_POKEFAN_M2
 
 FuchsiaCity_MapScripts:
 	def_scene_scripts
@@ -22,6 +25,44 @@ FuchsiaCityPokefanM:
 
 FuchsiaCityTeacher:
 	jumptextfaceplayer FuchsiaCityTeacherText
+	
+FuchsiaCityCloysterScript:
+	opentext
+	writetext FuchsiaCityCloysterText
+	scall Game_ConfirmPurchaseScript
+	iffalse Game_CancelPurchaseScript
+	checkmoney YOUR_MONEY, GAME_FEE
+	ifequal HAVE_LESS, Game_YoureBroke
+	waitsfx
+	playsound SFX_TRANSACTION
+	writetext GameHereYouGoText
+	waitbutton
+	verbosegiveitem LURE_BALL, 10
+	takemoney YOUR_MONEY, GAME_FEE
+	waitsfx
+	writetext GameStartText
+	waitbutton
+	closetext
+	playsound SFX_WARP_TO
+	applymovement FUCHSIACITY_POKEFAN_M2, GameTeleportIntoSkyMovement
+	disappear FUCHSIACITY_POKEFAN_M2
+	end
+	
+Game_ConfirmPurchaseScript:
+	yesorno
+	end
+	
+Game_CancelPurchaseScript:
+	writetext GameQuitText
+	waitbutton
+	closetext
+	end
+	
+Game_YoureBroke:
+	writetext FuchsiaCityCloysterBrokeText
+	waitbutton
+	closetext
+	end
 
 FuchsiaCitySign:
 	jumptext FuchsiaCitySignText
@@ -46,9 +87,73 @@ FuchsiaCityPokecenterSign:
 
 FuchsiaCityMartSign:
 	jumpstd MartSignScript
+	
+GameSign:
+	jumptext GameSignText
 
 FuchsiaCityFruitTree:
 	fruittree FRUITTREE_FUCHSIA_CITY
+	
+GameTeleportIntoSkyMovement:
+	teleport_from
+	step_end
+	
+GameHereYouGoText:
+	text "Alright! Here you"
+	line "go, on the house."
+	done
+	
+FuchsiaCityCloysterBrokeText:	
+	text "Sorry, pal! You're"
+	line "kinda low on cash."
+	done
+	
+GameQuitText:
+	text "Come back when you"
+	line "get an itchin' for"
+	cont "some fishin'!"
+	done
+	
+GameStartText:
+	text "Well then, let me"
+	line "get out of the way"
+	cont "in style!"
+	done
+
+FuchsiaCityCloysterText:
+	text "Heya! Care for a"
+	line "round of CLOYSTER"
+	cont "HOISTER?"
+
+	para "All you need is a"
+	line "SUPER ROD and you"
+	
+	para "can fish up all of"
+	line "the PEARLs you"
+	cont "want!"
+	
+	para "It'll only cost ya"
+	line "¥1000."
+	
+	para "I'll even throw in"
+	line "some LURE BALLs!"
+	
+	para "So, how about a"
+	line "round?"
+	done
+	
+FuchsiaCityCloysterText2:
+	text "Heya! Care for a"
+	line "round of CLOYSTER"
+	cont "HOISTER?"
+
+	para "All you need is a"
+	line "SUPER ROD and you"
+	
+	para "can fish up all of"
+	line "the PEARLs you"
+	cont "want!"
+	done
 
 FuchsiaCityYoungsterText:
 	text "One of the ELITE"
@@ -121,6 +226,12 @@ NoLitteringSignText:
 	para "Please take your"
 	line "waste with you."
 	done
+	
+GameSignText:
+	text "CLOYSTER HOISTER"
+	
+	para "Riches await!"
+	done
 
 FuchsiaCity_MapEvents:
 	db 0, 0 ; filler
@@ -149,9 +260,11 @@ FuchsiaCity_MapEvents:
 	bg_event 13, 15, BGEVENT_READ, NoLitteringSign
 	bg_event 20, 27, BGEVENT_READ, FuchsiaCityPokecenterSign
 	bg_event  6, 13, BGEVENT_READ, FuchsiaCityMartSign
+	bg_event 33, 25, BGEVENT_READ, GameSign
 
 	def_object_events
 	object_event 23, 18, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityYoungster, -1
 	object_event 13,  8, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityPokefanM, -1
 	object_event 16, 14, SPRITE_TEACHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FuchsiaCityTeacher, -1
 	object_event  8,  1, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityFruitTree, -1
+	object_event 33, 24, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityCloysterScript, -1

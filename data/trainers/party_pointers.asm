@@ -73,3 +73,6 @@ TrainerGroups:
 	dba PKMNTrainer2Group
 	dba PKMNTrainer3Group
 	dba ArcherGroup
+	dba AndreaGroup
+	dba Morty2Group
+	dba Clair2Group

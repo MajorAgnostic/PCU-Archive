@@ -72,5 +72,8 @@ TrainerEncounterMusic::
 	db MUSIC_HIKER_ENCOUNTER       ; mysticalman
 	db MUSIC_RIVAL_ENCOUNTER       ; rival0
 	db MUSIC_HIKER_ENCOUNTER       ; crystal
-	db MUSIC_CLAIR			       ; nicholas
+	db MUSIC_BRENDAN_ENCOUNTER     ; nicholas
 	db MUSIC_OFFICER_ENCOUNTER     ; archer
+	db MUSIC_ZINNIA_ENCOUNTER      ; andrea
+	db MUSIC_OFFICER_ENCOUNTER     ; morty2
+	db MUSIC_OFFICER_ENCOUNTER     ; clair2

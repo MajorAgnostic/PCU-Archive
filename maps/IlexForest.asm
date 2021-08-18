@@ -513,6 +513,9 @@ IlexForestShrineScript:
 	pause 20
 	clearflag ENGINE_FOREST_IS_RESTLESS
 	special CelebiShrineEvent
+	opentext
+	writetext CelebiCryText
+	cry CELEBI
 	loadwildmon CELEBI, 30
 	loadvar VAR_BATTLETYPE, BATTLETYPE_SUICUNE
 	startbattle
@@ -785,6 +788,10 @@ MovementData_0x6ef58:
 	slow_step DOWN
 	remove_fixed_facing
 	step_end
+	
+CelebiCryText:
+	text "Celebiiiii!"
+	done
 
 IlexForestApprenticeIntroText:
 	text "Oh, man… My boss"
@@ -1022,15 +1029,18 @@ BugCatcherTobiasAfterBattleText:
 	text "Well, I guess you"
 	line "have to be pretty"
 
-	para "strong to beat"
+	para "strong to defeat"
 	line "BUGSY."
-
-	para "I should get back"
-	line "to training, but"
 	
-	para "I can't stop stu-"
-	line "ffing my face with"
-	cont "berries!"
+	para "Since you beat me,"
+	line "here's a tip."
+	
+	para "If you talk to the"
+	line "lass in the gate"
+	
+	para "up ahead, she may"
+	line "give you a LUCKY"
+	cont "EGG!"
 	done
 	
 BugCatcherAdamSeenText:

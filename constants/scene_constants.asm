@@ -169,3 +169,11 @@ SCENE_FINISHED EQU 1
 ; wNewBarkTownSceneID
 	const_def 1
 	const SCENE_NEWBARKTOWN_FISHER ; 1
+	
+; wSaffronCitySceneID
+	const_def 1
+	const SCENE_SAFFRON_HOOH
+	
+; wTinTowerRoofSceneID
+	const_def 1
+	const SCENE_TIN_MORTY
