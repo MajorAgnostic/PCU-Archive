@@ -57,8 +57,8 @@ SeafoamIslands1F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 26, 15, ROUTE_20, 2
-	warp_event  6, 15, ROUTE_20, 3
+	warp_event 27, 15, SEAFOAM_ISLANDS_ENTRANCE, 2
+	warp_event  5, 15, SEAFOAM_ISLANDS_ENTRANCE, 5
 	warp_event 27,  3, SEAFOAM_ISLANDS_B1F, 1
 	warp_event  7,  5, SEAFOAM_ISLANDS_B1F, 2
 	warp_event 25, 13, SEAFOAM_ISLANDS_B1F, 3

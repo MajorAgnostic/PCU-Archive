@@ -34,9 +34,8 @@ Lugia:
 	pause 15
 	closetext
 	setevent EVENT_FOUGHT_LUGIA
-	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
-	loadwildmon LUGIA, 80
 	loadvar VAR_BATTLETYPE, BATTLETYPE_LUGIA
+	loadwildmon LUGIA, 85
 	startbattle
 	disappear WHIRLISLANDLUGIACHAMBER_LUGIA
 	reloadmapafterbattle

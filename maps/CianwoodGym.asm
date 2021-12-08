@@ -47,6 +47,7 @@ CianwoodGymChuckScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_STORMBADGE
+	specialphonecall SPECIALCALL_GIFT
 	readvar VAR_BADGES
 	scall CianwoodGymActivateRockets
 .FightDone:

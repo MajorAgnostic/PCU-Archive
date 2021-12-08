@@ -1765,11 +1765,11 @@ BattleAnim_Bide:
 BattleAnim_Bind:
 	anim_1gfx ANIM_GFX_ROPE
 	anim_sound 0, 1, SFX_BIND
-	anim_obj ANIM_OBJ_48, 132, 64, $0
+	anim_obj ANIM_OBJ_BIND1, 132, 64, $0
 	anim_wait 8
-	anim_obj ANIM_OBJ_49, 132, 56, $0
+	anim_obj ANIM_OBJ_BIND2, 132, 56, $0
 	anim_wait 8
-	anim_obj ANIM_OBJ_48, 132, 48, $0
+	anim_obj ANIM_OBJ_BIND1, 132, 48, $0
 	anim_wait 64
 	anim_sound 0, 1, SFX_BIND
 	anim_incobj 1

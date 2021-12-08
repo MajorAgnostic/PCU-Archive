@@ -144,7 +144,7 @@ MomPhoneNoGymQuestText:
 	para "Hi, <PLAYER>! If"
 	line "you're done with"
 
-	para "your errand come"
+	para "your errand, come"
 	line "on home, dear."
 	done
 
@@ -162,4 +162,19 @@ MomPhoneLectureText:
 
 	para "What about money?"
 	line "Should I save it?"
+	done
+	
+MomPhoneGiftText:
+	text "Hello, honey!"
+
+	para "You've been hard"
+	line "at work on your"
+
+	para "journey, so I got"
+	line "you something."
+
+	para "I left it in your"
+	line "room!"
+
+	para "Be good, dear."
 	done

@@ -205,6 +205,16 @@ ElmPhoneGiftText:
 
 	para "Could you swing by"
 	line "my LAB?"
+	
+	para "Oh, you may want"
+	line "to drop by your"
+	cont "place first."
+	
+	para "Your MOM said that"
+	line "she left you some-"
+
+	para "thing at home for"
+	line "becoming CHAMPION!"
 
 	para "See you later!"
 	done

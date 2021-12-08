@@ -76,3 +76,6 @@ TrainerGroups:
 	dba AndreaGroup
 	dba Morty2Group
 	dba Clair2Group
+	dba Champion2Group
+	dba KingGroup
+	dba Scientist2Group

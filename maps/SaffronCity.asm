@@ -16,7 +16,6 @@ SaffronCity_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
-	callback MAPCALLBACK_TILES, .EastRoadLocked
 	
 .DummyScene0:
 .DummyScene1:
@@ -24,13 +23,6 @@ SaffronCity_MapScripts:
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_SAFFRON
-	endcallback
-	
-.EastRoadLocked:
-	checkflag ENGINE_FLYPOINT_LAVENDER
-	iftrue .KeepEntranceOpen
-	changeblock 39, 23, $13 ; carpet gone
-.KeepEntranceOpen:
 	endcallback
 	
 Saffron_HoohScene:
@@ -112,10 +104,6 @@ SaffronCityYoungster1Script:
 	jumptextfaceplayer SaffronCityYoungster1Text
 
 SaffronCityYoungster2Script:
-	checkflag ENGINE_FLYPOINT_LAVENDER
-	iftrue .Unblocked
-	jumptextfaceplayer SaffronCityYoungster2BlockedText
-.Unblocked
 	jumptextfaceplayer SaffronCityYoungster2Text
 
 SaffronCityLass2Script:
@@ -153,7 +141,10 @@ SaffronCityBlockerText:
 	line "until the problem"
 
 	para "at the POWER PLANT"
-	line "is solved."
+	line "is resolved."
+	
+	para "No power, no warps"
+	line "right?"
 	done
 	
 SaffronHoOhText:
@@ -264,21 +255,6 @@ SaffronCityYoungster1Text:
 
 	para "first time makes"
 	line "me sorta anxious."
-	done
-
-SaffronCityYoungster2BlockedText:
-	text "The road to the"
-	line "east is blocked"
-	cont "off."
-
-	para "Maybe it has to"
-	line "do with the rowdy"
-
-	para "battles that have"
-	line "been going on in"
-	
-	para "the UNDERGROUND"
-	line "PATH lately."
 	done
 	
 SaffronCityYoungster2Text:

@@ -127,7 +127,8 @@ BrockBoulderBadgeText:
 
 	para "That BOULDERBADGE"
 	line "serves as proof of"
-	cont "your #MON's power."
+	cont "your #MON's"
+	cont "power."
 	
 	para "But don't think it"
 	line "will get easier!"
@@ -192,6 +193,16 @@ PewterGymGuideText:
 
 	para "just like JOHTO's"
 	line "GYM LEADERS."
+	
+	para "Brock is a veteran"
+	line "GYM LEADER."
+
+	para "You should be wary"
+	line "of his #MON,"
+	
+	para "especially a fast"
+	line "rock-type holding"
+	cont "a KING'S ROCK!"
 	done
 
 PewterGymGuideWinText:

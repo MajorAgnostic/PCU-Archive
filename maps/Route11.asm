@@ -61,7 +61,7 @@ Route11FruitTree:
 	fruittree FRUITTREE_ROUTE_11
 
 Route11HiddenRevive:
-	hiddenitem REVIVE, EVENT_ROUTE_11_HIDDEN_REVIVE
+	hiddenitem MAX_REVIVE, EVENT_ROUTE_11_HIDDEN_REVIVE
 
 YoungsterOwenSeenText:
 	text "There's no cheat-"

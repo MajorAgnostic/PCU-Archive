@@ -3,6 +3,9 @@
 	const SILVERCAVEROOM2_POKE_BALL1
 	const SILVERCAVEROOM2_POKE_BALL2
 	const SILVERCAVEROOM2_POKE_BALL3
+	const SILVERCAVEROOM2_ROCKER1
+	const SILVERCAVEROOM2_ROCKER2
+	const SILVERCAVEROOM2_FISHER
 
 SilverCaveRoom2_MapScripts:
 	def_scene_scripts
@@ -22,16 +25,16 @@ NicholasScene:
 
 TrainerNicholas:
 	faceplayer
-	playmusic MUSIC_BRENDAN_ENCOUNTER
 	opentext
 	checkevent EVENT_BEAT_NICHOLAS
 	iftrue .NicholasBeaten
+	playmusic MUSIC_BRENDAN_ENCOUNTER
 	writetext NicholasSeenText
 	waitbutton
 	closetext
 	winlosstext NicholasBeatenText, 0
 	loadtrainer NICHOLAS, NICHOLAS1
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SETNOITEMS
 	startbattle
 	reloadmapafterbattle
 	setscene SCENE_FINISHED
@@ -44,6 +47,39 @@ TrainerNicholas:
 	
 .NicholasBeaten
 	writetext NicholasAfterBattleText2
+	waitbutton
+	closetext
+	end
+	
+TrainerHarvey:
+	trainer GUITARIST, HARVEY, EVENT_BEAT_HARVEY, HarveySeenText, HarveyBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext HarveyAfterBattleText
+	waitbutton
+	closetext
+	end
+	
+TrainerJohn:
+	trainer BOARDER, JOHN, EVENT_BEAT_JOHN, JohnSeenText, JohnBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext JohnAfterBattleText
+	waitbutton
+	closetext
+	end
+	
+TrainerSeph:
+	trainer FIREBREATHER, SEPH, EVENT_BEAT_SEPH, SephSeenText, SephBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext SephAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -126,6 +162,76 @@ NicholasAfterBattleText2:
 	text "You know the path"
 	line "before you."
 	done
+	
+HarveySeenText:
+	text "I like to play"
+	line "metal riffs on"
+	cont "my guitar."
+	
+	para "MT. SILVER feels"
+	line "like the pinnacle"
+	
+	para "of everything, so"
+	line "I always find in-"
+	cont "tense inspiration"
+	cont "here!"
+	done
+
+HarveyBeatenText:
+	text "Twang!"
+	done
+
+HarveyAfterBattleText:
+	text "There's a fella"
+	line "up ahead who's a"
+	
+	para "fan of metal, as"
+	line "well."
+	
+	para "Or was it stones?"
+	line "Well, it doesn't"
+	cont "matter."
+	
+	para "He's seriously"
+	line "strong!"
+	done
+	
+JohnSeenText:
+	text "How far up until"
+	line "I can hit the"
+	cont "slopes?"
+	done
+
+JohnBeatenText:
+	text "Woah!"
+	done
+
+JohnAfterBattleText:
+	text "I can't wait to"
+	line "blast down from"
+	
+	para "the peak of the"
+	line "mountain!"
+	done
+	
+SephSeenText:
+	text "There's an intense"
+	line "heat coming from"
+	cont "up ahead."
+	done
+
+SephBeatenText:
+	text "Blast it!"
+	done
+
+SephAfterBattleText:
+	text "Be careful if you"
+	line "head farther up."
+	
+	para "There's an extreme"
+	line "heat wave coming"
+	cont "from there."
+	done
 
 SilverCaveRoom2_MapEvents:
 	db 0, 0 ; filler
@@ -148,3 +254,6 @@ SilverCaveRoom2_MapEvents:
 	object_event 24, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2Calcium, EVENT_SILVER_CAVE_ROOM_2_CALCIUM
 	object_event 22, 30, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2UltraBall, EVENT_SILVER_CAVE_ROOM_2_ULTRA_BALL
 	object_event  5, 24, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2PPUp, EVENT_SILVER_CAVE_ROOM_2_PP_UP
+	object_event 19, 36, SPRITE_ROCKER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerHarvey, -1
+	object_event 11, 22, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerJohn, -1
+	object_event  3, 18, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerSeph, -1

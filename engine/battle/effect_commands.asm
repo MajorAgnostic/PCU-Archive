@@ -2800,7 +2800,7 @@ ThickClubBoost:
 ; it's holding a Thick Club, double it.
 	push bc
 	push de
-	ld b, CUBONE
+	ld b, GHOST_P
 	ld c, MAROWAK
 	ld d, THICK_CLUB
 	call SpeciesItemBoost
@@ -2887,6 +2887,11 @@ EnemyAttackDamage:
 	ld a, [hl]
 	cp SPECIAL
 	jr nc, .Special
+	
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_NIGHT_SHADE
+	jr z, .Special
 
 .physical
 	ld hl, wBattleMonDefense

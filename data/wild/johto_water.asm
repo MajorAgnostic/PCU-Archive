@@ -76,9 +76,9 @@ JohtoWaterWildMons:
 
 	map_id SILVER_CAVE_ROOM_2
 	db 2 percent ; encounter rate
-	db 35, SEAKING
-	db 35, GOLDUCK
-	db 35, GOLDEEN
+	db 88, KINGDRA
+	db 88, SLOWKING
+	db 90, VAPOREON
 
 	map_id DARK_CAVE_VIOLET_ENTRANCE
 	db 2 percent ; encounter rate
@@ -214,8 +214,8 @@ JohtoWaterWildMons:
 
 	map_id SILVER_CAVE_OUTSIDE
 	db 2 percent ; encounter rate
-	db 35, POLIWHIRL
-	db 40, POLIWHIRL
-	db 35, POLIWAG
+	db 86, POLIWHIRL
+	db 87, POLITOED
+	db 89, LAPRAS
 
 	db -1 ; end

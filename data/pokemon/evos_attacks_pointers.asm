@@ -253,3 +253,4 @@ EvosAttacksPointers::
 	dw HoOhEvosAttacks
 	dw CelebiEvosAttacks
 	dw MetagrossEvosAttacks
+	dw GhostEvosAttacks

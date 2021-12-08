@@ -30,9 +30,8 @@ Moltres:
 	pause 15
 	closetext
 	setevent EVENT_MOLTRES
-	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
-	loadwildmon MOLTRES, 90
 	loadvar VAR_BATTLETYPE, BATTLETYPE_KANTOLEGEND
+	loadwildmon MOLTRES, 95
 	startbattle
 	disappear SILVERCAVEITEMROOMS_MOLTRES
 	reloadmapafterbattle

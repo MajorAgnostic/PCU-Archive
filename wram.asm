@@ -2777,8 +2777,10 @@ wRoute42EcruteakGateSceneID::                     db
 wSilverCaveRoom2SceneID::                         db
 wSaffronCitySceneID::                             db
 wTinTowerRoofSceneID::                            db
+wSeafoamGymSceneID::                              db
+wViridianGymSceneID::                             db
 
-	ds 25
+	ds 23
 
 ; fight counts
 wJackFightCount::    db

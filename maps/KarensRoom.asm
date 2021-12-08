@@ -185,25 +185,25 @@ KarenScript_KarenDefeatText2:
 	line "strong. Always a"
 	cont "pleasure."
 	
-	para "Although now I"
-	line "must dedicate"
+	para "Although now I'll"
+	line "have to dedicate"
 	
 	para "myself once again"
-	line "to further train-"
-	cont "ing. Ugh, what a"
-	cont "chore."
+	line "to training. Ugh,"
+	cont "what a chore."
 	
 	para "But I think you"
 	line "have taught me"
 	
 	para "something impor-"
 	line "tant today."
-
-	para "Lance is looking"
-	line "forward to batt-"
-	cont "ling you again."
 	
-	para "Don't keep him"
+	para "Anyway, the new"
+	line "CHAMPION must be"
+	cont "itching to fight"
+	cont "you now."
+	
+	para "Don't keep her"
 	line "waiting."
 	done
 

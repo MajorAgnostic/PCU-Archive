@@ -143,7 +143,7 @@ LancesRoomClairScript:
 	winlosstext LanceBattleWinText, 0
 	setlasttalked LANCESROOM_CLAIR
 	loadtrainer CLAIR2, CLAIR2A
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SETNOITEMS
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
@@ -317,7 +317,8 @@ ClairBattleBeforeText:
 	line "grown as a trainer"
 	
 	para "and become the new"
-	line "CHAMPION."
+	line "CHAMPION of the"
+	cont "#MON LEAGUE."
 
 	para "My dragons and I"
 	line "have trained the"

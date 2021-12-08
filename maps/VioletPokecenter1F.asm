@@ -18,6 +18,12 @@ VioletPokecenter1F_ElmsAideScript:
 	opentext
 	checkevent EVENT_REFUSED_TO_TAKE_EGG_FROM_ELMS_AIDE
 	iftrue .SecondTimeAsking
+	checkevent EVENT_BEAT_WHITNEY
+	iftrue .SkipCall
+	checkevent EVENT_HOMEPIKAPOSTER
+	iftrue .SkipCall
+	specialphonecall SPECIALCALL_GIFT
+.SkipCall:
 	writetext VioletPokecenterElmsAideFavorText
 .AskTakeEgg:
 	yesorno

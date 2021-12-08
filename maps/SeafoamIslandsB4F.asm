@@ -31,9 +31,8 @@ Articuno:
 	pause 15
 	closetext
 	setevent EVENT_ARTICUNO
-	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
-	loadwildmon ARTICUNO, 80
 	loadvar VAR_BATTLETYPE, BATTLETYPE_KANTOLEGEND
+	loadwildmon ARTICUNO, 90
 	startbattle
 	disappear SEAFOAMB4F_ARTICUNO
 	reloadmapafterbattle

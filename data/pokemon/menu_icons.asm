@@ -253,4 +253,5 @@ MonMenuIcons:
 	db ICON_HO_OH       ; HO_OH
 	db ICON_CELEBI      ; CELEBI
 	db ICON_CELEBI      ; METAGROSS
+	db ICON_MAROWAK     ; GHOST
 	db ICON_EGG         ; EGG

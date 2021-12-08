@@ -117,6 +117,8 @@ PlayBattleMusic:
 	jp z, .done
 	cp CLAIR2
 	jp z, .done
+	cp CHAMPION2
+	jp z, .done
 	
 	ld de, MUSIC_KANTO_CHAMPION
 	cp RED
@@ -143,8 +145,6 @@ PlayBattleMusic:
 	jr z, .done
 	cp GRUNTF
 	jr z, .done
-	cp SCIENTIST
-	jr z, .done
 	
 	ld de, MUSIC_UNOVA_E4
 	cp EXECUTIVEM
@@ -154,6 +154,8 @@ PlayBattleMusic:
 	
 	ld de, MUSIC_ALOLA_E4
 	cp ARCHER
+	jr z, .done
+	cp KING
 	jr z, .done
 
 	ld de, MUSIC_KANTO_GYM_LEADER_BATTLE

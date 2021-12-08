@@ -63,7 +63,7 @@ PlateauRivalBattle1:
 	special FadeOutMusic
 	pause 15
 	applymovement INDIGOPLATEAUPOKECENTER1F_SILVER, PlateauRivalMovement1
-	playmusic MUSIC_RIVAL_ENCOUNTER
+	playmusic MUSIC_BRENDAN_ENCOUNTER
 	turnobject PLAYER, RIGHT
 	sjump PlateauRivalBattleCommon
 
@@ -84,7 +84,7 @@ PlateauRivalBattle2:
 	special FadeOutMusic
 	pause 15
 	applymovement INDIGOPLATEAUPOKECENTER1F_SILVER, PlateauRivalMovement2
-	playmusic MUSIC_RIVAL_ENCOUNTER
+	playmusic MUSIC_BRENDAN_ENCOUNTER
 	turnobject PLAYER, LEFT
 PlateauRivalBattleCommon:
 	opentext
@@ -127,7 +127,7 @@ PlateauRivalBattleCommon:
 	sjump PlateauRivalPostBattle
 
 PlateauRivalPostBattle:
-	playmusic MUSIC_RIVAL_AFTER
+	playmusic MUSIC_BRENDAN_ENCOUNTER
 	opentext
 	writetext PlateauRivalText2
 	waitbutton

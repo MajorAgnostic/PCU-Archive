@@ -278,6 +278,9 @@ CeladonCityPokecenterSign:
 
 CeladonCityHiddenPpUp:
 	hiddenitem PP_UP, EVENT_CELADON_CITY_HIDDEN_PP_UP
+	
+CeladonCityHiddenMaxElixir:
+	hiddenitem MAX_ELIXER, EVENT_CELADON_HIDDEN_MAX_ELIXIR
 
 CeladonCityFisherText:
 	text "This POLIWRATH is"
@@ -512,6 +515,7 @@ CeladonCity_MapEvents:
 	bg_event 29, 21, BGEVENT_READ, CeladonCityTrainerTips
 	bg_event 30,  9, BGEVENT_READ, CeladonCityPokecenterSign
 	bg_event 37, 21, BGEVENT_ITEM, CeladonCityHiddenPpUp
+	bg_event 35,  7, BGEVENT_ITEM, CeladonCityHiddenMaxElixir
 
 	def_object_events
 	object_event 26, 11, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonCityFisherScript, -1

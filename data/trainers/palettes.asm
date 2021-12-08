@@ -81,3 +81,6 @@ INCLUDE "gfx/trainers/archer.pal"
 INCBIN "gfx/trainers/andrea.gbcpal", middle_colors
 INCBIN "gfx/trainers/morty2.gbcpal", middle_colors
 INCBIN "gfx/trainers/clair2.gbcpal", middle_colors
+INCBIN "gfx/trainers/champion2.gbcpal", middle_colors
+INCBIN "gfx/trainers/blackbelt_t.gbcpal", middle_colors
+INCBIN "gfx/trainers/scientist.gbcpal", middle_colors

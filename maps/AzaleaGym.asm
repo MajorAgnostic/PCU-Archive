@@ -41,6 +41,7 @@ AzaleaGymBugsyScript:
 	setevent EVENT_BEAT_BUG_CATCHER_BENNY
 	setevent EVENT_BEAT_BUG_CATCHER_AL
 	setevent EVENT_BEAT_BUG_CATCHER_JOSH
+	clearevent EVENT_ADAM_APPEARS
 	writetext BugsyText_HiveBadgeSpeech
 	promptbutton
 	verbosegiveitem TM_FURY_CUTTER

@@ -506,6 +506,7 @@ ENDM
 	map_attributes SeafoamIslandsB2F, SEAFOAM_ISLANDS_B2F, $19, 0
 	map_attributes SeafoamIslandsB3F, SEAFOAM_ISLANDS_B3F, $19, 0
 	map_attributes SeafoamIslandsB4F, SEAFOAM_ISLANDS_B4F, $19, 0
+	map_attributes SeafoamIslandsEntrance, SEAFOAM_ISLANDS_ENTRANCE, $09, 0
 	map_attributes CeruleanGymBadgeSpeechHouse, CERULEAN_GYM_BADGE_SPEECH_HOUSE, $00, 0
 	map_attributes CeruleanPoliceStation, CERULEAN_POLICE_STATION, $00, 0
 	map_attributes CeruleanTradeSpeechHouse, CERULEAN_TRADE_SPEECH_HOUSE, $00, 0

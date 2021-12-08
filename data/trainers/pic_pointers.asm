@@ -76,3 +76,6 @@ TrainerPicPointers::
 	dba_pic AndreaPic
 	dba_pic Morty2Pic
 	dba_pic Clair2Pic
+	dba_pic Champion2Pic
+	dba_pic BlackbeltTPic
+	dba_pic ScientistPic

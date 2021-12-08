@@ -128,8 +128,7 @@ SECTION "Map Scripts 8", ROMX
 INCLUDE "maps/DiglettsCave.asm"
 INCLUDE "maps/MountMoon.asm"
 INCLUDE "maps/UndergroundPath.asm"
-INCLUDE "maps/RockTunnel1F.asm"
-INCLUDE "maps/RockTunnelB1F.asm"
+INCLUDE "maps/RockTunnel1F.asm" ; B1F is at bottom
 INCLUDE "maps/SafariZoneFuchsiaGateBeta.asm"
 INCLUDE "maps/SafariZoneBeta.asm"
 INCLUDE "maps/VictoryRoad.asm"
@@ -199,7 +198,6 @@ INCLUDE "maps/DanceTheatre.asm"
 INCLUDE "maps/EcruteakMart.asm"
 INCLUDE "maps/EcruteakGym.asm"
 INCLUDE "maps/EcruteakItemfinderHouse.asm"
-INCLUDE "maps/ViridianGym.asm"
 INCLUDE "maps/ViridianNicknameSpeechHouse.asm"
 INCLUDE "maps/TrainerHouse1F.asm"
 INCLUDE "maps/TrainerHouseB1F.asm"
@@ -292,7 +290,6 @@ INCLUDE "maps/CopycatsHouse1F.asm"
 INCLUDE "maps/CopycatsHouse2F.asm"
 INCLUDE "maps/Route5UndergroundPathEntrance.asm"
 INCLUDE "maps/Route5SaffronGate.asm"
-INCLUDE "maps/Route5CleanseTagHouse.asm"
 
 
 SECTION "Map Scripts 16", ROMX
@@ -443,13 +440,11 @@ INCLUDE "maps/Route42.asm"
 INCLUDE "maps/Route46.asm"
 INCLUDE "maps/ViridianCity.asm"
 INCLUDE "maps/CeladonCity.asm"
-INCLUDE "maps/Route15.asm"
 INCLUDE "maps/VermilionCity.asm"
 INCLUDE "maps/Route9.asm"
 INCLUDE "maps/CinnabarPokecenter1F.asm"
 INCLUDE "maps/CinnabarPokecenter2FBeta.asm"
 INCLUDE "maps/Route19FuchsiaGate.asm"
-INCLUDE "maps/SeafoamGym.asm"
 
 
 SECTION "Map Scripts 24", ROMX
@@ -477,12 +472,10 @@ INCLUDE "maps/Route23.asm"
 INCLUDE "maps/SilverCavePokecenter1F.asm"
 INCLUDE "maps/Route28SteelWingHouse.asm"
 INCLUDE "maps/Route10North.asm"
-INCLUDE "maps/SilverCaveOutside.asm"
 
 
 SECTION "Map Scripts 25", ROMX
 
-INCLUDE "maps/ViridianForest.asm"
 INCLUDE "maps/Route2NorthGate.asm"
 INCLUDE "maps/Route2SouthGate.asm"
 INCLUDE "maps/VictoryRoadGate.asm" ; Moved due to section filling up
@@ -491,4 +484,15 @@ INCLUDE "maps/SeafoamIslandsB1F.asm"
 INCLUDE "maps/SeafoamIslandsB2F.asm"
 INCLUDE "maps/SeafoamIslandsB3F.asm"
 INCLUDE "maps/SeafoamIslandsB4F.asm"
+INCLUDE "maps/SeafoamIslandsEntrance.asm"
 INCLUDE "maps/LancesRoom.asm"
+INCLUDE "maps/Route5CleanseTagHouse.asm"
+INCLUDE "maps/RockTunnelB1F.asm"
+
+SECTION "Map Scripts 26", ROMX
+
+INCLUDE "maps/SilverCaveOutside.asm"
+INCLUDE "maps/ViridianGym.asm"
+INCLUDE "maps/Route15.asm"
+INCLUDE "maps/ViridianForest.asm"
+INCLUDE "maps/SeafoamGym.asm"

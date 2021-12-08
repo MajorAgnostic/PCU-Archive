@@ -417,9 +417,9 @@ HandleBerserkGene:
 	set SUBSTATUS_CONFUSED, [hl]
 	ldh a, [hBattleTurn]
 	and a
-	ld hl, wEnemyConfuseCount
-	jr z, .set_confuse_count
 	ld hl, wPlayerConfuseCount
+	jr z, .set_confuse_count
+	ld hl, wEnemyConfuseCount
 .set_confuse_count
 	call BattleRandom
 	and %11
@@ -1569,7 +1569,7 @@ HandleDefrost:
 	ret nz
 
 	call BattleRandom
-	cp 10 percent
+	cp 20 percent
 	ret nc
 	xor a
 	ld [wBattleMonStatus], a
@@ -1590,7 +1590,7 @@ HandleDefrost:
 	and a
 	ret nz
 	call BattleRandom
-	cp 10 percent
+	cp 20 percent
 	ret nc
 	xor a
 	ld [wEnemyMonStatus], a

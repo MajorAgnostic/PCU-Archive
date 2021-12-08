@@ -169,10 +169,10 @@ GetPocketCapacity:
 .not_pc
 	ld c, MAX_MEDICINE
 	ld a, e
-	cp LOW(wMedicine)
+	cp LOW(wNumMedicine)
 	jr nz, .not_medicine
 	ld a, d
-	cp HIGH(wMedicine)
+	cp HIGH(wNumMedicine)
 	ret z
 
 .not_medicine

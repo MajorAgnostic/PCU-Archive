@@ -53,13 +53,6 @@ MoomooScript:
 	special PlaySlowCry
 	promptbutton
 	writetext Route39BarnItsCryIsWeakText
-	checkevent EVENT_TALKED_TO_FARMER_ABOUT_MOOMOO
-	iftrue .GiveBerry
-	waitbutton
-	closetext
-	end
-
-.GiveBerry:
 	promptbutton
 	writetext Route39BarnAskGiveBerryText
 	yesorno

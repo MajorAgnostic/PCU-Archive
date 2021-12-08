@@ -21,7 +21,7 @@ TrainerHouseReceptionistScript:
 	promptbutton
 	special TrainerHouse
 	iffalse .GetCal3Name
-	gettrainername STRING_BUFFER_3, CAL, CAL2
+	gettrainername STRING_BUFFER_3, CAL, CAL3
 	sjump .GotName
 
 .GetCal3Name:
@@ -54,7 +54,7 @@ TrainerHouseReceptionistScript:
 	iffalse .NoSpecialBattle
 	winlosstext TrainerHouseB1FCalBeatenText, 0
 	setlasttalked TRAINERHOUSEB1F_CHRIS
-	loadtrainer CAL, CAL2
+	loadtrainer CAL, CAL3
 	loadvar VAR_BATTLETYPE, BATTLETYPE_SETNOITEMS
 	startbattle
 	reloadmapafterbattle
@@ -78,8 +78,8 @@ TrainerHouseReceptionistScript:
 	special TrainerHouse
 	iffalse .NoSpecialBattle2
 	winlosstext TrainerHouseB1FCalBeatenText, 0
-	setlasttalked TRAINERHOUSEB1F_CHRIS
-	loadtrainer CRYSTAL, CRYSTAL2
+	setlasttalked TRAINERHOUSEB1F_KRIS
+	loadtrainer CRYSTAL, CRYSTAL3
 	loadvar VAR_BATTLETYPE, BATTLETYPE_SETNOITEMS
 	startbattle
 	reloadmapafterbattle
@@ -91,6 +91,7 @@ TrainerHouseReceptionistScript:
 	loadvar VAR_BATTLETYPE, BATTLETYPE_SETNOITEMS
 	startbattle
 	reloadmapafterbattle
+	sjump .End
 .NoSpecialBattle2:
 	winlosstext TrainerHouseB1FCalBeatenText, 0
 	setlasttalked TRAINERHOUSEB1F_CHRIS
@@ -150,7 +151,6 @@ Movement_ExitTrainerHouseBattleRoom:
 
 Movement_TrainerHouseTurnBack:
 	step RIGHT
-	turn_head LEFT
 	step_end
 
 TrainerHouseB1FIntroText:

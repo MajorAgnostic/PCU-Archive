@@ -420,6 +420,8 @@ VictoryRoad_MapEvents:
 	warp_event 17, 19, VICTORY_ROAD, 4
 	warp_event  0, 11, VICTORY_ROAD, 7
 	warp_event  0, 27, VICTORY_ROAD, 6
+	warp_event  9, 35, VICTORY_ROAD, 9
+	warp_event  1, 35, VICTORY_ROAD, 8
 	warp_event 13,  5, ROUTE_23, 3
 
 	def_coord_events

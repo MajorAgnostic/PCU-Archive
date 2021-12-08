@@ -20,7 +20,7 @@ Route5PokefanMText:
 	line "until the problem"
 
 	para "at the POWER PLANT"
-	line "is solved."
+	line "is resolved."
 	done
 
 Route5UndergroundPathSignText:

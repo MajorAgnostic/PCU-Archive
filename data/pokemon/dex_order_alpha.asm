@@ -128,8 +128,10 @@ AlphabeticalPokedexOrder:
 	db MAREEP
 	db MARILL
 	db MAROWAK
+	db GHOST_P
 	db MEGANIUM
 	db MEOWTH
+	db METAGROSS
 	db METAPOD
 	db MEW
 	db MEWTWO

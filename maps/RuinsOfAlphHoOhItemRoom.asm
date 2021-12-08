@@ -13,7 +13,7 @@ RuinsOfAlphHoOhItemRoomMiracleberry1:
 	itemball MIRACLEBERRY
 
 RuinsOfAlphHoOhItemRoomMiracleberry2:
-	itemball MIRACLEBERRY
+	itemball GOLD_B_JUICE
 
 RuinsOfAlphHoOhItemRoomRevivalHerb:
 	itemball REVIVAL_HERB

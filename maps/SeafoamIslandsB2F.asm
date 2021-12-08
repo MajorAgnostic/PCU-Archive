@@ -45,7 +45,35 @@ SeafoamIslandsB2F_MapScripts:
 SeafoamLanceScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_SEAFOAM_LANCE
+	iftrue .LanceBeaten
+	checkevent RED_REMATCH
+	iftrue .LanceBattle
 	writetext SeafoamLanceTrainingText
+	waitbutton
+	closetext
+	turnobject SEAFOAMB2F_LANCE, UP
+	end
+	
+.LanceBattle:
+	writetext SeafoamLanceBeforeBattleText
+	waitbutton
+	closetext
+	winlosstext SeafoamLanceWinLossText, SeafoamLanceWinLossText
+	loadtrainer CHAMPION2, CHAMPION2A
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SETNOITEMS
+	startbattle
+	reloadmapafterbattle
+	setevent EVENT_BEAT_SEAFOAM_LANCE
+	opentext
+	writetext SeafoamLanceAfterBattleText
+	waitbutton
+	closetext
+	turnobject SEAFOAMB2F_LANCE, UP
+	end
+	
+.LanceBeaten:
+	writetext SeafoamLanceAfterBattleText
 	waitbutton
 	closetext
 	turnobject SEAFOAMB2F_LANCE, UP
@@ -56,6 +84,78 @@ SeafoamB2FBoulder:
 	
 SeafoamHiddenBigPearl:
 	hiddenitem BIG_PEARL, EVENT_SEAFOAM_HIDDEN_BIG_PEARL
+	
+SeafoamLanceBeforeBattleText:
+	text "LANCE: So you've"
+	line "defeated the new"
+	cont "CHAMPION."
+	
+	para "And even #MON"
+	line "MASTER RED."
+	
+	para "That is very"
+	line "impressive."
+	
+	para "Well, I've been"
+	line "training in this"
+	
+	para "solitary cavern"
+	line "for quite a while"
+	cont "now."
+	
+	para "It's about time I"
+	line "show the fruits"
+	cont "of my labor."
+	
+	para "I hate to say it,"
+	line "but your reign"
+	
+	para "shall end here,"
+	line "<PLAY_G>."
+	
+	para "My team has become"
+	line "unstoppable."
+	
+	para "We will now ascend"
+	line "to glory, once"
+	cont "again."
+	
+	para "Prepare yourself!"
+	done
+	
+SeafoamLanceWinLossText:
+	text "You have become"
+	line "truly powerful,"
+	cont "<PLAY_G>."
+
+	para "Your #MON have"
+	line "responded to your"
+
+	para "strong and up-"
+	line "standing nature."
+	
+	para "I feel no frustra-"
+	line "tion from my loss,"
+	cont "only awe."
+	done
+	
+SeafoamLanceAfterBattleText:
+	text "LANCE: …Whew."
+	
+	para "You clearly have"
+	line "been pushing your-"
+	cont "self to the limit."
+	
+	para "But don't forget"
+	line "to stay sharp."
+	
+	para "I will defeat you"
+	line "next time if you"
+	cont "become complacent."
+	
+	para "Take care now,"
+	line "<PLAY_G>."
+	done
 	
 SeafoamLanceTrainingText:
 	text "LANCE: Hm? Well if"

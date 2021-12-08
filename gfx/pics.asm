@@ -722,6 +722,9 @@ MetagrossFrontpic:   INCBIN "gfx/pokemon/metagross/front.animated.2bpp.lz"
 MetagrossBackpic:    INCBIN "gfx/pokemon/metagross/back.2bpp.lz"
 Morty2Pic:           INCBIN "gfx/trainers/morty2.2bpp.lz"
 Clair2Pic:           INCBIN "gfx/trainers/clair2.2bpp.lz"
+Champion2Pic:        INCBIN "gfx/trainers/champion2.2bpp.lz"
+GhostFrontpic:       INCBIN "gfx/pokemon/a_marowak/front.animated.2bpp.lz"
+GhostBackpic:        INCBIN "gfx/pokemon/a_marowak/back.2bpp.lz"
 
 
 ; Sections "Pics 20" to "Pics 24" are not used for any graphics,

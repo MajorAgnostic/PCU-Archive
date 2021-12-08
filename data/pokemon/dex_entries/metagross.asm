@@ -1,10 +1,10 @@
-	db "BONEKEEPER@" ; species name
-	dw 303, 990 ; height, weight
+	db "IRON LEG@" ; species name
+	dw 503, 12125 ; height, weight
 
-	db   "Somewhere in the"
-	next "world is a ceme-"
-	next "tery just for"
+	db   "It folds its four"
+	next "legs when flying."
+	next "Its four brains"
 
-	page "MAROWAK. It gets"
-	next "its bones from"
-	next "those graves.@"
+	page "are said to be"
+	next "superior to a"
+	next "supercomputer.@"

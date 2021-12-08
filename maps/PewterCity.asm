@@ -38,6 +38,9 @@ PewterCityGrampsScript:
 	waitbutton
 	closetext
 	end
+	
+PewterHiddenFullRestore:
+	hiddenitem FULL_RESTORE, EVENT_PEWTER_HIDDEN_FR
 
 PewterCitySign:
 	jumptext PewterCitySignText
@@ -163,6 +166,7 @@ PewterCity_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  7,  4, BGEVENT_ITEM, PewterHiddenFullRestore
 	bg_event 25, 23, BGEVENT_READ, PewterCitySign
 	bg_event 11, 17, BGEVENT_READ, PewterGymSign
 	bg_event 15,  9, BGEVENT_READ, PewterMuseumSign

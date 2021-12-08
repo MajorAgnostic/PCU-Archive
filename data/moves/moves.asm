@@ -24,13 +24,13 @@ Moves:
 	move SCRATCH,      EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
 	move VICEGRIP,     EFFECT_FLINCH_HIT,         55, NORMAL,       100, 15,  50
 	move GUILLOTINE,   EFFECT_OHKO,                0, NORMAL,        30,  5,   0
-	move RAZOR_WIND,   EFFECT_GUST,               80, FLYING,       100, 10,   0
+	move RAZOR_WIND,   EFFECT_GUST,               70, FLYING,        95, 10,   0
 	move SWORDS_DANCE, EFFECT_ATTACK_UP_2,         0, NORMAL,       100, 30,   0
 	move CUT,          EFFECT_FLINCH_HIT,         70, BUG,           95, 10,  20
 	move GUST,         EFFECT_GUST,               40, FLYING,       100, 35,   0
 	move WING_ATTACK,  EFFECT_NORMAL_HIT,         60, FLYING,       100, 35,   0
 	move WHIRLWIND,    EFFECT_FORCE_SWITCH,        0, FLYING,       100, 20,   0
-	move FLY,          EFFECT_FLY,                90, FLYING,        95, 15,   0
+	move FLY,          EFFECT_FLY,                70, FLYING,        95, 15,   0
 	move BIND,         EFFECT_EVASION_DOWN_HIT,   65, ROCK,          95, 15,  75
 	move SLAM,         EFFECT_PARALYZE_HIT,      100, NORMAL,        75, 10,  30
 	move VINE_WHIP,    EFFECT_NORMAL_HIT,         45, GRASS,        100, 25,   0
@@ -53,7 +53,7 @@ Moves:
 	move TAIL_WHIP,    EFFECT_DEFENSE_DOWN,        0, NORMAL,       100, 30,   0
 	move POISON_STING, EFFECT_POISON_HIT,         20, POISON,       100, 35,  30
 	move TWINEEDLE,    EFFECT_POISON_MULTI_HIT,   40, BUG,           90, 10,  20
-	move PIN_MISSILE,  EFFECT_MULTI_HIT,          18, BUG,           88, 15,   0
+	move PIN_MISSILE,  EFFECT_MULTI_HIT,          18, BUG,           98, 15,   0
 	move LEER,         EFFECT_DEFENSE_DOWN,        0, NORMAL,       100, 30,   0
 	move BITE,         EFFECT_FLINCH_HIT,         60, DARK,         100, 25,  10
 	move GROWL,        EFFECT_ATTACK_DOWN,         0, NORMAL,       100, 40,   0
@@ -94,7 +94,7 @@ Moves:
 	move PETAL_DANCE,  EFFECT_RAMPAGE,           120, GRASS,        100, 10,   0
 	move STRING_SHOT,  EFFECT_SPEED_DOWN,          0, BUG,           95, 40,   0
 	move DRAGON_RAGE,  EFFECT_BURN_HIT,           60, DRAGON,       100, 10,  30
-	move FIRE_SPIN,    EFFECT_BURN,                0, FIRE,          75, 15,   0
+	move FIRE_SPIN,    EFFECT_BURN,                0, FIRE,          85, 15,   0
 	move THUNDERSHOCK, EFFECT_PARALYZE_HIT,       40, ELECTRIC,     100, 30,  10
 	move THUNDERBOLT,  EFFECT_PARALYZE_HIT,       95, ELECTRIC,     100, 15,  10
 	move THUNDER_WAVE, EFFECT_PARALYZE,            0, ELECTRIC,      90, 20,   0
@@ -142,7 +142,7 @@ Moves:
 	move CLAMP,        EFFECT_EVASION_DOWN_HIT,   65, WATER,        100, 15,  75
 	move SWIFT,        EFFECT_ALWAYS_HIT,         60, NORMAL,       100, 20,   0
 	move SKULL_BASH,   EFFECT_SKULL_BASH,        150, STEEL,         95,  5,   0
-	move SPIKE_CANNON, EFFECT_MULTI_HIT,          20, STEEL,        100, 10,   0
+	move SPIKE_CANNON, EFFECT_MULTI_HIT,          25, STEEL,        100, 10,   0
 	move CONSTRICT,    EFFECT_SPEED_DOWN_HIT,     65, GRASS,         95, 15,  50
 	move AMNESIA,      EFFECT_SP_DEF_UP_2,         0, PSYCHIC_TYPE, 100, 20,   0
 	move KINESIS,      EFFECT_ACCURACY_DOWN_2,     0, PSYCHIC_TYPE,  80,  5,   0
@@ -184,7 +184,7 @@ Moves:
 	move MIND_READER,  EFFECT_LOCK_ON,             0, NORMAL,       100,  5,   0
 	move NIGHTMARE,    EFFECT_NIGHTMARE,           0, GHOST,        100, 15,   0
 	move FLAME_WHEEL,  EFFECT_FLAME_WHEEL,        60, FIRE,         100, 15,  20
-	move SNORE,        EFFECT_SNORE,              80, NORMAL,       100, 15,  30
+	move SNORE,        EFFECT_SNORE,              70, NORMAL,       100, 15,  30
 	move CURSE,        EFFECT_CURSE,               0, CURSE_TYPE,   100, 10,   0
 	move FLAIL,        EFFECT_REVERSAL,            1, NORMAL,       100, 15,   0
 	move CONVERSION2,  EFFECT_CONVERSION2,         0, NORMAL,       100, 30,   0
@@ -262,4 +262,4 @@ Moves:
 	move FUTURE_SIGHT, EFFECT_FUTURE_SIGHT,      100, PSYCHIC_TYPE, 100, 10,   0
 	move ROCK_SMASH,   EFFECT_DEFENSE_DOWN_HIT,   40, FIGHTING,     100, 10, 100
 	move WHIRLPOOL,    EFFECT_PRIORITY_HIT,       60, WATER,        100, 10,   0
-	move BEAT_UP,      EFFECT_MULTI_HIT,          25, DARK,          90, 10,   0
+	move BEAT_UP,      EFFECT_MULTI_HIT,          27, DARK,          95, 10,   0

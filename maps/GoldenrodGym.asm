@@ -60,6 +60,7 @@ GoldenrodGymWhitneyScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_PLAINBADGE
+	specialphonecall SPECIALCALL_GIFT
 	readvar VAR_BADGES
 	scall GoldenrodGymActivateRockets
 .GotPlainBadge:

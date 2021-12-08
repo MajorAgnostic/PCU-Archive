@@ -251,7 +251,7 @@ PokemonNames::
 	db "HO-OH@@@@@"
 	db "CELEBI@@@@"
 	db "METAGROSS@"
+	db "MAROWAK@@@"
 	db "EGG@@@@@@@"
-	db "?????@@@@@"
 	db "?????@@@@@"
 	db "?????@@@@@"

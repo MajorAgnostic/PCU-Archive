@@ -1,5 +1,6 @@
 	object_const_def
 	const CINNABARISLAND_BLUE
+	const CINNABARISLAND_POKE_BALL
 
 CinnabarIsland_MapScripts:
 	def_scene_scripts
@@ -48,6 +49,9 @@ CinnabarIslandSign:
 
 CinnabarIslandPokecenterSign:
 	jumpstd PokecenterSignScript
+	
+CinnabarIslandFireStone:
+	itemball FIRE_STONE
 
 CinnabarIslandHiddenRareCandy:
 	hiddenitem MAX_REVIVE, EVENT_CINNABAR_ISLAND_HIDDEN_RARE_CANDY
@@ -177,3 +181,4 @@ CinnabarIsland_MapEvents:
 
 	def_object_events
 	object_event  9,  6, SPRITE_BLUE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandBlue, EVENT_BLUE_IN_CINNABAR
+	object_event  5,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, CinnabarIslandFireStone, EVENT_CINNABAR_FIRE_STONE

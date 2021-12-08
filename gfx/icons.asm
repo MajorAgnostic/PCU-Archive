@@ -1,6 +1,6 @@
 ; Unique icons by Blue Emerald, Soloo993, Chamber, Lake, Neslug, Pikachu253, and Ryta
 ; http://www.pokecommunity.com/showthread.php?t=338470
-; All but the following greyscale/stacked pngs were taken from Rangi's Polished Crystal source code: Spearow, Fearow, Lickitung, Goldeen, Seaking, Hoppip, Skiploom, Jumpluff, Aipom, Stantler, Cleffa, Igglybuff, Smoochum, Delibird, Snorlax, Wobbuffet, Espeon, Cloyster and Celebi
+; All but the following greyscale/stacked pngs were taken from Polished Crystal's source code: Spearow, Fearow, Lickitung, Goldeen, Seaking, Hoppip, Skiploom, Jumpluff, Aipom, Stantler, Cleffa, Igglybuff, Smoochum, Delibird, Snorlax, Wobbuffet, Espeon, Cloyster and, Forretress, Celebi
 
 
 SECTION "Mon Icons 1", ROMX

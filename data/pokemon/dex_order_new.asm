@@ -252,3 +252,5 @@ NewPokedexOrder:
 	db MEWTWO
 	db MEW
 	db CELEBI
+	db METAGROSS
+	db GHOST_P

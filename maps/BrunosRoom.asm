@@ -157,7 +157,7 @@ BrunoScript_BrunoRematchText:
 	
 	para "Either way, I will"
 	line "teach you the mea-"
-	cont "ning of pro-PAIN!"
+	cont "ning of pain!"
 
 	para "Hoo hah, TSU-OHH!"
 	done

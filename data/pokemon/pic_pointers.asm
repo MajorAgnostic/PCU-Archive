@@ -509,5 +509,7 @@ PokemonPicPointers::
 	dba_pic CelebiBackpic
 	dba_pic MetagrossFrontpic
 	dba_pic MetagrossBackpic
+	dba_pic GhostFrontpic
+	dba_pic GhostBackpic
 	dba_pic EggPic
 	dbw -1, -1 ; unused

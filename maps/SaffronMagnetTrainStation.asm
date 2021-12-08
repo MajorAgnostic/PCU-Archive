@@ -44,9 +44,8 @@ Zapdos:
 	pause 15
 	closetext
 	setevent EVENT_ZAPDOS_STATION
-	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
-	loadwildmon ZAPDOS, 80
 	loadvar VAR_BATTLETYPE, BATTLETYPE_KANTOLEGEND
+	loadwildmon ZAPDOS, 85
 	startbattle
 	disappear SAFFRONMAGNETTRAINSTATION_ZAPDOS
 	reloadmapafterbattle

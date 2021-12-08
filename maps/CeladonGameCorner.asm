@@ -272,6 +272,17 @@ endc
 
 	para "But I don't have"
 	line "enough coins yet…"
+	
+	para "What's that? You"
+	line "want my advice for"
+	cont "taking on ERIKA?"
+	
+	para "I would make it a"
+	line "point to bring a"
+	
+	para "#MON that knows"
+	line "SANDSTORM or RAIN"
+	cont "DANCE."
 	done
 
 CeladonGameCornerGrampsText:

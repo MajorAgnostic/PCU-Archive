@@ -311,6 +311,7 @@ RocketBaseElectrodeScript:
 	setevent EVENT_SECURITY_CAMERA_3
 	setevent EVENT_SECURITY_CAMERA_4
 	setevent EVENT_SECURITY_CAMERA_5
+	specialphonecall SPECIALCALL_GIFT
 	end
 
 TeamRocketBaseB2FLockedDoor:

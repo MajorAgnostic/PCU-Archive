@@ -32,9 +32,19 @@ CeladonEusine:
 	sjump .NoSuicune
 .SecondMeeting
 	special BeastsCheck
+	iffalse .NoBeasts
+	checkevent EVENT_BEAT_MISTY
 	iftrue .HoOh
+	sjump .NoMisty
+.NoBeasts:
 	writetext NoBeastsText
 .NoSuicune:
+	waitbutton
+	closetext
+	end
+	
+.NoMisty:
+	writetext CeladonEusineText2
 	waitbutton
 	closetext
 	end
@@ -114,12 +124,13 @@ CeladonEusineText1:
 	para "Incredible!"
 	
 	para "I hope to see it"
-	para "roost soon; that"
-	line "way I can finally"
+	line "roost soon; that"
 	
-	para "finish my research"
-	line "on JOHTO's legen-"
-	cont "dary #MON."
+	para "way I can finally"
+	line "finish my research"
+	
+	para "on JOHTO's legen-"
+	line "dary #MON."
 	
 	para "Perhaps it is wai-"
 	line "ting for the three"
@@ -136,6 +147,29 @@ CeladonEusineText1:
 	
 	para "my research as I"
 	line "thought…"
+	done
+	
+CeladonEusineText2:
+	text "EUSINE: Hello,"
+	line "<PLAYER>!"
+
+	para "What? You caught"
+	line "all of the legend-"
+	cont "ary beasts?"
+
+	para "That's incredible!"
+	
+	para "Maybe HO-OH will"
+	line "roost soon to meet"
+	cont "you…"
+	
+	para "By the way, have"
+	line "you been collect-"
+	cont "ing KANTO badges?"
+	
+	para "I hear that MISTY"
+	line "is a fierce GYM"
+	cont "LEADER!"
 	done
 
 EusineLeavesCeladonText:

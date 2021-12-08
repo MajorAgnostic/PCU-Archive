@@ -32,11 +32,20 @@ Mew:
 	closetext
 	setevent EVENT_FOUGHT_MEW
 	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
-	loadwildmon MEW, 90
+	loadwildmon MEW, 95
 	loadvar VAR_BATTLETYPE, BATTLETYPE_KANTOLEGEND
 	startbattle
-	disappear SILVERCAVEROOM3_MEW
 	reloadmapafterbattle
+	special FadeOutMusic
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	disappear SILVERCAVEROOM3_MEW
+	pause 15
+	special FadeInQuickly
+	pause 30
+	special HealParty
+	refreshscreen
+	credits
 	end
 
 Red:
@@ -46,6 +55,8 @@ Red:
 	writetext RedSeenText
 	waitbutton
 	closetext
+	checkevent RED_REMATCH
+	iftrue .Rematch
 	winlosstext RedWinLossText, RedWinLossText
 	loadtrainer RED, RED1
 	loadvar VAR_BATTLETYPE, BATTLETYPE_SETNOITEMS
@@ -53,6 +64,8 @@ Red:
 	dontrestartmapmusic
 	reloadmapafterbattle
 	special FadeOutMusic
+	setevent EVENT_RED_IN_MT_SILVER
+	setevent RED_REMATCH
 	opentext
 	writetext RedLeavesText
 	waitbutton
@@ -65,6 +78,32 @@ Red:
 	pause 30
 	special HealParty
 	refreshscreen
+	end
+	
+.Rematch:
+	winlosstext RedWinLossText, RedWinLossText
+	loadtrainer RED, RED2
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SETNOITEMS
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	special FadeOutMusic
+	setevent EVENT_RED_IN_MT_SILVER
+	clearevent EVENT_BEAT_ANDREA
+	clearevent EVENT_BEAT_SEAFOAM_LANCE
+	opentext
+	writetext RedLeavesText2
+	waitbutton
+	closetext
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	disappear SILVERCAVEROOM3_RED
+	pause 15
+	special FadeInQuickly
+	pause 30
+	special HealParty
+	refreshscreen
+	credits
 	end
 	
 MewText:
@@ -83,6 +122,11 @@ RedWinLossText:
 RedLeavesText:
 	text "<……>"
 	line "Look after MEW…"
+	done
+	
+RedLeavesText2:
+	text "<……>"
+	line "<……>"
 	done
 
 SilverCaveRoom3_MapEvents:

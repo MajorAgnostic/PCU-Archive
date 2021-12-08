@@ -177,3 +177,15 @@ SCENE_FINISHED EQU 1
 ; wTinTowerRoofSceneID
 	const_def 1
 	const SCENE_TIN_MORTY
+	
+; wSeafoamGymSceneID
+	const_def 1
+	const SCENE_QUIZ1
+	const SCENE_QUIZ2
+	const SCENE_QUIZ3
+	const SCENE_QUIZ4
+	const SCENE_QUIZ5
+	
+; wSeafoamGymSceneID
+	const_def 1
+	const SCENE_DYLAN

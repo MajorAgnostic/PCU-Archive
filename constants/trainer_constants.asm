@@ -85,7 +85,6 @@ KRIS EQU __trainer_class__
 
 	trainerclass CHAMPION ; 10
 	const LANCE
-	const LANCE2
 
 	trainerclass BROCK ; 11
 	const BROCK1
@@ -121,6 +120,9 @@ KRIS EQU __trainer_class__
 	const TAYLOR
 	const JOEY4
 	const JOEY5
+	const CONNER
+	const FRENCH
+	const JOEY6
 
 	trainerclass SCHOOLBOY ; 17
 	const JACK1
@@ -147,6 +149,8 @@ KRIS EQU __trainer_class__
 	const ALAN5
 	const CHAD4
 	const CHAD5
+	const CONNOR
+	const SHERMAN
 
 	trainerclass BIRD_KEEPER ; 18
 	const ROD
@@ -168,6 +172,9 @@ KRIS EQU __trainer_class__
 	const JOSE3
 	const VANCE2
 	const VANCE3
+	const ANDER
+	const KINSLEY
+	const TANNER
 
 	trainerclass LASS ; 19
 	const CARRIE
@@ -214,6 +221,7 @@ KRIS EQU __trainer_class__
 	const ALLEN
 	const DARIN
 	const CHRIST
+	const CALLUM
 
 	trainerclass COOLTRAINERF ; 1c
 	const GWEN
@@ -237,6 +245,7 @@ KRIS EQU __trainer_class__
 	const REENA2
 	const REENA3
 	const CARA
+	const ANTONIA
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
@@ -275,6 +284,8 @@ KRIS EQU __trainer_class__
 	const BRENT4
 	const MILLER
 	const SANTOS
+	const WINSTON
+	const STEVEN
 
 	trainerclass GRUNTM ; 1f
 	const GRUNTM_1
@@ -325,6 +336,10 @@ KRIS EQU __trainer_class__
 	const HILLARY
 	const SHIRLEY
 	const TUSCANY
+	const LULU
+	const PIPER
+	const GINGER
+	const CLARICE
 
 	trainerclass SABRINA ; 23
 	const SABRINA1
@@ -352,6 +367,12 @@ KRIS EQU __trainer_class__
 	const TOBIAS
 	const ADAM
 	const SUNNY
+	const DAY_T
+	const DANE
+	const DION
+	const ELLIS
+	const ABNER
+	const DARIMI
 
 	trainerclass FISHER ; 25
 	const JUSTIN
@@ -379,6 +400,9 @@ KRIS EQU __trainer_class__
 	const RALPH4
 	const RALPH5
 	const TULLY4
+	const KYLER
+	const MURPHY
+	const WILKINSON
 
 	trainerclass SWIMMERM ; 26
 	const HAROLD
@@ -402,6 +426,7 @@ KRIS EQU __trainer_class__
 	const JAMES
 	const LEWIS
 	const PARKER
+	const FRANKIE
 
 	trainerclass SWIMMERF ; 27
 	const ELAINE
@@ -424,6 +449,7 @@ KRIS EQU __trainer_class__
 	const DIANA
 	const BRIANA
 	const CLAIRE
+	const MINA
 
 	trainerclass SAILOR ; 28
 	const EUGENE
@@ -457,6 +483,8 @@ KRIS EQU __trainer_class__
 	const MARKUS
 	const BRADY
 	const WESLEY
+	const CARY
+	const DYLAN
 
 	trainerclass RIVAL2 ; 2a
 	const RIVAL2_5_CHIKORITA
@@ -472,6 +500,8 @@ KRIS EQU __trainer_class__
 	trainerclass GUITARIST ; 2b
 	const CLYDE
 	const VINCENT
+	const LUCA
+	const HARVEY
 
 	trainerclass HIKER ; 2c
 	const ANTHONY1
@@ -496,6 +526,9 @@ KRIS EQU __trainer_class__
 	const PARRY3
 	const ANTHONY4
 	const ANTHONY5
+	const LENNY
+	const DANTE
+	const LEROY
 
 	trainerclass BIKER ; 2d
 	const BIKER_BENNY
@@ -508,6 +541,13 @@ KRIS EQU __trainer_class__
 	const JOEL
 	const GLENN
 	const GRYPHON
+	const DAL
+	const REESE
+	const DAN
+	const TEDDY
+	const MARKEY
+	const JACOB
+	const THERON
 
 	trainerclass BLAINE ; 2e
 	const BLAINE1
@@ -526,6 +566,8 @@ KRIS EQU __trainer_class__
 	const WALT
 	const RAY
 	const LYLE
+	const TOD
+	const SEPH
 
 	trainerclass JUGGLER ; 31
 	const IRWIN1
@@ -542,7 +584,6 @@ KRIS EQU __trainer_class__
 	const LAO
 	const NOB
 	const KIYO1
-	const KIYO2
 	const LUNG
 	const KENJI3
 	const WAI
@@ -567,6 +608,8 @@ KRIS EQU __trainer_class__
 	const GILBERT
 	const JARED
 	const RODNEY
+	const IDAIN
+	const CARL
 
 	trainerclass PICNICKER ; 35
 	const LIZ1
@@ -597,6 +640,10 @@ KRIS EQU __trainer_class__
 	const TIFFANY4
 	const BETH
 	const FRIEDA
+	const SELINA
+	const ALICIA
+	const SOFIA
+	const LEAH
 
 	trainerclass CAMPER ; 36
 	const ROLAND
@@ -607,21 +654,20 @@ KRIS EQU __trainer_class__
 	const LLOYD
 	const DEAN
 	const SID
-	const HARVEY
-	const DALE
 	const TED
 	const TODD2
 	const TODD3
-	const THOMAS
-	const LEROY
-	const DAVID
-	const JOHN
 	const JERRY
 	const SPENCER
 	const TODD4
 	const TODD5
 	const QUENTIN
 	const ARTHUR
+	const VERGIL
+	const DREW
+	const SEKHER
+	const FRANCIS
+	const PATRICK
 
 	trainerclass EXECUTIVEF ; 37
 	const EXECUTIVEF_1
@@ -656,6 +702,7 @@ KRIS EQU __trainer_class__
 	const DOUGLAS
 	const THEO
 	const JORDAN
+	const JOHN
 
 	trainerclass POKEFANM ; 3b
 	const WILLIAM
@@ -672,6 +719,7 @@ KRIS EQU __trainer_class__
 	const ALEX
 	const REX
 	const ALLAN
+	const BOONE
 
 	trainerclass KIMONO_GIRL ; 3c
 	const NAOKO1
@@ -703,6 +751,7 @@ KRIS EQU __trainer_class__
 
 	trainerclass RED ; 3f
 	const RED1
+	const RED2
 
 	trainerclass BLUE ; 40
 	const BLUE1
@@ -710,6 +759,7 @@ KRIS EQU __trainer_class__
 	trainerclass OFFICER ; 41
 	const KEITH
 	const DIRK
+	const GRANT
 
 	trainerclass GRUNTF ; 42
 	const GRUNTF_1
@@ -745,8 +795,24 @@ KRIS EQU __trainer_class__
 	
 	trainerclass MORTY2
 	const MORTY2A
+	const MORTY2B
 	
 	trainerclass CLAIR2
 	const CLAIR2A
+	
+	trainerclass CHAMPION2
+	const CHAMPION2A
+	
+	trainerclass KING
+	const KIYO2
+	
+	trainerclass SCIENTIST2
+	const LOWELL
+	const DANIAL
+	const LINDEN
+	const OSCAR
+	const WALDO
+	const MERLE
+	const EINSTEIN
 
 NUM_TRAINER_CLASSES EQU __trainer_class__

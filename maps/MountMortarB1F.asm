@@ -60,7 +60,7 @@ MountMortarB1FKiyoScript:
 	waitbutton
 	closetext
 	winlosstext MountMortarB1FKiyoWinText, 0
-	loadtrainer BLACKBELT_T, KIYO2
+	loadtrainer KING, KIYO2
 	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
@@ -139,7 +139,7 @@ Battle2EndText:
 	para "Wait… that BRICK"
 	line "PIECE!"
 	
-	para "Could you pass it"
+	para "Could you hand it"
 	line "over to me?"
 	done
 	
@@ -165,9 +165,6 @@ Battle2End2Text:
 
 MountMortarB1FKiyoIntroText:
 	text "Hey!"
-
-	para "I am the KARATE"
-	line "KING!"
 
 	para "I train alone here"
 	line "in the dark!"

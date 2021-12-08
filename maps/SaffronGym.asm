@@ -4,6 +4,7 @@
 	const SAFFRONGYM_YOUNGSTER1
 	const SAFFRONGYM_GRANNY2
 	const SAFFRONGYM_YOUNGSTER2
+	const SAFFRONGYM_YOUNGSTER3
 	const SAFFRONGYM_GYM_GUIDE
 
 SaffronGym_MapScripts:
@@ -88,6 +89,17 @@ TrainerPsychicJared:
 	waitbutton
 	closetext
 	end
+	
+TrainerIdain:
+	trainer PSYCHIC_T, IDAIN, EVENT_BEAT_IDAIN, IdainSeenText, IdainBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext IdainAfterBattleText
+	waitbutton
+	closetext
+	end
 
 SaffronGymGuideScript:
 	faceplayer
@@ -131,8 +143,8 @@ SabrinaIntroText:
 	line "to confer BADGES"
 
 	para "on anyone who has"
-	line "proven him- or"
-	cont "herself worthy."
+	line "proven themselves"
+	cont "worthy."
 
 	para "Since you wish it,"
 	line "I will show you my"
@@ -264,6 +276,29 @@ PsychicJaredAfterBattleText:
 	line "just destroyed by"
 	cont "SABRINA."
 	done
+	
+IdainSeenText:
+	text "I predicted your"
+	line "arrival through"
+	cont "that warp panel."
+	
+	para "But I can't tell"
+	line "if you're ready"
+	cont "for SABRINA yet."
+	done
+
+IdainBeatenText:
+	text "Now I am certain."
+	done
+
+IdainAfterBattleText:
+	text "Hmm… the odds are"
+	line "in your favour."
+
+	para "But here's a tip:"
+	line "don't let SABRINA"
+	cont "set up."
+	done
 
 SaffronGymGuideText:
 	text "Yo, CHAMP in"
@@ -337,4 +372,5 @@ SaffronGym_MapEvents:
 	object_event  3, 16, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicFranklin, -1
 	object_event  3,  4, SPRITE_GRANNY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerMediumDoris, -1
 	object_event 17,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPsychicJared, -1
+	object_event 11,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerIdain, -1
 	object_event  9, 14, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronGymGuideScript, -1

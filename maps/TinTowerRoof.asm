@@ -46,6 +46,8 @@ Tin_MortyScene1:
 	closetext
 	winlosstext MortyBeatenText, 0
 	setlasttalked TINTOWERROOF_MORTY
+	checkevent EVENT_OPENED_MT_SILVER
+	iftrue .Morty2a
 	loadtrainer MORTY2, MORTY2A
 	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
@@ -66,6 +68,26 @@ Tin_MortyScene1:
 .Done:
 	end
 	
+.Morty2a:
+	loadtrainer MORTY2, MORTY2B
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	special FadeOutMusic
+	setevent EVENT_TIN_MORTY
+	setscene SCENE_FINISHED
+	opentext
+	writetext MortyAfterText
+	waitbutton
+	closetext
+	turnobject PLAYER, DOWN
+	applymovement TINTOWERROOF_MORTY, MortyMovement2a
+	playsound SFX_EXIT_BUILDING
+	disappear TINTOWERROOF_MORTY
+	pause 20
+	end
+	
 Tin_MortyScene2:
 	turnobject PLAYER, DOWN
 	showemote EMOTE_SHOCK, PLAYER, 15
@@ -81,6 +103,8 @@ Tin_MortyScene2:
 	closetext
 	winlosstext MortyBeatenText, 0
 	setlasttalked TINTOWERROOF_MORTY
+	checkevent EVENT_OPENED_MT_SILVER
+	iftrue .Morty2b
 	loadtrainer MORTY2, MORTY2A
 	startbattle
 	dontrestartmapmusic
@@ -98,6 +122,24 @@ Tin_MortyScene2:
 	pause 20
 .Done:
 	end
+	
+.Morty2b:
+	loadtrainer MORTY2, MORTY2B
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	special FadeOutMusic
+	setevent EVENT_TIN_MORTY
+	setscene SCENE_FINISHED
+	opentext
+	writetext MortyAfterText
+	waitbutton
+	closetext
+	applymovement TINTOWERROOF_MORTY, MortyMovement2b
+	playsound SFX_EXIT_BUILDING
+	disappear TINTOWERROOF_MORTY
+	pause 20
+	end
 
 TinTowerHoOh:
 	faceplayer
@@ -107,9 +149,8 @@ TinTowerHoOh:
 	pause 15
 	closetext
 	setevent EVENT_FOUGHT_HO_OH
-	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
-	loadwildmon HO_OH, 80
 	loadvar VAR_BATTLETYPE, BATTLETYPE_HOOH
+	loadwildmon HO_OH, 85
 	startbattle
 	disappear TINTOWERROOF_HO_OH
 	reloadmapafterbattle

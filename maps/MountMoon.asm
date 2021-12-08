@@ -21,7 +21,7 @@ MountMoon_MapScripts:
 	special FadeOutMusic
 	pause 15
 	applymovement MOUNTMOON_SILVER, MountMoonSilverMovementBefore
-	playmusic MUSIC_RIVAL_ENCOUNTER
+	playmusic MUSIC_BRENDAN_ENCOUNTER
 	opentext
 	writetext MountMoonSilverTextBefore
 	waitbutton
@@ -60,7 +60,7 @@ MountMoon_MapScripts:
 	sjump .FinishBattle
 
 .FinishBattle:
-	playmusic MUSIC_RIVAL_AFTER
+	playmusic MUSIC_BRENDAN_ENCOUNTER
 	opentext
 	writetext MountMoonSilverTextAfter
 	waitbutton

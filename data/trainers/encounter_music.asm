@@ -77,3 +77,6 @@ TrainerEncounterMusic::
 	db MUSIC_ZINNIA_ENCOUNTER      ; andrea
 	db MUSIC_OFFICER_ENCOUNTER     ; morty2
 	db MUSIC_OFFICER_ENCOUNTER     ; clair2
+	db MUSIC_OFFICER_ENCOUNTER     ; champion2
+	db MUSIC_HIKER_ENCOUNTER       ; king
+	db MUSIC_POKEMANIAC_ENCOUNTER  ; scientist

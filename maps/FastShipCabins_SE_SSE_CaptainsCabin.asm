@@ -6,10 +6,9 @@
 	const FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_POKEFAN_M1
 	const FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_TWIN3
 	const FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_TWIN4
-	const FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_SUPER_NERD1
 	const FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_POKEFAN_M2
 	const FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_POKEFAN_F
-	const FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_SUPER_NERD2
+	const FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_POKE_BALL
 
 FastShipCabins_SE_SSE_CaptainsCabin_MapScripts:
 	def_scene_scripts
@@ -171,17 +170,6 @@ TrainerTwinsMegandpeg2:
 	closetext
 	end
 
-TrainerPsychicRodney:
-	trainer PSYCHIC_T, RODNEY, EVENT_BEAT_PSYCHIC_RODNEY, PsychicRodneySeenText, PsychicRodneyBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext PsychicRodneyAfterBattleText
-	waitbutton
-	closetext
-	end
-
 TrainerPokefanmJeremy:
 	trainer POKEFANM, JEREMY, EVENT_BEAT_POKEFANM_JEREMY, PokefanmJeremySeenText, PokefanmJeremyBeatenText, 0, .Script
 
@@ -203,18 +191,10 @@ TrainerPokefanfGeorgia:
 	waitbutton
 	closetext
 	end
-
-TrainerSupernerdShawn:
-	trainer SUPER_NERD, SHAWN, EVENT_BEAT_SUPER_NERD_SHAWN, SupernerdShawnSeenText, SupernerdShawnBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext SupernerdShawnAfterBattleText
-	waitbutton
-	closetext
-	end
-
+	
+FastShipMaxPotion:
+	itemball MAX_POTION
+	
 FastShipCaptainsCabinTrashcan:
 	jumpstd TrashCanScript
 
@@ -328,7 +308,7 @@ SSAquaGranddaughterWasPlayingFText:
 	line "am! I was playing"
 
 	para "with the CAPTAIN"
-	line "and this big girl!"
+	line "and this girl!"
 	done
 
 SSAquaGranddaughterHadFunText:
@@ -386,23 +366,6 @@ TwinsMegandpeg2AfterBattleText:
 	cont "grown-ups!"
 	done
 
-PsychicRodneySeenText:
-	text "Ssh! My brain is"
-	line "picking up radio"
-	cont "signals!"
-	done
-
-PsychicRodneyBeatenText:
-	text "…I hear some-"
-	line "thing!"
-	done
-
-PsychicRodneyAfterBattleText:
-	text "I get it. You can"
-	line "hear JOHTO's radio"
-	cont "on the FAST SHIP."
-	done
-
 PokefanmJeremySeenText:
 	text "What do you think?"
 	line "My #MON are"
@@ -437,23 +400,6 @@ PokefanfGeorgiaAfterBattleText:
 	cont "of DAY-CARE!"
 	done
 
-SupernerdShawnSeenText:
-	text "What kinds of #"
-	line "BALLS do you have"
-	cont "with you?"
-	done
-
-SupernerdShawnBeatenText:
-	text "Wait! Stop! Don't!"
-	line "Please!"
-	done
-
-SupernerdShawnAfterBattleText:
-	text "You should use the"
-	line "right BALLS to fit"
-	cont "the situation."
-	done
-
 SSAquaHasArrivedVermilionText:
 	text "FAST SHIP S.S.AQUA"
 	line "has arrived in"
@@ -484,7 +430,6 @@ FastShipCabins_SE_SSE_CaptainsCabin_MapEvents:
 	object_event  5,  6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerPokefanmColin, EVENT_FAST_SHIP_PASSENGERS_FIRST_TRIP
 	object_event  2,  4, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsMegandpeg1, EVENT_FAST_SHIP_PASSENGERS_FIRST_TRIP
 	object_event  3,  4, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsMegandpeg2, EVENT_FAST_SHIP_PASSENGERS_FIRST_TRIP
-	object_event  5,  5, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 5, TrainerPsychicRodney, EVENT_FAST_SHIP_PASSENGERS_EASTBOUND
-	object_event  2,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmJeremy, EVENT_FAST_SHIP_PASSENGERS_WESTBOUND
+	object_event  2,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmJeremy, EVENT_FAST_SHIP_PASSENGERS_EASTBOUND
 	object_event  5,  5, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerPokefanfGeorgia, EVENT_FAST_SHIP_PASSENGERS_WESTBOUND
-	object_event  1, 15, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerSupernerdShawn, EVENT_FAST_SHIP_PASSENGERS_EASTBOUND
+	object_event  6,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, FastShipMaxPotion, EVENT_FAST_SHIP_MAX_POTION

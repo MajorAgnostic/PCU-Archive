@@ -251,3 +251,5 @@ PokedexDataPointerTable:
 	dw LugiaPokedexEntry
 	dw HoOhPokedexEntry
 	dw CelebiPokedexEntry
+	dw MetagrossPokedexEntry
+	dw GhostPokedexEntry

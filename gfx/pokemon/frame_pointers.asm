@@ -251,3 +251,4 @@ FramesPointers:
 	dw HoOhFrames
 	dw CelebiFrames
 	dw MetagrossFrames
+	dw GhostFrames

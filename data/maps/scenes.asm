@@ -88,4 +88,6 @@ MapScenes::
 	scene_var SILVER_CAVE_ROOM_2,                          wSilverCaveRoom2SceneID
 	scene_var SAFFRON_CITY,                                wSaffronCitySceneID
 	scene_var TIN_TOWER_ROOF,                              wTinTowerRoofSceneID
+	scene_var SEAFOAM_GYM,                                 wSeafoamGymSceneID
+	scene_var VIRIDIAN_GYM,                                wViridianGymSceneID
 	db -1 ; end

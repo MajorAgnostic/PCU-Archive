@@ -393,8 +393,8 @@ LeafStoneDesc:
 	next "kinds of #MON.@"
 
 MetalPowderDesc:
-	db   "Raises DEFENSE of"
-	next "DITTO. (HOLD)@"
+	db   "An offering for"
+	next "the departed.@"
 
 NuggetDesc:
 	db   "Made of pure gold."
@@ -667,8 +667,8 @@ PinkBowDesc:
 	next "type moves. (HOLD)@"
 
 StickDesc:
-	db   "An ordinary stick"
-	next "with a green tip.@"
+	db   "Ups crit ratio of"
+	next "FARFETCH'D. (HOLD)@"
 
 SmokeBallDesc:
 	db   "Escape from wild"
@@ -719,8 +719,8 @@ MiracleSeedDesc:
 	next "type moves. (HOLD)@"
 
 ThickClubDesc:
-	db   "An odd bone of some"
-	next "sort.@"
+	db   "An odd bone of"
+	next "some sort.@"
 
 FocusBandDesc:
 	db   "May prevent faint-"

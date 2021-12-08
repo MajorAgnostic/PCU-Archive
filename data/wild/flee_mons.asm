@@ -14,11 +14,11 @@ SometimesFleeMons:
 	db UNOWN
 	db SNUBBULL
 	db HERACROSS
+	db QUAGSIRE
 	db -1
 
 OftenFleeMons:
 	db CUBONE
-	db QUAGSIRE
 	db DELIBIRD
 	db TOGETIC
 	db TEDDIURSA

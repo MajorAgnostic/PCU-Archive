@@ -73,6 +73,8 @@ CeruleanCityFisherScript:
 	checkevent EVENT_MET_ROCKET_GRUNT_AT_CERULEAN_GYM
 	iftrue .MetCeruleanRocket
 .ReturnedMachinePart:
+	checkevent EVENT_TRAINERS_IN_CERULEAN_GYM
+	iftrue .MistyDate
 	writetext CeruleanCityFisherText
 	waitbutton
 	closetext
@@ -80,6 +82,12 @@ CeruleanCityFisherScript:
 
 .MetCeruleanRocket:
 	writetext CeruleanCityFisherRocketTipText
+	waitbutton
+	closetext
+	end
+	
+.MistyDate:
+	writetext CeruleanCityFisherDateText
 	waitbutton
 	closetext
 	end
@@ -253,6 +261,14 @@ CeruleanCityFisherRocketTipText:
 	text "I saw this shady"
 	line "guy go off toward"
 	cont "CERULEAN's CAPE."
+	done
+	
+CeruleanCityFisherDateText:
+	text "I heard that some"
+	line "lucky guy took"
+	
+	para "MISTY on a date to"
+	line "CERULEAN's CAPE."
 	done
 
 CeruleanCityYoungsterText1:

@@ -69,11 +69,8 @@ HallOfFame_MapScripts:
 	pause 15
 	setval HEALMACHINE_HALL_OF_FAME
 	special HealMachineAnim
-	setevent EVENT_BEAT_ELITE_FOUR
 	setevent EVENT_OPENED_MT_SILVER
-	setevent EVENT_RIVAL_SPROUT_TOWER
 	clearevent EVENT_RED_IN_MT_SILVER
-	clearevent EVENT_BEAT_ANDREA
 	special HealParty
 	halloffame
 	end

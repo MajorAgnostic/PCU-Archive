@@ -1065,3 +1065,6 @@ SeafoamIslandsB3F_Blocks:
 	
 SeafoamIslandsB4F_Blocks:
 	INCBIN "maps/SeafoamIslandsB4F.blk"
+	
+SeafoamIslandsEntrance_Blocks:
+	INCBIN "maps/SeafoamIslandsEntrance.blk"

@@ -194,6 +194,18 @@ KiyoGiveText:
 	cont "I train to begin"
 	cont "with."
 	
+	para "To revive the dojo"
+	line "and seek vengeance"
+	
+	para "against SABRINA's"
+	line "GYM."
+	
+	para "One day, we will"
+	line "be SAFFRON CITY's"
+	
+	para "official GYM, once"
+	line "again!"
+	
 	para "I cannot thank you"
 	line "enough."
 	

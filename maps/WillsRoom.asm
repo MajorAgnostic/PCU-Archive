@@ -185,23 +185,22 @@ WillScript_WillDefeatText:
 	done
 
 WillScript_WillDefeatText2:
-	text "Whew, I have ex-"
-	line "pended all of my"
+	text "Whew, I've expended"
+	line "all my power and"
 	
-	para "power & that was"
-	line "still not enough"
-	cont "to win."
+	para "it still wasn't"
+	line "enough to win."
 
-	para "You have shown"
-	line "yourself to be"
-	cont "a mighty foe."
+	para "You've shown your-"
+	line "self to be a truly"
+	cont "mighty foe."
 
 	para "<PLAYER>, I will"
-	line "reflect on this"
+	line "reflect on our ex-"
 	
-	para "experience and"
-	line "forge a new path"
-	cont "for my #MON."
+	para "perience and forge"
+	line "a new path for my"
+	cont "#MON."
 
 	para "Never forget the"
 	line "spirit of the"

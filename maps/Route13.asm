@@ -4,6 +4,9 @@
 	const ROUTE13_POKEFAN_M1
 	const ROUTE13_POKEFAN_M2
 	const ROUTE13_POKEFAN_M3
+	const ROUTE13_TEACHER1
+	const ROUTE13_TEACHER2
+	const ROUTE13_POKEFAN_M4
 
 Route13_MapScripts:
 	def_scene_scripts
@@ -64,6 +67,39 @@ TrainerHikerKenny:
 	waitbutton
 	closetext
 	end
+	
+TrainerPiper:
+	trainer TEACHER, PIPER, EVENT_BEAT_PIPER, PiperSeenText, PiperBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext PiperAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerGinger:
+	trainer TEACHER, GINGER, EVENT_BEAT_GINGER, GingerSeenText, GingerBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext GingerAfterBattleText
+	waitbutton
+	closetext
+	end
+	
+TrainerBoone:
+	trainer POKEFANM, BOONE, EVENT_BEAT_BOONE, BooneSeenText, BooneBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext BooneAfterBattleText
+	waitbutton
+	closetext
+	end
 
 Route13TrainerTips:
 	jumptext Route13TrainerTipsText
@@ -76,6 +112,62 @@ Route13DirectionsSign:
 
 Route13HiddenCalcium:
 	hiddenitem PP_UP, EVENT_ROUTE_13_HIDDEN_CALCIUM
+	
+BooneSeenText:
+	text "Hey, your #MON…"
+	line "Show me. Show me."
+	cont "Show me!"
+	done
+
+BooneBeatenText:
+	text "Yay! That was fun!"
+	done
+
+BooneAfterBattleText:
+	text "When you battle"
+	line "with #MON, you"
+
+	para "see a bunch of new"
+	line "ones! It's great!"
+	done
+	
+GingerSeenText:
+	text "Why is it that I"
+	line "always get the"
+	cont "urge to whistle"
+	cont "when in nature?"
+	done
+
+GingerBeatenText:
+	text "Tweeee!"
+	done
+
+GingerAfterBattleText:
+	text "Instead of commu-"
+	line "nicating to #-"
+
+	para "MON with words you"
+	line "can whistle!"
+	done
+
+PiperSeenText:
+	text "How about we bring"
+	line "out your #MON"
+	cont "and mine for a"
+	cont "battle?"
+	done
+
+PiperBeatenText:
+	text "Oh, too bad…"
+	done
+
+PiperAfterBattleText:
+	text "The way you walked"
+	line "with your #MON"
+
+	para "made me think I"
+	line "could win."
+	done
 
 PokefanmAlexSeenText:
 	text "Bow down before my"
@@ -208,3 +300,6 @@ Route13_MapEvents:
 	object_event 32,  8, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmJoshua, -1
 	object_event 14, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerHikerKenny, -1
 	object_event 25,  6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerPokefanmAlex, -1
+	object_event 54,  8, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerPiper, -1
+	object_event 15,  6, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerGinger, -1
+	object_event  6,  8, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerBoone, -1

@@ -14,7 +14,7 @@ CeladonMansionRoofHousePharmacistScript:
 	writetext CeladonMansionRoofHousePharmacistIntroText
 	promptbutton
 	checkevent EVENT_ENABLE_DIPLOMA_PRINTING
-	iffalse .CompletePokedex ; all except Mewtwo
+	iftrue .CompletePokedex ; all except Mewtwo
 	writetext CeladonMansionRoofHousePharmacistNotCompleteText
 	waitbutton
 	closetext
@@ -29,7 +29,7 @@ CeladonMansionRoofHousePharmacistScript:
 	writetext ReceivedMewtwoText
 	playsound SFX_CAUGHT_MON
 	waitsfx
-	givepoke MEWTWO, 10, GORGEOUS_BOX
+	givepoke MEWTWO, 30, GORGEOUS_BOX
 	setevent EVENT_GOT_MEWTWO
 	writetext CeladonMansionRoofHousePharmacistCurseText
 	waitbutton

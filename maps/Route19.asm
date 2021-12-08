@@ -5,6 +5,7 @@
 	const ROUTE19_SWIMMER_GUY3
 	const ROUTE19_FISHER1
 	const ROUTE19_FISHER2
+	const ROUTE19_GRAMPS
 
 Route19_MapScripts:
 	def_scene_scripts
@@ -96,6 +97,14 @@ Route19Fisher2Script:
 
 .RocksCleared:
 	writetext Route19Fisher2Text_RocksCleared
+	waitbutton
+	closetext
+	end
+	
+Route19GrampsScript:
+	faceplayer
+	opentext
+	writetext Route19GrampsText
 	waitbutton
 	closetext
 	end
@@ -223,6 +232,23 @@ Route19Fisher2Text_RocksCleared:
 	para "Now I can go"
 	line "fishing again."
 	done
+	
+Route19GrampsText:
+	text "This park was just"
+	line "recently built."
+	
+	para "Isn't it pretty?"
+	line "Like an oasis in"
+	cont "the sea."
+	
+	para "A jewel of sand in"
+	line "the water rather"
+	cont "than of water in"
+	cont "the sand."
+	
+	para "Rather poetic, I"
+	line "think."
+	done
 
 Route19SignText:
 	text "ROUTE 19"
@@ -259,3 +285,4 @@ Route19_MapEvents:
 	object_event 12, 21, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerSwimmermTucker, -1
 	object_event  9,  5, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 1, Route19Fisher1Script, -1
 	object_event 11,  5, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, Route19Fisher2Script, -1
+	object_event  7, 30, SPRITE_GRAMPS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 1, Route19GrampsScript, -1

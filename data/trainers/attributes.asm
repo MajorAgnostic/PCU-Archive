@@ -170,13 +170,13 @@ TrainerClassAttributes:
 	dw CONTEXT_USE | SWITCH_OFTEN
 
 ; Beauty
-	db FULL_HEAL, NO_ITEM ; items
+	db HYPER_POTION, FULL_HEAL ; items
 	db 22 ; base reward
 	dw AI_BASIC | AI_SETUP | AI_SMART | AI_AGGRESSIVE | AI_CAUTIOUS | AI_STATUS | AI_RISKY
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Pokemaniac
-	db HYPER_POTION, NO_ITEM ; items
+	db HYPER_POTION, FULL_HEAL ; items
 	db 15 ; base reward
 	dw AI_BASIC | AI_SETUP | AI_SMART | AI_AGGRESSIVE | AI_CAUTIOUS | AI_STATUS | AI_RISKY
 	dw CONTEXT_USE | SWITCH_OFTEN
@@ -224,13 +224,13 @@ TrainerClassAttributes:
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Swimmerm
-	db NO_ITEM, NO_ITEM ; items
-	db 2 ; base reward
+	db HYPER_POTION, NO_ITEM ; items
+	db 5 ; base reward
 	dw AI_BASIC | AI_SETUP | AI_SMART | AI_AGGRESSIVE | AI_CAUTIOUS | AI_STATUS | AI_RISKY
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Swimmerf
-	db NO_ITEM, NO_ITEM ; items
+	db HYPER_POTION, NO_ITEM ; items
 	db 5 ; base reward
 	dw AI_BASIC | AI_SETUP | AI_SMART | AI_AGGRESSIVE | AI_CAUTIOUS | AI_STATUS | AI_RISKY
 	dw CONTEXT_USE | SWITCH_SOMETIMES
@@ -296,7 +296,7 @@ TrainerClassAttributes:
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Blackbelt T
-	db NO_ITEM, NO_ITEM ; items
+	db HYPER_POTION, NO_ITEM ; items
 	db 6 ; base reward
 	dw AI_BASIC | AI_SETUP | AI_SMART | AI_AGGRESSIVE | AI_CAUTIOUS | AI_STATUS | AI_RISKY
 	dw CONTEXT_USE | SWITCH_SOMETIMES
@@ -416,7 +416,7 @@ TrainerClassAttributes:
 	dw CONTEXT_USE | SWITCH_OFTEN
 	
 ; Nicholas
-	db FULL_RESTORE, FULL_RESTORE ; items
+	db NO_ITEM, NO_ITEM ; items
 	db 25 ; base reward
 	dw AI_BASIC | AI_SETUP | AI_SMART | AI_AGGRESSIVE | AI_CAUTIOUS | AI_STATUS | AI_RISKY
 	dw CONTEXT_USE | SWITCH_OFTEN
@@ -440,7 +440,25 @@ TrainerClassAttributes:
 	dw CONTEXT_USE | SWITCH_OFTEN
 	
 ; Clair2
+	db NO_ITEM, NO_ITEM ; items
+	db 25 ; base reward
+	dw AI_BASIC | AI_SETUP | AI_SMART | AI_AGGRESSIVE | AI_CAUTIOUS | AI_STATUS | AI_RISKY
+	dw CONTEXT_USE | SWITCH_OFTEN
+	
+; Champion2
+	db NO_ITEM, NO_ITEM ; items
+	db 25 ; base reward
+	dw AI_BASIC | AI_SETUP | AI_SMART | AI_AGGRESSIVE | AI_CAUTIOUS | AI_STATUS | AI_RISKY
+	dw CONTEXT_USE | SWITCH_OFTEN
+	
+; King
 	db FULL_RESTORE, FULL_RESTORE ; items
+	db 25 ; base reward
+	dw AI_BASIC | AI_SETUP | AI_SMART | AI_AGGRESSIVE | AI_CAUTIOUS | AI_STATUS | AI_RISKY
+	dw CONTEXT_USE | SWITCH_OFTEN
+	
+; Scientist2
+	db FULL_RESTORE, NO_ITEM ; items
 	db 25 ; base reward
 	dw AI_BASIC | AI_SETUP | AI_SMART | AI_AGGRESSIVE | AI_CAUTIOUS | AI_STATUS | AI_RISKY
 	dw CONTEXT_USE | SWITCH_OFTEN
