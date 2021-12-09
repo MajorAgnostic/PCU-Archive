@@ -109,7 +109,7 @@ MonMenuIconPals:
 	iconpal PINK, GREEN ; EXEGGCUTE
 	iconpal GREEN, BROWN ; EXEGGUTOR
 	iconpal BROWN, GRAY ; CUBONE
-	iconpal BROWN, GRAY ; MAROWAK
+	iconpal BROWN, GREEN ; MAROWAK
 	iconpal BROWN, GREEN ; HITMONLEE
 	iconpal BROWN, GRAY ; HITMONCHAN
 	iconpal RED, PINK ; LICKITUNG
@@ -256,6 +256,6 @@ MonMenuIconPals:
 	iconpal BLUE, PURPLE ; LUGIA
 	iconpal RED, PINK ; HO_OH
 	iconpal GREEN, PINK ; CELEBI
-	iconpal RED, RED ; 252
+	iconpal BLUE, BLUE ; 252
 	iconpal PURPLE, PURPLE ; GHOST
 	iconpal RED, GREEN ; EGG

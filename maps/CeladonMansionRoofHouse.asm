@@ -13,8 +13,8 @@ CeladonMansionRoofHousePharmacistScript:
 	iftrue .GotMewtwo
 	writetext CeladonMansionRoofHousePharmacistIntroText
 	promptbutton
-	checkevent EVENT_ENABLE_DIPLOMA_PRINTING
-	iftrue .CompletePokedex ; all except Mewtwo
+	readvar VAR_DEXCAUGHT
+	ifgreater NUM_POKEMON - 4, .CompletePokedex ; now requires all Pokemon (except those added from other gens and Mewtwo)
 	writetext CeladonMansionRoofHousePharmacistNotCompleteText
 	waitbutton
 	closetext
@@ -142,9 +142,9 @@ ReceivedMewtwoText:
 	done
 
 CeladonMansionRoofHousePharmacistCurseText:
-	text "Nah, just kidding;"
-	line "it's a regular"
-	cont "ol' MEWTWO."
+	text "Nah, just kidding."
+	line "It's a regular ol'"
+	cont "MEWTWO."
 
 	para "I bet you thought"
 	line "I would give you"
@@ -184,11 +184,12 @@ CeladonMansionRoofHousePharmacistEndText:
 	line "ROCK TUNNEL for a"
 	cont "while."
 	
-	para "Maybe we'll meet"
-	line "again, young tr-"
+	para "Anywho, maybe we"
+	line "will meet again,"
+	cont "young trainer!"
 
-	para "ainer! Perhaps…"
-	line "in the past…"
+	para "Perhaps… in the"
+	line "past…"
 	done
 
 CeladonMansionRoofHouse_MapEvents:

@@ -251,4 +251,6 @@ IconPointers:
 	dw LugiaIcon
 	dw HoOhIcon
 	dw CelebiIcon
+	dw MetagrossIcon
+	dw GhostIcon
 	dw EggIcon
