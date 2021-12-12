@@ -164,7 +164,8 @@ EcruteakPokecenter1F_BillText2:
 	cont "I'll let you try"
 	
 	para "out one of my new"
-	line "prototypes!"
+	line "prototypes: a"
+	cont "POCKET PC!"
 
 	para "I have to hurry on"
 	line "back to GOLDENROD"

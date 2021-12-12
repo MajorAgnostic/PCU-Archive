@@ -1,6 +1,6 @@
 	db GOLDEEN ; 118
 
-	db  45,  67,  60,  63,  50,  50
+	db  45,  67,  60,  63,  35,  50
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, WATER ; type

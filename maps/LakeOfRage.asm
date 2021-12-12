@@ -314,7 +314,7 @@ LakeOfRageGyaradosCryText:
 
 LakeOfRageGotRedScaleText:
 	text "<PLAYER> obtained a"
-	line "BLUE SCALE."
+	line "RED SCALE."
 	done
 
 LakeOfRageGrampsText:
@@ -345,12 +345,12 @@ LakeOfRageCooltrainerFText:
 	text "Did my eyes de-"
 	line "ceive me? I saw a"
 
-	para "blue GYARADOS in"
+	para "red GYARADOS in"
 	line "the LAKE…"
 
 	para "But I thought"
 	line "GYARADOS were"
-	cont "usually red?"
+	cont "usually blue?"
 	done
 
 FisherAndreSeenText:

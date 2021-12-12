@@ -100,7 +100,7 @@ QuizScientist2:
 	iftrue .CannotProceed
 	writetext QuizText2
 	yesorno
-	iffalse .WrongAnswer
+	iftrue .WrongAnswer
 	playsound SFX_ELEVATOR_END
 	waitsfx
 	writetext QuizCorrectText

@@ -14,7 +14,7 @@ CeladonMansionRoofHousePharmacistScript:
 	writetext CeladonMansionRoofHousePharmacistIntroText
 	promptbutton
 	readvar VAR_DEXCAUGHT
-	ifgreater NUM_POKEMON - 4, .CompletePokedex ; now requires all Pokemon (except those added from other gens and Mewtwo)
+	ifgreater NUM_POKEMON - 5, .CompletePokedex ; now requires all Pokemon (except those added from other gens and Mewtwo)
 	writetext CeladonMansionRoofHousePharmacistNotCompleteText
 	waitbutton
 	closetext

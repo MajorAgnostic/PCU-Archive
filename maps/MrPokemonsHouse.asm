@@ -329,7 +329,7 @@ MrPokemonsHouse_OakText2:
 MrPokemonText_GimmeTheScale:
 	text "Hm? That SCALE!"
 	line "What's that?"
-	cont "A blue GYARADOS?"
+	cont "A red GYARADOS?"
 
 	para "That's rare! "
 	line "I, I want it…"

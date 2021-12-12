@@ -23,6 +23,7 @@ AlphabeticalPokedexOrder:
 	db CELEBI
 	db CHANSEY
 	db CHARIZARD
+	db GHOST_P
 	db CHARMANDER
 	db CHARMELEON
 	db CHIKORITA
@@ -128,7 +129,6 @@ AlphabeticalPokedexOrder:
 	db MAREEP
 	db MARILL
 	db MAROWAK
-	db GHOST_P
 	db MEGANIUM
 	db MEOWTH
 	db METAGROSS

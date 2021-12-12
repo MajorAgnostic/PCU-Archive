@@ -64,7 +64,7 @@ ItemNames::
 	db "ETHER@"
 	db "MAX REVIVE@"
 	db "MAX ELIXER@"
-	db "BLUE SCALE@"
+	db "RED SCALE@"
 	db "SECRETPOTION@"
 	db "S.S.TICKET@"
 	db "MYSTERY EGG@"

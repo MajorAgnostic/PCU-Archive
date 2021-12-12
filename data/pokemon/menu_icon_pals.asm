@@ -257,5 +257,5 @@ MonMenuIconPals:
 	iconpal RED, PINK ; HO_OH
 	iconpal GREEN, PINK ; CELEBI
 	iconpal BLUE, BLUE ; 252
-	iconpal PURPLE, PURPLE ; GHOST
+	iconpal GRAY, GRAY ; MEGA CHARIZARD
 	iconpal RED, GREEN ; EGG

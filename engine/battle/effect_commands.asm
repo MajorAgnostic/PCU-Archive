@@ -2800,8 +2800,8 @@ ThickClubBoost:
 ; it's holding a Thick Club, double it.
 	push bc
 	push de
-	ld b, MAROWAK
-	ld c, GHOST_P
+	ld b, CUBONE
+	ld c, MAROWAK
 	ld d, THICK_CLUB
 	call SpeciesItemBoost
 	pop de

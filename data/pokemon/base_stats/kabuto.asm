@@ -1,6 +1,6 @@
 	db KABUTO ; 140
 
-	db  35,  85,  85,  65,  55,  45
+	db  30,  80,  90,  55,  55,  45
 	;   hp  atk  def  spd  sat  sdf
 
 	db ROCK, WATER ; type

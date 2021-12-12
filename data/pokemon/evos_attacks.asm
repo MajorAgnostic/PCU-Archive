@@ -901,7 +901,7 @@ PoliwrathEvosAttacks:
 	db 0 ; no more level-up moves
 
 AbraEvosAttacks:
-	db EVOLVE_LEVEL, 26, KADABRA
+	db EVOLVE_LEVEL, 16, KADABRA
 	db 0 ; no more evolutions
 	db 1, TELEPORT
 	db 16, CONFUSION
@@ -1135,7 +1135,7 @@ RapidashEvosAttacks:
 	db 0 ; no more level-up moves
 
 SlowpokeEvosAttacks:
-	db EVOLVE_LEVEL, 34, SLOWBRO
+	db EVOLVE_LEVEL, 37, SLOWBRO
 	db EVOLVE_ITEM, WATER_STONE, SLOWKING
 	db 0 ; no more evolutions
 	db 1, TACKLE
@@ -1391,7 +1391,7 @@ OnixEvosAttacks:
 	db 0 ; no more level-up moves
 
 DrowzeeEvosAttacks:
-	db EVOLVE_LEVEL, 31, HYPNO
+	db EVOLVE_LEVEL, 26, HYPNO
 	db 0 ; no more evolutions
 	db 1, POUND
 	db 1, HYPNOSIS
@@ -1881,7 +1881,7 @@ TaurosEvosAttacks:
 	db 0 ; no more level-up moves
 
 MagikarpEvosAttacks:
-	db EVOLVE_LEVEL, 30, GYARADOS
+	db EVOLVE_LEVEL, 20, GYARADOS
 	db 0 ; no more evolutions
 	db 1, SPLASH
 	db 10, TACKLE
@@ -2210,7 +2210,7 @@ MewEvosAttacks:
 	db 0 ; no more level-up moves
 
 ChikoritaEvosAttacks:
-	db EVOLVE_LEVEL, 14, BAYLEEF
+	db EVOLVE_LEVEL, 16, BAYLEEF
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
@@ -2227,7 +2227,7 @@ ChikoritaEvosAttacks:
 	db 0 ; no more level-up moves
 
 BayleefEvosAttacks:
-	db EVOLVE_LEVEL, 36, MEGANIUM
+	db EVOLVE_LEVEL, 32, MEGANIUM
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
@@ -2265,7 +2265,7 @@ MeganiumEvosAttacks:
 	db 0 ; no more level-up moves
 
 CyndaquilEvosAttacks:
-	db EVOLVE_LEVEL, 16, QUILAVA
+	db EVOLVE_LEVEL, 14, QUILAVA
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, LEER
@@ -2278,7 +2278,7 @@ CyndaquilEvosAttacks:
 	db 0 ; no more level-up moves
 
 QuilavaEvosAttacks:
-	db EVOLVE_LEVEL, 32, TYPHLOSION
+	db EVOLVE_LEVEL, 36, TYPHLOSION
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, LEER
@@ -2812,7 +2812,7 @@ YanmaEvosAttacks:
 	db 0 ; no more level-up moves
 
 WooperEvosAttacks:
-	db EVOLVE_LEVEL, 24, QUAGSIRE
+	db EVOLVE_LEVEL, 20, QUAGSIRE
 	db 0 ; no more evolutions
 	db 1, TAIL_WHIP
 	db 1, WATER_GUN
@@ -3610,15 +3610,8 @@ MetagrossEvosAttacks:
 	
 GhostEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, GROWL
-	db 5, LEER
-	db 9, BONE_CLUB
-	db 13, RAGE
-	db 17, SPITE
-	db 21, FALSE_SWIPE
-	db 25, HEADBUTT
-	db 32, BONEMERANG
-	db 39, FIRE_SPIN
-	db 46, ROCK_SLIDE
-	db 53, BONE_RUSH
+	db 1, FIRE_BLAST
+	db 1, OUTRAGE
+	db 1, ROCK_SLIDE
+	db 1, SUBMISSION
 	db 0 ; no more level-up moves

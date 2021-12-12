@@ -64,8 +64,8 @@ Grave:
 	closetext
 	clearevent GHOST_ACTIVATED
 	setevent BEAT_GHOST
-	loadwildmon GHOST_P, 85
-	loadvar VAR_BATTLETYPE, BATTLETYPE_KANTOLEGEND
+	loadwildmon MAROWAK, 85
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SHINY
 	startbattle
 	reloadmapafterbattle
 	end

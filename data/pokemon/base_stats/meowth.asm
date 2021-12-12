@@ -1,9 +1,9 @@
 	db MEOWTH ; 052
 
-	db  40,  50,  35,  90,  60,  40
+	db  40,  45,  35,  90,  40,  40
 	;   hp  atk  def  spd  sat  sdf
 
-	db DARK, DARK ; type
+	db NORMAL, NORMAL ; type
 	db 255 ; catch rate
 	db 69 ; base exp
 	db NO_ITEM, NO_ITEM ; items

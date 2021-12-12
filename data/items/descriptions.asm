@@ -517,7 +517,7 @@ MaxElixerDesc:
 
 BlueScaleDesc:
 	db   "A scale from the"
-	next "blue GYARADOS.@"
+	next "red GYARADOS.@"
 
 SecretPotionDesc:
 	db   "Fully heals any"
