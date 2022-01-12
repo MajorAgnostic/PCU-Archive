@@ -549,15 +549,15 @@ JohtoGrassWildMons:
 	db 17, LEDYBA
 	db 19, MANKEY
 	db 19, METAPOD
-	db 19, KAKUNA
+	db 19, PIKACHU
 	db 18, PIKACHU
 	db 18, PIDGEY
 	; day
 	db 17, PARAS
 	db 17, LEDYBA
 	db 19, MANKEY
-	db 19, METAPOD
 	db 19, KAKUNA
+	db 19, PIKACHU
 	db 18, PIKACHU
 	db 18, PIDGEY
 	; nite

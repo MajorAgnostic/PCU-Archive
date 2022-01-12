@@ -256,6 +256,6 @@ MonMenuIconPals:
 	iconpal BLUE, PURPLE ; LUGIA
 	iconpal RED, PINK ; HO_OH
 	iconpal GREEN, PINK ; CELEBI
-	iconpal BLUE, BLUE ; 252
+	iconpal BLUE, BLUE ; METAGROSS
 	iconpal PURPLE, PURPLE ; GHOST
 	iconpal RED, GREEN ; EGG

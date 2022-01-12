@@ -67,7 +67,6 @@ KRIS EQU __trainer_class__
 	const WILL2
 
 	trainerclass CAL ; c
-	const CAL1
 	const CAL2
 	const CAL3
 
@@ -188,8 +187,6 @@ KRIS EQU __trainer_class__
 	const MICHELLE
 	const DANA1
 	const ELLEN
-	const CONNIE2
-	const CONNIE3
 	const DANA2
 	const DANA3
 	const DANA4
@@ -212,12 +209,8 @@ KRIS EQU __trainer_class__
 	const GAVEN3
 	const BLAKE
 	const BRIAN
-	const ERICK
-	const ANDY
-	const TYLER
 	const SEAN
 	const KEVIN
-	const STEVE
 	const ALLEN
 	const DARIN
 	const CHRIST
@@ -250,19 +243,8 @@ KRIS EQU __trainer_class__
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
 	const SAMANTHA
-	const JULIE
-	const JACLYN
-	const BRENDA
 	const CASSIE
-	const CAROLINE
-	const CARLENE
-	const JESSICA
-	const RACHAEL
-	const ANGELICA
-	const KENDRA
-	const VERONICA
 	const JULIA
-	const THERESA
 	const VALERIE
 	const OLIVIA
 	const MONICA
@@ -299,7 +281,6 @@ KRIS EQU __trainer_class__
 	const GRUNTM_9
 	const GRUNTM_10
 	const GRUNTM_11
-	const GRUNTM_12
 	const GRUNTM_13
 	const GRUNTM_14
 	const GRUNTM_15
@@ -309,22 +290,16 @@ KRIS EQU __trainer_class__
 	const GRUNTM_19
 	const GRUNTM_20
 	const GRUNTM_21
-	const GRUNTM_22
-	const GRUNTM_23
 	const GRUNTM_24
 	const GRUNTM_25
-	const GRUNTM_26
-	const GRUNTM_27
 	const GRUNTM_28
 	const GRUNTM_29
-	const GRUNTM_30
 	const GRUNTM_31
 
 	trainerclass GENTLEMAN ; 20
 	const PRESTON
 	const EDWARD
 	const GREGORY
-	const VIRGIL
 	const ALFRED
 
 	trainerclass SKIER ; 21
@@ -413,18 +388,10 @@ KRIS EQU __trainer_class__
 	const BERKE
 	const KIRK
 	const MATHEW
-	const HAL
-	const PATON
-	const DARYL
-	const WALTER
-	const TONY
 	const JEROME
 	const TUCKER
-	const RICK
 	const CAMERON
 	const SETH
-	const JAMES
-	const LEWIS
 	const PARKER
 	const FRANKIE
 
@@ -436,15 +403,9 @@ KRIS EQU __trainer_class__
 	const DENISE
 	const KARA
 	const WENDY
-	const LISA
-	const JILL
-	const MARY
-	const KATIE
 	const DAWN
-	const TARA
 	const NICOLE
 	const LORI
-	const JODY
 	const NIKKI
 	const DIANA
 	const BRIANA
@@ -469,16 +430,11 @@ KRIS EQU __trainer_class__
 	trainerclass SUPER_NERD ; 29
 	const STAN
 	const ERIC
-	const GREGG
-	const JAY
-	const DAVE
 	const SAM
 	const TOM
 	const PAT
 	const SHAWN
 	const TERU
-	const RUSS
-	const NORTON
 	const HUGH
 	const MARKUS
 	const BRADY
@@ -531,8 +487,6 @@ KRIS EQU __trainer_class__
 	const LEROY
 
 	trainerclass BIKER ; 2d
-	const BIKER_BENNY
-	const KAZU
 	const DWAYNE
 	const HARRIS
 	const ZEKE
@@ -573,14 +527,9 @@ KRIS EQU __trainer_class__
 	const IRWIN1
 	const FRITZ
 	const HORTON
-	const IRWIN2
-	const IRWIN3
-	const IRWIN4
 
 	trainerclass BLACKBELT_T ; 32
-	const KENJI1
 	const YOSHI
-	const KENJI2
 	const LAO
 	const NOB
 	const KIYO1
@@ -690,9 +639,6 @@ KRIS EQU __trainer_class__
 	trainerclass MEDIUM ; 39
 	const MARTHA
 	const GRACE
-	const BETHANY
-	const MARGRET
-	const ETHEL
 	const REBECCA
 	const DORIS
 
@@ -714,15 +660,12 @@ KRIS EQU __trainer_class__
 	const BRANDON
 	const JEREMY
 	const COLIN
-	const DEREK2
-	const DEREK3
 	const ALEX
 	const REX
 	const ALLAN
 	const BOONE
 
 	trainerclass KIMONO_GIRL ; 3c
-	const NAOKO1
 	const NAOKO2
 	const SAYO
 	const ZUKI
@@ -739,13 +682,10 @@ KRIS EQU __trainer_class__
 	const MEGANDPEG1
 	const MEGANDPEG2
 	const LEAANDPIA1
-	const LEAANDPIA2
 
 	trainerclass POKEFANF ; 3e
 	const BEVERLY1
 	const RUTH
-	const BEVERLY2
-	const BEVERLY3
 	const GEORGIA
 	const JAIME
 
@@ -780,8 +720,6 @@ KRIS EQU __trainer_class__
 	const RIVAL1_2_TOTODILE
 	
 	trainerclass CRYSTAL ; c
-	const CRYSTAL1
-	const CRYSTAL2
 	const CRYSTAL3
 	
 	trainerclass NICHOLAS
@@ -815,4 +753,4 @@ KRIS EQU __trainer_class__
 	const MERLE
 	const EINSTEIN
 
-NUM_TRAINER_CLASSES EQU __trainer_class__
+NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

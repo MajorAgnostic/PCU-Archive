@@ -661,16 +661,16 @@ BattleCommand_CheckObedience:
 
 	; If the monster's id doesn't match the player's,
 	; some conditions need to be met.
-	ld a, MON_ID
-	call BattlePartyAttr
+	; ld a, MON_ID
+	; call BattlePartyAttr
 
-	ld a, [wPlayerID]
-	cp [hl]
-	jr nz, .obeylevel
-	inc hl
-	ld a, [wPlayerID + 1]
-	cp [hl]
-	ret z
+	; ld a, [wPlayerID]
+	; cp [hl]
+	; jr nz, .obeylevel
+	; inc hl
+	; ld a, [wPlayerID + 1]
+	; cp [hl]
+	; ret z
 
 .obeylevel
 	; The maximum obedience level is constrained by owned badges:
@@ -697,7 +697,7 @@ BattleCommand_CheckObedience:
 	jr nz, .getlevel
 
 	; no badges
-	ld a, 25
+	ld a, 30
 
 .getlevel
 ; c = obedience level
@@ -2668,6 +2668,8 @@ PlayerAttackDamage:
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
+	
+	call SandstormSpDefBoost
 
 	ld a, [wEnemyScreens]
 	bit SCREENS_LIGHT_SCREEN, a
@@ -2922,6 +2924,8 @@ EnemyAttackDamage:
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
+	
+	call SandstormSpDefBoost
 
 	ld a, [wPlayerScreens]
 	bit SCREENS_LIGHT_SCREEN, a
@@ -6604,6 +6608,36 @@ BattleCommand_CheckSafeguard:
 	ld hl, SafeguardProtectText
 	call StdBattleTextbox
 	jp EndMoveEffect
+	
+SandstormSpDefBoost: ; Courtesy of Idain
+; First, check if Sandstorm is active.
+	ld a, [wBattleWeather]
+	cp WEATHER_SANDSTORM
+	ret nz
+
+; Then, check the opponent's types.
+	ld hl, wEnemyMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .ok
+	ld hl, wBattleMonType1
+.ok
+	ld a, [hli]
+	cp ROCK
+	jr z, .start_boost
+	ld a, [hl]
+	cp ROCK
+	ret nz
+
+.start_boost
+	ld h, b
+	ld l, c
+	srl b
+	rr c
+	add hl, bc
+	ld b, h
+	ld c, l
+	ret
 
 INCLUDE "engine/battle/move_effects/magnitude.asm"
 
@@ -6618,18 +6652,18 @@ BattleCommand_HealMorn:
 	ld b, MORN_F
 	jr BattleCommand_TimeBasedHealContinue
 
-BattleCommand_HealNite:
-; healnite
-	ld b, NITE_F
-	jr BattleCommand_TimeBasedHealContinue2
-
 BattleCommand_HealDay:
 ; healday
 	ld b, DAY_F
+	jr BattleCommand_TimeBasedHealContinue
+
+BattleCommand_HealNite:
+; healnite
+	ld b, NITE_F
 	; fallthrough
 
 BattleCommand_TimeBasedHealContinue:
-; Time- and weather-sensitive heal.
+; Weather-sensitive heal ONLY in Ultimate
 
 	ld hl, wBattleMonMaxHP
 	ld de, wBattleMonHP
@@ -6642,22 +6676,15 @@ BattleCommand_TimeBasedHealContinue:
 .start
 ; Index for .Multipliers
 ; Default restores half max HP.
-	ld c, 2
+	ld c, 1
 
 ; Don't bother healing if HP is already full.
+	inc c
 	push bc
 	call CompareBytes
 	pop bc
 	jr z, .Full
-
-; Don't factor in time of day in link battles.
-	ld a, [wLinkMode]
-	and a
-	jr nz, .Weather
-
-	and a
-	jr nz, .Weather
-	dec c ; double
+	dec c
 
 .Weather:
 	ld a, [wBattleWeather]
@@ -6704,87 +6731,6 @@ BattleCommand_TimeBasedHealContinue:
 	jp StdBattleTextbox
 
 .Multipliers:
-	dw GetThirdMaxHP
-	dw GetHalfMaxHP
-	dw GetTwoThirdsMaxHP
-	dw GetMaxHP
-	
-BattleCommand_TimeBasedHealContinue2:
-; Time- and weather-sensitive heal - this one is for Moonlight.
-
-	ld hl, wBattleMonMaxHP
-	ld de, wBattleMonHP
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .start2
-	ld hl, wEnemyMonMaxHP
-	ld de, wEnemyMonHP
-
-.start2
-; Index for .Multipliers
-; Default restores half max HP.
-	ld c, 2
-
-; Don't bother healing if HP is already full.
-	push bc
-	call CompareBytes
-	pop bc
-	jr z, .Full2
-
-; Don't factor in time of day in link battles.
-	ld a, [wLinkMode]
-	and a
-	jr nz, .Weather2
-
-	and a
-	jr nz, .Weather2
-	dec c ; double
-
-.Weather2:
-	ld a, [wBattleWeather]
-	and a
-	jr z, .Heal2
-
-; x2 in sun
-; /2 in rain/sandstorm
-	inc c
-	cp WEATHER_RAIN
-	jr z, .Heal2
-	dec c
-	dec c
-
-.Heal2:
-	ld b, 0
-	ld hl, .Multipliers2
-	add hl, bc
-	add hl, bc
-
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	ld a, BANK(GetMaxHP)
-	rst FarCall
-
-	call AnimateCurrentMove
-	call BattleCommand_SwitchTurn
-
-	callfar RestoreHP
-
-	call BattleCommand_SwitchTurn
-	call UpdateUserInParty
-
-; 'regained health!'
-	ld hl, RegainedHealthText
-	jp StdBattleTextbox
-
-.Full2:
-	call AnimateFailedMove
-
-; 'hp is full!'
-	ld hl, HPIsFullText
-	jp StdBattleTextbox
-
-.Multipliers2:
 	dw GetThirdMaxHP
 	dw GetHalfMaxHP
 	dw GetTwoThirdsMaxHP

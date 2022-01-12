@@ -1713,7 +1713,6 @@ DebugMobileTrade:
 	db "マツミヤ@@"
 
 LoadMobileAdapterPalette:
-	ld a, [wc74e]
 	and $7f
 	cp $8 ; CONST: Amount of mobile adapters
 	jr c, .asm_108d12

@@ -327,7 +327,6 @@ Function11c1b9:
 	push af
 	ld a, $5
 	ldh [rSVBK], a
-	ld hl, wc6d0
 	ld de, wLYOverrides
 	ld bc, $100
 	call CopyBytes

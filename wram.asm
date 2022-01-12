@@ -271,8 +271,6 @@ wc31c:: db
 wc31d:: db
 wc31e:: db
 wc31f:: db
-wc320:: ds 38
-wc346:: ds 102
 wc3ac:: ds 8
 ENDU
 
@@ -299,7 +297,6 @@ wSpriteAnimsEnd::
 
 ; mobile data
 wc3cc:: ds 1
-wc3cd:: ds 31
 wc3ec:: ds 1
 wc3ed:: ds 1
 wc3ee:: ds 1
@@ -912,7 +909,6 @@ wDummyGameEnd::
 
 NEXTU
 ; mobile data
-wc6d0:: ds 56
 wc708:: db
 wc709:: db
 wc70a:: db
@@ -924,8 +920,6 @@ wc70f:: db
 wc710:: db
 wc711:: db
 wc712:: ds 7
-wc719:: ds 53
-wc74e:: ds 107
 wc7b9:: ds 1
 wc7ba:: ds 1
 wc7bb:: ds 2
@@ -1160,7 +1154,6 @@ wMobileSDK_PacketBuffer:: ds 18
 wcb59:: ds 20
 wcb6d:: ds 1
 wcb6e:: ds 22
-wcb84:: ds 100
 wcbe8:: dw
 wLinkOTPartyMonTypes:: ds 2 * PARTY_LENGTH
 	ds 84

@@ -236,7 +236,6 @@ Gen2ToGen2LinkComms:
 	cp LINK_TRADECENTER
 	jr nz, .not_trading
 	ld hl, wc9f4
-	ld de, wcb84
 	ld bc, $186
 	call ExchangeBytes
 
@@ -286,7 +285,6 @@ Gen2ToGen2LinkComms:
 	ld a, [wLinkMode]
 	cp LINK_TRADECENTER
 	jp nz, .skip_mail
-	ld hl, wcb84
 .loop2
 	ld a, [hli]
 	cp MAIL_MSG_LENGTH
@@ -298,10 +296,8 @@ Gen2ToGen2LinkComms:
 	cp MAIL_MSG_LENGTH
 	jr z, .loop3
 	dec hl
-	ld de, wcb84
 	ld bc, $190 ; 400
 	call CopyBytes
-	ld hl, wcb84
 	ld bc, $c6 ; 198
 .loop4
 	ld a, [hl]
@@ -329,7 +325,6 @@ Gen2ToGen2LinkComms:
 	jr .loop5
 
 .start_copying_mail
-	ld hl, wcb84
 	ld de, wc9f4
 	ld b, PARTY_LENGTH
 .copy_mail_loop

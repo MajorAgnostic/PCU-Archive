@@ -17,6 +17,7 @@ INCLUDE "maps/GoldenrodDeptStore6F.asm"
 INCLUDE "maps/GoldenrodDeptStoreElevator.asm"
 INCLUDE "maps/GoldenrodDeptStoreRoof.asm"
 INCLUDE "maps/GoldenrodGameCorner.asm"
+INCLUDE "maps/SilverCaveOutside.asm"
 
 
 SECTION "Map Scripts 2", ROMX
@@ -55,6 +56,8 @@ INCLUDE "maps/RadioTower1F.asm"
 INCLUDE "maps/RadioTower2F.asm"
 INCLUDE "maps/RadioTower3F.asm"
 INCLUDE "maps/RadioTower4F.asm"
+INCLUDE "maps/ViridianGym.asm"
+INCLUDE "maps/Route15.asm"
 
 
 SECTION "Map Scripts 4", ROMX
@@ -67,6 +70,7 @@ INCLUDE "maps/PokecomCenterAdminOfficeMobile.asm"
 INCLUDE "maps/IlexForestAzaleaGate.asm"
 INCLUDE "maps/Route34IlexForestGate.asm"
 INCLUDE "maps/DayCare.asm"
+INCLUDE "maps/ViridianForest.asm"
 
 
 SECTION "Map Scripts 5", ROMX
@@ -263,6 +267,7 @@ INCLUDE "maps/TinTower8F.asm"
 INCLUDE "maps/TinTower9F.asm"
 INCLUDE "maps/BurnedTower1F.asm"
 INCLUDE "maps/BurnedTowerB1F.asm"
+INCLUDE "maps/SeafoamGym.asm"
 
 
 SECTION "Map Scripts 15", ROMX
@@ -488,11 +493,3 @@ INCLUDE "maps/SeafoamIslandsEntrance.asm"
 INCLUDE "maps/LancesRoom.asm"
 INCLUDE "maps/Route5CleanseTagHouse.asm"
 INCLUDE "maps/RockTunnelB1F.asm"
-
-SECTION "Map Scripts 26", ROMX
-
-INCLUDE "maps/SilverCaveOutside.asm"
-INCLUDE "maps/ViridianGym.asm"
-INCLUDE "maps/Route15.asm"
-INCLUDE "maps/ViridianForest.asm"
-INCLUDE "maps/SeafoamGym.asm"

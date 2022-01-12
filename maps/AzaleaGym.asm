@@ -157,6 +157,8 @@ AzaleaGymGuideScript:
 	faceplayer
 	checkevent EVENT_BEAT_BUGSY
 	iftrue .AzaleaGymGuideWinScript
+	checkevent EVENT_GOT_CYNDAQUIL_FROM_ELM
+	iftrue .CyndaquilGymGuide
 	opentext
 	writetext AzaleaGymGuideText
 	waitbutton
@@ -166,6 +168,13 @@ AzaleaGymGuideScript:
 .AzaleaGymGuideWinScript:
 	opentext
 	writetext AzaleaGymGuideWinText
+	waitbutton
+	closetext
+	end
+	
+.CyndaquilGymGuide:
+	opentext
+	writetext AzaleaGymGuideText2
 	waitbutton
 	closetext
 	end
@@ -381,6 +390,33 @@ AzaleaGymGuideText:
 	
 	para "on a certain #-"
 	line "MON of his."
+	done
+	
+AzaleaGymGuideText2:
+	text "Yo, challenger!"
+
+	para "BUGSY's young, but"
+	line "his knowledge of"
+
+	para "bug #MON is for"
+	line "real."
+
+	para "It's going to be"
+	line "tough without my"
+	cont "advice."
+
+	para "Let's see… Bug"
+	line "#MON don't like"
+	cont "fire."
+
+	para "Flying-type moves"
+	line "are super-effec-"
+	
+	para "tive too, but your"
+	line "best bet to take"
+	
+	para "down his ace is a"
+	line "rock-type move!"
 	done
 
 AzaleaGymGuideWinText:

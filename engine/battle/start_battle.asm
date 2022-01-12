@@ -111,10 +111,6 @@ PlayBattleMusic:
 	ld de, MUSIC_CHAMPION_BATTLE
 	cp CHAMPION
 	jp z, .done
-	cp CAL
-	jp z, .done
-	cp CRYSTAL
-	jp z, .done
 	cp CLAIR2
 	jp z, .done
 	cp CHAMPION2
@@ -130,7 +126,7 @@ PlayBattleMusic:
 	
 	ld de, MUSIC_ZINNIA_BATTLE
 	cp ANDREA
-	jr z, .done
+	jp z, .done
 	
 	ld de, MUSIC_SUICUNE_BATTLE
 	cp MORTY2
@@ -147,10 +143,15 @@ PlayBattleMusic:
 	jr z, .done
 	
 	ld de, MUSIC_UNOVA_E4
+	cp CAL
+	jr z, .done
+	cp CRYSTAL
+	jr z, .done
 	cp EXECUTIVEM
 	jr z, .done
 	cp EXECUTIVEF
 	jr z, .done
+	
 	
 	ld de, MUSIC_ALOLA_E4
 	cp ARCHER
