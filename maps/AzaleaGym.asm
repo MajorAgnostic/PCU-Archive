@@ -32,6 +32,7 @@ AzaleaGymBugsyScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_HIVEBADGE
+	loadmem wLevelCap, 40
 	readvar VAR_BADGES
 	scall AzaleaGymActivateRockets
 .FightDone:
@@ -62,6 +63,7 @@ AzaleaGymBugsyScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_HIVEBADGE
+	loadmem wLevelCap, 40
 	readvar VAR_BADGES
 	scall AzaleaGymActivateRockets
 	checkevent EVENT_GOT_TM49_FURY_CUTTER
@@ -230,8 +232,9 @@ BugsyText_HiveBadgeSpeech:
 	para "If you have it,"
 	line "#MON up to L40"
 
-	para "will obey you,"
-	line "even traded ones."
+	para "will gain experi-"
+	line "ence and obey you,"
+	cont "even traded ones."
 
 	para "#MON that know"
 	line "CUT will be able"

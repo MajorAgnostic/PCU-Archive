@@ -970,7 +970,7 @@ Route32_MapEvents:
 	bg_event  9,  1, BGEVENT_READ, Route32RuinsSign
 	bg_event 10, 84, BGEVENT_READ, Route32UnionCaveSign
 	bg_event 12, 73, BGEVENT_READ, Route32PokecenterSign
-	bg_event 12, 67, BGEVENT_ITEM, Route32HiddenGreatBall
+	bg_event 11, 67, BGEVENT_ITEM, Route32HiddenGreatBall
 	bg_event 11, 40, BGEVENT_ITEM, Route32HiddenSuperPotion
 	bg_event  4, 24, BGEVENT_READ, Route35ShortcutSign
 

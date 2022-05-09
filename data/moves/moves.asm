@@ -168,7 +168,7 @@ Moves:
 	move FURY_SWIPES,  EFFECT_MULTI_HIT,          18, NORMAL,        95, 15,   0
 	move BONEMERANG,   EFFECT_DOUBLE_HIT,         55, GROUND,        90, 10,   0
 	move REST,         EFFECT_HEAL,                0, PSYCHIC_TYPE, 100, 10,   0
-	move ROCK_SLIDE,   EFFECT_ROCK_SLIDE,         75, ROCK,          90, 30,  15
+	move ROCK_SLIDE,   EFFECT_ROCK_SLIDE,         75, ROCK,          90, 15,  30
 	move HYPER_FANG,   EFFECT_FLINCH_HIT,         80, NORMAL,        90, 15,  10
 	move SHARPEN,      EFFECT_ATTACK_UP,           0, NORMAL,       100, 30,   0
 	move CONVERSION,   EFFECT_CONVERSION,          0, NORMAL,       100, 30,   0

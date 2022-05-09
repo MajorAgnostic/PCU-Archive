@@ -2777,7 +2777,7 @@ wViridianGymSceneID::                             db
 
 ; fight counts
 wJackFightCount::    db
-wBeverlyFightCount:: db ; unused
+wLevelCap::          db ; Level cap
 wHueyFightCount::    db
 wGavenFightCount::   db
 wBethFightCount::    db

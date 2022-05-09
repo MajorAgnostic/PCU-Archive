@@ -756,7 +756,7 @@ KarenGroup:
 			db $bb, $cc ; atk|def, spd|spc
 			dw $0159, $0159, $0159, $0159, $0159
 			db BERRY_JUICE
-			db SKY_ATTACK, FAINT_ATTACK, PURSUIT, MINIMIZE
+			db DRILL_PECK, FAINT_ATTACK, PURSUIT, MINIMIZE
 	db 67, PERSIAN
 			db $bb, $cc ; atk|def, spd|spc
 			dw $0159, $0159, $0159, $0159, $0159
@@ -2744,21 +2744,18 @@ PokemaniacGroup:
 	db -1 ; end
 
 	; POKEMANIAC (11)
-	db "ISSAC@", TRAINERTYPE_DVS | TRAINERTYPE_STAT_EXP | TRAINERTYPE_ITEM | TRAINERTYPE_MOVES
+	db "ISSAC@", TRAINERTYPE_DVS | TRAINERTYPE_STAT_EXP | TRAINERTYPE_MOVES
 	db 25, SHELLDER
 			db $bb, $bb ; atk|def, spd|spc
 			dw $0008, $0008, $0008, $0008, $0008
-			db NO_ITEM
 			db CLAMP, AURORA_BEAM, SUPERSONIC, PROTECT
 	db 25, PIDGEOTTO
 			db $bb, $bb ; atk|def, spd|spc
 			dw $0008, $0008, $0008, $0008, $0008
-			db NO_ITEM
 			db QUICK_ATTACK, SAND_ATTACK, WHIRLWIND, WING_ATTACK
 	db 26, LICKITUNG
 			db $dd, $dd ; atk|def, spd|spc
 			dw $0008, $0008, $0008, $0008, $0008
-			db LEFTOVERS
 			db CUT, DEFENSE_CURL, ROLLOUT, STOMP
 	db -1 ; end
 
@@ -7149,7 +7146,7 @@ KimonoGirlGroup:
 	db 33, UMBREON
 			db $cc, $cc
 			dw $000C, $000C, $000C, $000C, $000C
-			db GROWTH, PURSUIT, TOXIC, MOONLIGHT
+			db GROWTH, FAINT_ATTACK, TOXIC, MOONLIGHT
 	db -1 ; end
 
 	; KIMONO_GIRL (4)

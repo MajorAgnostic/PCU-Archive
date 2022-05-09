@@ -620,8 +620,7 @@ KurtsGranddaughterHelpText:
 	line "Grandpa now!"
 
 	para "We'll make good"
-	line "BALLS for you, so"
-	cont "please wait!"
+	line "BALLS for you!"
 	done
 
 KurtsGranddaughterFunText:

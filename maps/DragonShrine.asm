@@ -159,6 +159,7 @@ DragonShrine_MapScripts:
 	writetext DragonShrineHereRisingBadgeText
 	waitbutton
 	setflag ENGINE_RISINGBADGE
+	loadmem wLevelCap, 100
 	playsound SFX_GET_BADGE
 	waitsfx
 	special RestartMapMusic
@@ -649,6 +650,11 @@ DragonShrineRisingBadgeExplanationText:
 
 	para "command without"
 	line "question."
+	
+	para "Your #MON's"
+	line "ability to grow"
+	cont "has now been un-"
+	cont "shackled."
 	done
 
 DragonShrineSpeechlessText:

@@ -39,6 +39,7 @@ EcruteakGymMortyScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_FOGBADGE
+	loadmem wLevelCap, 50
 	readvar VAR_BADGES
 	scall EcruteakGymActivateRockets
 	setmapscene ECRUTEAK_TIN_TOWER_ENTRANCE, SCENE_FINISHED
@@ -236,7 +237,7 @@ MortyText_FogBadgeSpeech:
 	line "BADGE, #MON up"
 
 	para "to L50 will obey"
-	line "you."
+	line "you and grow."
 
 	para "Also, #MON that"
 	line "know SURF will be"
