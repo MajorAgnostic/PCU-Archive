@@ -1,35 +1,40 @@
 GetUnownLetter:
 ; Return Unown letter in wUnownLetter based on DVs at hl
 
-; Take the middle 2 bits of each DV and place them in order:
-;	atk  def  spd  spc
-;	.ww..xx.  .yy..zz.
-
-	; atk
-	ld a, [hl]
-	and %01100000
-	sla a
-	ld b, a
-	; def
+; hDividend = DVs
 	ld a, [hli]
-	and %00000110
-	swap a
-	srl a
-	or b
-	ld b, a
+	ldh [hDividend], a
+	ld a, [hl]
+	ldh [hDividend + 1], a
 
-	; spd
-	ld a, [hl]
-	and %01100000
-	swap a
-	sla a
-	or b
+	; hDivisor = 13  
+	ld a, 13
+	ldh [hDivisor], a
+
+	; divide 2-byte DVs by 13
+	ld b, 2
+	call Divide
+
+	ld a, [hld]
+	xor [hl]
 	ld b, a
-	; spc
-	ld a, [hl]
-	and %00000110
-	srl a
-	or b
+	swap b
+	xor b
+	ld b, a
+	rrca
+	rrca
+	xor b
+	ld b, a
+	rrca
+	xor b
+
+	; Unown letter = (DVs mod 13) * 2 + parity(DVs)
+	rra
+	ldh a, [hRemainder]
+	rla
+	inc a  ; 0-25 becomes 1-26
+	ld [wUnownLetter], a
+	ret
 
 ; Divide by 10 to get 0-25
 	ldh [hDividend + 3], a

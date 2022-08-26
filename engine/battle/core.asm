@@ -6132,6 +6132,11 @@ LoadEnemyMon:
 	ld a, [wLinkMode]
 	and a
 	jp nz, InitEnemyMon
+	
+; and also not in a BattleTower-Battle
+	ld a, [wInBattleTowerBattle]
+	bit 0, a
+	jp nz, InitEnemyMon
 
 ; Make sure everything knows what species we're working with
 	ld a, [wTempEnemyMonSpecies]
@@ -7059,6 +7064,10 @@ GiveExperiencePoints:
 ; Don't give experience if linked or in the Battle Tower.
 	ld a, [wLinkMode]
 	and a
+	ret nz
+	
+	ld a, [wInBattleTowerBattle]
+	bit 0, a
 	ret nz
 
 	call .EvenlyDivideExpAmongParticipants

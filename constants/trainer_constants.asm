@@ -17,7 +17,7 @@ ENDM
 ; - TrainerPalettes (see data/trainers/palettes.asm)
 ; - BTTrainerClassSprites (see data/trainers/sprites.asm)
 ; - BTTrainerClassGenders (see data/trainers/genders.asm)
-; trainer constants are Trainers indexes, for the sub-tables of TrainerGroups (see data/trainers/parties.asm)
+; trainer constants are Trainer's indexes, for the sub-tables of TrainerGroups (see data/trainers/parties.asm)
 CHRIS EQU __trainer_class__
 	trainerclass TRAINER_NONE ; 0
 	const PHONECONTACT_MOM
@@ -67,7 +67,6 @@ KRIS EQU __trainer_class__
 	const WILL2
 
 	trainerclass CAL ; c
-	const CAL2
 	const CAL3
 
 	trainerclass BRUNO ; d
@@ -100,6 +99,13 @@ KRIS EQU __trainer_class__
 	const JED
 	const MARC
 	const RICH
+	const LOWELL
+	const DANIAL
+	const LINDEN
+	const OSCAR
+	const WALDO
+	const MERLE
+	const EINSTEIN
 
 	trainerclass ERIKA ; 15
 	const ERIKA1
@@ -348,6 +354,21 @@ KRIS EQU __trainer_class__
 	const ELLIS
 	const ABNER
 	const DARIMI
+	
+	trainerclass SUPER_NERD ; 29
+	const STAN
+	const ERIC
+	const SAM
+	const TOM
+	const PAT
+	const SHAWN
+	const TERU
+	const HUGH
+	const MARKUS
+	const BRADY
+	const WESLEY
+	const CARY
+	const DYLAN
 
 	trainerclass FISHER ; 25
 	const JUSTIN
@@ -426,21 +447,6 @@ KRIS EQU __trainer_class__
 	const HUEY2
 	const HUEY3
 	const HUEY4
-
-	trainerclass SUPER_NERD ; 29
-	const STAN
-	const ERIC
-	const SAM
-	const TOM
-	const PAT
-	const SHAWN
-	const TERU
-	const HUGH
-	const MARKUS
-	const BRADY
-	const WESLEY
-	const CARY
-	const DYLAN
 
 	trainerclass RIVAL2 ; 2a
 	const RIVAL2_5_CHIKORITA
@@ -733,7 +739,6 @@ KRIS EQU __trainer_class__
 	
 	trainerclass MORTY2
 	const MORTY2A
-	const MORTY2B
 	
 	trainerclass CLAIR2
 	const CLAIR2A
@@ -743,14 +748,5 @@ KRIS EQU __trainer_class__
 	
 	trainerclass KING
 	const KIYO2
-	
-	trainerclass SCIENTIST2
-	const LOWELL
-	const DANIAL
-	const LINDEN
-	const OSCAR
-	const WALDO
-	const MERLE
-	const EINSTEIN
 
 NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

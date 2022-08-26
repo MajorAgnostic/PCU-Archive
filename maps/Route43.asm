@@ -86,7 +86,6 @@ TrainerPokemaniacBrent:
 	loadtrainer POKEMANIAC, BRENT1
 	startbattle
 	reloadmapafterbattle
-	loadmem wBrentFightCount, 1
 	clearflag ENGINE_BRENT_READY_FOR_REMATCH
 	end
 
@@ -94,7 +93,6 @@ TrainerPokemaniacBrent:
 	loadtrainer POKEMANIAC, BRENT2
 	startbattle
 	reloadmapafterbattle
-	loadmem wBrentFightCount, 2
 	clearflag ENGINE_BRENT_READY_FOR_REMATCH
 	end
 
@@ -102,7 +100,6 @@ TrainerPokemaniacBrent:
 	loadtrainer POKEMANIAC, BRENT3
 	startbattle
 	reloadmapafterbattle
-	loadmem wBrentFightCount, 3
 	clearflag ENGINE_BRENT_READY_FOR_REMATCH
 	end
 
@@ -207,7 +204,6 @@ TrainerPicnickerTiffany:
 	loadtrainer PICNICKER, TIFFANY3
 	startbattle
 	reloadmapafterbattle
-	loadmem wTiffanyFightCount, 1
 	clearflag ENGINE_TIFFANY_READY_FOR_REMATCH
 	end
 
@@ -215,7 +211,6 @@ TrainerPicnickerTiffany:
 	loadtrainer PICNICKER, TIFFANY1
 	startbattle
 	reloadmapafterbattle
-	loadmem wTiffanyFightCount, 2
 	clearflag ENGINE_TIFFANY_READY_FOR_REMATCH
 	end
 
@@ -223,7 +218,6 @@ TrainerPicnickerTiffany:
 	loadtrainer PICNICKER, TIFFANY2
 	startbattle
 	reloadmapafterbattle
-	loadmem wTiffanyFightCount, 3
 	clearflag ENGINE_TIFFANY_READY_FOR_REMATCH
 	end
 

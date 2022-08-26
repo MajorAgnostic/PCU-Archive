@@ -1303,17 +1303,17 @@ JohtoGrassWildMons:
 	; morn
 	db 22, SNUBBULL
 	db 23, NIDORAN_F
-	db 24, YANMA
+	db 24, ABRA
 	db 22, ABRA
 	db 24, GROWLITHE
 	db 23, DITTO
-	db 23, DITTO
+	db 25, YANMA
 	; day
 	db 22, SNUBBULL
 	db 23, NIDORAN_M
 	db 22, ABRA
 	db 24, GROWLITHE
-	db 24, YANMA
+	db 24, ABRA
 	db 23, DITTO
 	db 23, DITTO
 	; nite
@@ -1321,7 +1321,7 @@ JohtoGrassWildMons:
 	db 24, CLEFAIRY
 	db 23, PSYDUCK
 	db 22, ABRA
-	db 24, YANMA
+	db 24, DROWZEE
 	db 23, DITTO
 	db 23, DITTO
 
@@ -1440,7 +1440,7 @@ JohtoGrassWildMons:
 	db 39, GROWLITHE
 	db 40, VULPIX
 	db 41, TAUROS
-	db 41, ARBOK
+	db 41, AIPOM
 	db 40, FEAROW
 	db 42, GLIGAR
 	; day
@@ -1448,15 +1448,15 @@ JohtoGrassWildMons:
 	db 39, GROWLITHE
 	db 40, VULPIX
 	db 41, TAUROS
-	db 41, ARBOK
+	db 41, AIPOM
 	db 40, FEAROW
 	db 42, GLIGAR
 	; nite
-	db 40, DUNSPARCE
-	db 41, GIRAFARIG
-	db 39, VULPIX
-	db 41, TAUROS
 	db 40, HOUNDOUR
+	db 41, GIRAFARIG
+	db 39, EKANS
+	db 41, TAUROS
+	db 41, AIPOM
 	db 40, RATICATE
 	db 42, GLIGAR
 
@@ -1571,28 +1571,28 @@ JohtoGrassWildMons:
 	map_id SILVER_CAVE_OUTSIDE
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 87, SNEASEL
+	db 87, SKARMORY
 	db 88, URSARING
 	db 88, HERACROSS
 	db 88, XATU
 	db 89, DONPHAN
-	db 89, SUDOWOODO
-	db 90, SKARMORY
+	db 90, SUDOWOODO
+	db 70, IGGLYBUFF
 	; day
-	db 87, SNEASEL
+	db 87, SKARMORY
 	db 88, URSARING
 	db 88, HERACROSS
 	db 88, XATU
 	db 89, DONPHAN
-	db 89, SUDOWOODO
-	db 90, SKARMORY
+	db 90, SUDOWOODO
+	db 70, IGGLYBUFF
 	; nite
 	db 87, SNEASEL
 	db 88, SMEARGLE
 	db 88, STANTLER
 	db 88, XATU
 	db 89, DONPHAN
-	db 89, SUDOWOODO
-	db 71, TYROGUE
+	db 90, SUDOWOODO
+	db 70, IGGLYBUFF
 
 	db -1 ; end

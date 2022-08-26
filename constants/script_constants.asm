@@ -205,6 +205,8 @@ EMOTE_FROM_MEM EQU -1
 	const FRUITTREE_PEWTER_CITY_1 ; 1c
 	const FRUITTREE_PEWTER_CITY_2 ; 1d
 	const FRUITTREE_FUCHSIA_CITY  ; 1e
+	const FRUITTREE_FUCHSIA_CITY2 ; 1f
+	const FRUITTREE_ROUTE_14      ; 20
 NUM_FRUIT_TREES EQU const_value - 1
 
 ; describedecoration arguments

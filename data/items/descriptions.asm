@@ -65,7 +65,7 @@ ItemDescriptions:
 	dw EtherDesc
 	dw MaxReviveDesc
 	dw MaxElixerDesc
-	dw BlueScaleDesc
+	dw DarkScaleDesc
 	dw SecretPotionDesc
 	dw SSTicketDesc
 	dw MysteryEggDesc
@@ -515,9 +515,9 @@ MaxElixerDesc:
 	db   "Fully restores the"
 	next "PP of one #MON.@"
 
-BlueScaleDesc:
+DarkScaleDesc:
 	db   "A scale from the"
-	next "blue GYARADOS.@"
+	next "dark GYARADOS.@"
 
 SecretPotionDesc:
 	db   "Fully heals any"

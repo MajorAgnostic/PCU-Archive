@@ -130,8 +130,8 @@ FarmerMText_SickCow:
 	para "It'll give me lots"
 	line "o' milk if'n I"
 
-	para "feed it lots o'"
-	line "BERRIES, I reckon."
+	para "feed it a good ol'"
+	line "BERRY, I reckon."
 	done
 
 FarmerMText_BuyMilk:

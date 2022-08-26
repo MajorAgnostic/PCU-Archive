@@ -97,7 +97,6 @@ TrainerBirdKeeperJose2:
 	loadtrainer BIRD_KEEPER, JOSE2
 	startbattle
 	reloadmapafterbattle
-	loadmem wJoseFightCount, 1
 	clearflag ENGINE_JOSE_READY_FOR_REMATCH
 	end
 
@@ -105,7 +104,6 @@ TrainerBirdKeeperJose2:
 	loadtrainer BIRD_KEEPER, JOSE1
 	startbattle
 	reloadmapafterbattle
-	loadmem wJoseFightCount, 2
 	clearflag ENGINE_JOSE_READY_FOR_REMATCH
 	end
 
@@ -222,7 +220,6 @@ TrainerCooltrainerfReena:
 	loadtrainer COOLTRAINERF, REENA1
 	startbattle
 	reloadmapafterbattle
-	loadmem wReenaFightCount, 1
 	clearflag ENGINE_REENA_READY_FOR_REMATCH
 	end
 
@@ -230,7 +227,6 @@ TrainerCooltrainerfReena:
 	loadtrainer COOLTRAINERF, REENA2
 	startbattle
 	reloadmapafterbattle
-	loadmem wReenaFightCount, 2
 	clearflag ENGINE_REENA_READY_FOR_REMATCH
 	end
 

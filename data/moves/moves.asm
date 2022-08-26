@@ -26,7 +26,7 @@ Moves:
 	move GUILLOTINE,   EFFECT_OHKO,                0, NORMAL,        30,  5,   0
 	move RAZOR_WIND,   EFFECT_GUST,               70, FLYING,        95, 10,   0
 	move SWORDS_DANCE, EFFECT_ATTACK_UP_2,         0, NORMAL,       100, 30,   0
-	move CUT,          EFFECT_FLINCH_HIT,         70, BUG,           95, 10,  20
+	move CUT,          EFFECT_FLINCH_HIT,         60, BUG,           95, 10,  20
 	move GUST,         EFFECT_GUST,               40, FLYING,       100, 35,   0
 	move WING_ATTACK,  EFFECT_NORMAL_HIT,         60, FLYING,       100, 35,   0
 	move WHIRLWIND,    EFFECT_FORCE_SWITCH,        0, FLYING,       100, 20,   0
@@ -62,7 +62,7 @@ Moves:
 	move SUPERSONIC,   EFFECT_CONFUSE,             0, NORMAL,        70, 15,   0
 	move SONICBOOM,    EFFECT_STATIC_DAMAGE,      25, NORMAL,        90, 20,   0
 	move DISABLE,      EFFECT_DISABLE,             0, NORMAL,       100, 10,   0
-	move ACID,         EFFECT_BURN_HIT,           50, POISON,       100, 15,  20
+	move ACID,         EFFECT_BURN_HIT,           50, POISON,       100, 15,  10
 	move EMBER,        EFFECT_BURN_HIT,           40, FIRE,         100, 25,  10
 	move FLAMETHROWER, EFFECT_BURN_HIT,           95, FIRE,         100, 15,  10
 	move MIST,         EFFECT_MIST,                0, ICE,          100, 30,   0
@@ -150,7 +150,7 @@ Moves:
 	move HI_JUMP_KICK, EFFECT_JUMP_KICK,         100, FIGHTING,      90, 20,   0
 	move GLARE,        EFFECT_PARALYZE,            0, NORMAL,       100, 15,   0
 	move DREAM_EATER,  EFFECT_DREAM_EATER,       100, PSYCHIC_TYPE, 100, 15,   0
-	move POISON_GAS,   EFFECT_TOXIC,               0, POISON,        95,  5,   0
+	move POISON_GAS,   EFFECT_TOXIC,               0, POISON,       100,  5,   0
 	move BARRAGE,      EFFECT_FALSE_SWIPE,       140, FIRE,          90,  5,   0
 	move LEECH_LIFE,   EFFECT_LEECH_HIT,          60, BUG,          100, 10,   0
 	move LOVELY_KISS,  EFFECT_SLEEP,               0, NORMAL,        75, 10,   0
@@ -201,7 +201,7 @@ Moves:
 	move BELLY_DRUM,   EFFECT_BELLY_DRUM,          0, NORMAL,       100, 10,   0
 	move SLUDGE_BOMB,  EFFECT_POISON_HIT,         90, POISON,       100, 10,  30
 	move MUD_SLAP,     EFFECT_ACCURACY_DOWN_HIT,  20, GROUND,       100, 10, 100
-	move OCTAZOOKA,    EFFECT_ACCURACY_DOWN_HIT,  65, WATER,        100, 10,  50
+	move OCTAZOOKA,    EFFECT_ACCURACY_DOWN_HIT,  65, DARK,         100, 10,  50
 	move SPIKES,       EFFECT_SPIKES,              0, GROUND,       100, 20,   0
 	move ZAP_CANNON,   EFFECT_PARALYZE_HIT,      100, ELECTRIC,      50,  5, 100
 	move FORESIGHT,    EFFECT_FORESIGHT,           0, NORMAL,       100, 40,   0
@@ -261,5 +261,5 @@ Moves:
 	move SHADOW_BALL,  EFFECT_DEFENSE_DOWN_HIT,   80, GHOST,        100, 15,  20
 	move FUTURE_SIGHT, EFFECT_FUTURE_SIGHT,      100, PSYCHIC_TYPE, 100, 10,   0
 	move ROCK_SMASH,   EFFECT_DEFENSE_DOWN_HIT,   40, FIGHTING,     100, 10, 100
-	move WHIRLPOOL,    EFFECT_PRIORITY_HIT,       60, WATER,        100, 10,   0
+	move WHIRLPOOL,    EFFECT_PRIORITY_HIT,       50, WATER,        100, 10,   0
 	move BEAT_UP,      EFFECT_MULTI_HIT,          27, DARK,          95, 10,   0

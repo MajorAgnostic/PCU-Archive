@@ -1,4 +1,4 @@
-GAME_FEE EQU 1000
+GAME_FEE EQU 2000
 	
 	object_const_def
 	const FUCHSIACITY_YOUNGSTER
@@ -37,7 +37,7 @@ FuchsiaCityCloysterScript:
 	playsound SFX_TRANSACTION
 	writetext GameHereYouGoText
 	waitbutton
-	verbosegiveitem LURE_BALL, 10
+	verbosegiveitem LURE_BALL, 5
 	takemoney YOUR_MONEY, GAME_FEE
 	waitsfx
 	writetext GameStartText
@@ -94,6 +94,9 @@ GameSign:
 FuchsiaCityFruitTree:
 	fruittree FRUITTREE_FUCHSIA_CITY
 	
+FuchsiaCityFruitTree2:
+	fruittree FRUITTREE_FUCHSIA_CITY2
+	
 GameTeleportIntoSkyMovement:
 	teleport_from
 	step_end
@@ -133,7 +136,7 @@ FuchsiaCityCloysterText:
 	cont "want!"
 	
 	para "It'll only cost ya"
-	line "¥1000."
+	line "¥2000."
 	
 	para "I'll even throw in"
 	line "some LURE BALLs!"
@@ -267,4 +270,5 @@ FuchsiaCity_MapEvents:
 	object_event 13,  8, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityPokefanM, -1
 	object_event 16, 14, SPRITE_TEACHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FuchsiaCityTeacher, -1
 	object_event  8,  1, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityFruitTree, -1
+	object_event 31,  4, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityFruitTree2, -1
 	object_event 33, 24, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityCloysterScript, -1

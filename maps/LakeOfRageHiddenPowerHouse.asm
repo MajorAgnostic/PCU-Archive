@@ -10,20 +10,17 @@ HiddenPowerGuy:
 	faceplayer
 	opentext
 	checkevent EVENT_GOT_TM10_HIDDEN_POWER
-	iftrue .AlreadyGotItem
+	iftrue .CheckHiddenPower
 	writetext HiddenPowerGuyText1
 	promptbutton
 	verbosegiveitem TM_HIDDEN_POWER
-	iffalse .Done
 	setevent EVENT_GOT_TM10_HIDDEN_POWER
 	writetext HiddenPowerGuyText2
 	waitbutton
-	closetext
-	end
-.AlreadyGotItem:
-	writetext HiddenPowerGuyText3
-	waitbutton
+.CheckHiddenPower:
+	special HiddenPowerGuru
 .Done:
+	waitbutton
 	closetext
 	end
 
@@ -42,9 +39,9 @@ HiddenPowerGuyText1:
 
 	para "Let me share my"
 	line "power with your"
-
-	para "#MON."
-	line "Take this, child."
+	cont "#MON."
+	
+	para "Take this, child."
 	done
 
 HiddenPowerGuyText2:

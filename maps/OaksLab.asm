@@ -42,6 +42,7 @@ Oak:
 	promptbutton
 	setevent EVENT_OPENED_RIGHTBB
 	setevent EVENT_NO_E4_REMATCH
+	clearevent EVENT_E4_MART
 	sjump .CheckPokedex
 
 .Complain:

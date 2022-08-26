@@ -25,14 +25,6 @@ ReadTrainerParty:
 	call ByteFill
 
 	ld a, [wOtherTrainerClass]
-	cp CAL
-	jr nz, .not_cal2
-	ld a, [wOtherTrainerID]
-	cp CAL2
-	jr z, .cal2
-	ld a, [wOtherTrainerClass]
-.not_cal2
-
 	dec a
 	ld c, a
 	ld b, 0
@@ -71,17 +63,6 @@ ReadTrainerParty:
 
 .done
 	jp ComputeTrainerReward
-
-.cal2
-	ld a, BANK(sMysteryGiftTrainer)
-	call OpenSRAM
-	ld a, TRAINERTYPE_MOVES
-	ld [wOtherTrainerType], a
-	call OpenSRAM
-	ld de, sMysteryGiftTrainer
-	call ReadTrainerPartyPieces
-	call CloseSRAM
-	jr .done
 
 ReadTrainerPartyPieces:
 	ld h, d

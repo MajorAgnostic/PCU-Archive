@@ -54,7 +54,7 @@ KantoWaterWildMons:
 	db 6 percent ; encounter rate
 	db 79, SEEL
 	db 81, DEWGONG
-	db 82, CORSOLA
+	db 82, LANTURN
 
 	map_id ROUTE_21
 	db 6 percent ; encounter rate

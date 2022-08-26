@@ -38,11 +38,11 @@ TrainerGroups:
 	dba TeacherGroup
 	dba SabrinaGroup
 	dba BugCatcherGroup
+	dba SuperNerdGroup
 	dba FisherGroup
 	dba SwimmerMGroup
 	dba SwimmerFGroup
 	dba SailorGroup
-	dba SuperNerdGroup
 	dba Rival2Group
 	dba GuitaristGroup
 	dba HikerGroup
@@ -78,4 +78,3 @@ TrainerGroups:
 	dba Clair2Group
 	dba Champion2Group
 	dba KingGroup
-	dba Scientist2Group

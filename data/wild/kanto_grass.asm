@@ -173,7 +173,7 @@ KantoGrassWildMons:
 	db 78, PIDGEOT
 	db 79, LICKITUNG
 	db 79, LICKITUNG
-	db 78, IVYSAUR
+	db 70, TOGEPI
 	; day
 	db 77, VULPIX
 	db 77, PORYGON
@@ -181,7 +181,7 @@ KantoGrassWildMons:
 	db 78, PIDGEOT
 	db 79, LICKITUNG
 	db 79, LICKITUNG
-	db 78, IVYSAUR
+	db 70, TOGEPI
 	; nite
 	db 77, VULPIX
 	db 77, PORYGON
@@ -189,7 +189,7 @@ KantoGrassWildMons:
 	db 78, NOCTOWL
 	db 79, LICKITUNG
 	db 79, LICKITUNG
-	db 78, IVYSAUR
+	db 70, TOGEPI
 	
 	map_id VIRIDIAN_FOREST
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
@@ -198,25 +198,25 @@ KantoGrassWildMons:
 	db 77, PIKACHU
 	db 78, LEDIAN
 	db 78, PARASECT
-	db 79, RAICHU
-	db 80, PINSIR
-	db 80, PINSIR
+	db 79, PINSIR
+	db 80, RAICHU
+	db 70, PICHU
 	; day
 	db 77, BEEDRILL
 	db 77, PIKACHU
 	db 78, LEDIAN
 	db 78, PARASECT
-	db 79, RAICHU
-	db 80, PINSIR
-	db 80, PINSIR
+	db 79, PINSIR
+	db 80, RAICHU
+	db 70, PICHU
 	; nite
-	db 77, VENONAT
+	db 77, VENOMOTH
 	db 77, PIKACHU
-	db 78, LEDIAN
+	db 78, FORRETRESS
 	db 78, ARIADOS
-	db 79, RAICHU
-	db 80, PINSIR
-	db 80, PINSIR
+	db 79, PINSIR
+	db 80, RAICHU
+	db 70, PICHU
 
 	map_id ROUTE_3
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
@@ -281,7 +281,7 @@ KantoGrassWildMons:
 	db 66, KADABRA
 	db 67, CHANSEY
 	db 68, ALAKAZAM
-	db 68, ALAKAZAM
+	db 60, TOGEPI
 	; day
 	db 66, PIDGEOT
 	db 65, KADABRA
@@ -545,48 +545,48 @@ KantoGrassWildMons:
 	map_id ROUTE_16
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 66, GRIMER
 	db 66, KOFFING
-	db 67, WEEZING
+	db 67, DITTO
+	db 68, WEEZING
 	db 67, FEAROW
-	db 68, GLIGAR
-	db 69, DITTO
+	db 69, GLIGAR
+	db 69, MUK
 	db 69, MUK
 	; day
-	db 66, GRIMER
 	db 66, KOFFING
-	db 67, WEEZING
+	db 67, DITTO
+	db 68, WEEZING
 	db 67, FEAROW
-	db 68, GLIGAR
-	db 69, DITTO
+	db 69, GLIGAR
+	db 69, MUK
 	db 69, MUK
 	; nite
-	db 66, GRIMER
 	db 66, KOFFING
-	db 67, MUK
+	db 67, DITTO
+	db 68, WEEZING
 	db 67, NOCTOWL
-	db 68, GLIGAR
-	db 69, DITTO
-	db 69, WEEZING
+	db 69, GLIGAR
+	db 69, MUK
+	db 69, MUK
 
 	map_id ROUTE_17
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 74, GRIMER
 	db 74, KOFFING
-	db 75, WEEZING
+	db 75, MUK
 	db 75, FEAROW
 	db 76, GLIGAR
 	db 77, MAGCARGO
-	db 77, MUK
+	db 77, MAGCARGO
 	; day
 	db 74, GRIMER
 	db 74, KOFFING
-	db 75, WEEZING
+	db 75, MUK
 	db 75, FEAROW
 	db 76, GLIGAR
 	db 77, MAGCARGO
-	db 77, MUK
+	db 77, MAGCARGO
 	; nite
 	db 74, GRIMER
 	db 74, KOFFING
@@ -630,25 +630,25 @@ KantoGrassWildMons:
 	db 78, PRIMEAPE
 	db 78, MAGMAR
 	db 79, MAGCARGO
-	db 79, MR__MIME
-	db 80, EXEGGUTOR
-	db 81, EEVEE
+	db 80, MR__MIME
+	db 70, EEVEE
+	db 70, EEVEE
 	; day
 	db 77, SLUGMA
 	db 78, PRIMEAPE
 	db 78, MAGMAR
 	db 79, MAGCARGO
-	db 79, MR__MIME
-	db 80, EXEGGUTOR
-	db 81, EEVEE
+	db 80, MR__MIME
+	db 70, EEVEE
+	db 70, EEVEE
 	; nite
 	db 77, MANKEY
 	db 78, PRIMEAPE
 	db 78, MAGMAR
 	db 79, MAGCARGO
-	db 79, MR__MIME
-	db 80, EXEGGUTOR
-	db 81, EEVEE
+	db 80, MR__MIME
+	db 70, EEVEE
+	db 70, EEVEE
 
 	map_id ROUTE_21
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
@@ -834,10 +834,10 @@ KantoGrassWildMons:
 	db 79, SEEL
 	db 80, GOLBAT
 	db 80, CLOYSTER
-	db 81, JYNX
-	db 82, DEWGONG
 	db 82, PILOSWINE
+	db 81, SNEASEL
 	db 83, LAPRAS
+	db 70, SMOOCHUM
 	
 	map_id SEAFOAM_ISLANDS_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
@@ -861,10 +861,10 @@ KantoGrassWildMons:
 	db 79, SEEL
 	db 80, GOLBAT
 	db 80, CLOYSTER
-	db 81, JYNX
-	db 82, DEWGONG
 	db 82, PILOSWINE
+	db 81, SNEASEL
 	db 83, LAPRAS
+	db 70, SMOOCHUM
 	
 	map_id SEAFOAM_ISLANDS_B2F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
@@ -888,10 +888,10 @@ KantoGrassWildMons:
 	db 79, SEEL
 	db 80, GOLBAT
 	db 80, CLOYSTER
-	db 81, JYNX
-	db 82, DEWGONG
 	db 82, PILOSWINE
+	db 81, SNEASEL
 	db 83, LAPRAS
+	db 70, SMOOCHUM
 	
 	map_id SEAFOAM_ISLANDS_B3F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
@@ -915,10 +915,10 @@ KantoGrassWildMons:
 	db 79, SEEL
 	db 80, GOLBAT
 	db 80, CLOYSTER
-	db 81, JYNX
-	db 82, DEWGONG
 	db 82, PILOSWINE
+	db 81, SNEASEL
 	db 83, LAPRAS
+	db 70, SMOOCHUM
 	
 	map_id SEAFOAM_ISLANDS_B4F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
@@ -942,36 +942,36 @@ KantoGrassWildMons:
 	db 79, SEEL
 	db 80, GOLBAT
 	db 80, CLOYSTER
-	db 81, JYNX
-	db 82, DEWGONG
 	db 82, PILOSWINE
+	db 81, SNEASEL
 	db 83, LAPRAS
+	db 70, SMOOCHUM
 
 	map_id ROUTE_28
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 86, RAPIDASH
-	db 87, URSARING
+	db 87, RAPIDASH
+	db 86, URSARING
 	db 86, TANGELA
 	db 87, DODRIO
 	db 88, AIPOM
-	db 88, PORYGON2
-	db 89, SKARMORY
+	db 89, PORYGON2
+	db 70, CLEFFA
 	; day
-	db 86, RAPIDASH
-	db 87, URSARING
+	db 87, RAPIDASH
+	db 86, URSARING
 	db 86, TANGELA
 	db 87, DODRIO
 	db 88, AIPOM
-	db 88, PORYGON2
-	db 89, SKARMORY
+	db 89, PORYGON2
+	db 70, CLEFFA
 	; nite
-	db 86, RAPIDASH
-	db 87, SMEARGLE
+	db 87, HOUNDOOM
+	db 86, SMEARGLE
 	db 86, TANGELA
 	db 87, DODRIO
 	db 88, AIPOM
-	db 88, PORYGON2
-	db 70, TYROGUE
+	db 89, PORYGON2
+	db 70, CLEFFA
 
 	db -1 ; end

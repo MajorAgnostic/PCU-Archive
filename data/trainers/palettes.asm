@@ -43,11 +43,11 @@ INCBIN "gfx/trainers/skier.gbcpal", middle_colors
 INCBIN "gfx/trainers/teacher.gbcpal", middle_colors
 INCBIN "gfx/trainers/sabrina.gbcpal", middle_colors
 INCBIN "gfx/trainers/bug_catcher.gbcpal", middle_colors
+INCBIN "gfx/trainers/super_nerd.gbcpal", middle_colors
 INCBIN "gfx/trainers/fisher.gbcpal", middle_colors
 INCBIN "gfx/trainers/swimmer_m.gbcpal", middle_colors
 INCBIN "gfx/trainers/swimmer_f.gbcpal", middle_colors
 INCBIN "gfx/trainers/sailor.gbcpal", middle_colors
-INCBIN "gfx/trainers/super_nerd.gbcpal", middle_colors
 INCBIN "gfx/trainers/rival2.gbcpal", middle_colors
 INCBIN "gfx/trainers/guitarist.gbcpal", middle_colors
 INCBIN "gfx/trainers/hiker.gbcpal", middle_colors
@@ -83,4 +83,3 @@ INCBIN "gfx/trainers/morty2.gbcpal", middle_colors
 INCBIN "gfx/trainers/clair2.gbcpal", middle_colors
 INCBIN "gfx/trainers/champion2.gbcpal", middle_colors
 INCBIN "gfx/trainers/blackbelt_t.gbcpal", middle_colors
-INCBIN "gfx/trainers/scientist.gbcpal", middle_colors

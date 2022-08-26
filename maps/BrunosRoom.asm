@@ -191,7 +191,7 @@ BrunoScript_BrunoDefeatText2:
 	line "for the trials"
 	cont "to come."
 
-	para "Continue on!"
+	para "Press on!"
 	done
 
 BrunosRoom_MapEvents:

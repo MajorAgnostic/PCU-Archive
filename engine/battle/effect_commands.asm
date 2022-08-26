@@ -2798,7 +2798,7 @@ CheckDamageStatsCritical:
 ThickClubBoost:
 ; Return in hl the stat value at hl.
 
-; If the attacking monster is Cubone or Marowak and
+; If the attacking monster is Marowak or Alolan Marowak and
 ; it's holding a Thick Club, double it.
 	push bc
 	push de
@@ -3680,6 +3680,32 @@ UpdateMoveData:
 	call GetMoveData
 	call GetMoveName
 	jp CopyName1
+	
+CheckForStatusIfAlreadyHasAny:
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVarAddr
+	ld d, h
+	ld e, l
+	and SLP
+	ld hl, AlreadyAsleepText
+	ret nz
+	
+	ld a, [de]
+	bit FRZ, a
+	ld hl, AlreadyFrozenText
+	ret nz
+	
+	bit PAR, a
+	ld hl, AlreadyParalyzedText
+	ret nz
+	
+	bit PSN, a
+	ld hl, AlreadyPoisonedText
+	ret nz
+	
+	bit BRN, a
+	ld hl, AlreadyBurnedText
+	ret
 
 BattleCommand_SleepTarget:
 ; sleeptarget
@@ -3696,13 +3722,7 @@ BattleCommand_SleepTarget:
 	jr .fail
 
 .not_protected_by_item
-	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
-	ld d, h
-	ld e, l
-	ld a, [de]
-	and SLP
-	ld hl, AlreadyAsleepText
+	call CheckForStatusIfAlreadyHasAny
 	jr nz, .fail
 
 	ld a, [wAttackMissed]
@@ -3710,10 +3730,6 @@ BattleCommand_SleepTarget:
 	jp nz, PrintDidntAffect2
 
 	ld hl, DidntAffect1Text
-
-	ld a, [de]
-	and a
-	jr nz, .fail
 
 	call CheckSubstituteOpp
 	jr nz, .fail
@@ -3792,11 +3808,7 @@ BattleCommand_Poison:
 	call CheckIfTargetIsPoisonType
 	jp z, .failed
 
-	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVar
-	ld b, a
-	ld hl, AlreadyPoisonedText
-	and 1 << PSN
+	call CheckForStatusIfAlreadyHasAny
 	jp nz, .failed
 
 	call GetOpponentItem
@@ -3820,7 +3832,8 @@ BattleCommand_Poison:
 	jr nz, .failed
 	ld a, [wAttackMissed]
 	and a
-	jr nz, .failed
+	jr nz, .failed2
+	
 	call .check_toxic
 	jr z, .toxic
 
@@ -3847,6 +3860,9 @@ BattleCommand_Poison:
 	call AnimateFailedMove
 	pop hl
 	jp StdBattleTextbox
+	
+.failed2
+	jp PrintDidntAffect2
 
 .apply_poison
 	call AnimateCurrentMove
@@ -3927,7 +3943,7 @@ BattleCommand_Burn:
 	jr nz, .failed
 	ld a, [wAttackMissed]
 	and a
-	jr nz, .failed
+	jr nz, .failed2
 
 	call .apply_burn
 	ld hl, WasBurnedText
@@ -3943,6 +3959,9 @@ BattleCommand_Burn:
 	call AnimateFailedMove
 	pop hl
 	jp StdBattleTextbox
+	
+.failed2
+	jp PrintDidntAffect2
 
 .apply_burn
 	call AnimateCurrentMove
@@ -5622,29 +5641,7 @@ BattleCommand_OHKO:
 	ld a, [wTypeModifier]
 	and $7f
 	jr z, .no_effect
-	ld hl, wEnemyMonLevel
-	ld de, wBattleMonLevel
-	ld bc, wPlayerMoveStruct + MOVE_ACC
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .got_move_accuracy
-	push hl
-	ld h, d
-	ld l, e
-	pop de
-	ld bc, wEnemyMoveStruct + MOVE_ACC
-.got_move_accuracy
-	ld a, [de]
-	sub [hl]
-	jr c, .no_effect
-	add a
-	ld e, a
-	ld a, [bc]
-	add e
-	jr nc, .finish_ohko
-	ld a, $ff
-.finish_ohko
-	ld [bc], a
+	; deleted level comparison for accuracy; always 30 Acc in Ultimate
 	call BattleCommand_CheckHit
 	ld hl, wCurDamage
 	ld a, $ff
@@ -5982,10 +5979,10 @@ BattleCommand_Confuse:
 
 .not_already_confused
 	call CheckSubstituteOpp
-	jr nz, BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit
+	jr nz, Failed2
 	ld a, [wAttackMissed]
 	and a
-	jr nz, BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit
+	jr nz, Failed
 BattleCommand_FinishConfusingTarget:
 	ld bc, wEnemyConfuseCount
 	ldh a, [hBattleTurn]
@@ -6029,24 +6026,17 @@ BattleCommand_FinishConfusingTarget:
 	ld hl, UseConfusionHealingItem
 	jp CallBattleCore
 
-BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit:
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
-	cp EFFECT_CONFUSE_HIT
-	ret z
-	cp EFFECT_SNORE
-	ret z
-	cp EFFECT_SWAGGER
-	ret z
+Failed2:
+	jp PrintDidntAffect
+	
+Failed:
 	jp PrintDidntAffect2
 
 BattleCommand_Paralyze:
 ; paralyze
 
-	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVar
-	bit PAR, a
-	jr nz, .paralyzed
+	call CheckForStatusIfAlreadyHasAny
+	jr nz, .hasstatus
 	ld a, [wTypeModifier]
 	and $7f
 	jr z, .didnt_affect
@@ -6062,15 +6052,11 @@ BattleCommand_Paralyze:
 	jp StdBattleTextbox
 
 .no_item_protection
-	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
-	and a
-	jr nz, .failed
 	ld a, [wAttackMissed]
 	and a
 	jr nz, .failed
 	call CheckSubstituteOpp
-	jr nz, .failed
+	jr nz, .failed2
 	ld c, 30
 	call DelayFrames
 	call AnimateCurrentMove
@@ -6087,13 +6073,17 @@ BattleCommand_Paralyze:
 	ld hl, UseHeldStatusHealingItem
 	jp CallBattleCore
 
-.paralyzed
+.hasstatus
+	push hl
 	call AnimateFailedMove
-	ld hl, AlreadyParalyzedText
+	pop hl
 	jp StdBattleTextbox
 
 .failed
 	jp PrintDidntAffect2
+	
+.failed2
+	jp PrintDidntAffect
 
 .didnt_affect
 	call AnimateFailedMove
@@ -6427,8 +6417,8 @@ PrintDidntAffect:
 
 PrintDidntAffect2:
 	call AnimateFailedMove
-	ld hl, DidntAffect1Text ; 'it didn't affect'
-	ld de, DidntAffect2Text ; 'it didn't affect'
+	ld hl, AttackMissedText ; 'it didn't affect'
+	ld de, ProtectingItselfText ; 'protecting itself'
 	jp FailText_CheckOpponentProtect
 
 PrintParalyze:

@@ -389,7 +389,7 @@ Question5_MenuHeader:
 	db "MEWTWO@"
 	
 TrainerLowell:
-	trainer SCIENTIST2, LOWELL, EVENT_BEAT_LOWELL, LowellSeenText, LowellBeatenText, 0, .Script
+	trainer SCIENTIST, LOWELL, EVENT_BEAT_LOWELL, LowellSeenText, LowellBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -400,7 +400,7 @@ TrainerLowell:
 	end
 	
 TrainerDaniel:
-	trainer SCIENTIST2, DANIAL, EVENT_BEAT_DANIEL, DanielSeenText, DanielBeatenText, 0, .Script
+	trainer SCIENTIST, DANIAL, EVENT_BEAT_DANIEL, DanielSeenText, DanielBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -422,7 +422,7 @@ TrainerCary:
 	end
 	
 TrainerLinden:
-	trainer SCIENTIST2, LINDEN, EVENT_BEAT_LINDEN, LindenSeenText, LindenBeatenText, 0, .Script
+	trainer SCIENTIST, LINDEN, EVENT_BEAT_LINDEN, LindenSeenText, LindenBeatenText, 0, .Script
 
 .Script:
 	checkevent EVENT_BEAT_BLAINE
@@ -439,7 +439,7 @@ TrainerLinden:
 	end
 	
 TrainerOscar:
-	trainer SCIENTIST2, OSCAR, EVENT_BEAT_OSCAR, OscarSeenText, OscarBeatenText, 0, .Script
+	trainer SCIENTIST, OSCAR, EVENT_BEAT_OSCAR, OscarSeenText, OscarBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -450,7 +450,7 @@ TrainerOscar:
 	end
 	
 TrainerWaldo:
-	trainer SCIENTIST2, WALDO, EVENT_BEAT_WALDO, WaldoSeenText, WaldoBeatenText, 0, .Script
+	trainer SCIENTIST, WALDO, EVENT_BEAT_WALDO, WaldoSeenText, WaldoBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -461,7 +461,7 @@ TrainerWaldo:
 	end
 	
 TrainerMerle:
-	trainer SCIENTIST2, MERLE, EVENT_BEAT_MERLE, MerleSeenText, MerleBeatenText, 0, .Script
+	trainer SCIENTIST, MERLE, EVENT_BEAT_MERLE, MerleSeenText, MerleBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -472,7 +472,7 @@ TrainerMerle:
 	end
 	
 TrainerEinstein:
-	trainer SCIENTIST2, EINSTEIN, EVENT_BEAT_EINSTEIN, EinsteinSeenText, EinsteinBeatenText, 0, .Script
+	trainer SCIENTIST, EINSTEIN, EVENT_BEAT_EINSTEIN, EinsteinSeenText, EinsteinBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -845,14 +845,14 @@ SeafoamGym_MapEvents:
 	def_object_events
 	object_event 17,  2, SPRITE_BLAINE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SeafoamGymBlaineScript, -1
 	object_event 18, 14, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SeafoamGymGuideScript, EVENT_SEAFOAM_GYM_GYM_GUIDE
-	object_event 27, 13, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerMerle, -1
-	object_event 30, 10, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerWaldo, -1
-	object_event 27,  7, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerEinstein, -1
-	object_event 30, 16, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerOscar, -1
-	object_event 24, 14, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerLinden, -1
-	object_event 18, 20, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerCary, -1
-	object_event 21, 13, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerDaniel, -1
-	object_event 18,  8, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerLowell, -1
+	object_event 27, 13, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerMerle, -1
+	object_event 30, 10, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerWaldo, -1
+	object_event 27,  7, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerEinstein, -1
+	object_event 30, 16, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerOscar, -1
+	object_event 24, 14, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerLinden, -1
+	object_event 18, 20, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerCary, -1
+	object_event 21, 13, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerDaniel, -1
+	object_event 18,  8, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerLowell, -1
 	object_event  7,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, QuizScientist5, -1
 	object_event  1,  8, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, QuizScientist4, -1
 	object_event  4, 14, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, QuizScientist3, -1

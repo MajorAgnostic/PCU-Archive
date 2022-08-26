@@ -78,7 +78,7 @@ ItemEffects:
 	dw RestorePPEffect     ; ETHER
 	dw ReviveEffect        ; MAX_REVIVE
 	dw RestorePPEffect     ; MAX_ELIXER
-	dw NoEffect            ; RED_SCALE
+	dw NoEffect            ; DARK_SCALE
 	dw NoEffect            ; SECRETPOTION
 	dw NoEffect            ; S_S_TICKET
 	dw NoEffect            ; MYSTERY_EGG
@@ -1189,7 +1189,7 @@ VitaminEffect:
 
 	add hl, bc
 	ld a, [hl]
-	cp 100
+	cp 210 ; Ultimate: nutrients cap is low-mid 50k stat exp (thanks Idain)
 	jr nc, NoEffectMessage
 
 	add 10

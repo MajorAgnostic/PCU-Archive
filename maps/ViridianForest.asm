@@ -89,6 +89,9 @@ PoisonSign:
 ForestSign:
 	jumptext ForestSignText
 	
+HiddenSign:
+	jumptext HiddenSignText
+	
 BugCatcherDaneSeenText:
 	text "Welcome to VIRI-"
 	line "DIAN FOREST."
@@ -195,6 +198,13 @@ ForestSignText:
 	line "for tasty mush-"
 	cont "rooms."
 	done
+	
+HiddenSignText:
+	text "TRAINER TIPS"
+
+	para "There are hidden"
+	line "items nearby!"
+	done
 
 ViridianForest_MapEvents:
 	db 0, 0 ; filler
@@ -215,6 +225,7 @@ ViridianForest_MapEvents:
 	bg_event 17, 43, BGEVENT_READ, ForestSign
 	bg_event 25, 41, BGEVENT_READ, PoisonSign
 	bg_event  5,  5, BGEVENT_READ, PewterSign
+	bg_event 15, 13, BGEVENT_READ, HiddenSign
 
 	def_object_events
 	object_event 31, 31, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherDane, -1

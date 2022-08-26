@@ -54,8 +54,8 @@ MonMenuIconPals:
 	iconpal RED, BROWN ; PARASECT
 	iconpal RED, BLUE ; VENONAT
 	iconpal PURPLE, BLUE ; VENOMOTH
-	iconpal BROWN, BLUE ; DIGLETT
-	iconpal BROWN, BLUE ; DUGTRIO
+	iconpal RED, BLUE ; DIGLETT
+	iconpal RED, BLUE ; DUGTRIO
 	iconpal PURPLE, BROWN ; MEOWTH
 	iconpal PURPLE, BROWN ; PERSIAN
 	iconpal BROWN, BLUE ; PSYDUCK
@@ -141,7 +141,7 @@ MonMenuIconPals:
 	iconpal BLUE, PURPLE ; VAPOREON
 	iconpal RED, BROWN ; JOLTEON
 	iconpal RED, RED ; FLAREON
-	iconpal TEAL, BLUE ; PORYGON
+	iconpal TEAL, PURPLE ; PORYGON
 	iconpal BLUE, GRAY ; OMANYTE
 	iconpal BLUE, GRAY ; OMASTAR
 	iconpal BROWN, GRAY ; KABUTO
@@ -237,7 +237,7 @@ MonMenuIconPals:
 	iconpal BLUE, PURPLE ; KINGDRA
 	iconpal BLUE, TEAL ; PHANPY
 	iconpal GRAY, BROWN ; DONPHAN
-	iconpal BLUE, BLUE ; PORYGON2
+	iconpal BLUE, GRAY ; PORYGON2
 	iconpal BROWN, GREEN ; STANTLER
 	iconpal BROWN, GREEN ; SMEARGLE
 	iconpal BROWN, BLUE ; TYROGUE
@@ -258,4 +258,4 @@ MonMenuIconPals:
 	iconpal GREEN, PINK ; CELEBI
 	iconpal BLUE, BLUE ; METAGROSS
 	iconpal PURPLE, PURPLE ; GHOST
-	iconpal RED, GREEN ; EGG
+	iconpal RED, BLUE ; EGG

@@ -15,11 +15,11 @@ FishGroups:
 	fishgroup 50 percent + 1, .Qwilfish_Swarm_Old,   .Qwilfish_Swarm_Good,   .Qwilfish_Swarm_Super
 	fishgroup 50 percent + 1, .Remoraid_Swarm_Old,   .Remoraid_Swarm_Good,   .Remoraid_Swarm_Super
 	fishgroup 50 percent + 1, .Gyarados_Old,         .Gyarados_Good,         .Gyarados_Super
-	fishgroup 50 percent + 1, .Dratini_2_Old,        .Dratini_2_Good,        .Dratini_2_Super
 	fishgroup 50 percent + 1, .WhirlIslands_Old,     .WhirlIslands_Good,     .WhirlIslands_Super
 	fishgroup 50 percent + 1, .Qwilfish_Old,         .Qwilfish_Good,         .Qwilfish_Super
 	fishgroup 50 percent + 1, .Remoraid_Old,         .Remoraid_Good,         .Remoraid_Super
 	fishgroup 50 percent + 1, .Qwilfish_NoSwarm_Old, .Qwilfish_NoSwarm_Good, .Qwilfish_NoSwarm_Super
+	fishgroup 50 percent + 1, .Remoraid_NoSwarm_Old, .Remoraid_NoSwarm_Good, .Remoraid_NoSwarm_Super
 	fishgroup 50 percent + 1, .CloysterHoister_Old,  .CloysterHoister_Good,  .CloysterHoister_Super
 
 .Shore_Old:
@@ -110,7 +110,7 @@ FishGroups:
 	db  40 percent,     QWILFISH,   75
 	db  70 percent,     time_group 11
 	db  90 percent + 1, QWILFISH,   75
-	db 100 percent,     QWILFISH,   75
+	db 100 percent,     QWILFISH,   80
 
 .Remoraid_Swarm_Old:
 	db  70 percent + 1, MAGIKARP,   10
@@ -122,10 +122,10 @@ FishGroups:
 	db  90 percent + 1, REMORAID,   35
 	db 100 percent,     time_group 12
 .Remoraid_Swarm_Super:
-	db  40 percent,     OCTILLERY,  75
+	db  40 percent,     REMORAID,   70
 	db  70 percent,     time_group 13
-	db  90 percent + 1, OCTILLERY,  75
-	db 100 percent,     OCTILLERY,  75
+	db  90 percent + 1, REMORAID,   70
+	db 100 percent,     REMORAID,   75
 
 .Gyarados_Old:
 	db  70 percent + 1, MAGIKARP,   10
@@ -141,21 +141,6 @@ FishGroups:
 	db  70 percent,     time_group 15
 	db  90 percent + 1, GYARADOS,   75
 	db 100 percent,     GYARADOS,   75
-
-.Dratini_2_Old:
-	db  70 percent + 1, MAGIKARP,   10
-	db  85 percent + 1, MAGIKARP,   10
-	db 100 percent,     MAGIKARP,   10
-.Dratini_2_Good:
-	db  35 percent,     MAGIKARP,   15
-	db  70 percent,     MAGIKARP,   15
-	db  90 percent + 1, MAGIKARP,   15
-	db 100 percent,     time_group 16
-.Dratini_2_Super:
-	db  40 percent,     GYARADOS,   75
-	db  70 percent,     time_group 17
-	db  90 percent + 1, GYARADOS,   75
-	db 100 percent,     DRAGONAIR,  70
 
 .WhirlIslands_Old:
 	db  70 percent + 1, MAGIKARP,   10
@@ -180,7 +165,7 @@ FishGroups:
 .Qwilfish_NoSwarm_Good:
 .Qwilfish_Good:
 	db  35 percent,     MAGIKARP,   15
-	db  70 percent,     QWILFISH,   35
+	db  70 percent,     GOLDEEN,    35
 	db  90 percent + 1, TENTACOOL,  35
 	db 100 percent,     time_group 20
 .Qwilfish_NoSwarm_Super:
@@ -189,21 +174,24 @@ FishGroups:
 	db  70 percent,     time_group 21
 	db  90 percent + 1, GYARADOS,   75
 	db 100 percent,     QWILFISH,   75
-
+	
+.Remoraid_NoSwarm_Old:
 .Remoraid_Old:
 	db  70 percent + 1, MAGIKARP,   10
 	db  85 percent + 1, MAGIKARP,   10
 	db 100 percent,     POLIWAG,    15
+.Remoraid_NoSwarm_Good:
 .Remoraid_Good:
 	db  35 percent,     MAGIKARP,   15
-	db  70 percent,     REMORAID,   35
+	db  70 percent,     time_group 6
 	db  90 percent + 1, POLIWHIRL,  35
-	db 100 percent,     time_group 6
+	db 100 percent,     POLIWHIRL,  35
+.Remoraid_NoSwarm_Super:
 .Remoraid_Super:
 	db  40 percent,     POLIWHIRL,  70
 	db  70 percent,     time_group 7
 	db  90 percent + 1, GYARADOS,   75
-	db 100 percent,     OCTILLERY,  75
+	db 100 percent,     REMORAID,  70
 	
 .CloysterHoister_Old:
 	db  70 percent + 1, MAGIKARP,   10
@@ -230,12 +218,12 @@ TimeFishGroups:
 	db SEAKING,    75,  SEAKING,    75 ; 5
 	db POLIWHIRL,  35,  POLIWHIRL,  35 ; 6
 	db POLITOED,   75,  POLIWRATH,  75 ; 7
-	db DRATINI,    25,  DRATINI,    25 ; 8
+	db DRATINI,    25,  CHINCHOU,   35 ; 8
 	db DRATINI,    65,  DRATINI,    65 ; 9
-	db QWILFISH,   35,  QWILFISH,   35 ; 10
+	db QWILFISH,   40,  QWILFISH,   40 ; 10
 	db QWILFISH,   75,  QWILFISH,   75 ; 11
-	db REMORAID,   35,  REMORAID,   35 ; 12
-	db OCTILLERY,  75,  OCTILLERY,  75 ; 13
+	db REMORAID,   40,  REMORAID,   40 ; 12
+	db REMORAID,   70,  REMORAID,   70 ; 13
 	db GYARADOS,   35,  GYARADOS,   35 ; 14
 	db GYARADOS,   75,  GYARADOS,   75 ; 15
 	db DRATINI,    25,  DRATINI,    25 ; 16

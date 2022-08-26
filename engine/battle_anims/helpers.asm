@@ -125,6 +125,9 @@ LoadBattleAnimGFX:
 	ret
 	
 .LoadBallPalette:
+	; save the registers to the stack
+	push hl
+	push af
 	; save the current WRAM bank
 	ld a, [rSVBK]
 	push af
@@ -142,8 +145,8 @@ LoadBattleAnimGFX:
 	jr z, .done
 	cp -1 ; did we reach the end of the list?
 	jr z, .done
-rept PAL_COLOR_SIZE * 2
-	inc hl ; skip over the two RGB colors to the next entry
+rept 4
+	inc hl ; skip over the 4 RGB color bytes to the next entry
 endr
 	jr .loop
 .done
@@ -152,21 +155,20 @@ endr
 	ld [rSVBK], a
 	; load the RGB colors into the middle two colors of PAL_BATTLE_OB_RED
 	ld de, wOBPals2 palette PAL_BATTLE_OB_RED color 1
-rept PAL_COLOR_SIZE * 2 - 1
+rept 4
 	ld a, [hli]
 	ld [de], a
 	inc de
 endr
-	ld a, [hl]
-	ld [de], a
 	; apply the updated colors to the palette RAM
 	ld a, $1
-	ldh [hCGBPalUpdate], a
-	; restore the previous WRAM bank
+	ld [hCGBPalUpdate], a
+	; restore the current WRAM bank
 	pop af
 	ld [rSVBK], a
-	; restore the graphics index to be loaded
-	ld a, ANIM_GFX_POKE_BALL
+	; restore the registers from the stack
+	pop af
+	pop hl
 	ret
 
 INCLUDE "data/battle_anims/ball_colors.asm"

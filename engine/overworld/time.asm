@@ -42,7 +42,7 @@ endc
 	jp RestartReceiveCallDelay
 
 .ReceiveCallDelays:
-	db 20, 10, 5, 3
+	db 10, 5, 3, 1
 
 CheckReceiveCallTimer:
 	call CheckReceiveCallDelay ; check timer

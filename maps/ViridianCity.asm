@@ -89,7 +89,7 @@ ViridianCityCoffeeGrampsQuestionText:
 	text "Hey, kid! I just"
 	line "had a double shot"
 
-	para "of espresso, and"
+	para "of espresso and"
 	line "I am wired!"
 
 	para "I need to talk to"

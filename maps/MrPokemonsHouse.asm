@@ -50,8 +50,8 @@ MrPokemonsHouse_MapScripts:
 MrPokemonsHouse_MrPokemonScript:
 	faceplayer
 	opentext
-	checkitem BLUE_SCALE
-	iftrue .RedScale
+	checkitem DARK_SCALE
+	iftrue .DarkScale
 	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	iftrue .AlwaysNewDiscoveries
 	writetext MrPokemonText_ImDependingOnYou
@@ -65,13 +65,13 @@ MrPokemonsHouse_MrPokemonScript:
 	closetext
 	end
 
-.RedScale:
+.DarkScale:
 	writetext MrPokemonText_GimmeTheScale
 	yesorno
 	iffalse .refused
 	verbosegiveitem LUCKY_EGG
 	iffalse .full
-	takeitem BLUE_SCALE
+	takeitem DARK_SCALE
 	sjump .AlwaysNewDiscoveries
 
 .refused
@@ -329,7 +329,7 @@ MrPokemonsHouse_OakText2:
 MrPokemonText_GimmeTheScale:
 	text "Hm? That SCALE!"
 	line "What's that?"
-	cont "A blue GYARADOS?"
+	cont "A dark GYARADOS?"
 
 	para "That's rare! "
 	line "I, I want it…"

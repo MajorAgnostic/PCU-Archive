@@ -71,7 +71,7 @@
 	const ETHER        ; 3f
 	const MAX_REVIVE   ; 40
 	const MAX_ELIXER   ; 41
-	const BLUE_SCALE   ; 42
+	const DARK_SCALE   ; 42
 	const SECRETPOTION ; 43
 	const S_S_TICKET   ; 44
 	const MYSTERY_EGG  ; 45

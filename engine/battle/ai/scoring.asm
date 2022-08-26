@@ -387,6 +387,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_SOLARBEAM,        AI_Smart_Solarbeam
 	dbw EFFECT_THUNDER,          AI_Smart_Thunder
 	dbw EFFECT_FLY,              AI_Smart_Fly
+	dbw EFFECT_FALSE_SWIPE,      AI_Smart_FalseSwipe
 	db -1 ; end
 
 AI_Smart_Sleep:
@@ -1164,6 +1165,16 @@ AI_Smart_Fly:
 	dec [hl]
 	dec [hl]
 	ret
+	
+AI_Smart_FalseSwipe:
+; Greatly discourage False Swipe/Barrage if player's HP is below 25%.
+
+	call AICheckPlayerQuarterHP
+	ret c
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	ret
 
 AI_Smart_SuperFang:
 ; Discourage this move if player's HP is below 25%.
@@ -1665,11 +1676,11 @@ AI_Smart_PriorityHit:
 	ret
 
 AI_Smart_Thief:
-; Don't use Thief unless it's the only move available.
+; 80% chance to discourage this move
 
-	ld a, [hl]
-	add $1e
-	ld [hl], a
+	call AI_80_20
+	ret c
+	inc [hl]
 	ret
 
 AI_Smart_Conversion2:
@@ -2299,26 +2310,18 @@ AI_Smart_HiddenPower:
 	ld a, 1
 	ldh [hBattleTurn], a
 
-; Calculate Hidden Power's type and base power based on enemy's DVs.
+; Calculate Hidden Power's type based on enemy's DVs.
+	callfar HiddenPowerDamage
 	callfar BattleCheckTypeMatchup
 	pop hl
 
-; Discourage Hidden Power if not very effective.
+; Discourage Hidden Power if not very effective, encourage otherwise.
 	ld a, [wTypeMatchup]
 	cp EFFECTIVE
+	ret z
 	jr c, .bad
 
-; Encourage Hidden Power if super-effective.
-	ld a, [wTypeMatchup]
-	cp EFFECTIVE + 1
-	jr nc, .good
-
-; Encourage Hidden Power if its base power is 70.
-	ld a, d
-	cp 70
-	ret c
-
-.good
+;good
 	dec [hl]
 	ret
 
@@ -2412,6 +2415,7 @@ AIGoodWeatherType:
 	ret nz
 
 .good
+	dec [hl]
 	dec [hl]
 	dec [hl]
 	ret
@@ -2619,13 +2623,14 @@ AI_Smart_Stomp:
 AI_Smart_Solarbeam:
 ; 80% chance to encourage this move when it's sunny.
 ; 90% chance to discourage this move when it's raining.
+; else, 80% chance to greatly discourage this move
 
 	ld a, [wBattleWeather]
 	cp WEATHER_SUN
 	jr z, .encourage
 
 	cp WEATHER_RAIN
-	ret nz
+	jr nz, .eightydiscourage
 
 	call Random
 	cp 10 percent
@@ -2635,11 +2640,18 @@ AI_Smart_Solarbeam:
 	inc [hl]
 	ret
 
+.eightydiscourage
+	call AI_80_20
+	ret c
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	ret
+
 .encourage
 	call AI_80_20
 	ret c
 
-	dec [hl]
 	dec [hl]
 	ret
 

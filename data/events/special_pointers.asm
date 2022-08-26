@@ -185,3 +185,4 @@ SpecialsPointers::
 	add_special PocketPC
 	add_special GiveElekid
 	add_special GiveMagby
+	add_special HiddenPowerGuru

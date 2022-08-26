@@ -138,7 +138,7 @@ JohtoWaterWildMons:
 	db 6 percent ; encounter rate
 	db 33, TENTACOOL
 	db 34, CHINCHOU
-	db 36, CORSOLA
+	db 36, CHINCHOU
 
 	map_id ROUTE_41
 	db 6 percent ; encounter rate
@@ -172,9 +172,9 @@ JohtoWaterWildMons:
 
 	map_id CHERRYGROVE_CITY
 	db 6 percent ; encounter rate
-	db 30, MARILL
-	db 30, TENTACOOL
-	db 33, QWILFISH
+	db 30, HOPPIP
+	db 32, TENTACOOL
+	db 32, MARILL
 
 	map_id VIOLET_CITY
 	db 2 percent ; encounter rate

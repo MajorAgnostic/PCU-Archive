@@ -67,7 +67,7 @@ LakeOfRageLanceScript:
 	iffalse .RefusedToHelp
 	sjump .AgreedToHelp
 
-RedGyarados:
+DarkGyarados:
 	opentext
 	writetext LakeOfRageGyaradosCryText
 	pause 15
@@ -81,7 +81,7 @@ RedGyarados:
 .NotBeaten:
 	reloadmapafterbattle
 	opentext
-	giveitem BLUE_SCALE
+	giveitem DARK_SCALE
 	waitsfx
 	writetext LakeOfRageGotRedScaleText
 	playsound SFX_ITEM
@@ -314,7 +314,7 @@ LakeOfRageGyaradosCryText:
 
 LakeOfRageGotRedScaleText:
 	text "<PLAYER> obtained a"
-	line "BLUE SCALE."
+	line "DARK SCALE."
 	done
 
 LakeOfRageGrampsText:
@@ -345,7 +345,7 @@ LakeOfRageCooltrainerFText:
 	text "Did my eyes de-"
 	line "ceive me? I saw a"
 
-	para "blue GYARADOS in"
+	para "dark GYARADOS in"
 	line "the LAKE…"
 
 	para "But I thought"
@@ -417,7 +417,7 @@ CooltrainermAaronAfterBattleText:
 
 CooltrainerfLoisSeenText:
 	text "What happened to"
-	line "the blue GYARADOS?"
+	line "the dark GYARADOS?"
 
 	para "It's gone?"
 
@@ -526,7 +526,7 @@ LakeOfRage_MapEvents:
 	object_event 24, 26, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerFisherRaymond, EVENT_LAKE_OF_RAGE_CIVILIANS
 	object_event  4, 15, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainermAaron, EVENT_LAKE_OF_RAGE_CIVILIANS
 	object_event 36,  7, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerCooltrainerfLois, EVENT_LAKE_OF_RAGE_CIVILIANS
-	object_event 18, 22, SPRITE_GYARADOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, RedGyarados, EVENT_LAKE_OF_RAGE_RED_GYARADOS
+	object_event 18, 22, SPRITE_GYARADOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GRAY, OBJECTTYPE_SCRIPT, 0, DarkGyarados, EVENT_LAKE_OF_RAGE_RED_GYARADOS
 	object_event  4,  4, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WesleyScript, EVENT_LAKE_OF_RAGE_WESLEY_OF_WEDNESDAY
 	object_event  7, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, LakeOfRageElixer, EVENT_LAKE_OF_RAGE_ELIXER
 	object_event 35,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, LakeOfRageTMDetect, EVENT_LAKE_OF_RAGE_TM_DETECT
