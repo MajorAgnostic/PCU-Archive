@@ -661,16 +661,16 @@ BattleCommand_CheckObedience:
 
 	; If the monster's id doesn't match the player's,
 	; some conditions need to be met.
-	ld a, MON_ID
-	call BattlePartyAttr
+	; ld a, MON_ID
+	; call BattlePartyAttr
 
-	ld a, [wPlayerID]
-	cp [hl]
-	jr nz, .obeylevel
-	inc hl
-	ld a, [wPlayerID + 1]
-	cp [hl]
-	ret z
+	; ld a, [wPlayerID]
+	; cp [hl]
+	; jr nz, .obeylevel
+	; inc hl
+	; ld a, [wPlayerID + 1]
+	; cp [hl]
+	; ret z
 
 .obeylevel
 	; The maximum obedience level is constrained by owned badges:
@@ -697,7 +697,7 @@ BattleCommand_CheckObedience:
 	jr nz, .getlevel
 
 	; no badges
-	ld a, 25
+	ld a, 30
 
 .getlevel
 ; c = obedience level
@@ -2668,6 +2668,8 @@ PlayerAttackDamage:
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
+	
+	call SandstormSpDefBoost
 
 	ld a, [wEnemyScreens]
 	bit SCREENS_LIGHT_SCREEN, a
@@ -2796,7 +2798,7 @@ CheckDamageStatsCritical:
 ThickClubBoost:
 ; Return in hl the stat value at hl.
 
-; If the attacking monster is Cubone or Marowak and
+; If the attacking monster is Marowak or Alolan Marowak and
 ; it's holding a Thick Club, double it.
 	push bc
 	push de
@@ -2922,6 +2924,8 @@ EnemyAttackDamage:
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
+	
+	call SandstormSpDefBoost
 
 	ld a, [wPlayerScreens]
 	bit SCREENS_LIGHT_SCREEN, a
@@ -3676,6 +3680,32 @@ UpdateMoveData:
 	call GetMoveData
 	call GetMoveName
 	jp CopyName1
+	
+CheckForStatusIfAlreadyHasAny:
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVarAddr
+	ld d, h
+	ld e, l
+	and SLP
+	ld hl, AlreadyAsleepText
+	ret nz
+	
+	ld a, [de]
+	bit FRZ, a
+	ld hl, AlreadyFrozenText
+	ret nz
+	
+	bit PAR, a
+	ld hl, AlreadyParalyzedText
+	ret nz
+	
+	bit PSN, a
+	ld hl, AlreadyPoisonedText
+	ret nz
+	
+	bit BRN, a
+	ld hl, AlreadyBurnedText
+	ret
 
 BattleCommand_SleepTarget:
 ; sleeptarget
@@ -3692,13 +3722,7 @@ BattleCommand_SleepTarget:
 	jr .fail
 
 .not_protected_by_item
-	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
-	ld d, h
-	ld e, l
-	ld a, [de]
-	and SLP
-	ld hl, AlreadyAsleepText
+	call CheckForStatusIfAlreadyHasAny
 	jr nz, .fail
 
 	ld a, [wAttackMissed]
@@ -3706,10 +3730,6 @@ BattleCommand_SleepTarget:
 	jp nz, PrintDidntAffect2
 
 	ld hl, DidntAffect1Text
-
-	ld a, [de]
-	and a
-	jr nz, .fail
 
 	call CheckSubstituteOpp
 	jr nz, .fail
@@ -3788,11 +3808,7 @@ BattleCommand_Poison:
 	call CheckIfTargetIsPoisonType
 	jp z, .failed
 
-	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVar
-	ld b, a
-	ld hl, AlreadyPoisonedText
-	and 1 << PSN
+	call CheckForStatusIfAlreadyHasAny
 	jp nz, .failed
 
 	call GetOpponentItem
@@ -3816,7 +3832,8 @@ BattleCommand_Poison:
 	jr nz, .failed
 	ld a, [wAttackMissed]
 	and a
-	jr nz, .failed
+	jr nz, .failed2
+	
 	call .check_toxic
 	jr z, .toxic
 
@@ -3843,6 +3860,9 @@ BattleCommand_Poison:
 	call AnimateFailedMove
 	pop hl
 	jp StdBattleTextbox
+	
+.failed2
+	jp PrintDidntAffect2
 
 .apply_poison
 	call AnimateCurrentMove
@@ -3923,7 +3943,7 @@ BattleCommand_Burn:
 	jr nz, .failed
 	ld a, [wAttackMissed]
 	and a
-	jr nz, .failed
+	jr nz, .failed2
 
 	call .apply_burn
 	ld hl, WasBurnedText
@@ -3939,6 +3959,9 @@ BattleCommand_Burn:
 	call AnimateFailedMove
 	pop hl
 	jp StdBattleTextbox
+	
+.failed2
+	jp PrintDidntAffect2
 
 .apply_burn
 	call AnimateCurrentMove
@@ -5618,29 +5641,7 @@ BattleCommand_OHKO:
 	ld a, [wTypeModifier]
 	and $7f
 	jr z, .no_effect
-	ld hl, wEnemyMonLevel
-	ld de, wBattleMonLevel
-	ld bc, wPlayerMoveStruct + MOVE_ACC
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .got_move_accuracy
-	push hl
-	ld h, d
-	ld l, e
-	pop de
-	ld bc, wEnemyMoveStruct + MOVE_ACC
-.got_move_accuracy
-	ld a, [de]
-	sub [hl]
-	jr c, .no_effect
-	add a
-	ld e, a
-	ld a, [bc]
-	add e
-	jr nc, .finish_ohko
-	ld a, $ff
-.finish_ohko
-	ld [bc], a
+	; deleted level comparison for accuracy; always 30 Acc in Ultimate
 	call BattleCommand_CheckHit
 	ld hl, wCurDamage
 	ld a, $ff
@@ -5978,10 +5979,10 @@ BattleCommand_Confuse:
 
 .not_already_confused
 	call CheckSubstituteOpp
-	jr nz, BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit
+	jr nz, Failed2
 	ld a, [wAttackMissed]
 	and a
-	jr nz, BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit
+	jr nz, Failed
 BattleCommand_FinishConfusingTarget:
 	ld bc, wEnemyConfuseCount
 	ldh a, [hBattleTurn]
@@ -6025,24 +6026,17 @@ BattleCommand_FinishConfusingTarget:
 	ld hl, UseConfusionHealingItem
 	jp CallBattleCore
 
-BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit:
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
-	cp EFFECT_CONFUSE_HIT
-	ret z
-	cp EFFECT_SNORE
-	ret z
-	cp EFFECT_SWAGGER
-	ret z
+Failed2:
+	jp PrintDidntAffect
+	
+Failed:
 	jp PrintDidntAffect2
 
 BattleCommand_Paralyze:
 ; paralyze
 
-	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVar
-	bit PAR, a
-	jr nz, .paralyzed
+	call CheckForStatusIfAlreadyHasAny
+	jr nz, .hasstatus
 	ld a, [wTypeModifier]
 	and $7f
 	jr z, .didnt_affect
@@ -6058,15 +6052,11 @@ BattleCommand_Paralyze:
 	jp StdBattleTextbox
 
 .no_item_protection
-	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
-	and a
-	jr nz, .failed
 	ld a, [wAttackMissed]
 	and a
 	jr nz, .failed
 	call CheckSubstituteOpp
-	jr nz, .failed
+	jr nz, .failed2
 	ld c, 30
 	call DelayFrames
 	call AnimateCurrentMove
@@ -6083,13 +6073,17 @@ BattleCommand_Paralyze:
 	ld hl, UseHeldStatusHealingItem
 	jp CallBattleCore
 
-.paralyzed
+.hasstatus
+	push hl
 	call AnimateFailedMove
-	ld hl, AlreadyParalyzedText
+	pop hl
 	jp StdBattleTextbox
 
 .failed
 	jp PrintDidntAffect2
+	
+.failed2
+	jp PrintDidntAffect
 
 .didnt_affect
 	call AnimateFailedMove
@@ -6423,8 +6417,8 @@ PrintDidntAffect:
 
 PrintDidntAffect2:
 	call AnimateFailedMove
-	ld hl, DidntAffect1Text ; 'it didn't affect'
-	ld de, DidntAffect2Text ; 'it didn't affect'
+	ld hl, AttackMissedText ; 'it didn't affect'
+	ld de, ProtectingItselfText ; 'protecting itself'
 	jp FailText_CheckOpponentProtect
 
 PrintParalyze:
@@ -6604,6 +6598,36 @@ BattleCommand_CheckSafeguard:
 	ld hl, SafeguardProtectText
 	call StdBattleTextbox
 	jp EndMoveEffect
+	
+SandstormSpDefBoost: ; Courtesy of Idain
+; First, check if Sandstorm is active.
+	ld a, [wBattleWeather]
+	cp WEATHER_SANDSTORM
+	ret nz
+
+; Then, check the opponent's types.
+	ld hl, wEnemyMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .ok
+	ld hl, wBattleMonType1
+.ok
+	ld a, [hli]
+	cp ROCK
+	jr z, .start_boost
+	ld a, [hl]
+	cp ROCK
+	ret nz
+
+.start_boost
+	ld h, b
+	ld l, c
+	srl b
+	rr c
+	add hl, bc
+	ld b, h
+	ld c, l
+	ret
 
 INCLUDE "engine/battle/move_effects/magnitude.asm"
 
@@ -6618,18 +6642,18 @@ BattleCommand_HealMorn:
 	ld b, MORN_F
 	jr BattleCommand_TimeBasedHealContinue
 
-BattleCommand_HealNite:
-; healnite
-	ld b, NITE_F
-	jr BattleCommand_TimeBasedHealContinue2
-
 BattleCommand_HealDay:
 ; healday
 	ld b, DAY_F
+	jr BattleCommand_TimeBasedHealContinue
+
+BattleCommand_HealNite:
+; healnite
+	ld b, NITE_F
 	; fallthrough
 
 BattleCommand_TimeBasedHealContinue:
-; Time- and weather-sensitive heal.
+; Weather-sensitive heal ONLY in Ultimate
 
 	ld hl, wBattleMonMaxHP
 	ld de, wBattleMonHP
@@ -6642,22 +6666,15 @@ BattleCommand_TimeBasedHealContinue:
 .start
 ; Index for .Multipliers
 ; Default restores half max HP.
-	ld c, 2
+	ld c, 1
 
 ; Don't bother healing if HP is already full.
+	inc c
 	push bc
 	call CompareBytes
 	pop bc
 	jr z, .Full
-
-; Don't factor in time of day in link battles.
-	ld a, [wLinkMode]
-	and a
-	jr nz, .Weather
-
-	and a
-	jr nz, .Weather
-	dec c ; double
+	dec c
 
 .Weather:
 	ld a, [wBattleWeather]
@@ -6704,87 +6721,6 @@ BattleCommand_TimeBasedHealContinue:
 	jp StdBattleTextbox
 
 .Multipliers:
-	dw GetThirdMaxHP
-	dw GetHalfMaxHP
-	dw GetTwoThirdsMaxHP
-	dw GetMaxHP
-	
-BattleCommand_TimeBasedHealContinue2:
-; Time- and weather-sensitive heal - this one is for Moonlight.
-
-	ld hl, wBattleMonMaxHP
-	ld de, wBattleMonHP
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .start2
-	ld hl, wEnemyMonMaxHP
-	ld de, wEnemyMonHP
-
-.start2
-; Index for .Multipliers
-; Default restores half max HP.
-	ld c, 2
-
-; Don't bother healing if HP is already full.
-	push bc
-	call CompareBytes
-	pop bc
-	jr z, .Full2
-
-; Don't factor in time of day in link battles.
-	ld a, [wLinkMode]
-	and a
-	jr nz, .Weather2
-
-	and a
-	jr nz, .Weather2
-	dec c ; double
-
-.Weather2:
-	ld a, [wBattleWeather]
-	and a
-	jr z, .Heal2
-
-; x2 in sun
-; /2 in rain/sandstorm
-	inc c
-	cp WEATHER_RAIN
-	jr z, .Heal2
-	dec c
-	dec c
-
-.Heal2:
-	ld b, 0
-	ld hl, .Multipliers2
-	add hl, bc
-	add hl, bc
-
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	ld a, BANK(GetMaxHP)
-	rst FarCall
-
-	call AnimateCurrentMove
-	call BattleCommand_SwitchTurn
-
-	callfar RestoreHP
-
-	call BattleCommand_SwitchTurn
-	call UpdateUserInParty
-
-; 'regained health!'
-	ld hl, RegainedHealthText
-	jp StdBattleTextbox
-
-.Full2:
-	call AnimateFailedMove
-
-; 'hp is full!'
-	ld hl, HPIsFullText
-	jp StdBattleTextbox
-
-.Multipliers2:
 	dw GetThirdMaxHP
 	dw GetHalfMaxHP
 	dw GetTwoThirdsMaxHP

@@ -136,6 +136,9 @@ SaffronCityMartSign:
 SaffronCityGymBlockerScript:
 	jumptextfaceplayer SaffronCityBlockerText
 	
+SaffronMoveDeleterSign:
+	jumptext SaffronMoveDeleterSignText
+	
 SaffronCityBlockerText:
 	text "The GYM is closed"
 	line "until the problem"
@@ -317,6 +320,11 @@ SaffronCityMagnetTrainStationSignText:
 	line "MAGNET TRAIN"
 	cont "STATION"
 	done
+	
+SaffronMoveDeleterSignText:
+	text "MOVE DELETER &"
+	line "REMINDER'S HOUSE"
+	done
 
 SaffronCity_MapEvents:
 	db 0, 0 ; filler
@@ -337,6 +345,7 @@ SaffronCity_MapEvents:
 	warp_event 17, 33, ROUTE_6_SAFFRON_GATE, 2
 	warp_event 39, 22, ROUTE_8_SAFFRON_GATE, 1
 	warp_event 39, 23, ROUTE_8_SAFFRON_GATE, 2
+	warp_event 27, 21, SAFFRON_MOVEDELETER, 1
 
 	def_coord_events
 	coord_event 16, 31, SCENE_DEFAULT, Saffron_HoohScene
@@ -351,6 +360,7 @@ SaffronCity_MapEvents:
 	bg_event 11,  5, BGEVENT_READ, SaffronCityMagnetTrainStationSign
 	bg_event 10, 29, BGEVENT_READ, SaffronCityPokecenterSign
 	bg_event 26, 11, BGEVENT_READ, SaffronCityMartSign
+	bg_event 25, 21, BGEVENT_READ, SaffronMoveDeleterSign
 
 	def_object_events
 	object_event  7, 14, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronCityLass1Script, -1

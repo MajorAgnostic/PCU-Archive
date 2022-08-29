@@ -56,7 +56,6 @@ TrainerSailorHuey:
 	loadtrainer SAILOR, HUEY1
 	startbattle
 	reloadmapafterbattle
-	loadmem wHueyFightCount, 1
 	clearflag ENGINE_HUEY_READY_FOR_REMATCH
 	end
 
@@ -64,7 +63,6 @@ TrainerSailorHuey:
 	loadtrainer SAILOR, HUEY2
 	startbattle
 	reloadmapafterbattle
-	loadmem wHueyFightCount, 2
 	clearflag ENGINE_HUEY_READY_FOR_REMATCH
 	end
 
@@ -72,7 +70,6 @@ TrainerSailorHuey:
 	loadtrainer SAILOR, HUEY3
 	startbattle
 	reloadmapafterbattle
-	loadmem wHueyFightCount, 3
 	clearflag ENGINE_HUEY_READY_FOR_REMATCH
 	end
 

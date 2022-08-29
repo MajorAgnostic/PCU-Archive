@@ -19,7 +19,7 @@ SetMenuMonIconColor:
 	push bc
 	push af
 
-	ld a, [wd265]
+	ld a, [wTempIconSpecies]
 	ld [wCurPartySpecies], a
 	call GetMenuMonIconPalette
 	ld hl, wVirtualOAMSprite00Attributes
@@ -31,7 +31,7 @@ SetMenuMonIconColor_NoShiny:
 	push bc
 	push af
 
-	ld a, [wd265]
+	ld a, [wTempIconSpecies]
 	ld [wCurPartySpecies], a
 	and a
 	call GetMenuMonIconPalette_PredeterminedShininess
@@ -49,6 +49,12 @@ LoadPartyMenuMonIconColors:
 	ld [wCurPartyMon], a
 	ld e, a
 	ld d, 0
+
+	ld hl, wPartyMon1Item
+	call GetPartyLocation
+	ld a, [hl]
+	ld [wCurIconMonHasItemOrMail], a
+
 	ld hl, wPartySpecies
 	add hl, de
 	ld a, [hl]
@@ -64,7 +70,25 @@ LoadPartyMenuMonIconColors:
 	ld e, a
 	add hl, de
 	pop af
-	; fallthrough
+
+	ld de, 4
+	ld [hl], a ; top left
+	add hl, de
+	ld [hl], a ; top right
+	add hl, de
+	push hl
+	add hl, de
+	ld [hl], a ; bottom right
+	pop hl
+	ld d, a
+	ld a, [wCurIconMonHasItemOrMail]
+	and a
+	ld a, PAL_OW_RED ; item or mail color
+	jr nz, .ok
+	ld a, d
+.ok
+	ld [hl], a ; bottom left
+	jr _FinishMenuMonIconColor
 
 _ApplyMenuMonIconColor:
 	ld c, 4
@@ -74,7 +98,8 @@ _ApplyMenuMonIconColor:
 	add hl, de
 	dec c
 	jr nz, .loop
-
+	; fallthrough
+_FinishMenuMonIconColor:
 	pop af
 	pop bc
 	pop de
@@ -100,7 +125,6 @@ GetMenuMonIconPalette_PredeterminedShininess:
 	swap a
 .shiny
 	and $f
-	ld l, a
 	ret
 
 LoadMenuMonIcon:
@@ -370,6 +394,16 @@ FlyFunction_GetMonIcon:
 	pop de
 	ld a, e
 	call GetIcon_a
+	
+	; Editing the OBJ 0 palette so that the flying Pokémon has the right colors.
+	ld a, MON_DVS
+	call GetPartyParamLocation ; HL now points to the params of the curPartyMon, which is needed by GetMenuMonIconPalette.
+	call GetMenuMonIconPalette ; Returns in A the index of PartyMenuOBPals to use.
+	add a
+	add a
+	add a ; A x 8.
+	ld e, a ; SetFirstOBJPalette takes its offset parameter in E.
+	farcall SetFirstOBJPalette
 	ret
 
 GetMonIconDE: ; unreferenced

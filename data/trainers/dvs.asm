@@ -37,11 +37,11 @@ TrainerClassDVs:
 	dn  7,  8,  8,  8 ; TEACHER
 	dn  7, 13,  8,  7 ; SABRINA
 	dn  7,  8,  8,  8 ; BUG_CATCHER
+	dn  7,  8,  8,  8 ; SUPER_NERD
 	dn  7,  8,  8,  8 ; FISHER
 	dn  7,  8,  8,  8 ; SWIMMERM
 	dn  7,  8,  8,  8 ; SWIMMERF
 	dn  7,  8,  8,  8 ; SAILOR
-	dn  7,  8,  8,  8 ; SUPER_NERD
 	dn  9,  8,  8,  8 ; RIVAL2
 	dn  7,  8,  8,  8 ; GUITARIST
 	dn  7,  8,  8,  8 ; HIKER
@@ -77,4 +77,3 @@ TrainerClassDVs:
 	dn 13, 13, 13, 14 ; CLAIR2
 	dn 15, 15, 15, 15 ; CHAMPION2
 	dn 13, 13, 13, 13 ; KING
-	dn  8,  8,  8,  8 ; SCIENTIST2

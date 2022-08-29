@@ -47,6 +47,7 @@ CianwoodGymChuckScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_STORMBADGE
+	loadmem wLevelCap, 60
 	specialphonecall SPECIALCALL_GIFT
 	readvar VAR_BADGES
 	scall CianwoodGymActivateRockets
@@ -203,8 +204,9 @@ ChuckExplainBadgeText:
 	text "STORMBADGE makes"
 	line "all #MON up to"
 
-	para "L60 obey, even"
-	line "traded ones."
+	para "L60 obey and able"
+	line "to grow, even"
+	cont "traded ones."
 
 	para "It also lets your"
 	line "#MON use FLY"

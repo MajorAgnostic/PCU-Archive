@@ -22,7 +22,7 @@ TrainerEncounterMusic::
 	db MUSIC_YOUNGSTER_ENCOUNTER   ; brock
 	db MUSIC_LASS_ENCOUNTER        ; misty
 	db MUSIC_OFFICER_ENCOUNTER     ; lt_surge
-	db MUSIC_ROCKET_ENCOUNTER      ; scientist
+	db MUSIC_POKEMANIAC_ENCOUNTER  ; scientist
 	db MUSIC_OFFICER_ENCOUNTER     ; erika
 	db MUSIC_YOUNGSTER_ENCOUNTER   ; youngster
 	db MUSIC_YOUNGSTER_ENCOUNTER   ; schoolboy
@@ -39,11 +39,11 @@ TrainerEncounterMusic::
 	db MUSIC_BEAUTY_ENCOUNTER      ; teacher
 	db MUSIC_BEAUTY_ENCOUNTER      ; sabrina
 	db MUSIC_YOUNGSTER_ENCOUNTER   ; bug_catcher
+	db MUSIC_POKEMANIAC_ENCOUNTER  ; super_nerd
 	db MUSIC_HIKER_ENCOUNTER       ; fisher
 	db MUSIC_HIKER_ENCOUNTER       ; swimmerm
 	db MUSIC_BEAUTY_ENCOUNTER      ; swimmerf
 	db MUSIC_HIKER_ENCOUNTER       ; sailor
-	db MUSIC_POKEMANIAC_ENCOUNTER  ; super_nerd
 	db MUSIC_RIVAL_ENCOUNTER       ; rival2
 	db MUSIC_HIKER_ENCOUNTER       ; guitarist
 	db MUSIC_HIKER_ENCOUNTER       ; hiker
@@ -79,4 +79,3 @@ TrainerEncounterMusic::
 	db MUSIC_OFFICER_ENCOUNTER     ; clair2
 	db MUSIC_OFFICER_ENCOUNTER     ; champion2
 	db MUSIC_HIKER_ENCOUNTER       ; king
-	db MUSIC_POKEMANIAC_ENCOUNTER  ; scientist

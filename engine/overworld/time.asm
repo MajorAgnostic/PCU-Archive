@@ -42,7 +42,7 @@ endc
 	jp RestartReceiveCallDelay
 
 .ReceiveCallDelays:
-	db 20, 10, 5, 3
+	db 10, 5, 3, 1
 
 CheckReceiveCallTimer:
 	call CheckReceiveCallDelay ; check timer
@@ -110,6 +110,7 @@ CheckDailyResetTimer::
 	ld [hli], a ; wDailyFlags2
 	ld [hli], a ; wSwarmFlags
 	ld [hl], a  ; wSwarmFlags + 1
+	ld [wLuckyNumberShowFlag], a
 	ld hl, wDailyRematchFlags
 rept 4
 	ld [hli], a

@@ -661,7 +661,7 @@ StartTrainerBattle_LoadPokeBallGraphics:
 	jr z, .load_rocket_pals
 	cp EXECUTIVEF
 	jr z, .load_rocket_pals
-	cp SCIENTIST
+	cp ARCHER
 	jr z, .load_rocket_pals
 	ld hl, .pals
 .load_rocket_pals
@@ -733,8 +733,6 @@ INCLUDE "gfx/overworld/rocket_battle.pal"
 	cp EXECUTIVEM
 	ret z
 	cp EXECUTIVEF
-	ret z
-	cp SCIENTIST
 	ret z
 	cp ARCHER
 	ret z

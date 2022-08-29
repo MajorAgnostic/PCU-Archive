@@ -13,7 +13,7 @@ Route2GateScientistScript:
 	iftrue .GotShare
 	writetext Route2GateScientistText
 	readvar VAR_DEXCAUGHT
-	ifgreater NUM_POKEMON - 152, .GiveShare
+	ifgreater NUM_POKEMON - 154, .GiveShare
 	promptbutton
 	writetext Route2GateScientistNotEnoughText
 	waitbutton

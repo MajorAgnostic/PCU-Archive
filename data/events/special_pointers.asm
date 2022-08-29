@@ -147,7 +147,6 @@ SpecialsPointers::
 	add_special Function101231
 	add_special MoveTutor
 	add_special OmanyteChamber
-	add_special Function11c1ab
 	add_special BattleTowerAction
 	add_special DisplayUnownWords
 	add_special Menu_ChallengeExplanationCancel
@@ -186,3 +185,4 @@ SpecialsPointers::
 	add_special PocketPC
 	add_special GiveElekid
 	add_special GiveMagby
+	add_special HiddenPowerGuru

@@ -465,8 +465,8 @@ DisableDescription:
 	next "most recent move.@"
 
 AcidDescription:
-	db   "Attack that will"
-	next "lower DEFENSE.@"
+	db   "An attack that may"
+	next "inflict a burn.@"
 
 EmberDescription:
 	db   "An attack that may"
@@ -569,8 +569,8 @@ SolarbeamDescription:
 	next "2nd turn: Attack@"
 
 PoisonpowderDescription:
-	db   "A move that badly"
-	next "poisons the foe.@"
+	db   "Move that poisons"
+	next "the foe.@"
 
 StunSporeDescription:
 	db   "A move that may"
@@ -629,8 +629,8 @@ DigDescription:
 	next "2nd turn: Attack@"
 
 ToxicDescription:
-	db   "A poison move with"
-	next "increasing damage.@"
+	db   "Move that may bad-"
+	next "ly poison the foe.@"
 
 ConfusionDescription:
 	db   "An attack that may"
@@ -817,8 +817,8 @@ DreamEaterDescription:
 	next "sleeping victim.@"
 
 PoisonGasDescription:
-	db   "Almost always bad-"
-	next "ly poisons foe.@"
+	db   "A move that badly"
+	next "poisons the foe.@"
 
 BarrageDescription:
 	db   "Very powerful, but"
@@ -853,8 +853,8 @@ SporeDescription:
 	next "induces sleep.@"
 
 FlashDescription:
-	db   "Sharply reduces"
-	next "foe's accuracy.@"
+	db   "Reduces the foe's"
+	next "accuracy.@"
 
 PsywaveDescription:
 	db   "An attack with"

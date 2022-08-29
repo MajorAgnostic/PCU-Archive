@@ -152,8 +152,8 @@ GameFreakPresentsScene1:
 	ret
 
 .GAME_FREAK:
-	;  G  A  M  E   _  F  R  E  A  K
-	db 0, 1, 2, 3, 13, 4, 5, 3, 1, 6
+	;              M  .      A  .
+	db 13, 13, 13, 2, 4, 13, 1, 4, 13, 13
 .end
 	db "@"
 

@@ -448,6 +448,11 @@ AlreadyConfusedText:
 	text "<TARGET>'s"
 	line "already confused!"
 	prompt
+	
+AlreadySeededText:
+	text "<TARGET>'s"
+	line "already seeded!"
+	prompt
 
 BattleText_UsersHurtByStringBuffer1:
 	text "<USER>'s"
@@ -709,6 +714,16 @@ AlreadyAsleepText:
 	text "<TARGET>'s"
 	line "already asleep!"
 	prompt
+	
+AlreadyBurnedText:
+	text "<TARGET>'s"
+	line "already burned!"
+	prompt
+
+AlreadyFrozenText:
+	text "<TARGET>'s"
+	line "already frozen!"
+	prompt
 
 WasPoisonedText:
 	text "<TARGET>"
@@ -723,11 +738,6 @@ BadlyPoisonedText:
 AlreadyPoisonedText:
 	text "<TARGET>'s"
 	line "already poisoned!"
-	prompt
-	
-AlreadyBurnedText:
-	text "<TARGET>'s"
-	line "already burned!"
 	prompt
 
 SuckedHealthText:
@@ -856,11 +866,6 @@ MimicLearnedMoveText:
 WasSeededText:
 	text "<TARGET>"
 	line "was seeded!"
-	prompt
-
-EvadedText:
-	text "<TARGET>"
-	line "evaded the attack!"
 	prompt
 
 WasDisabledText:

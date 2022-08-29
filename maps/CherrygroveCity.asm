@@ -7,7 +7,7 @@
 
 CherrygroveCity_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_CHERRYGROVECITY_NOTHING
+	scene_script .DummyScene0 ; SCENE_CHERRYGROVECITY_DEFAULT
 	scene_script .DummyScene1 ; SCENE_CHERRYGROVECITY_MEET_RIVAL
 
 	def_callbacks
@@ -22,16 +22,19 @@ CherrygroveCity_MapScripts:
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_CHERRYGROVE
 	endcallback
-
+	
+MapGuide:
+	checkevent EVENT_GUIDE_GENT_VISIBLE_IN_CHERRYGROVE
+	iffalse .End
+	applymovement PLAYER, Movement_ToGuide
+	sjump CherrygroveCityGuideGent
+.End:
+	end
+	
 CherrygroveCityGuideGent:
 	faceplayer
 	opentext
 	writetext GuideGentIntroText
-	yesorno
-	iffalse .No
-	sjump .Yes
-.Yes:
-	writetext GuideGentTourText1
 	waitbutton
 	closetext
 	playmusic MUSIC_SHOW_ME_AROUND
@@ -97,6 +100,11 @@ CherrygroveCityGuideGent:
 	waitbutton
 	closetext
 	end
+	
+Movement_ToGuide:
+	step LEFT
+	turn_head UP
+	step_end
 
 CherrygroveSilverSceneSouth:
 	moveobject CHERRYGROVECITY_SILVER, 39, 7
@@ -341,15 +349,9 @@ GuideGentIntroText:
 
 	para "That's OK! Every-"
 	line "one is a rookie"
-	cont "at some point!"
+	cont "at some point."
 
-	para "If you'd like, I"
-	line "can teach you a"
-	cont "few things."
-	done
-
-GuideGentTourText1:
-	text "OK, then!"
+	para "OK, then!"
 	line "Follow me!"
 	done
 
@@ -556,6 +558,7 @@ CherrygroveCity_MapEvents:
 	warp_event 31, 11, CHERRYGROVE_EVOLUTION_SPEECH_HOUSE, 1
 
 	def_coord_events
+	coord_event 33,  7, SCENE_CHERRYGROVECITY_NOTHING, MapGuide
 	coord_event 33,  6, SCENE_CHERRYGROVECITY_MEET_RIVAL, CherrygroveSilverSceneNorth
 	coord_event 33,  7, SCENE_CHERRYGROVECITY_MEET_RIVAL, CherrygroveSilverSceneSouth
 

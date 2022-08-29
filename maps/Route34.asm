@@ -129,7 +129,6 @@ TrainerCamperTodd1:
 	loadtrainer CAMPER, TODD1
 	startbattle
 	reloadmapafterbattle
-	loadmem wToddFightCount, 1
 	clearflag ENGINE_TODD_READY_FOR_REMATCH
 	end
 
@@ -137,7 +136,6 @@ TrainerCamperTodd1:
 	loadtrainer CAMPER, TODD2
 	startbattle
 	reloadmapafterbattle
-	loadmem wToddFightCount, 2
 	clearflag ENGINE_TODD_READY_FOR_REMATCH
 	end
 
@@ -145,7 +143,6 @@ TrainerCamperTodd1:
 	loadtrainer CAMPER, TODD3
 	startbattle
 	reloadmapafterbattle
-	loadmem wToddFightCount, 3
 	clearflag ENGINE_TODD_READY_FOR_REMATCH
 	end
 
@@ -153,7 +150,6 @@ TrainerCamperTodd1:
 	loadtrainer CAMPER, TODD4
 	startbattle
 	reloadmapafterbattle
-	loadmem wToddFightCount, 4
 	clearflag ENGINE_TODD_READY_FOR_REMATCH
 	end
 
@@ -242,7 +238,6 @@ TrainerPicnickerGina1:
 	loadtrainer PICNICKER, GINA1
 	startbattle
 	reloadmapafterbattle
-	loadmem wGinaFightCount, 1
 	clearflag ENGINE_GINA_READY_FOR_REMATCH
 	end
 	
@@ -250,7 +245,6 @@ TrainerPicnickerGina1:
 	loadtrainer PICNICKER, GINA1
 	startbattle
 	reloadmapafterbattle
-	loadmem wGinaFightCount, 1
 	clearflag ENGINE_GINA_READY_FOR_REMATCH
 	end
 
@@ -258,7 +252,6 @@ TrainerPicnickerGina1:
 	loadtrainer PICNICKER, GINA2
 	startbattle
 	reloadmapafterbattle
-	loadmem wGinaFightCount, 2
 	clearflag ENGINE_GINA_READY_FOR_REMATCH
 	end
 
@@ -266,7 +259,6 @@ TrainerPicnickerGina1:
 	loadtrainer PICNICKER, GINA3
 	startbattle
 	reloadmapafterbattle
-	loadmem wGinaFightCount, 3
 	clearflag ENGINE_GINA_READY_FOR_REMATCH
 	end
 
@@ -274,7 +266,6 @@ TrainerPicnickerGina1:
 	loadtrainer PICNICKER, GINA4
 	startbattle
 	reloadmapafterbattle
-	loadmem wGinaFightCount, 4
 	clearflag ENGINE_GINA_READY_FOR_REMATCH
 	end
 

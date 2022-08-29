@@ -67,7 +67,6 @@ TrainerBugCatcherWade1:
 	loadtrainer BUG_CATCHER, WADE1
 	startbattle
 	reloadmapafterbattle
-	loadmem wWadeFightCount, 1
 	clearflag ENGINE_WADE_READY_FOR_REMATCH
 	end
 
@@ -75,7 +74,6 @@ TrainerBugCatcherWade1:
 	loadtrainer BUG_CATCHER, WADE2
 	startbattle
 	reloadmapafterbattle
-	loadmem wWadeFightCount, 2
 	clearflag ENGINE_WADE_READY_FOR_REMATCH
 	end
 
@@ -83,7 +81,6 @@ TrainerBugCatcherWade1:
 	loadtrainer BUG_CATCHER, WADE3
 	startbattle
 	reloadmapafterbattle
-	loadmem wWadeFightCount, 3
 	clearflag ENGINE_WADE_READY_FOR_REMATCH
 	end
 
@@ -91,7 +88,6 @@ TrainerBugCatcherWade1:
 	loadtrainer BUG_CATCHER, WADE4
 	startbattle
 	reloadmapafterbattle
-	loadmem wWadeFightCount, 4
 	clearflag ENGINE_WADE_READY_FOR_REMATCH
 	end
 

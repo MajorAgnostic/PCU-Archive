@@ -1,7 +1,7 @@
 	db "FAIRY@" ; species name
 	dw 407, 1070 ; height, weight
 
-	db   "It can make most"
+	db   "It can make almost"
 	next "any #MON run"
 	next "away simply by"
 

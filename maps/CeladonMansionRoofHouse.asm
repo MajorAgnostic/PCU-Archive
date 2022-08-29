@@ -29,7 +29,7 @@ CeladonMansionRoofHousePharmacistScript:
 	writetext ReceivedMewtwoText
 	playsound SFX_CAUGHT_MON
 	waitsfx
-	givepoke MEWTWO, 30, GORGEOUS_BOX
+	givepoke MEWTWO, 50, GORGEOUS_BOX
 	setevent EVENT_GOT_MEWTWO
 	writetext CeladonMansionRoofHousePharmacistCurseText
 	waitbutton

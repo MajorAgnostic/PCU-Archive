@@ -1189,7 +1189,7 @@ VitaminEffect:
 
 	add hl, bc
 	ld a, [hl]
-	cp 100
+	cp 210 ; Ultimate: nutrients cap is low-mid 50k stat exp (thanks Idain)
 	jr nc, NoEffectMessage
 
 	add 10
@@ -1302,8 +1302,10 @@ RareCandyEffect:
 	ld a, MON_LEVEL
 	call GetPartyParamLocation
 
+	ld a, [wLevelCap]
+	ld b, a
 	ld a, [hl]
-	cp MAX_LEVEL
+	cp b
 	jp nc, NoEffectMessage
 
 	inc a

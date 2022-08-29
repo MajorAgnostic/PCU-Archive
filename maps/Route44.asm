@@ -54,7 +54,6 @@ TrainerBirdKeeperVance1:
 	loadtrainer BIRD_KEEPER, VANCE1
 	startbattle
 	reloadmapafterbattle
-	loadmem wVanceFightCount, 1
 	clearflag ENGINE_VANCE_READY_FOR_REMATCH
 	end
 
@@ -62,7 +61,6 @@ TrainerBirdKeeperVance1:
 	loadtrainer BIRD_KEEPER, VANCE2
 	startbattle
 	reloadmapafterbattle
-	loadmem wVanceFightCount, 2
 	clearflag ENGINE_VANCE_READY_FOR_REMATCH
 	end
 
@@ -157,10 +155,12 @@ TrainerFisherWilton1:
 	loadvar VAR_CALLERID, PHONE_FISHER_WILTON
 	endifjustbattled
 	opentext
-	checkflag ENGINE_WILTON_READY_FOR_REMATCH
-	iftrue .WantsBattle
 	checkflag ENGINE_WILTON_HAS_ITEM
 	iftrue .HasItem
+	checkflag ENGINE_REMORAID_SWARM
+	iftrue .Swarm
+	checkflag ENGINE_WILTON_READY_FOR_REMATCH
+	iftrue .WantsBattle
 	checkcellnum PHONE_FISHER_WILTON
 	iftrue Route44NumberAcceptedM
 	checkevent EVENT_WILTON_ASKED_FOR_PHONE_NUMBER
@@ -191,7 +191,6 @@ TrainerFisherWilton1:
 	loadtrainer FISHER, WILTON1
 	startbattle
 	reloadmapafterbattle
-	loadmem wWiltonFightCount, 1
 	clearflag ENGINE_WILTON_READY_FOR_REMATCH
 	end
 
@@ -199,7 +198,6 @@ TrainerFisherWilton1:
 	loadtrainer FISHER, WILTON2
 	startbattle
 	reloadmapafterbattle
-	loadmem wWiltonFightCount, 2
 	clearflag ENGINE_WILTON_READY_FOR_REMATCH
 	end
 
@@ -208,6 +206,12 @@ TrainerFisherWilton1:
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_WILTON_READY_FOR_REMATCH
+	end
+	
+.Swarm:
+	writetext FisherWiltonSwarmText
+	waitbutton
+	closetext
 	end
 
 .HasItem:
@@ -229,7 +233,7 @@ TrainerFisherWilton1:
 	sjump .ItemReceived
 
 .PokeBall:
-	verbosegiveitem POKE_BALL
+	verbosegiveitem LURE_BALL
 	iffalse .Route44PackFullM
 .ItemReceived:
 	clearflag ENGINE_WILTON_HAS_ITEM
@@ -323,6 +327,17 @@ FisherWiltonHugePoliwagText:
 
 	para "I swear it must've"
 	line "been 16 feet long!"
+	done
+	
+FisherWiltonSwarmText:
+	text "One, two, three…"
+	line "Muahahaha, what a"
+
+	para "great haul!"
+	line "I'm done! Go ahead"
+
+	para "and catch as many"
+	line "as you can, kid!"
 	done
 
 FisherEdgarSeenText:

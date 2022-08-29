@@ -197,7 +197,6 @@ TrainerSchoolboyAlan1:
 	loadtrainer SCHOOLBOY, ALAN1
 	startbattle
 	reloadmapafterbattle
-	loadmem wAlanFightCount, 1
 	clearflag ENGINE_ALAN_READY_FOR_REMATCH
 	end
 
@@ -205,7 +204,6 @@ TrainerSchoolboyAlan1:
 	loadtrainer SCHOOLBOY, ALAN2
 	startbattle
 	reloadmapafterbattle
-	loadmem wAlanFightCount, 2
 	clearflag ENGINE_ALAN_READY_FOR_REMATCH
 	end
 
@@ -213,7 +211,6 @@ TrainerSchoolboyAlan1:
 	loadtrainer SCHOOLBOY, ALAN3
 	startbattle
 	reloadmapafterbattle
-	loadmem wAlanFightCount, 3
 	clearflag ENGINE_ALAN_READY_FOR_REMATCH
 	end
 
@@ -221,7 +218,6 @@ TrainerSchoolboyAlan1:
 	loadtrainer SCHOOLBOY, ALAN4
 	startbattle
 	reloadmapafterbattle
-	loadmem wAlanFightCount, 4
 	clearflag ENGINE_ALAN_READY_FOR_REMATCH
 	end
 

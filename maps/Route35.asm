@@ -169,7 +169,6 @@ TrainerBugCatcherArnie:
 	loadtrainer BUG_CATCHER, ARNIE1
 	startbattle
 	reloadmapafterbattle
-	loadmem wArnieFightCount, 1
 	clearflag ENGINE_ARNIE_READY_FOR_REMATCH
 	end
 
@@ -177,7 +176,6 @@ TrainerBugCatcherArnie:
 	loadtrainer BUG_CATCHER, ARNIE2
 	startbattle
 	reloadmapafterbattle
-	loadmem wArnieFightCount, 2
 	clearflag ENGINE_ARNIE_READY_FOR_REMATCH
 	end
 
@@ -185,7 +183,6 @@ TrainerBugCatcherArnie:
 	loadtrainer BUG_CATCHER, ARNIE3
 	startbattle
 	reloadmapafterbattle
-	loadmem wArnieFightCount, 3
 	clearflag ENGINE_ARNIE_READY_FOR_REMATCH
 	end
 
@@ -193,7 +190,6 @@ TrainerBugCatcherArnie:
 	loadtrainer BUG_CATCHER, ARNIE4
 	startbattle
 	reloadmapafterbattle
-	loadmem wArnieFightCount, 4
 	clearflag ENGINE_ARNIE_READY_FOR_REMATCH
 	end
 

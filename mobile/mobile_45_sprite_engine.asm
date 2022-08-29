@@ -491,7 +491,6 @@ Function116294:
 	ld a, $5
 	ldh [rSVBK], a
 	ld hl, wBGPals1 palette 6
-	ld de, wc320
 	ld bc, 2 palettes
 	call CopyBytes
 	ld hl, PichuBorderMobileBGPalettes

@@ -888,6 +888,11 @@ RalphItemScript:
 	farwritetext RalphItemText
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
+	
+WiltonItemScript:
+	farwritetext WiltonItemText
+	promptbutton
+	sjump PhoneScript_HangUpText_Male
 
 AnthonySwarmScript:
 	farwritetext AnthonySwarmText

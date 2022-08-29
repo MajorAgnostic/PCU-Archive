@@ -681,26 +681,26 @@ JohtoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	db 47, SWINUB
-	db 47, GOLBAT
-	db 48, CORSOLA
+	db 48, GOLBAT
+	db 47, SHELLDER
 	db 48, SNEASEL
 	db 49, DELIBIRD
 	db 49, JYNX
 	db 49, JYNX
 	; day
 	db 47, SWINUB
-	db 47, GOLBAT
-	db 48, CORSOLA
+	db 48, GOLBAT
+	db 47, SHELLDER
 	db 48, SNEASEL
 	db 49, DELIBIRD
 	db 49, JYNX
 	db 49, JYNX
 	; nite
 	db 47, SWINUB
-	db 47, GOLBAT
-	db 48, CORSOLA
+	db 48, GOLBAT
+	db 47, SHELLDER
 	db 48, SNEASEL
-	db 49, CLOYSTER
+	db 48, SHELLDER
 	db 49, JYNX
 	db 49, JYNX
 
@@ -708,26 +708,26 @@ JohtoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	db 47, SWINUB
-	db 47, GOLBAT
-	db 48, CORSOLA
+	db 48, GOLBAT
+	db 47, SHELLDER
 	db 48, SNEASEL
 	db 49, DELIBIRD
 	db 49, JYNX
 	db 49, JYNX
 	; day
 	db 47, SWINUB
-	db 47, GOLBAT
-	db 48, CORSOLA
+	db 48, GOLBAT
+	db 47, SHELLDER
 	db 48, SNEASEL
 	db 49, DELIBIRD
 	db 49, JYNX
 	db 49, JYNX
 	; nite
 	db 47, SWINUB
-	db 47, GOLBAT
-	db 48, CORSOLA
+	db 48, GOLBAT
+	db 47, SHELLDER
 	db 48, SNEASEL
-	db 49, CLOYSTER
+	db 48, SHELLDER
 	db 49, JYNX
 	db 49, JYNX
 
@@ -735,26 +735,26 @@ JohtoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	db 47, SWINUB
-	db 47, GOLBAT
-	db 48, CORSOLA
+	db 48, GOLBAT
+	db 47, SHELLDER
 	db 48, SNEASEL
 	db 49, DELIBIRD
 	db 49, JYNX
 	db 49, JYNX
 	; day
 	db 47, SWINUB
-	db 47, GOLBAT
-	db 48, CORSOLA
+	db 48, GOLBAT
+	db 47, SHELLDER
 	db 48, SNEASEL
 	db 49, DELIBIRD
 	db 49, JYNX
 	db 49, JYNX
 	; nite
 	db 47, SWINUB
-	db 47, GOLBAT
-	db 48, CORSOLA
+	db 48, GOLBAT
+	db 47, SHELLDER
 	db 48, SNEASEL
-	db 49, CLOYSTER
+	db 48, SHELLDER
 	db 49, JYNX
 	db 49, JYNX
 
@@ -762,26 +762,26 @@ JohtoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	db 47, SWINUB
-	db 47, GOLBAT
-	db 48, CORSOLA
+	db 48, GOLBAT
+	db 47, SHELLDER
 	db 48, SNEASEL
 	db 49, DELIBIRD
 	db 49, JYNX
 	db 49, JYNX
 	; day
 	db 47, SWINUB
-	db 47, GOLBAT
-	db 48, CORSOLA
+	db 48, GOLBAT
+	db 47, SHELLDER
 	db 48, SNEASEL
 	db 49, DELIBIRD
 	db 49, JYNX
 	db 49, JYNX
 	; nite
 	db 47, SWINUB
-	db 47, GOLBAT
-	db 48, CORSOLA
+	db 48, GOLBAT
+	db 47, SHELLDER
 	db 48, SNEASEL
-	db 49, CLOYSTER
+	db 48, SHELLDER
 	db 49, JYNX
 	db 49, JYNX
 
@@ -789,26 +789,26 @@ JohtoGrassWildMons:
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
 	db 47, SWINUB
-	db 47, GOLBAT
-	db 48, CORSOLA
+	db 48, GOLBAT
+	db 47, SHELLDER
 	db 48, SNEASEL
 	db 49, DELIBIRD
 	db 49, JYNX
 	db 49, JYNX
 	; day
 	db 47, SWINUB
-	db 47, GOLBAT
-	db 48, CORSOLA
+	db 48, GOLBAT
+	db 47, SHELLDER
 	db 48, SNEASEL
 	db 49, DELIBIRD
 	db 49, JYNX
 	db 49, JYNX
 	; nite
 	db 47, SWINUB
-	db 47, GOLBAT
-	db 48, CORSOLA
+	db 48, GOLBAT
+	db 47, SHELLDER
 	db 48, SNEASEL
-	db 49, CLOYSTER
+	db 48, SHELLDER
 	db 49, JYNX
 	db 49, JYNX
 
@@ -1440,7 +1440,7 @@ JohtoGrassWildMons:
 	db 39, GROWLITHE
 	db 40, VULPIX
 	db 41, TAUROS
-	db 41, ARBOK
+	db 41, AIPOM
 	db 40, FEAROW
 	db 42, GLIGAR
 	; day
@@ -1448,15 +1448,15 @@ JohtoGrassWildMons:
 	db 39, GROWLITHE
 	db 40, VULPIX
 	db 41, TAUROS
-	db 41, ARBOK
+	db 41, AIPOM
 	db 40, FEAROW
 	db 42, GLIGAR
 	; nite
-	db 40, DUNSPARCE
-	db 41, GIRAFARIG
-	db 39, VULPIX
-	db 41, TAUROS
 	db 40, HOUNDOUR
+	db 41, GIRAFARIG
+	db 39, EKANS
+	db 41, TAUROS
+	db 41, AIPOM
 	db 40, RATICATE
 	db 42, GLIGAR
 
@@ -1571,28 +1571,28 @@ JohtoGrassWildMons:
 	map_id SILVER_CAVE_OUTSIDE
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 87, SNEASEL
+	db 87, SKARMORY
 	db 88, URSARING
 	db 88, HERACROSS
 	db 88, XATU
 	db 89, DONPHAN
-	db 89, SUDOWOODO
-	db 90, SKARMORY
+	db 90, SUDOWOODO
+	db 70, IGGLYBUFF
 	; day
-	db 87, SNEASEL
+	db 87, SKARMORY
 	db 88, URSARING
 	db 88, HERACROSS
 	db 88, XATU
 	db 89, DONPHAN
-	db 89, SUDOWOODO
-	db 90, SKARMORY
+	db 90, SUDOWOODO
+	db 70, IGGLYBUFF
 	; nite
 	db 87, SNEASEL
 	db 88, SMEARGLE
 	db 88, STANTLER
 	db 88, XATU
 	db 89, DONPHAN
-	db 89, SUDOWOODO
-	db 71, TYROGUE
+	db 90, SUDOWOODO
+	db 70, IGGLYBUFF
 
 	db -1 ; end

@@ -1,0 +1,13 @@
+constants/scgb_constants.asm[36m:[m	const PREDEFPAL_BETA_[1;31mLOGO_1[m
+constants/sprite_anim_constants.asm[36m:[m	const SPRITE_ANIM_OAMSET_GAMEFREAK_[1;31mLOGO_1[m           ; 81
+constants/sprite_anim_constants.asm[36m:[m	const SPRITE_ANIM_OAMSET_GAMEFREAK_[1;31mLOGO_1[m0          ; 8a
+constants/sprite_anim_constants.asm[36m:[m	const SPRITE_ANIM_OAMSET_GAMEFREAK_[1;31mLOGO_1[m1          ; 8b
+data/sprite_anims/framesets.asm[36m:[m	frame SPRITE_ANIM_OAMSET_GAMEFREAK_[1;31mLOGO_1[m,  12
+data/sprite_anims/framesets.asm[36m:[m	frame SPRITE_ANIM_OAMSET_GAMEFREAK_[1;31mLOGO_1[m,  12
+data/sprite_anims/framesets.asm[36m:[m	frame SPRITE_ANIM_OAMSET_GAMEFREAK_[1;31mLOGO_1[m0, 10
+data/sprite_anims/framesets.asm[36m:[m	frame SPRITE_ANIM_OAMSET_GAMEFREAK_[1;31mLOGO_1[m1,  7
+data/sprite_anims/oam.asm[36m:[m	dbw $d0, .OAMData_GameFreakLogo1_3         ; SPRITE_ANIM_OAMSET_GAMEFREAK_[1;31mLOGO_1[m
+data/sprite_anims/oam.asm[36m:[m	dbw $04, .OAMData_GameFreakLogo4_11        ; SPRITE_ANIM_OAMSET_GAMEFREAK_[1;31mLOGO_1[m0
+data/sprite_anims/oam.asm[36m:[m	dbw $00, .OAMData_GameFreakLogo4_11        ; SPRITE_ANIM_OAMSET_GAMEFREAK_[1;31mLOGO_1[m1
+gfx/sgb/pal_packets.asm[36m:[m	sgb_pal_set BETA_[1;31mLOGO_1[m, BETA_LOGO_2, DIPLOMA, RB_PURPLEMON
+gfx/sgb/predef.pal[36m:[m	RGB 31,31,31, 24,20,10, 21,00,04, 00,00,00 ; PREDEFPAL_BETA_[1;31mLOGO_1[m

@@ -55,9 +55,9 @@ MonMenuIconPals:
 	iconpal RED, BLUE ; VENONAT
 	iconpal PURPLE, BLUE ; VENOMOTH
 	iconpal BROWN, BLUE ; DIGLETT
-	iconpal BROWN, BLUE ; DUGTRIO
-	iconpal PURPLE, BROWN ; MEOWTH
-	iconpal PURPLE, BROWN ; PERSIAN
+	iconpal RED, BLUE ; DUGTRIO
+	iconpal BROWN, PURPLE ; MEOWTH
+	iconpal BROWN, PURPLE ; PERSIAN
 	iconpal BROWN, BLUE ; PSYDUCK
 	iconpal BLUE, BLUE ; GOLDUCK
 	iconpal BROWN, GREEN ; MANKEY
@@ -134,14 +134,14 @@ MonMenuIconPals:
 	iconpal BROWN, GRAY ; PINSIR
 	iconpal BROWN, BROWN ; TAUROS
 	iconpal RED, BROWN ; MAGIKARP
-	iconpal RED, BLUE ; GYARADOS
+	iconpal BLUE, RED ; GYARADOS
 	iconpal BLUE, PURPLE ; LAPRAS
 	iconpal PURPLE, BLUE ; DITTO
 	iconpal BROWN, GRAY ; EEVEE
 	iconpal BLUE, PURPLE ; VAPOREON
 	iconpal RED, BROWN ; JOLTEON
 	iconpal RED, RED ; FLAREON
-	iconpal TEAL, BLUE ; PORYGON
+	iconpal TEAL, PURPLE ; PORYGON
 	iconpal BLUE, GRAY ; OMANYTE
 	iconpal BLUE, GRAY ; OMASTAR
 	iconpal BROWN, GRAY ; KABUTO
@@ -200,7 +200,7 @@ MonMenuIconPals:
 	iconpal RED, BLUE ; YANMA
 	iconpal BLUE, PURPLE ; WOOPER
 	iconpal BLUE, PURPLE ; QUAGSIRE
-	iconpal PURPLE, GREEN ; ESPEON
+	iconpal PURPLE, BLUE ; ESPEON
 	iconpal BROWN, BLUE ; UMBREON
 	iconpal BLUE, PURPLE ; MURKROW
 	iconpal PINK, BLUE ; SLOWKING
@@ -226,7 +226,7 @@ MonMenuIconPals:
 	iconpal RED, BLUE ; MAGCARGO
 	iconpal BROWN, BLUE ; SWINUB
 	iconpal BROWN, BROWN ; PILOSWINE
-	iconpal TEAL, PINK ; CORSOLA
+	iconpal PINK, TEAL ; CORSOLA
 	iconpal BLUE, GRAY ; REMORAID
 	iconpal RED, BROWN ; OCTILLERY
 	iconpal RED, PURPLE ; DELIBIRD
@@ -237,7 +237,7 @@ MonMenuIconPals:
 	iconpal BLUE, PURPLE ; KINGDRA
 	iconpal BLUE, TEAL ; PHANPY
 	iconpal GRAY, BROWN ; DONPHAN
-	iconpal BLUE, BLUE ; PORYGON2
+	iconpal BLUE, GRAY ; PORYGON2
 	iconpal BROWN, GREEN ; STANTLER
 	iconpal BROWN, GREEN ; SMEARGLE
 	iconpal BROWN, BLUE ; TYROGUE
@@ -256,6 +256,6 @@ MonMenuIconPals:
 	iconpal BLUE, PURPLE ; LUGIA
 	iconpal RED, PINK ; HO_OH
 	iconpal GREEN, PINK ; CELEBI
-	iconpal BLUE, BLUE ; 252
+	iconpal BLUE, BLUE ; METAGROSS
 	iconpal GRAY, GRAY ; MEGA CHARIZARD
-	iconpal RED, GREEN ; EGG
+	iconpal RED, BLUE ; EGG

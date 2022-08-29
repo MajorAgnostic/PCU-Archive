@@ -38,11 +38,11 @@ TrainerPicPointers::
 	dba_pic TeacherPic
 	dba_pic SabrinaPic
 	dba_pic BugCatcherPic
+	dba_pic SuperNerdPic
 	dba_pic FisherPic
 	dba_pic SwimmermPic
 	dba_pic SwimmerfPic
 	dba_pic SailorPic
-	dba_pic SuperNerdPic
 	dba_pic Rival2Pic
 	dba_pic GuitaristPic
 	dba_pic HikerPic
@@ -78,4 +78,3 @@ TrainerPicPointers::
 	dba_pic Clair2Pic
 	dba_pic Champion2Pic
 	dba_pic BlackbeltTPic
-	dba_pic ScientistPic

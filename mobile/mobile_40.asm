@@ -5989,7 +5989,6 @@ MenuData3_102a33:
 
 Function102a3b:
 	ld a, [wcd30]
-	ld [wc74e], a
 	ld hl, wPlayerName
 	ld de, wPlayerTrademonSenderName
 	ld bc, NAME_LENGTH

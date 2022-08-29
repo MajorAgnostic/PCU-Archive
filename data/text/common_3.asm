@@ -1594,3 +1594,40 @@ _MoveReminderNoMoves::
 	line "for this #MON"
 	cont "to learn."
 	done
+	
+_HiddenPowerGuyQuestion::
+	text "Shall I divine"
+	line "the HIDDEN POWER"
+	cont "type of one of"
+	cont "your #MON?"
+	done
+
+_HiddenPowerGuyWhichMon::
+	text "Which #MON am I"
+	line "to examine?"
+	done
+
+_HiddenPowerGuyEgg::
+	text "An EGG has not yet"
+	line "developed a HIDDEN"
+	cont "POWER…"
+	done
+
+_HiddenPowerGuyCancel::
+	text "…Very well…"
+	done
+
+_HiddenPowerGuyNoMon::
+    text "You don't have a"
+    line "#MON for me"
+    cont "to examine…"
+    done
+
+_HiddenPowerGuyAnswer::
+	text "I can sense it…"
+
+	para "Its HIDDEN POWER"
+	line "is @"
+	text_ram wStringBuffer1
+	text "-type!"
+	done
