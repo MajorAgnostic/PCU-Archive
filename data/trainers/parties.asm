@@ -601,7 +601,7 @@ WillGroup:
 			db $ed, $bb ; atk|def, spd|spc
 			dw $0159, $0159, $0159, $0159, $0159
 			db LEFTOVERS
-			db PSYCHIC_M, THUNDER_WAVE, WHIRLPOOL, AMNESIA
+			db PSYCHIC_M, THUNDER_WAVE, SURF, AMNESIA
 	db 65, ESPEON
 			db $bb, $bb ; atk|def, spd|spc
 			dw $0159, $0159, $0159, $0159, $0159

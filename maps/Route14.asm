@@ -3,6 +3,7 @@
 	const ROUTE14_YOUNGSTER
 	const ROUTE14_POKEFAN_M2
 	const ROUTE14_KIM
+	const ROUTE14_FRUIT_TREE
 
 Route14_MapScripts:
 	def_scene_scripts

@@ -54,7 +54,7 @@ MonMenuIconPals:
 	iconpal RED, BROWN ; PARASECT
 	iconpal RED, BLUE ; VENONAT
 	iconpal PURPLE, BLUE ; VENOMOTH
-	iconpal RED, BLUE ; DIGLETT
+	iconpal BROWN, BLUE ; DIGLETT
 	iconpal RED, BLUE ; DUGTRIO
 	iconpal PURPLE, BROWN ; MEOWTH
 	iconpal PURPLE, BROWN ; PERSIAN
@@ -134,7 +134,7 @@ MonMenuIconPals:
 	iconpal BROWN, GRAY ; PINSIR
 	iconpal BROWN, BROWN ; TAUROS
 	iconpal RED, BROWN ; MAGIKARP
-	iconpal RED, BLUE ; GYARADOS
+	iconpal RED, GRAY ; GYARADOS
 	iconpal BLUE, PURPLE ; LAPRAS
 	iconpal PURPLE, BLUE ; DITTO
 	iconpal BROWN, GRAY ; EEVEE
@@ -200,7 +200,7 @@ MonMenuIconPals:
 	iconpal RED, BLUE ; YANMA
 	iconpal BLUE, PURPLE ; WOOPER
 	iconpal BLUE, PURPLE ; QUAGSIRE
-	iconpal PURPLE, GREEN ; ESPEON
+	iconpal PURPLE, BLUE ; ESPEON
 	iconpal BROWN, BLUE ; UMBREON
 	iconpal BLUE, PURPLE ; MURKROW
 	iconpal PINK, BLUE ; SLOWKING
