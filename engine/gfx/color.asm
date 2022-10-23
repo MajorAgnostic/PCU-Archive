@@ -1189,6 +1189,9 @@ INCLUDE "gfx/battle/hp_bar.pal"
 ExpBarPalette:
 INCLUDE "gfx/battle/exp_bar.pal"
 
+BallHUDPalette:
+INCLUDE "gfx/battle/ball_hud.pal"
+
 INCLUDE "data/pokemon/palettes.asm"
 
 INCLUDE "data/trainers/palettes.asm"
@@ -1314,6 +1317,9 @@ INCLUDE "gfx/overworld/npc_sprites.pal"
 
 RoofPals:
 INCLUDE "gfx/tilesets/roofs.pal"
+
+NameInputScreenPalettes:
+INCLUDE "gfx/naming_screen/input_screen.pal"
 
 DiplomaPalettes:
 INCLUDE "gfx/diploma/diploma.pal"

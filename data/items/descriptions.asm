@@ -1,10 +1,18 @@
 ItemDescriptions:
 ; entries correspond to item ids
-	dw MasterBallDesc
-	dw UltraBallDesc
-	dw BrightpowderDesc
-	dw GreatBallDesc
 	dw PokeBallDesc
+	dw GreatBallDesc
+	dw UltraBallDesc
+	dw MasterBallDesc
+	dw HeavyBallDesc
+	dw LevelBallDesc
+	dw LureBallDesc
+	dw FastBallDesc
+	dw FriendBallDesc
+	dw MoonBallDesc
+	dw LoveBallDesc
+	dw ParkBallDesc
+	dw BrightpowderDesc
 	dw TeruSama1Desc
 	dw BicycleDesc
 	dw MoonStoneDesc
@@ -156,16 +164,9 @@ ItemDescriptions:
 	dw BlueCarpetDesc
 	dw RedCarpetDesc
 	dw SacredAshDesc
-	dw HeavyBallDesc
 	dw FlowerMailDesc
-	dw LevelBallDesc
-	dw LureBallDesc
-	dw FastBallDesc
 	dw NESDesc
 	dw LightBallDesc
-	dw FriendBallDesc
-	dw MoonBallDesc
-	dw LoveBallDesc
 	dw NormalBoxDesc
 	dw GorgeousBoxDesc
 	dw SunStoneDesc
@@ -176,7 +177,6 @@ ItemDescriptions:
 	dw GoldBerryDesc
 	dw SquirtBottleDesc
 	dw VBoyDesc
-	dw ParkBallDesc
 	dw RainbowWingDesc
 	dw VoltorbDollDesc
 	dw DragonScaleDesc

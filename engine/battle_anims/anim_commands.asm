@@ -90,7 +90,112 @@ BattleAnimRunScript:
 	call RunBattleAnimScript
 
 .done
-	call BattleAnim_RevertPals
+	ld a, [wBattleAnimFlags]
+	bit BATTLEANIM_KEEPSPRITES_F, a
+	jp z, BattleAnim_RevertPals
+	; fallthrough
+
+BattleAnimDarkenObjPals:
+; Shade colors by 3/4 of their original value.
+	push hl
+	push de
+	push bc
+
+	; Preserve VRAM bank
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wOBPals2)
+	ldh [rSVBK], a
+
+	; Darken selected palettes by 1/4
+	ld hl, wOBPals2 palette PAL_BATTLE_OB_RED color 1
+	call DarkenColorByAQuarter
+	inc hl
+	inc hl
+	call DarkenColorByAQuarter
+
+	ld hl, wOBPals2 palette PAL_BATTLE_OB_GREEN color 1
+	call DarkenColorByAQuarter
+
+	; Request palette update
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+
+	; Restore previous VRAM bank
+	pop af
+	ld [rSVBK], a
+	pop bc
+	pop de
+	pop hl
+	ret
+	
+DarkenColorByAQuarter::
+	; Extract Red color and darken it
+	ld a, [hl]
+	and %00011111
+	ld d, a
+	srl d
+	srl d
+	sub d
+	ld d, a
+	; Store result back in red
+	ld a, [hl]
+	and %11100000
+	or d
+	ld [hl], a
+
+	; Extract Green color and darken it
+	ld a, [hli]
+	and %11100000
+	rrca
+	swap a
+	ld d, a ; d = 00000ggg
+	ld a, [hld]
+	and %00000011
+	swap a
+	rrca
+	or d
+	ld d, a
+	srl d
+	srl d
+	sub d
+	ld d, a
+	; Store a back in green
+	rlca
+	swap a
+	ld d, a
+	and %11100000
+	ld e, a
+	ld a, d
+	and %00000011
+	ld d, a
+	ld a, [hl]
+	and %00011111
+	or e
+	ld [hli], a
+	ld a, [hl]
+	and %11111100
+	or d
+	ld [hl], a
+
+	; Extract Blue color and darken it
+	ld a, [hl]
+	and %01111100
+	rrca
+	rrca
+	ld d, a
+	srl d
+	srl d
+	sub d
+	ld d, a
+	; store color back in blue
+	ld d, a
+	sla d
+	sla d
+	ld a, [hl]
+	and %10000011
+	or d
+	ld [hld], a
 	ret
 
 RunBattleAnimScript:
@@ -130,8 +235,16 @@ RunBattleAnimScript:
 	ld a, [wBattleAnimFlags]
 	bit BATTLEANIM_STOP_F, a
 	jr z, .playframe
+	bit BATTLEANIM_KEEPSPRITES_F, a
+	ret nz
 
-	call BattleAnim_ClearOAM
+	ld hl, wShadowOAM
+	ld c, wShadowOAMEnd - wShadowOAM
+	xor a
+.loop2
+	ld [hli], a
+	dec c
+	jr nz, .loop2
 	ret
 
 BattleAnimClearHud:
@@ -214,52 +327,6 @@ ClearActorHud:
 	hlcoord 9, 7
 	lb bc, 5, 11
 	call ClearBox
-	ret
-
-Functioncc220: ; unreferenced
-	xor a
-	ldh [hBGMapMode], a
-	ld a, LOW(vBGMap0 tile $28)
-	ldh [hBGMapAddress], a
-	ld a, HIGH(vBGMap0 tile $28)
-	ldh [hBGMapAddress + 1], a
-	call WaitBGMap2
-	ld a, $60
-	ldh [hWY], a
-	xor a ; LOW(vBGMap0)
-	ldh [hBGMapAddress], a
-	ld a, HIGH(vBGMap0)
-	ldh [hBGMapAddress + 1], a
-	call BattleAnimDelayFrame
-	ret
-
-BattleAnim_ClearOAM:
-	ld a, [wBattleAnimFlags]
-	bit BATTLEANIM_KEEPSPRITES_F, a
-	jr z, .delete
-
-	; Instead of deleting the sprites, make them all use PAL_BATTLE_OB_ENEMY
-	ld hl, wVirtualOAMSprite00Attributes
-	ld c, NUM_SPRITE_OAM_STRUCTS
-.loop
-	ld a, [hl]
-	and $ff ^ (PALETTE_MASK | VRAM_BANK_1) ; PAL_BATTLE_OB_ENEMY (0)
-	ld [hli], a
-rept SPRITEOAMSTRUCT_LENGTH - 1
-	inc hl
-endr
-	dec c
-	jr nz, .loop
-	ret
-
-.delete
-	ld hl, wVirtualOAM
-	ld c, wVirtualOAMEnd - wVirtualOAM
-	xor a
-.loop2
-	ld [hli], a
-	dec c
-	jr nz, .loop2
 	ret
 
 RunBattleAnimCommand:
@@ -1468,10 +1535,10 @@ BattleAnim_UpdateOAM_All:
 	jr nz, .loop
 	ld a, [wBattleAnimOAMPointerLo]
 	ld l, a
-	ld h, HIGH(wVirtualOAM)
+	ld h, HIGH(wShadowOAM)
 .loop2
 	ld a, l
-	cp LOW(wVirtualOAMEnd)
+	cp LOW(wShadowOAMEnd)
 	jr nc, .done
 	xor a
 	ld [hli], a

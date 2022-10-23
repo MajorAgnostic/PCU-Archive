@@ -483,22 +483,10 @@ StatsScreen_InitUpperHalf:
 	dw sBoxMonNicknames
 	dw wBufferMonNick
 
-Function4df7f: ; unreferenced
-	hlcoord 7, 0
-	ld bc, SCREEN_WIDTH
-	ld d, SCREEN_HEIGHT
-.loop
-	ld a, $31 ; vertical divider
-	ld [hl], a
-	add hl, bc
-	dec d
-	jr nz, .loop
-	ret
-
 StatsScreen_PlaceHorizontalDivider:
 	hlcoord 0, 7
 	ld b, SCREEN_WIDTH
-	ld a, $62 ; horizontal divider (empty HP/exp bar)
+	ld a, $76 ; horizontal divider ()
 .loop
 	ld [hli], a
 	dec b
@@ -516,7 +504,7 @@ StatsScreen_PlaceShinyIcon:
 	ld bc, wTempMonDVs
 	farcall CheckShininess
 	ret nc
-	hlcoord 19, 0
+	hlcoord 9, 6
 	ld [hl], "⁂"
 	ret
 
@@ -577,8 +565,6 @@ LoadPinkPage:
 	hlcoord 0, 9
 	ld b, $0
 	predef DrawPlayerHP
-	hlcoord 8, 9
-	ld [hl], $41 ; right HP/exp bar end cap
 	ld de, .Status_Type
 	hlcoord 0, 12
 	call PlaceString
@@ -936,8 +922,6 @@ StatsScreen_GetAnimationParam:
 
 .Tempmon:
 	ld bc, wTempMonSpecies
-	jr .CheckEggFaintedFrzSlp ; utterly pointless
-
 .CheckEggFaintedFrzSlp:
 	ld a, [wCurPartySpecies]
 	cp EGG
@@ -1137,7 +1121,6 @@ StatsScreen_LoadPageIndicators:
 CopyNickname:
 	ld de, wStringBuffer1
 	ld bc, MON_NAME_LENGTH
-	jr .okay ; utterly pointless
 .okay
 	ld a, [wMonType]
 	cp BOXMON

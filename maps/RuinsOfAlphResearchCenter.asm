@@ -176,10 +176,6 @@ RuinsOfAlphResearchCenterPrinter:
 	closetext
 	end
 
-RuinsOfAlphResearchCenterPhoto:
-; unreferenced
-	jumptext RuinsOfAlphResearchCenterProfSilktreePhotoText
-
 RuinsOfAlphResearchCenterBookshelf:
 	jumptext RuinsOfAlphResearchCenterAcademicBooksText
 
@@ -388,15 +384,6 @@ RuinsOfAlphResearchCenterPrinterText_DoesntWork:
 RuinsOfAlphResearchCenterUnownPrinterText:
 	text "UNOWN may be"
 	line "printed out."
-	done
-
-RuinsOfAlphResearchCenterProfSilktreePhotoText:
-; unused
-	text "It's a photo of"
-	line "the RESEARCH"
-
-	para "CENTER'S founder,"
-	line "PROF.SILKTREE."
 	done
 
 RuinsOfAlphResearchCenterAcademicBooksText:

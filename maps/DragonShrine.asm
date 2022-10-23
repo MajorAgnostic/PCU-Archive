@@ -158,8 +158,8 @@ DragonShrine_MapScripts:
 	opentext
 	writetext DragonShrineHereRisingBadgeText
 	waitbutton
-	setflag ENGINE_RISINGBADGE
 	loadmem wLevelCap, 75
+	setflag ENGINE_RISINGBADGE
 	playsound SFX_GET_BADGE
 	waitsfx
 	special RestartMapMusic

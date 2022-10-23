@@ -282,9 +282,7 @@ MenuBoxCoord2Attr::
 	ld c, a
 	ld a, [wMenuBorderTopCoord]
 	ld b, a
-	; fallthrough
 
-Coord2Attr:: ; unreferenced
 ; Return the address of wAttrmap(c, b) in hl.
 	xor a
 	ld h, a
@@ -327,9 +325,6 @@ MenuTextbox::
 	call LoadMenuTextbox
 	pop hl
 	jp PrintText
-
-; unused
-	ret
 
 LoadMenuTextbox::
 	ld hl, .MenuHeader
@@ -833,12 +828,5 @@ InterpretBattleMenu::
 	ldh a, [hROMBank]
 	ld [wMenuData_2DMenuItemStringsBank], a
 	farcall _InterpretBattleMenu
-	ld a, [wMenuCursorBuffer]
-	ret
-
-InterpretMobileMenu:: ; unreferenced
-	ldh a, [hROMBank]
-	ld [wMenuData_2DMenuItemStringsBank], a
-	farcall _InterpretMobileMenu
 	ld a, [wMenuCursorBuffer]
 	ret

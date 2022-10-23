@@ -292,25 +292,6 @@ EXPORT PICS_FIX
 	db BANK("Pics 23") ; BANK("Pics 1") + 22
 	db BANK("Pics 24") ; BANK("Pics 1") + 23
 
-GSIntro_GetMonFrontpic: ; unreferenced
-	ld a, c
-	push de
-	ld hl, PokemonPicPointers
-	dec a
-	ld bc, 6
-	call AddNTimes
-	ld a, BANK(PokemonPicPointers)
-	call GetFarByte
-	call FixPicBank
-	push af
-	inc hl
-	ld a, BANK(PokemonPicPointers)
-	call GetFarHalfword
-	pop af
-	pop de
-	call FarDecompress
-	ret
-
 GetTrainerPic:
 	ld a, [wTrainerClass]
 	and a

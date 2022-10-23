@@ -836,6 +836,7 @@ DoAnimFrame:
 	ret
 
 .EZChatCursor
+	farcall AnimateEZChatCursor
 	ret
 
 .Celebi

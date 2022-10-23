@@ -1057,6 +1057,7 @@ Function118896:
 	jp BattleTowerRoomMenu_IncrementJumptable
 
 Function1188b0:
+	ld de, wc346
 	ld a, $c
 	jp Function119e2b
 
@@ -1066,6 +1067,7 @@ Function1188b8:
 	jp Function119e2b
 
 Function1188c0:
+	ld de, wc3cd
 	ld a, $10
 	jp Function119e2b
 
@@ -1087,6 +1089,7 @@ Function1188c8:
 	jp Function119e2b
 
 Function1188e7:
+	ld de, wc346
 	ld a, BANK(s5_aa4a)
 	call OpenSRAM
 	ld a, [s5_aa4a]
@@ -1407,6 +1410,7 @@ Function118b10:
 	jp Function119e2b
 
 Function118b24:
+	ld hl, wc346
 	ld a, $8
 	ld [hli], a
 	ld a, $c7
@@ -1419,6 +1423,7 @@ Function118b24:
 	call Function119ec2
 	ld a, $80
 	ld [wcd89], a
+	ld hl, wc346
 	ret
 
 Function118b42:
@@ -1742,6 +1747,7 @@ Function118ec6:
 	call Function118440
 	call SpeechTextbox
 	ld hl, w3_d80e
+	ld de, wc320
 	ld bc, $0026
 	call CopyBytes
 	xor a
@@ -1827,6 +1833,7 @@ Function118f68:
 	ld a, [wcc60]
 	and a
 	jr z, .asm_118fba
+	ld hl, wc346
 	ld a, LOW($c608)
 	ld [hli], a
 	ld a, HIGH($c608)
@@ -1847,6 +1854,7 @@ Function118f68:
 	call Function119ec2
 	ld a, $40
 	ld [wcd89], a
+	ld hl, wc346
 	ld de, w3_de00
 	ld bc, $200
 	ld a, $2c
@@ -1905,6 +1913,7 @@ Function119009:
 	ld de, wcc60
 	call Function1191ad
 	ret c
+	ld hl, wc346
 	ld a, $8
 	ld [hli], a
 	ld a, $c6
@@ -1925,6 +1934,7 @@ Function119009:
 	call Function119ec2
 	ld a, $40
 	ld [wcd89], a
+	ld hl, wc346
 	ld de, w3_d000
 	ld bc, $1000
 	ld a, $2c
@@ -2192,6 +2202,7 @@ Function119223:
 	ld [wcd4c], a
 	ld a, BANK(s5_b092) ; aka BANK(s5_b1b1) and BANK(s5_b1b2) and BANK(s5_b1d3)
 	call OpenSRAM
+	ld hl, wc3cd
 	ld de, s5_b092
 	ld bc, 31
 	call CopyBytes
@@ -2436,6 +2447,7 @@ Function1193a0:
 	ld a, $8
 	ld [wBattleTowerRoomMenu2JumptableIndex], a
 	call BattleTowerRoomMenu2
+	ld hl, wc346
 	ld a, LOW(w3_d000)
 	ld [hli], a
 	ld a, HIGH(w3_d000)
@@ -2456,6 +2468,7 @@ Function1193a0:
 	call Function119ec2
 	ld a, $40
 	ld [wcd89], a
+	ld hl, wc346
 	ld de, w3_de00
 	ld bc, $200
 	ld a, $2c
@@ -2921,6 +2934,7 @@ Unknown_1196b8:
 popc
 
 Function1196cd:
+	ld de, wc719
 	call Function1196de
 	ld [wcd4a], a
 	inc de
@@ -3138,8 +3152,10 @@ Function1197dc:
 
 Function119800:
 	ld a, $fd
+	ld [wc6d0], a
 	ld [wOTTrademonSpecies], a
 	ld a, [wcd81]
+	ld [wc74e], a
 	ld a, [wJumptableIndex]
 	push af
 	ld a, [wcf64]
@@ -3279,6 +3295,7 @@ Function119937:
 	jp BattleTowerRoomMenu_IncrementJumptable
 
 Function119940:
+	ld de, wc3cd
 	ld c, $1e
 .asm_119945
 	ld a, [de]
@@ -3302,6 +3319,7 @@ Function119954:
 	ld [wBattleTowerRoomMenu2JumptableIndex], a
 	call BattleTowerRoomMenu2
 	ld hl, wc608
+	ld de, wc3cd
 .asm_119962
 	ld a, [de]
 	inc de
@@ -4429,6 +4447,7 @@ Function11a16d:
 	call Function11a63c
 	call Function11a1e6
 	hlcoord 4, 2
+	ld de, wc346
 	call PlaceString
 	call Function11a5f5
 	xor a
@@ -4479,6 +4498,7 @@ Function11a1d6:
 
 Function11a1e6:
 	ld hl, String_11a706
+	ld de, wc346
 	call Function11a1ff
 	ld hl, wcd85
 	call Function11a1ff
@@ -5256,12 +5276,14 @@ Function11a90f:
 	ldh [rSVBK], a
 	call SpeechTextbox
 	ld a, $50
+	ld hl, wc320
 	ld bc, $008c
 	call ByteFill
 	ld a, [wc31b]
 	ld l, a
 	ld a, [wc31c]
 	ld h, a
+	ld de, wc320
 .asm_11a92c
 	ld a, [hli]
 	cp $57
@@ -5293,6 +5315,9 @@ Function11a90f:
 .asm_11a94f
 	xor a
 	ld [wc31f], a
+	ld a, LOW(wc320)
+	ld [wc31b], a
+	ld a, HIGH(wc320)
 	ld [wc31c], a
 	hlcoord 1, 14
 	ld a, l
@@ -7292,6 +7317,7 @@ Function11b7e5:
 	ld [wOTTrademonSpecies], a
 	ld [wCurPartySpecies], a
 	ld a, [wcd81]
+	ld [wc74e], a
 	ld hl, $c63d ; OT
 	ld de, wOTTrademonOTName
 	ld bc, 5
@@ -7677,3 +7703,4 @@ TilemapPack_11bb7d:
 	db $2e, $0a, $85, $0a, $0a, $0a, $8d, $00 ; 22
 	db $2e, $0a, $0a, $84, $0a, $0a, $8e, $00 ; 23
 	db -1
+	

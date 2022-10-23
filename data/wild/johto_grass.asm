@@ -1357,17 +1357,17 @@ JohtoGrassWildMons:
 	; morn
 	db 26, LEDIAN
 	db 27, GROWLITHE
-	db 26, SPEAROW
+	db 26, FLAAFFY
 	db 27, GROWLITHE
 	db 28, PIDGEOTTO
-	db 28, LEDIAN
-	db 28, LEDIAN
+	db 28, FLAAFFY
+	db 28, FLAAFFY
 	; day
-	db 26, PIDGEY
-	db 27, VULPIX
 	db 26, SPEAROW
+	db 27, VULPIX
+	db 26, FLAAFFY
 	db 27, STANTLER
-	db 28, PIDGEOTTO
+	db 28, FLAAFFY
 	db 28, PIDGEOTTO
 	db 28, PIDGEOTTO
 	; nite

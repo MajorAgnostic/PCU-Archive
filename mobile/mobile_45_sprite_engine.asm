@@ -345,7 +345,7 @@ Function11619d:
 	cp $2
 	jr c, .asm_1161b4
 	ld a, $a0
-	ld hl, wVirtualOAM
+	ld hl, wShadowOAM
 	ld bc, 25 * SPRITEOAMSTRUCT_LENGTH
 	call ByteFill
 
@@ -491,6 +491,7 @@ Function116294:
 	ld a, $5
 	ldh [rSVBK], a
 	ld hl, wBGPals1 palette 6
+	ld de, wc320
 	ld bc, 2 palettes
 	call CopyBytes
 	ld hl, PichuBorderMobileBGPalettes
@@ -628,7 +629,7 @@ Function11636e:
 	ld a, $1
 	ldh [rSVBK], a
 	ld a, $a0
-	ld hl, wVirtualOAM
+	ld hl, wShadowOAM
 	ld bc, 16 * SPRITEOAMSTRUCT_LENGTH
 	call ByteFill
 	ld a, $90
@@ -654,7 +655,7 @@ Function1163c0:
 	ld a, $1
 	ldh [rSVBK], a
 	ld a, $a0
-	ld hl, wVirtualOAM
+	ld hl, wShadowOAM
 	ld bc, 16 * SPRITEOAMSTRUCT_LENGTH
 	call ByteFill
 	call DelayFrame

@@ -121,10 +121,6 @@ MahoganyGymSign:
 MahoganyTownPokecenterSign:
 	jumpstd PokecenterSignScript
 
-MovementData_0x1900a4:
-	step DOWN
-	big_step UP
-	turn_head DOWN
 MovementData_0x1900a7:
 	step LEFT
 	step_end

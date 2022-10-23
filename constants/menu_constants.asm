@@ -104,7 +104,7 @@ HMENURETURN_ASM    EQU %11111111
 	const NAME_MON
 	const NAME_PLAYER
 	const NAME_RIVAL
-	const NAME_MOM
+	const NAME_MAIL
 	const NAME_BOX
 	const NAME_FRIEND
 	const NAME_6 ; duplicate of NAME_MON

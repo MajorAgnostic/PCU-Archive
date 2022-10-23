@@ -709,17 +709,6 @@ MailGFX_PlaceMessage:
 .place_author
 	jp PlaceString
 
-Functionb984e: ; unreferenced
-.loop
-	ld a, [hl]
-	xor $ff
-	ld [hli], a
-	dec bc
-	ld a, b
-	or c
-	jr nz, .loop
-	ret
-
 DrawMailBorder:
 	hlcoord 0, 0
 	ld a, $31

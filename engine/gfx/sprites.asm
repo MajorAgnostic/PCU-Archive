@@ -21,7 +21,7 @@ PlaySpriteAnimations:
 	push bc
 	push af
 
-	ld a, LOW(wVirtualOAM)
+	ld a, LOW(wShadowOAM)
 	ld [wCurSpriteOAMAddr], a
 	call DoNextFrameForAllSprites
 
@@ -57,11 +57,11 @@ DoNextFrameForAllSprites:
 
 	ld a, [wCurSpriteOAMAddr]
 	ld l, a
-	ld h, HIGH(wVirtualOAM)
+	ld h, HIGH(wShadowOAM)
 
-.loop2 ; Clear (wVirtualOAM + [wCurSpriteOAMAddr] --> wVirtualOAMEnd)
+.loop2 ; Clear (wShadowOAM + [wCurSpriteOAMAddr] --> wShadowOAMEnd)
 	ld a, l
-	cp LOW(wVirtualOAMEnd)
+	cp LOW(wShadowOAMEnd)
 	jr nc, .done
 	xor a
 	ld [hli], a
@@ -98,7 +98,7 @@ DoNextFrameForFirst16Sprites:
 	ld l, a
 	ld h, HIGH(wVirtualOAMSprite16)
 
-.loop2 ; Clear (wVirtualOAM + [wCurSpriteOAMAddr] --> Sprites + $40)
+.loop2 ; Clear (wShadowOAM + [wCurSpriteOAMAddr] --> Sprites + $40)
 	ld a, l
 	cp LOW(wVirtualOAMSprite16)
 	jr nc, .done
@@ -245,7 +245,7 @@ UpdateAnimFrame:
 	push bc
 	ld a, [wCurSpriteOAMAddr]
 	ld e, a
-	ld d, HIGH(wVirtualOAM)
+	ld d, HIGH(wShadowOAM)
 	ld a, [hli]
 	ld c, a ; number of objects
 .loop
@@ -298,7 +298,7 @@ UpdateAnimFrame:
 	inc de
 	ld a, e
 	ld [wCurSpriteOAMAddr], a
-	cp LOW(wVirtualOAMEnd)
+	cp LOW(wShadowOAMEnd)
 	jr nc, .reached_the_end
 	dec c
 	jr nz, .loop

@@ -41,13 +41,13 @@ CianwoodGymChuckScript:
 	loadtrainer CHUCK, CHUCK1
 	startbattle
 	reloadmapafterbattle
+	loadmem wLevelCap, 60
 	setevent EVENT_BEAT_CHUCK
 	opentext
 	writetext GetStormBadgeText
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_STORMBADGE
-	loadmem wLevelCap, 60
 	specialphonecall SPECIALCALL_GIFT
 	readvar VAR_BADGES
 	scall CianwoodGymActivateRockets

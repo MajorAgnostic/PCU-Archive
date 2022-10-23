@@ -269,6 +269,7 @@ Function17d0f3:
 	ld [wOTTrademonSpecies], a
 	ld [wCurPartySpecies], a
 	ld a, [wcd81]
+	ld [wc74e], a
 	ld hl, wc608 + 53
 	ld de, wOTTrademonOTName
 	ld bc, 5
@@ -1285,6 +1286,7 @@ Function17d833:
 	add hl, de
 	ld e, l
 	ld d, h
+	farcall Function11c08f
 	call Function17e349
 	ret
 
@@ -3768,6 +3770,7 @@ Function17f154:
 	ld c, l
 	ld b, h
 	pop de
+	farcall Function11c08f
 	ld c, l
 	ld b, h
 	pop de
@@ -4157,6 +4160,7 @@ Function17f3c9:
 	call CopyBytes
 	pop de
 	ld c, $0
+	farcall Function11c075
 	push hl
 	ld hl, wc708
 	ld de, wcd36

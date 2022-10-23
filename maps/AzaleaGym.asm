@@ -26,13 +26,13 @@ AzaleaGymBugsyScript:
 	loadtrainer BUGSY, BUGSY1
 	startbattle
 	reloadmapafterbattle
+	loadmem wLevelCap, 40
 	setevent EVENT_BEAT_BUGSY
 	opentext
 	writetext Text_ReceivedHiveBadge
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_HIVEBADGE
-	loadmem wLevelCap, 40
 	readvar VAR_BADGES
 	scall AzaleaGymActivateRockets
 .FightDone:
@@ -57,13 +57,13 @@ AzaleaGymBugsyScript:
 	loadtrainer BUGSY, BUGSY2
 	startbattle
 	reloadmapafterbattle
+	loadmem wLevelCap, 40
 	setevent EVENT_BEAT_BUGSY
 	opentext
 	writetext Text_ReceivedHiveBadge
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_HIVEBADGE
-	loadmem wLevelCap, 40
 	readvar VAR_BADGES
 	scall AzaleaGymActivateRockets
 	checkevent EVENT_GOT_TM49_FURY_CUTTER

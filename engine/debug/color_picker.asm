@@ -985,7 +985,7 @@ Function81f5e:
 	ld [hl], $ed
 	ld b, $70
 	ld c, $5
-	ld hl, wVirtualOAM
+	ld hl, wShadowOAM
 	ld de, wc608 + 10
 	call .asm_81fb7
 	ld de, wc608 + 11

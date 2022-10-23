@@ -39,7 +39,6 @@ HallOfFame_MapScripts:
 	setevent EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME
 	clearevent EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
 	clearevent EVENT_NO_E4_REMATCH
-	loadmem wLevelCap, 100
 	setevent EVENT_E4_MART
 	setmapscene SPROUT_TOWER_3F, SCENE_FINISHED
 	special HealParty

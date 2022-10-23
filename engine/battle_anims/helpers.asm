@@ -103,8 +103,6 @@ GetBattleAnimOAMPointer:
 
 LoadBattleAnimGFX:
 	push hl
-	cp ANIM_GFX_POKE_BALL
-	call z, .LoadBallPalette
 	ld l, a
 	ld h, 0
 	add hl, hl
@@ -118,57 +116,61 @@ LoadBattleAnimGFX:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
+	or h ; NULL means it's a Poké Ball
+	call z, .GetBall
 	pop de
 	push bc
 	call DecompressRequest2bpp
 	pop bc
 	ret
-	
-.LoadBallPalette:
-	; save the registers to the stack
-	push hl
+
+.GetBall
+	ldh a, [rSVBK]
 	push af
-	; save the current WRAM bank
-	ld a, [rSVBK]
-	push af
-	; switch to the WRAM bank of wCurItem so we can read it
+
+	; switch banks and check which Ball was used
 	ld a, BANK(wCurItem)
-	ld [rSVBK], a
-	; store the current item in b
+	ldh [rSVBK], a
 	ld a, [wCurItem]
-	ld b, a
-	; seek for the BallColors entry matching the current item
+	dec a
+	ld e, a
+	ld d, 0
+
+	; seek Ball's palette
+	push bc
+	push de
 	ld hl, BallColors
-.loop
-	ld a, [hli]
-	cp b ; did we find the current ball?
-	jr z, .done
-	cp -1 ; did we reach the end of the list?
-	jr z, .done
 rept 4
-	inc hl ; skip over the 4 RGB color bytes to the next entry
+	add hl, de
 endr
-	jr .loop
-.done
-	; switch to the WRAM bank of wOBPals2 so we can write to it
 	ld a, BANK(wOBPals2)
-	ld [rSVBK], a
+	ldh [rSVBK], a
 	; load the RGB colors into the middle two colors of PAL_BATTLE_OB_RED
 	ld de, wOBPals2 palette PAL_BATTLE_OB_RED color 1
-rept 4
-	ld a, [hli]
-	ld [de], a
-	inc de
-endr
+	ld bc, PAL_COLOR_SIZE * 2
+	call CopyBytes
+	; load white background in PAL_BATTLE_OG_GREEN
+	ld hl, WhitePalette
+	ld de, wOBPals2 palette PAL_BATTLE_OB_GREEN color 1
+	ld bc, PAL_COLOR_SIZE
+	call CopyBytes
 	; apply the updated colors to the palette RAM
-	ld a, $1
-	ld [hCGBPalUpdate], a
-	; restore the current WRAM bank
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	pop de
+	pop bc
+
 	pop af
-	ld [rSVBK], a
-	; restore the registers from the stack
-	pop af
-	pop hl
+	ldh [rSVBK], a
+
+	; get Ball GFX pointer
+	ld b, BANK("Battle Ball Icons")
+	ld hl, AnimBallObjGFX
+	add hl, de
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
 	ret
 
 INCLUDE "data/battle_anims/ball_colors.asm"

@@ -65,7 +65,7 @@ ShakeHeadbuttTree:
 	ldh [hBGMapMode], a
 	farcall ClearSpriteAnims
 	ld hl, wVirtualOAMSprite36
-	ld bc, wVirtualOAMEnd - wVirtualOAMSprite36
+	ld bc, wShadowOAMEnd - wVirtualOAMSprite36
 	xor a
 	call ByteFill
 	ld de, Font
@@ -381,7 +381,7 @@ endr
 	dec c
 	jr nz, .OAMloop
 	ld hl, wVirtualOAMSprite04
-	ld bc, wVirtualOAMEnd - wVirtualOAMSprite04
+	ld bc, wShadowOAMEnd - wVirtualOAMSprite04
 	xor a
 	call ByteFill
 	ret

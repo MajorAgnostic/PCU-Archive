@@ -67,6 +67,7 @@ LancesRoomLanceScript:
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
+	loadmem wLevelCap, 100
 	setevent EVENT_BEAT_CHAMPION_LANCE
 	opentext
 	writetext LanceBattleAfterText

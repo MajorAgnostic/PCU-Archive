@@ -67,7 +67,7 @@ endr
 	dec c
 	jr nz, .OAMloop
 	ld hl, wVirtualOAMSprite04
-	ld bc, wVirtualOAMEnd - wVirtualOAMSprite04
+	ld bc, wShadowOAMEnd - wVirtualOAMSprite04
 	xor a
 	call ByteFill
 	ret

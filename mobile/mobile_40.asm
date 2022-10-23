@@ -5989,6 +5989,7 @@ MenuData3_102a33:
 
 Function102a3b:
 	ld a, [wcd30]
+	ld [wc74e], a
 	ld hl, wPlayerName
 	ld de, wPlayerTrademonSenderName
 	ld bc, NAME_LENGTH
@@ -6711,7 +6712,7 @@ Function10306e:
 	ld a, $01
 	ldh [hOAMUpdate], a
 	call ClearSprites
-	ld de, wVirtualOAM
+	ld de, wShadowOAM
 	call Function1030cd
 	xor a
 	ldh [hOAMUpdate], a

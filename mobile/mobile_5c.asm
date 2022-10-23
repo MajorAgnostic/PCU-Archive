@@ -28,6 +28,7 @@ Function170000:
 	ld a, c
 	ld [wPlayerTrademonCaughtData], a
 	ld a, [wcd81]
+	ld [wc74e], a
 	ld hl, $c608
 	ld de, $d800
 	ld bc, $008f
@@ -66,6 +67,7 @@ Function17005a:
 	ld a, c
 	ld [wOTTrademonCaughtData], a
 	ld a, [wcd81]
+	ld [wc74e], a
 	call CloseSRAM
 	ret
 

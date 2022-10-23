@@ -1,7 +1,7 @@
 ClearSprites::
 ; Erase OAM data
-	ld hl, wVirtualOAM
-	ld b, wVirtualOAMEnd - wVirtualOAM
+	ld hl, wShadowOAM
+	ld b, wShadowOAMEnd - wShadowOAM
 	xor a
 .loop
 	ld [hli], a

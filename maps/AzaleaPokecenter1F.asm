@@ -36,8 +36,7 @@ AzaleaPokecenter1FGentlemanText:
 	line "fainted."
 	done
 
-AzaleaPokecenter1FUnusedText:
-; unreferenced
+AzaleaPokecenter1FFishingGuruText:
 	text "This BILL guy"
 	line "created the system"
 
@@ -45,12 +44,6 @@ AzaleaPokecenter1FUnusedText:
 	line "#MON in a PC."
 
 	para "BILL's PC can"
-	line "store up to 20"
-	cont "#MON per BOX."
-	done
-
-AzaleaPokecenter1FFishingGuruText:
-	text "BILL's PC can"
 	line "store up to 20"
 	cont "#MON per BOX."
 	done

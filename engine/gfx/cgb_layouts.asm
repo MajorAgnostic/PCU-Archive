@@ -43,7 +43,7 @@ LoadSGBLayoutCGB:
 	dw _CGB_PartyMenu
 	dw _CGB_Evolution
 	dw _CGB_GSTitleScreen
-	dw _CGB0d
+	dw _CGB_NameInputScreen
 	dw _CGB_MoveList
 	dw _CGB_BetaPikachuMinigame
 	dw _CGB_PokedexSearchOption
@@ -103,6 +103,8 @@ _CGB_BattleColors:
 	call LoadPalette_White_Col1_Col2_Black ; PAL_BATTLE_BG_PLAYER_HP
 	ld hl, ExpBarPalette
 	call LoadPalette_White_Col1_Col2_Black ; PAL_BATTLE_BG_EXP
+	ld hl, BallHUDPalette
+	call LoadPalette_White_Col1_Col2_Black ; PAL_BATTLE_BG_5
 	ld de, wOBPals1
 	pop hl
 	call LoadPalette_White_Col1_Col2_Black ; PAL_BATTLE_OB_ENEMY
@@ -129,6 +131,9 @@ _CGB_FinishBattleScreenLayout:
 	lb bc, 4, 10
 	ld a, PAL_BATTLE_BG_ENEMY_HP
 	call FillBoxCGB
+	hlcoord 1, 1, wAttrmap
+	ld a, PAL_BATTLE_BG_5
+	ld [hl], a
 	hlcoord 10, 7, wAttrmap
 	lb bc, 5, 10
 	ld a, PAL_BATTLE_BG_PLAYER_HP
@@ -603,12 +608,30 @@ _CGB_GSTitleScreen:
 	ldh [hCGBPalUpdate], a
 	ret
 
-_CGB0d:
-	ld hl, PalPacket_Diploma + 1
-	call CopyFourPalettes
+_CGB_NameInputScreen:
+	ld hl, NameInputScreenPalettes
+	ld de, wBGPals1
+	ld bc, 8 palettes
+	ld a, BANK(wBGPals1)
+	call FarCopyWRAM
+
+	ld hl, PartyMenuOBPals
+	ld de, wOBPals1
+	ld bc, 8 palettes
+	ld a, BANK(wOBPals1)
+	call FarCopyWRAM
+
 	call WipeAttrmap
-	call ApplyAttrmap
-	ret
+	hlcoord 0, 0, wAttrmap
+    lb bc, SCREEN_HEIGHT, SCREEN_WIDTH
+	; Set palette depending on naming screen type.
+	ld a, [wNamingScreenType]
+	sub NAME_MAIL
+	jr nc, .apply_palette
+	ld a, 2
+.apply_palette
+    call FillBoxCGB
+	jp ApplyAttrmap
 
 _CGB_UnownPuzzle:
 	ld hl, PalPacket_UnownPuzzle + 1

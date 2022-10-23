@@ -33,13 +33,13 @@ EcruteakGymMortyScript:
 	loadtrainer MORTY, MORTY1
 	startbattle
 	reloadmapafterbattle
+	loadmem wLevelCap, 50
 	setevent EVENT_BEAT_MORTY
 	opentext
 	writetext Text_ReceivedFogBadge
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_FOGBADGE
-	loadmem wLevelCap, 50
 	readvar VAR_BADGES
 	scall EcruteakGymActivateRockets
 	setmapscene ECRUTEAK_TIN_TOWER_ENTRANCE, SCENE_FINISHED

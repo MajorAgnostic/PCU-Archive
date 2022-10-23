@@ -1271,20 +1271,6 @@ PokegearPhoneContactSubmenu:
 	dw .Call
 	dw .Cancel
 
-; unused
-	ldh a, [hHours]
-	cp 12
-	jr c, .am
-	sub 12
-	ld [wTempByteValue], a
-	scf
-	ret
-
-.am
-	ld [wTempByteValue], a
-	and a
-	ret
-
 Pokegear_SwitchPage:
 	ld de, SFX_READ_TEXT_2
 	call PlaySFX
@@ -1440,14 +1426,6 @@ UpdateRadioStation:
 	call PlaceString
 	ld a, $1
 	ldh [hBGMapMode], a
-	ret
-
-; unused
-	ld [wPokegearRadioChannelBank], a
-	ld a, [hli]
-	ld [wPokegearRadioChannelAddr], a
-	ld a, [hli]
-	ld [wPokegearRadioChannelAddr + 1], a
 	ret
 
 RadioChannels:
@@ -1679,9 +1657,6 @@ LoadStation_EvolutionRadio:
 	ld hl, PlayRadioShow
 	call Radio_BackUpFarCallParams
 	ld de, UnownStationName
-	ret
-
-DummyLoadStation: ; unreferenced
 	ret
 
 RadioMusicRestartDE:
@@ -2441,8 +2416,8 @@ Pokedex_GetArea:
 
 .copy_sprites
 	hlcoord 0, 0
-	ld de, wVirtualOAM
-	ld bc, wVirtualOAMEnd - wVirtualOAM
+	ld de, wShadowOAM
+	ld bc, wShadowOAMEnd - wShadowOAM
 	call CopyBytes
 	ret
 
@@ -2502,9 +2477,9 @@ Pokedex_GetArea:
 	jr .nestloop
 
 .done_nest
-	ld hl, wVirtualOAM
+	ld hl, wShadowOAM
 	decoord 0, 0
-	ld bc, wVirtualOAMEnd - wVirtualOAM
+	ld bc, wShadowOAMEnd - wShadowOAM
 	call CopyBytes
 	ret
 
@@ -2547,7 +2522,7 @@ Pokedex_GetArea:
 
 .clear_oam
 	ld hl, wVirtualOAMSprite04
-	ld bc, wVirtualOAMEnd - wVirtualOAMSprite04
+	ld bc, wShadowOAMEnd - wVirtualOAMSprite04
 	xor a
 	call ByteFill
 	ret
@@ -2584,8 +2559,8 @@ Pokedex_GetArea:
 	ret
 
 .clear
-	ld hl, wVirtualOAM
-	ld bc, wVirtualOAMEnd - wVirtualOAM
+	ld hl, wShadowOAM
+	ld bc, wShadowOAMEnd - wShadowOAM
 	xor a
 	call ByteFill
 	scf
