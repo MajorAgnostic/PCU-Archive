@@ -222,19 +222,10 @@ _MoveMonWOMailSaveText::
 	cont "will be saved. OK?"
 	done
 
-_WindowAreaExceededErrorText:: ; unreferenced
-	text "The window save"
-	line "area was exceeded."
-	done
-
 _WindowPoppingErrorText::
 	text "No windows avail-"
 	line "able for popping."
 	done
-
-_CorruptedEventText:: ; unreferenced
-	text "Corrupted event!"
-	prompt
 
 _ObjectEventText::
 	text "Object event"
@@ -443,8 +434,6 @@ _CongratulationsYourPokemonText::
 	line "Your @"
 	text_ram wStringBuffer2
 	text_end
-
-	text_end ; unreferenced
 
 _EvolvedIntoText::
 	text_start

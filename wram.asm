@@ -39,7 +39,7 @@ wChannel8:: channel_struct wChannel8
 wCurTrackDuty:: db
 wCurTrackVolumeEnvelope:: db
 wCurTrackFrequency:: dw
-wUnusedBCDNumber:: db ; BCD value, dummied out
+	ds 1
 wCurNoteDuration:: db ; used in MusicE0 and LoadNote
 
 wCurMusicByte:: db
@@ -212,8 +212,6 @@ wTilePermissions::
 ; bit 1: left
 ; bit 0: right
 	db
-
-	ds 1
 
 
 SECTION "wSpriteAnims", WRAM0
